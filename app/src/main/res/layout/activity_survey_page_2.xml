@@ -9,9 +9,19 @@
 
     <!-- Question 1: Favorite Color -->
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:text="What is your favorite color?"/>
+        android:text="How much of an impact did each of these potential work barriers have on your ability to participate in your education:" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="What is your favorite color?" />
 
     <RadioGroup
         android:id="@+id/colorRadioGroup"
@@ -66,8 +76,8 @@
 
     <!-- Submit Button -->
     <Button
-        android:id="@+id/nextButton"
+        android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"/>
+        android:text="Submit"/>
 </LinearLayout>
