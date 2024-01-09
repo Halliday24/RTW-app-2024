@@ -7,35 +7,49 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <TextView
+        android:id="@+id/Question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Questions">
+        
+    </TextView>
     <!-- Question 1: Favorite Color -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="What is your favorite color?"/>
+        android:text="ineffective study habits"
+        android:layout_marginTop="50dp"/>
 
     <RadioGroup
-        android:id="@+id/colorRadioGroup"
+        android:id="@+id/answerOptions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/redRadioButton"
+            android:id="@+id/neverRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Red"/>
+            android:text="Never"/>
 
         <RadioButton
-            android:id="@+id/blueRadioButton"
+            android:id="@+id/sometimesRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Blue"/>
+            android:text="Sometimes"/>
 
         <RadioButton
-            android:id="@+id/greenRadioButton"
+            android:id="@+id/halfOfTheTimeRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Green"/>
+            android:text="About half of the time"/>
+
+        <RadioButton
+            android:id="@+id/mostOfTheTimeRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="most of the time" />
 
     </RadioGroup>
 
@@ -62,6 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="No"/>
+
     </RadioGroup>
 
     <!-- Submit Button -->
