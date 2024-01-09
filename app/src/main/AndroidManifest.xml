@@ -19,6 +19,12 @@
             android:name=".SurveyPage13"
             android:exported="false" />
         <activity
+            android:name=".impactAcademicPage3"
+            android:exported="false" />
+        <activity
+            android:name=".impactAcademicPage2"
+            android:exported="false" />
+        <activity
             android:name=".SurveyPage"
             android:exported="false" />
         <activity
@@ -31,7 +37,7 @@
             android:name=".InstructionPage"
             android:exported="false" />
         <activity
-            android:name=".impactPage"
+            android:name=".impactAcademicPage"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

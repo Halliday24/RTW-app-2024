@@ -10,14 +10,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-public class impactPage extends AppCompatActivity {
+public class impactAcademicPage extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_impact_page);
+        setContentView(R.layout.activity_impact_academic_page);
 
         sharedPreferences = getSharedPreferences("impact_responses", MODE_PRIVATE);
 
