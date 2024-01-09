@@ -16,6 +16,9 @@
             android:name=".SurveyPage3"
             android:exported="false" />
         <activity
+            android:name=".SurveyPage13"
+            android:exported="false" />
+        <activity
             android:name=".SurveyPage"
             android:exported="false" />
         <activity
