@@ -2,19 +2,13 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.os.Bundle;
-
-import java.io.File;
-import java.io.FileOutputStream;
 
 public class SurveyPage2 extends AppCompatActivity {
 
@@ -23,29 +17,33 @@ public class SurveyPage2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey_page_2);
+        setContentView(R.layout.activity_impact_work_page);
 
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 
-        final RadioGroup colorRadioGroup = findViewById(R.id.colorRadioGroup);
-        final RadioGroup programmingRadioGroup = findViewById(R.id.programmingRadioGroup);
+        final RadioGroup hoursRadioGroup = findViewById(R.id.hoursRadioGroup);
+        final RadioGroup lateRadioGroup = findViewById(R.id.lateRadioGroup);
+        final RadioGroup unemployedRadioGroup = findViewById(R.id.unemployedRadioGroup);
 
-        Button submitButton = findViewById(R.id.submitButton);
-        submitButton.setOnClickListener(new View.OnClickListener() {
+        Button nextButton = findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int selectedColorId = colorRadioGroup.getCheckedRadioButtonId();
-                int selectedProgrammingId = programmingRadioGroup.getCheckedRadioButtonId();
+                int selectedHoursId = hoursRadioGroup.getCheckedRadioButtonId();
+                int selectedLateId = lateRadioGroup.getCheckedRadioButtonId();
+                int selectedUnemployedId = unemployedRadioGroup.getCheckedRadioButtonId();
 
-                if (selectedColorId != -1 && selectedProgrammingId != -1) {
+                if (selectedHoursId != -1 && selectedLateId != -1 && selectedUnemployedId != -1) {
                     // Get selected answers
-                    String selectedColor = ((RadioButton) findViewById(selectedColorId)).getText().toString();
-                    String selectedProgramming = ((RadioButton) findViewById(selectedProgrammingId)).getText().toString();
-
+                    String selectedHours = ((RadioButton) findViewById(selectedHoursId)).getText().toString();
+                    String selectedLate = ((RadioButton) findViewById(selectedLateId)).getText().toString();
+                    String selectedUnemployed = ((RadioButton) findViewById(selectedUnemployedId)).getText().toString();
                     // Store responses in SharedPreferences
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("favorite_color", selectedColor);
-                    editor.putString("enjoy_programming", selectedProgramming);
+                    editor.putString("Work Too many hours", selectedHours);
+                    editor.putString("Work late hours, or schedules\n" +
+                            "that conflict with class time", selectedLate);
+                    editor.putString("Unemployed", selectedUnemployed);
                     editor.apply();
 
                     //
@@ -65,8 +63,8 @@ public class SurveyPage2 extends AppCompatActivity {
 //
 //                    generatePDF(selectedColor, selectedProgramming);
 
-                    // Finish the survey activity
-                    finish();
+                    // Go to Next page
+
                 } else {
                     // Display an error message if not all questions are answered
                     Toast.makeText(SurveyPage2.this, "Please answer all questions", Toast.LENGTH_SHORT).show();

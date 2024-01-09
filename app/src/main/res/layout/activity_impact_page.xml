@@ -82,14 +82,71 @@
         android:layout_marginLeft="158dp"
         />
 
-    <!-- Question 2: Study environment? -->
+    <!-- Question 2: time management -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="poor time management?"/>
+
+    <RadioGroup
+        android:id="@+id/timeRadioGroup"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/neverRadioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/sometimesRadioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/halfRadioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/mostRadioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/alwaysRadioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="of the time      the time"
+        android:layout_marginLeft="158dp"
+        />
+
+
+    <!-- Question 3: Study environment? -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="poor study environment?"/>
 
     <RadioGroup
-        android:id="@+id/colorRadioGroup2"
+        android:id="@+id/poorStudyRadioGroup2"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -138,6 +195,117 @@
         android:layout_marginLeft="158dp"
         />
 
+    <!-- Question 4: Learning disability? -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Learning disability?"/>
+
+    <RadioGroup
+        android:id="@+id/disabilityRadioGroup"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/neverRadioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/sometimesRadioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/halfRadioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/mostRadioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/alwaysRadioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="of the time      the time"
+        android:layout_marginLeft="158dp"
+        />
+
+    <!-- Question 5: Ineffective academic preparation? -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ineffective academic preparation"/>
+
+    <RadioGroup
+        android:id="@+id/colorRadioGroup5"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/neverRadioButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/sometimesRadioButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/halfRadioButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/mostRadioButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/alwaysRadioButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="of the time      the time"
+        android:layout_marginLeft="158dp"
+        />
 
     <!-- Submit Button -->
     <Button

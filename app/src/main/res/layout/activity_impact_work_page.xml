@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/activity_survey.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Question 1: Work Too Many Hours -->
+    <TextView
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:text="How much of an impact did each of these potential work barriers have on your ability to participate in your education:" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Work Too many hours" />
+
+    <RadioGroup
+        android:id="@+id/hoursRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/neverRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="never"/>
+
+        <RadioButton
+            android:id="@+id/sometimesRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sometimes"/>
+
+        <RadioButton
+            android:id="@+id/halfRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Half of the time"/>
+
+        <RadioButton
+            android:id="@+id/mostRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Most of the time"/>
+        <RadioButton
+            android:id="@+id/alwaysRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Always"/>
+
+    </RadioGroup>
+
+    <!-- Question 2: Work late hours, or schedules
+that conflict with class time -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Work late hours, or schedules
+that conflict with class time"/>
+
+    <RadioGroup
+        android:id="@+id/lateRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RadioButton
+            android:id="@+id/neverLateRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="never"/>
+
+        <RadioButton
+            android:id="@+id/sometimesLateRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sometimes"/>
+
+        <RadioButton
+            android:id="@+id/halfLateRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Half of the time"/>
+
+        <RadioButton
+            android:id="@+id/mostLateRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Most of the time"/>
+
+        <RadioButton
+            android:id="@+id/alwaysLateRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Always"/>
+    </RadioGroup>
+
+
+    <!-- Question 2:unemployed -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="unemployed"/>
+
+    <RadioGroup
+        android:id="@+id/unemployedRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RadioButton
+            android:id="@+id/neverUnemployedRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="never"/>
+
+        <RadioButton
+            android:id="@+id/sometimesUnemployedRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sometimes"/>
+
+        <RadioButton
+            android:id="@+id/halfUnemployedRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Half of the time"/>
+
+        <RadioButton
+            android:id="@+id/mostUnemployedRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Most of the time"/>
+
+        <RadioButton
+            android:id="@+id/alwaysUnemployedRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Always"/>
+    </RadioGroup>
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"/>
+</LinearLayout>
