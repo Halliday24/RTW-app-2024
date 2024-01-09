@@ -2,6 +2,7 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -54,11 +55,16 @@ public class InstructionPage extends AppCompatActivity {
                     Counter++;
                 }
                 else{
-                    TextView textView = (TextView) findViewById(R.id.Instructions);
-                    textView.setText("Too big"); //set text for text view
+                    goToSurveyPage();
                 }
             }
         });
 
         }
+
+    public void goToSurveyPage(){
+        Intent SurveyPage = new Intent(this, SurveyPage.class);
+        startActivity(SurveyPage);
+
+    }
     }
