@@ -1,5 +1,6 @@
 package com.example.rtw_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 if ((email.equals("Admin") && ccid.equals("123")) &&(name.length()>0)) {
                     // Successful login
                     Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                    // goToInstructionPage();
+                    goToInstructionPage();
                 } else {
                     // Failed login
                     Toast.makeText(MainActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
@@ -71,9 +72,9 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This function sends the user to the Instructionpage from the LoginPage
      */
-//    public void goToInstructionPage(){
-//        Intent instructionPage = new Intent(this, InstructionPage.class);
-//        startActivity(instructionPage);
-//
-//    }
+   public void goToInstructionPage(){
+        Intent instructionPage = new Intent(this, InstructionPage.class);
+        startActivity(instructionPage);
+
+    }
 }
