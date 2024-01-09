@@ -33,7 +33,7 @@
         android:text="Ineffective study habits"/>
 
     <RadioGroup
-        android:id="@+id/colorRadioGroup"
+        android:id="@+id/studyRadioGroup"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -258,7 +258,7 @@
         android:text="Ineffective academic preparation"/>
 
     <RadioGroup
-        android:id="@+id/colorRadioGroup5"
+        android:id="@+id/preparationRadioGroup"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal">

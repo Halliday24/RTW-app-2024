@@ -16,7 +16,7 @@
             android:name=".SurveyPage"
             android:exported="false" />
         <activity
-            android:name=".SurveyPage2"
+            android:name=".ImpactWorkPage"
             android:exported="false" />
         <activity
             android:name=".LoginPage"

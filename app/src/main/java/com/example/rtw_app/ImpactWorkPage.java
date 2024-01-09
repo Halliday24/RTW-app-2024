@@ -10,7 +10,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.os.Bundle;
 
-public class SurveyPage2 extends AppCompatActivity {
+public class ImpactWorkPage extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
 
@@ -50,7 +50,7 @@ public class SurveyPage2 extends AppCompatActivity {
 
 
                     // Display a success message
-                    Toast.makeText(SurveyPage2.this, "Survey submitted successfully!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ImpactWorkPage.this, "Survey submitted successfully!", Toast.LENGTH_SHORT).show();
 
 //                    // Check if the app has permission to write to external storage
 //                    if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -67,7 +67,7 @@ public class SurveyPage2 extends AppCompatActivity {
 
                 } else {
                     // Display an error message if not all questions are answered
-                    Toast.makeText(SurveyPage2.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ImpactWorkPage.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
                 }
             }
         });

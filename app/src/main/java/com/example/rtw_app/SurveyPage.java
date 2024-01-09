@@ -2,21 +2,14 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.os.Bundle;
-
-import java.io.File;
-import java.io.FileOutputStream;
 
 public class SurveyPage extends AppCompatActivity {
 
@@ -68,7 +61,7 @@ public class SurveyPage extends AppCompatActivity {
 //                    generatePDF(selectedColor, selectedProgramming);
 
                     //go to next SurveyPage
-                    goToSurveyPage2();
+                    goToImpactWork();
                 } else {
                     // Display an error message if not all questions are answered
                     Toast.makeText(SurveyPage.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
@@ -77,9 +70,9 @@ public class SurveyPage extends AppCompatActivity {
         });
     }
 
-    public void goToSurveyPage2(){
-        Intent SurveyPage2 = new Intent(this, SurveyPage2.class);
-        startActivity(SurveyPage2);
+    public void goToImpactWork(){
+        Intent ImpactWork = new Intent(this, ImpactWorkPage.class);
+        startActivity(ImpactWork);
 
     }
 }
