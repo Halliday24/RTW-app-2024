@@ -1,812 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".impactPage">
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <!-- Question 1: study habits -->
+
+    <ImageView
+        android:id="@+id/TopGreenBar"
+        android:layout_width="394dp"
+        android:layout_height="125dp"
+        android:background="#38761d"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/impactQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+
         android:text="How much of an impact did each of these potential academic barriers have on your learning and grades last year?"
-        android:textSize="15dp"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TableLayout
-        android:id="@+id/surveyTable"
-        android:layout_width="375dp"
-        android:layout_height="446dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.366"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.441"
-        tools:ignore="MissingConstraints">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:textSize="8dp" />
-
-            <TextView
-
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Never"
-                android:textColor="@color/black"
-                android:textSize="10dp"
-                android:textStyle="bold" />
-
-            <TextView
-
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Sometimes"
-                android:textColor="@color/black"
-                android:textSize="8dp"
-                android:textStyle="bold" />
-
-            <TextView
-
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="About half of the time"
-                android:textColor="@color/black"
-                android:textSize="8dp"
-                android:textStyle="bold" />
-
-            <TextView
-
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Most of the time"
-                android:textColor="@color/black"
-                android:textSize="8dp"
-                android:textStyle="bold" />
-
-            <TextView
-
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Always"
-                android:textColor="@color/black"
-                android:textSize="10dp"
-                android:textStyle="bold" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:layout_marginRight="5dp"
-                android:text="Ineffective study habits"
-                android:textColor="@color/black"
-                android:textSize="8dp" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Never"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Poor study environment"
-                android:textColor="@color/black"
-                android:textSize="8dp" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Never"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Poor time management"
-                android:textColor="@color/black"
-                android:textSize="8dp" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Never"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Learning disability"
-                android:textColor="@color/black"
-                android:textSize="8dp" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Never"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Inadequate reading/writing skills"
-                android:textColor="@color/black"
-                android:textSize="8dp" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Never"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Inadequate math skills"
-                android:textColor="@color/black"
-                android:textSize="8dp" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Never"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Easily distracted"
-                android:textColor="@color/black"
-                android:textSize="8dp" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Never"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Unhappy with instructor"
-                android:textColor="@color/black"
-                android:textSize="8dp" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Never"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Online course(s)"
-                android:textColor="@color/black"
-                android:textSize="8dp" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Never"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Lack of awareness of
-                university policies and/or expectations"
-                android:textColor="@color/black"
-                android:textSize="8dp" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Never"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Ineffective academic preparsation"
-                android:textColor="@color/black"
-                android:textSize="8dp" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Never"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Lack of awareness of university policies and/or expections"
-                android:textColor="@color/black"
-                android:textSize="8dp" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Never"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Challenges working in groups with classmates"
-                android:textColor="@color/black"
-                android:textSize="6dp" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options"
-                android:text="Never"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/options" />
-
-        </TableRow>
-
-    </TableLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ineffective study habits"/>
+
+    <RadioGroup
+        android:id="@+id/colorRadioGroup"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/neverRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/sometimesRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/halfRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/mostRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/alwaysRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="of the time      the time"
+        android:layout_marginLeft="158dp"
+        />
+
+    <!-- Question 2: Study environment? -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="poor study environment?"/>
+
+    <RadioGroup
+        android:id="@+id/colorRadioGroup2"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/neverRadioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/sometimesRadioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/halfRadioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/mostRadioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/alwaysRadioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="of the time      the time"
+        android:layout_marginLeft="158dp"
+        />
+
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit" />
+</LinearLayout>
