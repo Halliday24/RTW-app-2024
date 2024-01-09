@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Bundle;
 
@@ -36,6 +37,11 @@ public class SurveyPage extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                TextView textView = (TextView) findViewById(R.id.Question);
+                textView.setText("How much of an impact did each of these potential academic " +
+                        " barriers have on your learning and grades last year");
+
                 int selectedColorId = colorRadioGroup.getCheckedRadioButtonId();
                 int selectedProgrammingId = programmingRadioGroup.getCheckedRadioButtonId();
 
