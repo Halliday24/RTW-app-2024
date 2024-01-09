@@ -3,18 +3,14 @@ package com.example.rtw_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class InstructionPage extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_instruction_page);
-    }
-
     private Button buttonNext;
     int Counter = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,22 +25,14 @@ public class InstructionPage extends AppCompatActivity {
                 " Once you’ve identified these pieces, you’ll be ready to write a strong appeal " +
                 " letter."); //set text for text view
 
-
         buttonNext=findViewById(R.id.buttonNext);
-
 
         //set a click listener for the next Button
         buttonNext.setOnClickListener(new View.OnClickListener(){
 
-
-            /**
-             * This function checks how many times the button has been pressed and changes the text
-             * in the instructions page for that moment.
-             * @param view the button this is assigned to.
-             */
             @Override
             public void onClick(View view) {
-                if(Counter<1){ // if the button has been pressed once
+                if(Counter<1){
                     TextView textView = (TextView) findViewById(R.id.Instructions);
                     textView.setText("We encourage you to take your time with this exercise." +
                             " Think through each question" +
@@ -68,12 +56,9 @@ public class InstructionPage extends AppCompatActivity {
                 else{
                     TextView textView = (TextView) findViewById(R.id.Instructions);
                     textView.setText("Too big"); //set text for text view
-                    //Go to the next Page.
                 }
             }
         });
 
-
+        }
     }
-
-}
