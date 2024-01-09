@@ -7,6 +7,14 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+
+    <ImageView
+        android:id="@+id/TopGreenBar"
+        android:layout_width="394dp"
+        android:layout_height="125dp"
+        android:background="#38761d"
+        android:contentDescription="TODO" />
+
     <!-- Question 1: Work Too Many Hours -->
     <TextView
         android:layout_width="380dp"
@@ -25,40 +33,58 @@
 
     <RadioGroup
         android:id="@+id/hoursRadioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_width="395dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/neverRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="never"/>
+            android:layout_marginRight="35dp"
+            />
 
         <RadioButton
             android:id="@+id/sometimesRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sometimes"/>
+            android:layout_marginRight="35dp"
+            />
 
         <RadioButton
             android:id="@+id/halfRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="About Half of the time"/>
+            android:layout_marginRight="35dp"
+            />
 
         <RadioButton
             android:id="@+id/mostRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Most of the time"/>
+            android:layout_marginRight="35dp"
+            />
+
         <RadioButton
             android:id="@+id/alwaysRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Always"/>
+            android:layout_marginRight="35dp"/>
 
     </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="of the time      the time"
+        android:layout_marginLeft="158dp"
+        />
 
     <!-- Question 2: Work late hours, or schedules
 that conflict with class time -->
@@ -70,86 +96,113 @@ that conflict with class time"/>
 
     <RadioGroup
         android:id="@+id/lateRadioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_width="395dp"
+        android:layout_height="47dp"
+        android:orientation="horizontal">
+
         <RadioButton
             android:id="@+id/neverLateRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="never"/>
+            android:layout_marginRight="35dp"
+             />
 
         <RadioButton
             android:id="@+id/sometimesLateRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sometimes"/>
+            android:layout_marginRight="35dp" />
 
         <RadioButton
             android:id="@+id/halfLateRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="About Half of the time"/>
+            android:layout_marginRight="35dp" />
 
         <RadioButton
             android:id="@+id/mostLateRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Most of the time"/>
+            android:layout_marginRight="35dp" />
 
         <RadioButton
             android:id="@+id/alwaysLateRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Always"/>
+            android:layout_marginRight="35dp"/>
     </RadioGroup>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="of the time      the time"
+        android:layout_marginLeft="158dp"
+        />
 
     <!-- Question 2:unemployed -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="unemployed"/>
+        android:text="Unemployed"/>
 
     <RadioGroup
         android:id="@+id/unemployedRadioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_width="395dp"
+        android:layout_height="39dp"
+        android:orientation="horizontal">
+
         <RadioButton
             android:id="@+id/neverUnemployedRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="never"/>
+            android:layout_marginRight="35dp"/>
 
         <RadioButton
             android:id="@+id/sometimesUnemployedRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sometimes"/>
+            android:layout_marginRight="35dp" />
 
         <RadioButton
             android:id="@+id/halfUnemployedRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="About Half of the time"/>
+            android:layout_marginRight="35dp"/>
 
         <RadioButton
             android:id="@+id/mostUnemployedRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Most of the time"/>
+            android:layout_marginRight="35dp"/>
 
         <RadioButton
             android:id="@+id/alwaysUnemployedRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Always"/>
+            android:layout_marginRight="35dp"/>
     </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="of the time      the time"
+        android:layout_marginLeft="158dp"
+        />
     <!-- Submit Button -->
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"/>
+        android:text="Next" />
 </LinearLayout>
