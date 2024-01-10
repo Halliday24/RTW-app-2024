@@ -31,6 +31,7 @@ public class impactAcademicPage extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 int selectedColorId = studyRadioGroup.getCheckedRadioButtonId();
                 int selectedTimeId = timeRadioGroup.getCheckedRadioButtonId();
                 int selectedPoorStudyId = poorStudyRadioGroup.getCheckedRadioButtonId();

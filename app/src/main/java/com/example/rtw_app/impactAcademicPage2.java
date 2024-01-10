@@ -14,7 +14,7 @@ public class impactAcademicPage2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_impact_academic_page2);
 
-        Button submitButton = findViewById(R.id.submitButton);
+        Button submitButton = findViewById(R.id.nextButton);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
 
