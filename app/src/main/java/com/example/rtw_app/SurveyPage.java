@@ -21,33 +21,33 @@ public class SurveyPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page);
 
-        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
-
-        final RadioGroup colorRadioGroup = findViewById(R.id.colorRadioGroup);
-        final RadioGroup programmingRadioGroup = findViewById(R.id.programmingRadioGroup);
-
-        Button nextButton = findViewById(R.id.nextButton);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                TextView textView = (TextView) findViewById(R.id.Question);
-                textView.setText("How much of an impact did each of these potential academic " +
-                        " barriers have on your learning and grades last year");
-
-                int selectedColorId = colorRadioGroup.getCheckedRadioButtonId();
-                int selectedProgrammingId = programmingRadioGroup.getCheckedRadioButtonId();
-
-                if (selectedColorId != -1 && selectedProgrammingId != -1) {
-                    // Get selected answers
-                    String selectedColor = ((RadioButton) findViewById(selectedColorId)).getText().toString();
-                    String selectedProgramming = ((RadioButton) findViewById(selectedProgrammingId)).getText().toString();
-
-                    // Store responses in SharedPreferences
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("favorite_color", selectedColor);
-                    editor.putString("enjoy_programming", selectedProgramming);
-                    editor.apply();
+//        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
+//
+//        final RadioGroup colorRadioGroup = findViewById(R.id.colorRadioGroup);
+//        final RadioGroup programmingRadioGroup = findViewById(R.id.programmingRadioGroup);
+//
+//        Button nextButton = findViewById(R.id.nextButton);
+//        nextButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                TextView textView = (TextView) findViewById(R.id.Question);
+//                textView.setText("How much of an impact did each of these potential academic " +
+//                        " barriers have on your learning and grades last year");
+//
+//                int selectedColorId = colorRadioGroup.getCheckedRadioButtonId();
+//                int selectedProgrammingId = programmingRadioGroup.getCheckedRadioButtonId();
+//
+//                if (selectedColorId != -1 && selectedProgrammingId != -1) {
+//                    // Get selected answers
+//                    String selectedColor = ((RadioButton) findViewById(selectedColorId)).getText().toString();
+//                    String selectedProgramming = ((RadioButton) findViewById(selectedProgrammingId)).getText().toString();
+//
+//                    // Store responses in SharedPreferences
+//                    SharedPreferences.Editor editor = sharedPreferences.edit();
+//                    editor.putString("favorite_color", selectedColor);
+//                    editor.putString("enjoy_programming", selectedProgramming);
+//                    editor.apply();
 
                     //
 
@@ -66,14 +66,14 @@ public class SurveyPage extends AppCompatActivity {
 //
 //                    generatePDF(selectedColor, selectedProgramming);
 
-                    //go to next SurveyPage
-                    goToImpactWork();
-                } else {
-                    // Display an error message if not all questions are answered
-                    Toast.makeText(SurveyPage.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//                    //go to next SurveyPage
+//                    goToImpactWork();
+//                } else {
+//                    // Display an error message if not all questions are answered
+//                    Toast.makeText(SurveyPage.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+    //    });
     }
 
     public void goToImpactWork(){
