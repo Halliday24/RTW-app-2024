@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/activity_impact_financial_page.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/TopGreenBar"
+        android:layout_width="394dp"
+        android:layout_height="125dp"
+        android:background="#38761d"
+        android:contentDescription="TODO" />
+
+    <!-- Question 1: Worried about money and ability to pay for basic needs -->
+    <TextView
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:text="How much of an impact did each of these potential financial barriers have on your ability to participate in your education:" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Worried about money and ability to pay for basic needs" />
+
+    <RadioGroup
+        android:id="@+id/moneyRadioGroup"
+        android:layout_width="395dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/neverMoneyRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+           />
+
+        <RadioButton
+            android:id="@+id/sometimesMoneyRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+             />
+
+        <RadioButton
+            android:id="@+id/halfMoneyRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+            />
+
+        <RadioButton
+            android:id="@+id/mostMoneyRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+            />
+
+        <RadioButton
+            android:id="@+id/alwaysMoneyRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+            />
+
+    </RadioGroup>
+
+    <!-- ... (additional TextViews for labels) -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Never        Sometimes      About half        Most of        Always" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="158dp"
+        android:text="of the time      the time" />
+    <!-- Question 2: Inadequate financial aid/scholarship -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Inadequate financial aid/scholarship"/>
+
+    <RadioGroup
+        android:id="@+id/aidRadioGroup"
+        android:layout_width="395dp"
+        android:layout_height="47dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/neverAidRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+            />
+
+        <RadioButton
+            android:id="@+id/sometimesAidRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+            />
+
+        <RadioButton
+            android:id="@+id/halfAidRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+             />
+
+        <RadioButton
+            android:id="@+id/mostAidRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+            />
+
+        <RadioButton
+            android:id="@+id/alwaysAidRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+            />
+
+    </RadioGroup>
+
+    <!-- ... (additional TextViews for labels) -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Never        Sometimes      About half        Most of        Always" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="158dp"
+        android:text="of the time      the time" />
+    <!-- Question 3: Limited financial management skills -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Limited financial management skills"/>
+
+    <RadioGroup
+        android:id="@+id/managementRadioGroup"
+        android:layout_width="395dp"
+        android:layout_height="47dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/neverManagementRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+             />
+
+        <RadioButton
+            android:id="@+id/sometimesManagementRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+            />
+
+        <RadioButton
+            android:id="@+id/halfManagementRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+            />
+
+        <RadioButton
+            android:id="@+id/mostManagementRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+            />
+
+        <RadioButton
+            android:id="@+id/alwaysManagementRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp" />
+
+    </RadioGroup>
+
+    <!-- ... (additional TextViews for labels) -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Never        Sometimes      About half        Most of        Always" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="158dp"
+        android:text="of the time      the time" />
+    <!-- Question 4: Unable to purchase textbooks, laptop, or other necessary learning tools -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unable to purchase textbooks, laptop, or other necessary learning tools"/>
+
+    <RadioGroup
+        android:id="@+id/toolsRadioGroup"
+        android:layout_width="395dp"
+        android:layout_height="47dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/neverToolsRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+            />
+
+        <RadioButton
+            android:id="@+id/sometimesToolsRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp" />
+
+        <RadioButton
+            android:id="@+id/halfToolsRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+            />
+
+        <RadioButton
+            android:id="@+id/mostToolsRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp" />
+
+        <RadioButton
+            android:id="@+id/alwaysToolsRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp" />
+
+    </RadioGroup>
+
+    <!-- ... (additional TextViews for labels) -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Never        Sometimes      About half        Most of        Always" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="158dp"
+        android:text="of the time      the time" />
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next" />
+</LinearLayout>
