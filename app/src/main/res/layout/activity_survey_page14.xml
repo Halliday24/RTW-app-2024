@@ -30,7 +30,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I study at a regular scheduled time each day"
+        android:text="I study at a regularly scheduled time each day"
         android:textStyle="bold"/>
 
     <RadioGroup
@@ -87,7 +87,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I have a good understanding of what is required to be successful in each course"
+        android:text="I have a good understanding of what is required to be succesful in each course"
         android:textStyle="bold"/>
 
     <RadioGroup
@@ -145,7 +145,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I know how to break down large assignments to make them more manageable"
+        android:text="I know how to breakdown large assignments to make them more manageable"
         android:textStyle="bold"/>
 
     <RadioGroup
@@ -202,7 +202,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Starting "
+        android:text="Starting an assignment is easy for me"
         android:textStyle="bold"/>
 
     <RadioGroup
@@ -259,7 +259,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I turn in assignments by the set deadlines"
+        android:text="I have a designated study location where I can focus"
         android:textStyle="bold"/>
 
     <RadioGroup
