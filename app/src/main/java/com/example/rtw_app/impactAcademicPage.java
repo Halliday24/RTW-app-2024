@@ -27,7 +27,7 @@ public class impactAcademicPage extends AppCompatActivity {
         final RadioGroup disabilityRadioGroup = findViewById(R.id.disabilityRadioGroup);
         final RadioGroup preparationRadioGroup = findViewById(R.id.preparationRadioGroup);
 
-        Button submitButton = findViewById(R.id.submitButton);
+        Button submitButton = findViewById(R.id.nextButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
