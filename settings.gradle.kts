@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "RTW-App"
 include(":app")
- 
+include(":app")
