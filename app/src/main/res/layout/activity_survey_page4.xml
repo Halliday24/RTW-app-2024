@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:orientation="vertical"
-    tools:context=".SurveyPage4">
+    tools:context=".SurveyPage4"
+    android:background="@color/digitalWhite">
 
     <!-- Question 1: study habits -->
 

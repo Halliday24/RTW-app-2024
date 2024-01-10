@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SurveyPage7">
+    tools:context=".SurveyPage7"
+    android:background="@color/digitalWhite">
 
     <!-- Question 1: study habits -->
 
