@@ -57,12 +57,19 @@ public class impactAcademicPage extends AppCompatActivity {
                     editor.apply();
 
                     // Display a success message
-                    Toast.makeText(impactPage.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(impactAcademicPage.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
+                    goToImpactAcademicPage2();
                 } else {
                     // Display an error message if not all questions are answered
-                    Toast.makeText(impactPage.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(impactAcademicPage.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    public void goToImpactAcademicPage2(){
+        Intent impactAcademicPage2 = new Intent(this, impactAcademicPage2.class);
+        startActivity(impactAcademicPage2);
+
     }
 }

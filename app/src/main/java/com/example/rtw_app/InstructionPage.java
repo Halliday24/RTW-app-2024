@@ -55,16 +55,16 @@ public class InstructionPage extends AppCompatActivity {
                     Counter++;
                 }
                 else{
-                    goToSurveyPage();
+                    goToimpactAcademicPage();
                 }
             }
         });
 
         }
 
-    public void goToSurveyPage(){
-        Intent ImpactPage = new Intent(this, impactPage.class);
-        startActivity(ImpactPage);
+    public void goToimpactAcademicPage(){
+        Intent ImpactAcademicPage = new Intent(this, impactAcademicPage.class);
+        startActivity(ImpactAcademicPage);
 
     }
     }

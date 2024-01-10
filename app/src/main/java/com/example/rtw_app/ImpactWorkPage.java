@@ -2,6 +2,7 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.Button;
@@ -64,6 +65,7 @@ public class ImpactWorkPage extends AppCompatActivity {
 //                    generatePDF(selectedColor, selectedProgramming);
 
                     // Go to Next page
+                    goToSurveyPage3();
 
                 } else {
                     // Display an error message if not all questions are answered
@@ -71,5 +73,11 @@ public class ImpactWorkPage extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void goToSurveyPage3(){
+        Intent SurveyPage3 = new Intent(this, SurveyPage3.class);
+        startActivity(SurveyPage3);
+
     }
 }

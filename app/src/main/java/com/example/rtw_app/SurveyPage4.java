@@ -52,5 +52,15 @@ public class SurveyPage4 extends AppCompatActivity {
                 "extracurricular activities");
 
         Button nextButton = findViewById(R.id.submitButton);
+
+        Button submitButton = findViewById(R.id.submitButton);
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                //goToNextPage();
+            }
+        });
     }
 }
