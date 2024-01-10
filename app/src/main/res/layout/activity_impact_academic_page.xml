@@ -30,7 +30,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ineffective study habits"/>
+        android:text="Ineffective study habits?"
+        android:textStyle="bold"/>
 
     <RadioGroup
         android:id="@+id/studyRadioGroup"
@@ -73,20 +74,21 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
-        />
+        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="of the time      the time"
         android:layout_marginLeft="158dp"
-        />
+        android:textStyle="bold"/>
 
     <!-- Question 2: time management -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="poor time management?"/>
+        android:text="poor time management?"
+        android:textStyle="bold"/>
 
     <RadioGroup
         android:id="@+id/timeRadioGroup"
@@ -129,7 +131,7 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
-        />
+        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -143,7 +145,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="poor study environment?"/>
+        android:text="poor study environment?"
+        android:textStyle="bold"/>
 
     <RadioGroup
         android:id="@+id/poorStudyRadioGroup2"
@@ -186,20 +189,22 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
-        />
+        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="of the time      the time"
         android:layout_marginLeft="158dp"
+        android:textStyle="bold"
         />
 
     <!-- Question 4: Learning disability? -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Learning disability?"/>
+        android:text="Learning disability?"
+        android:textStyle="bold"/>
 
     <RadioGroup
         android:id="@+id/disabilityRadioGroup"
@@ -242,20 +247,21 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
-        />
+        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="of the time      the time"
         android:layout_marginLeft="158dp"
-        />
+        android:textStyle="bold" />
 
     <!-- Question 5: Ineffective academic preparation? -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ineffective academic preparation"/>
+        android:text="Ineffective academic preparation?"
+        android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/preparationRadioGroup"
@@ -298,19 +304,22 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
-        />
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="of the time      the time"
         android:layout_marginLeft="158dp"
-        />
+        android:textStyle="bold" />
 
-    <!-- Submit Button -->
+    <!-- Next Button -->
     <Button
-        android:id="@+id/submitButton"
+        android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit" />
+        android:layout_marginLeft="300dp"
+        android:text="Next"
+        android:textStyle="bold"
+        android:textSize="12dp"/>
 </LinearLayout>

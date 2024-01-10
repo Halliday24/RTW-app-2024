@@ -3,4 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="options">#C3CDDC39</color>
+    <color name="Green">#275D38</color> <!--    Hexadecimal provided by client-->
+    <color name="Yellow">#F2CD00</color><!--    Hexadecimal provided by client-->
+    <color name="digitalWhite">#f5f5f5</color><!--    Hexadecimal provided by client-->
 </resources>

@@ -8,6 +8,8 @@
     android:padding="16dp">
 
 
+
+
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="394dp"
@@ -19,51 +21,50 @@
         android:id="@+id/impactQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:text="How much of an impact did each of these potential academic barriers have on your learning and grades last year?"
         android:textColor="@color/black"
-        android:textSize="13sp"
+        android:textSize="15dp"
         android:textStyle="bold" />
 
-
-
-    <!-- Question 5: Unhappy with instructor? -->
+    <!-- Question 10: Online course(s) -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Unhappy with instructor?"
+        android:text="Online course(s)"
         android:textStyle="bold"/>
 
     <RadioGroup
-        android:id="@+id/prepRadioGroup"
+        android:id="@+id/studyRadioGroup"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/neverRadioButton5"
+            android:id="@+id/neverRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"/>
 
         <RadioButton
-            android:id="@+id/sometimesRadioButton5"
+            android:id="@+id/sometimesRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"/>
 
         <RadioButton
-            android:id="@+id/halfRadioButton5"
+            android:id="@+id/halfRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"/>
 
         <RadioButton
-            android:id="@+id/mostRadioButton5"
+            android:id="@+id/mostRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <RadioButton
-            android:id="@+id/alwaysRadioButton5"
+            android:id="@+id/alwaysRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"/>
@@ -74,53 +75,54 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
-        />
+        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="of the time      the time"
         android:layout_marginLeft="158dp"
-        />
+        android:textStyle="bold"/>
 
-    <!-- Question 6: Online courses? -->
+    <!-- Question 11: Lack of proficiency using eClass, Bear Tracks, or required apps -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Online course(s)?"
-        android:textStyle="bold"/>
+        android:text="Lack of proficiency using eClass, Bear Tracks, or required apps"
+        android:textStyle="bold"
+        android:textSize="12sp"/>
 
     <RadioGroup
-        android:id="@+id/readWriteRadioGroup"
+        android:id="@+id/timeRadioGroup"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/neverRadioButton6"
+            android:id="@+id/neverRadioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"/>
 
         <RadioButton
-            android:id="@+id/sometimesRadioButton6"
+            android:id="@+id/sometimesRadioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"/>
 
         <RadioButton
-            android:id="@+id/halfRadioButton6"
+            android:id="@+id/halfRadioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"/>
 
         <RadioButton
-            android:id="@+id/mostRadioButton6"
+            android:id="@+id/mostRadioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <RadioButton
-            android:id="@+id/alwaysRadioButton6"
+            android:id="@+id/alwaysRadioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"/>
@@ -131,7 +133,7 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
-        />
+        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -141,15 +143,16 @@
         />
 
 
-    <!-- Question 7: inadequate math skills? -->
+    <!-- Question 12:Lack of awareness of university policies and/ or expectations -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Inadequate math skills?"
+        android:text="Lack of awareness of university policies and/ or expectations"
+        android:textSize="10dp"
         android:textStyle="bold"/>
 
     <RadioGroup
-        android:id="@+id/mathSkillsRadioGroup"
+        android:id="@+id/poorStudyRadioGroup2"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -189,20 +192,21 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
-        />
+        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="of the time      the time"
         android:layout_marginLeft="158dp"
+        android:textStyle="bold"
         />
 
-    <!-- Question 8: Easily distracted? -->
+    <!-- Question 13:Challenges working in groups with classmates -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Easily distracted?"
+        android:text="Challenges working in groups with classmates"
         android:textStyle="bold"/>
 
     <RadioGroup
@@ -246,23 +250,23 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
-        />
+        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="of the time      the time"
         android:layout_marginLeft="158dp"
-        />
+        android:textStyle="bold" />
 
 
-
-    <!-- Submit Button -->
+    <!-- Next Button -->
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="300dp"
-        android:layout_marginBottom="50dp"
-        android:text="Next" />
+        android:text="Next"
+        android:textStyle="bold"
+        android:textSize="12dp"/>
 </LinearLayout>

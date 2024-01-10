@@ -26,11 +26,11 @@
 
 
 
-    <!-- Question 5: Ineffective academic preparation? -->
+    <!-- Question 6: Inadequate reading/writing skills -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ineffective academic preparation"
+        android:text="Inadequate reading/writing skills?"
         android:textStyle="bold"/>
 
     <RadioGroup
@@ -74,6 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
+        android:textStyle="bold"
         />
 
     <TextView
@@ -81,13 +82,14 @@
         android:layout_height="15dp"
         android:text="of the time      the time"
         android:layout_marginLeft="158dp"
+        android:textStyle="bold"
         />
 
-    <!-- Question 6: Inadequate reading/writing skills -->
+    <!-- Question 7: inadequate math skills? -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Inadequate reading/writing skills?"
+        android:text="Inadequate math skills?"
         android:textStyle="bold"/>
 
     <RadioGroup
@@ -131,6 +133,7 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
+        android:textStyle="bold"
         />
 
     <TextView
@@ -138,14 +141,15 @@
         android:layout_height="15dp"
         android:text="of the time      the time"
         android:layout_marginLeft="158dp"
+        android:textStyle="bold"
         />
 
 
-    <!-- Question 7: inadequate math skills? -->
+    <!-- Question 8: Easily distracted? -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Inadequate math skills?"
+        android:text="Easily distracted?"
         android:textStyle="bold"/>
 
     <RadioGroup
@@ -189,6 +193,7 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
+        android:textStyle="bold"
         />
 
     <TextView
@@ -196,13 +201,14 @@
         android:layout_height="15dp"
         android:text="of the time      the time"
         android:layout_marginLeft="158dp"
+        android:textStyle="bold"
         />
 
-    <!-- Question 8: Easily distracted? -->
+    <!-- Question 9: Unhappy with instructor -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Easily distracted?"
+        android:text="Unhappy with instructor?"
         android:textStyle="bold"/>
 
     <RadioGroup
@@ -246,6 +252,7 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
+        android:textStyle="bold"
         />
 
     <TextView
@@ -253,16 +260,18 @@
         android:layout_height="15dp"
         android:text="of the time      the time"
         android:layout_marginLeft="158dp"
+        android:textStyle="bold"
         />
 
 
 
-    <!-- Submit Button -->
+    <!-- Next Button -->
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="300dp"
-        android:layout_marginBottom="50dp"
-        android:text="Next" />
+        android:text="Next"
+        android:textStyle="bold"
+        android:textSize="12dp"/>
 </LinearLayout>
