@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         editTextCCID = findViewById(R.id.LoginCCID);
         editTextName = findViewById(R.id.LoginName);
         buttonLogin = findViewById(R.id.buttonLogin);
-        //hint = findViewById(R.id.hint);
+        hint = findViewById(R.id.hint);
 
 
         //Set an onClick listener for using the hint button
