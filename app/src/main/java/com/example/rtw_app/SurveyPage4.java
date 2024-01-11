@@ -59,8 +59,14 @@ public class SurveyPage4 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                //goToNextPage();
+                goToImpactFinancial();
             }
         });
+    }
+
+    public void goToImpactFinancial(){
+        Intent SurveyPage4 = new Intent(this, ImpactFinancial.class);
+        startActivity(SurveyPage4);
+
     }
 }

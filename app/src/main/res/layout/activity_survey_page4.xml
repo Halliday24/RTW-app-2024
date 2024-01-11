@@ -16,7 +16,7 @@
         android:id="@+id/TopGreenBar"
         android:layout_width="394dp"
         android:layout_height="125dp"
-        android:background="#38761d"
+        android:background="#275D38"
         android:contentDescription="TODO" />
 
     <TextView

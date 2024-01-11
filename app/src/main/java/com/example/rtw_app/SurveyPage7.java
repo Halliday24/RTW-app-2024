@@ -47,5 +47,13 @@ public class SurveyPage7 extends AppCompatActivity {
         //option4
         TextView textview4 = (TextView) findViewById(R.id.surveyPage7_Option4);
         textview4.setText("Transportation costs");
+
+        goToEndPage();
+    }
+
+    public void goToEndPage(){
+        Intent SurveyPage4 = new Intent(this, EndPage.class);
+        startActivity(SurveyPage4);
+
     }
 }

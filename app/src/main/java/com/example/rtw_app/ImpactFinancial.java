@@ -57,7 +57,7 @@ public class ImpactFinancial extends AppCompatActivity {
         Toast.makeText(ImpactFinancial.this, "Survey submitted successfully!", Toast.LENGTH_SHORT).show();
 
         // Navigate to the next page
-        //goToNextPage();
+        goToNextPage();
     }
 
     private String getSelectedRadioButtonText(RadioGroup radioGroup) {
@@ -68,8 +68,8 @@ public class ImpactFinancial extends AppCompatActivity {
         return "";
     }
 
-    //private void goToNextPage() {
-       // Intent intent = new Intent(this, NextActivity.class); // Replace with the actual next activity
-        //startActivity(intent);
-  //  }
+    private void goToNextPage() {
+        Intent intent = new Intent(this, SurveyPage6.class); // Replace with the actual next activity
+        startActivity(intent);
+    }
 }

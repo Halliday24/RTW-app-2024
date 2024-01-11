@@ -66,7 +66,7 @@ public class SurveyPage3 extends AppCompatActivity {
 
             }
     public void goToSurveyPage4(){
-        Intent SurveyPage4 = new Intent(this, SurveyPage4.class);
+        Intent SurveyPage4 = new Intent(this, SurveyPage6.class);
         startActivity(SurveyPage4);
 
     }

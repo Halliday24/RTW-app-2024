@@ -20,6 +20,7 @@ import java.io.FileOutputStream;
 public class SurveyPage6 extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,5 +97,12 @@ public class SurveyPage6 extends AppCompatActivity {
                 "trauma ");
 
         Button nextButton = findViewById(R.id.submitButton);
+        goToSurveyPage7();
+    }
+
+    public void goToSurveyPage7(){
+        Intent SurveyPage4 = new Intent(this, SurveyPage7.class);
+        startActivity(SurveyPage4);
+
     }
 }
