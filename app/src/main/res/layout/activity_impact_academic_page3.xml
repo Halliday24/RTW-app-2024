@@ -262,12 +262,33 @@
 
 
     <!-- Next Button -->
-    <Button
-        android:id="@+id/nextButton"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="300dp"
-        android:text="Next"
-        android:textStyle="bold"
-        android:textSize="12dp"/>
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <Button
+            android:id="@+id/BackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:text="Back"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/nextButton"/>
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:text="Next"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            app:layout_constraintLeft_toRightOf="@+id/BackButton"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

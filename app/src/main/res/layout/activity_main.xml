@@ -55,6 +55,8 @@
         android:id="@+id/LoginEmail"
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:hint="Email"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -69,6 +71,8 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:hint="CCID"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,7 +86,9 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:hint="Name"
+        android:textColorHint="@color/black"
         android:inputType="text"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -103,13 +109,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <Button
         android:id="@+id/hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/Green"
+        android:layout_marginLeft="300dp"
+        android:backgroundTint="@color/digitalWhite"
         android:text=" ? "
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -118,6 +124,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:visibility="visible"
         android:onClick="openHint"/>
+    
 
     <Button
         android:id="@+id/buttonLogin"

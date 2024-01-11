@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -161,7 +162,7 @@
         android:id="@+id/checkBox7"
         android:layout_width="99dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="304dp"
+        android:layout_marginBottom="416dp"
         android:text="eClass Tutorial"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -170,8 +171,8 @@
         android:id="@+id/checkBox8"
         android:layout_width="109dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="308dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="416dp"
         android:text="Academic Advising"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/checkBox9" />
@@ -181,7 +182,7 @@
         android:layout_width="102dp"
         android:layout_height="50dp"
         android:layout_marginEnd="36dp"
-        android:layout_marginBottom="300dp"
+        android:layout_marginBottom="412dp"
         android:text="Career Services"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -190,8 +191,8 @@
         android:id="@+id/checkBox10"
         android:layout_width="118dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="252dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginBottom="344dp"
         android:text="Campus Recreation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
