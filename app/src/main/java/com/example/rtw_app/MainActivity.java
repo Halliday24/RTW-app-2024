@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText editTextEmail, editTextCCID, editTextName;
     private Button buttonLogin;
+
+    Button hint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         editTextCCID = findViewById(R.id.LoginCCID);
         editTextName = findViewById(R.id.LoginName);
         buttonLogin = findViewById(R.id.buttonLogin);
+        hint = (Button) findViewById(R.id.hint);
 
         // Set a click listener for the login button
         buttonLogin.setOnClickListener(new View.OnClickListener() {
@@ -77,4 +80,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(instructionPage);
 
     }
+
+    //this method is responsible for giving a hint to srtudents to remind them about why they are
+    //filling in this workbook
+    private void openHint() {
+       Intent Hint = new Intent(MainActivity.this, Hint.class);
+       startActivity(Hint);
+    }
+
 }

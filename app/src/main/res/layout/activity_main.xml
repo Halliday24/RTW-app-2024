@@ -103,6 +103,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <Button
+        android:id="@+id/hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/Green"
+        android:text=" ? "
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/BottomGreenBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible"
+        android:onClick="openHint"/>
+
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="140dp"
