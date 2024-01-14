@@ -46,7 +46,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/TopGreenBar"
         android:layout_marginTop="16dp"
-        android:text="Highlight the top 5 resources you will use next year to help you be successful:"
+        android:text="What support or resources will be most useful for you to address these
+challenges next year?                            Highlight the top 5 resources you will use next year to help you be successful:"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TopGreenBar" />
@@ -80,7 +81,8 @@
         android:layout_width="140dp"
         android:layout_height="47dp"
         android:layout_below="@id/kotlinCheckbox"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
         android:text="Counseling Services"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionText" />
@@ -93,10 +95,8 @@
         android:text="DONE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.419"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox10"
-        app:layout_constraintVertical_bias="0.901" />
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -123,7 +123,7 @@
         android:layout_width="129dp"
         android:layout_height="40dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="20dp"
         android:text="Accessibility Resources"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/swiftCheckbox" />
@@ -148,12 +148,13 @@
         app:layout_constraintStart_toEndOf="@+id/checkBox4"
         app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
 
+
     <CheckBox
         android:id="@+id/checkBox6"
         android:layout_width="129dp"
         android:layout_height="49dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="20dp"
         android:text="Student Success Workshops"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
@@ -162,7 +163,7 @@
         android:id="@+id/checkBox7"
         android:layout_width="99dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="416dp"
+        android:layout_marginBottom="268dp"
         android:text="eClass Tutorial"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -171,8 +172,8 @@
         android:id="@+id/checkBox8"
         android:layout_width="109dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="416dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="276dp"
         android:text="Academic Advising"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/checkBox9" />
@@ -181,35 +182,34 @@
         android:id="@+id/checkBox9"
         android:layout_width="102dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="412dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="272dp"
         android:text="Career Services"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <CheckBox
-        android:id="@+id/checkBox10"
-        android:layout_width="118dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="156dp"
-        android:layout_marginBottom="344dp"
-        android:text="Campus Recreation"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="387dp"
-        android:layout_height="82dp"
-        android:layout_marginBottom="56dp"
+        android:layout_width="362dp"
+        android:layout_height="96dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="60dp"
         android:text="Submit your appeal to auappeal@ualberta.ca within 30 days of receiving your academic
-standing letter. If you wo
-
-tment. "
+standing letter.              If you would like a Student Advisor to review your appeal before you submit it,
+you can schedule an appointment."
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/submitButton"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox10"
+        android:layout_width="129dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="224dp"
+        android:text="Campus Recreation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
