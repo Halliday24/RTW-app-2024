@@ -19,7 +19,11 @@
     <TextView
         android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:text="How much of an impact did each of these potential financial barriers have on your ability to participate in your education:" />
+        android:text="How much of an impact did each of these potential financial barriers have on your ability to participate in your education:"
+        android:textStyle="bold"
+        android:textSize="13dp"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <TextView
         android:id="@+id/textView"
@@ -29,7 +33,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Worried about money and ability to pay for basic needs" />
+        android:text="Worried about money and ability to pay for basic needs"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <RadioGroup
         android:id="@+id/moneyRadioGroup"
@@ -89,7 +96,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Inadequate financial aid/scholarship"/>
+        android:text="Inadequate financial aid/scholarship"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <RadioGroup
         android:id="@+id/aidRadioGroup"
@@ -149,7 +159,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Limited financial management skills"/>
+        android:text="Limited financial management skills"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <RadioGroup
         android:id="@+id/managementRadioGroup"
@@ -208,7 +221,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Unable to purchase textbooks, laptop, or other necessary learning tools"/>
+        android:text="Unable to purchase textbooks, laptop, or other necessary learning tools"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <RadioGroup
         android:id="@+id/toolsRadioGroup"

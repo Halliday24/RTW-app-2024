@@ -23,7 +23,8 @@
         android:text="How much of an impact did each of these potential academic barriers have on your learning and grades last year?"
         android:textColor="@color/black"
         android:textSize="13sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:background="@color/gray"/>
 
 
 
@@ -32,7 +33,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Inadequate reading/writing skills?"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <RadioGroup
         android:id="@+id/prepRadioGroup"
@@ -91,7 +94,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Inadequate math skills?"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <RadioGroup
         android:id="@+id/readWriteRadioGroup"
@@ -151,7 +156,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Easily distracted?"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <RadioGroup
         android:id="@+id/mathSkillsRadioGroup"
@@ -210,7 +217,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Unhappy with instructor?"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <RadioGroup
         android:id="@+id/disabilityRadioGroup"

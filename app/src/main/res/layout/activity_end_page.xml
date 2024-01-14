@@ -41,6 +41,8 @@
         android:layout_marginTop="4dp"
         android:text="What new habits do you plan to develop to support your academic success? Are there changes you feel need to be made so that you can fully participate in your education?"
         android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/TopGreenBar" />
 
@@ -66,6 +68,8 @@
         android:layout_marginTop="32dp"
         android:text="How important is it for you to continue in your program next year?"
         android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerbox" />
 
@@ -89,6 +93,8 @@
 standing letter. If you would like a Student Advisor to review your appeal before you submit it,
 you can schedule an appointment. "
         android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerbox2" />
 

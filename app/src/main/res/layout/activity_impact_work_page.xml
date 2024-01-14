@@ -20,7 +20,11 @@
     <TextView
         android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:text="How much of an impact did each of these potential work barriers have on your ability to participate in your education:" />
+        android:text="How much of an impact did each of these potential work barriers have on your ability to participate in your education:"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <TextView
         android:id="@+id/textView"
@@ -30,7 +34,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Work Too many hours" />
+        android:text="Work Too many hours"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <RadioGroup
         android:id="@+id/hoursRadioGroup"
@@ -93,7 +100,10 @@ that conflict with class time -->
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Work late hours, or schedules
-that conflict with class time"/>
+that conflict with class time"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <RadioGroup
         android:id="@+id/lateRadioGroup"
@@ -149,7 +159,10 @@ that conflict with class time"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Unemployed"/>
+        android:text="Unemployed"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <RadioGroup
         android:id="@+id/unemployedRadioGroup"
