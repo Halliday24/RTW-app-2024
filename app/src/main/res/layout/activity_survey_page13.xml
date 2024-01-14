@@ -26,13 +26,16 @@
         android:text="Study Habits"
         android:textColor="@color/black"
         android:textSize="15dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:background="@color/gray"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="I study at a regular scheduled time each day"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <RadioGroup
         android:id="@+id/colorRadioGroup"
@@ -89,7 +92,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="I have a good understanding of what is required to be successful in each course"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <RadioGroup
         android:id="@+id/timeRadioGroup"
@@ -147,7 +152,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="I know how to break down large assignments to make them more manageable"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <RadioGroup
         android:id="@+id/poorStudyRadioGroup2"
@@ -204,7 +211,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Starting "
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <RadioGroup
         android:id="@+id/disabilityRadioGroup"
@@ -261,7 +270,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="I turn in assignments by the set deadlines"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
 
     <RadioGroup
         android:id="@+id/colorRadioGroup5"

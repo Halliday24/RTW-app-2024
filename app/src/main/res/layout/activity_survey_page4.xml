@@ -28,6 +28,22 @@
         android:textSize="15dp"
         android:textStyle="bold" />
 
+    <Button
+        android:id="@+id/hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="300dp"
+        android:backgroundTint="@color/digitalWhite"
+        android:text=" ? "
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/BottomGreenBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible"
+        android:onClick="openHint"/>
+
     <TextView
         android:id="@+id/surveyPage4_Option1"
         android:layout_width="wrap_content"
@@ -265,10 +281,35 @@
         android:layout_marginLeft="158dp"
         />
 
-    <Button
-        android:id="@+id/submitButton"
+    <!-- Next Button -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit" />
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <Button
+            android:id="@+id/BackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:text="Back"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/nextButton"/>
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:text="Next"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            app:layout_constraintLeft_toRightOf="@+id/BackButton"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

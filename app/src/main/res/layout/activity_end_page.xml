@@ -79,6 +79,18 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:layout_editor_absoluteX="4dp" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="408dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="36dp"
+        android:text="Submit your appeal to auappeal@ualberta.ca within 30 days of receiving your academic
+standing letter. If you would like a Student Advisor to review your appeal before you submit it,
+you can schedule an appointment. "
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answerbox2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
