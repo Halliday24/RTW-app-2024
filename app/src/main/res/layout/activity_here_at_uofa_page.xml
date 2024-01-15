@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/TopGreenBar"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/Green"
+        android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/BottomGreenBar"
+        android:layout_width="401dp"
+        android:layout_height="94dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="700dp"
+        android:background="@color/Green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/questionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TopGreenBar"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:text="Why are you here at U of A? Choose all that apply:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TopGreenBar" />
+
+    <CheckBox
+        android:id="@+id/degreeCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/questionText"
+        android:layout_marginStart="228dp"
+        android:layout_marginTop="8dp"
+        android:text="To get a degree"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+
+    <CheckBox
+        android:id="@+id/helpOthersCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/questionText"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="52dp"
+        android:text="To help others"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/degreeCheckBox" />
+
+    <CheckBox
+        android:id="@+id/getJobCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/helpOthersCheckBox"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="148dp"
+        android:text="To get a job I like"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+
+    <CheckBox
+        android:id="@+id/supportFamilyCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="156dp"
+        android:text="To support my family"
+        app:layout_constraintEnd_toStartOf="@+id/lifeGoalCheckBox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+
+    <CheckBox
+        android:id="@+id/lifeGoalCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/supportFamilyCheckBox"
+        android:layout_marginTop="108dp"
+        android:text="To accomplish a life goal"
+        app:layout_constraintEnd_toStartOf="@+id/differenceCheckBox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/supportFamilyCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+
+    <CheckBox
+        android:id="@+id/differenceCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lifeGoalCheckBox"
+        android:layout_marginTop="60dp"
+        android:text="To make a difference in the world"
+        app:layout_constraintEnd_toStartOf="@+id/learnCheckBox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/lifeGoalCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+
+    <CheckBox
+        android:id="@+id/learnCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/differenceCheckBox"
+        android:layout_marginTop="8dp"
+        android:text="To learn"
+        app:layout_constraintEnd_toStartOf="@+id/unsureCheckBox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/differenceCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+
+    <CheckBox
+        android:id="@+id/unsureCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/learnCheckBox"
+        android:layout_marginStart="248dp"
+        android:layout_marginTop="4dp"
+        android:text="Unsure"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/learnCheckBox" />
+
+    <CheckBox
+        android:id="@+id/otherCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/unsureCheckBox"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="128dp"
+        android:text="Other:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/unsureCheckBox" />
+
+    <EditText
+        android:id="@+id/otherReasonEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/unsureCheckBox"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Specify other reason"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/otherCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/unsureCheckBox" />
+
+    <Button
+        android:id="@+id/BackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="212dp"
+        android:layout_marginBottom="104dp"
+        android:text="Back"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/nextButton" />
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
+        android:layout_marginBottom="104dp"
+        android:text="Next"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/BackButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
