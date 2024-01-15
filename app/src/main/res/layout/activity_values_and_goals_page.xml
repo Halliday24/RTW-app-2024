@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/activity_values_and_goals_page.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/digitalWhite">
+
+    <!-- Green Header -->
+    <ImageView
+        android:id="@+id/TopGreenBar"
+        android:layout_width="394dp"
+        android:layout_height="125dp"
+        android:background="#38761d"
+        android:contentDescription="TODO" />
+
+    <!-- Question 1: My purpose for getting a university education is clear -->
+    <TextView
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:text="My purpose for getting a university education is clear"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
+
+    <RadioGroup
+        android:id="@+id/purposeRadioGroup"
+        android:layout_width="395dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/purposeNeverRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+           />
+
+        <RadioButton
+            android:id="@+id/purposeSometimesRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+
+        <RadioButton
+            android:id="@+id/purposeHalfRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+
+        <RadioButton
+            android:id="@+id/purposeMostRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+
+        <RadioButton
+            android:id="@+id/purposeAlwaysRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="of the time      the time"
+        android:layout_marginLeft="158dp"
+        />
+
+    <!-- Question 2: I feel confident I can reach my goal to graduate from university -->
+    <TextView
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:text="I feel confident I can reach my goal to graduate from university"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
+
+    <RadioGroup
+        android:id="@+id/confidenceRadioGroup"
+        android:layout_width="395dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/confidenceNeverRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+
+        <RadioButton
+            android:id="@+id/confidenceSometimesRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+
+        <RadioButton
+            android:id="@+id/confidenceHalfRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+
+        <RadioButton
+            android:id="@+id/confidenceMostRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+
+        <RadioButton
+            android:id="@+id/confidenceAlwaysRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="of the time      the time"
+        android:layout_marginLeft="158dp"
+        />
+
+    <!-- Question 3: I set specific goals which lead to success in my life -->
+    <TextView
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:text="I set specific goals which lead to success in my life"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
+
+    <RadioGroup
+        android:id="@+id/goalsRadioGroup"
+        android:layout_width="395dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/goalsNeverRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+
+        <RadioButton
+            android:id="@+id/goalsSometimesRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+
+        <RadioButton
+            android:id="@+id/goalsHalfRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+
+        <RadioButton
+            android:id="@+id/goalsMostRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+
+        <RadioButton
+            android:id="@+id/goalsAlwaysRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="of the time      the time"
+        android:layout_marginLeft="158dp"
+        />
+
+
+    <!-- Question 4: I am clear about my values and what is important to me -->
+    <TextView
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:text="I am clear about my values and what is important to me"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/gray"/>
+
+    <RadioGroup
+        android:id="@+id/valuesRadioGroup"
+        android:layout_width="395dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/valuesNeverRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+
+        <RadioButton
+            android:id="@+id/valuesSometimesRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+        <RadioButton
+            android:id="@+id/valuesHalfRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+
+        <RadioButton
+            android:id="@+id/valuesMostRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+
+        <RadioButton
+            android:id="@+id/valuesAlwaysRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+            />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="of the time      the time"
+        android:layout_marginLeft="158dp"
+        />
+
+
+    <!-- Next Button -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <Button
+            android:id="@+id/BackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:text="Back"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/nextButton"/>
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:text="Next"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            app:layout_constraintLeft_toRightOf="@+id/BackButton"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
