@@ -10,12 +10,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class impactAcademicPage3 extends AppCompatActivity {
+public class SurveyPage1p2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_impact_academic_page3);
+        setContentView(R.layout.activity_survey_page1p2);
 
         Button submitButton = findViewById(R.id.nextButton);
 
@@ -23,7 +23,7 @@ public class impactAcademicPage3 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                goToImpactWorkPage();
+                goToImpactAcademicPage3();
             }
         });
 
@@ -58,14 +58,14 @@ public class impactAcademicPage3 extends AppCompatActivity {
     }
 
 
-    public void goToImpactWorkPage(){
-        Intent impactWorkPage = new Intent(this, ImpactWorkPage.class);
-        startActivity(impactWorkPage);
+    public void goToImpactAcademicPage3(){
+        Intent impactAcademicPage3 = new Intent(this, SurveyPage1p3.class);
+        startActivity(impactAcademicPage3);
 
     }
 
     public void goBack(){
-        Intent impactAcademicPage2 = new Intent(this, impactAcademicPage2.class);
+        Intent impactAcademicPage2 = new Intent(this, SurveyPage1p1.class);
         startActivity(impactAcademicPage2);
 
     }

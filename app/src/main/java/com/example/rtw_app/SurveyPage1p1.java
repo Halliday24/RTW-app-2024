@@ -14,14 +14,14 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class impactAcademicPage extends AppCompatActivity {
+public class SurveyPage1p1 extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_impact_academic_page);
+        setContentView(R.layout.activity_survey_page1p1);
 
         sharedPreferences = getSharedPreferences("impact_responses", MODE_PRIVATE);
 
@@ -62,11 +62,11 @@ public class impactAcademicPage extends AppCompatActivity {
                     editor.apply();
 
                     // Display a success message
-                    Toast.makeText(impactAcademicPage.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SurveyPage1p1.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
                     goToImpactAcademicPage2();
                 } else {
                     // Display an error message if not all questions are answered
-                    Toast.makeText(impactAcademicPage.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SurveyPage1p1.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -104,7 +104,7 @@ public class impactAcademicPage extends AppCompatActivity {
     }
 
     public void goToImpactAcademicPage2(){
-        Intent impactAcademicPage2 = new Intent(this, impactAcademicPage2.class);
+        Intent impactAcademicPage2 = new Intent(this, SurveyPage1p2.class);
         startActivity(impactAcademicPage2);
 
     }

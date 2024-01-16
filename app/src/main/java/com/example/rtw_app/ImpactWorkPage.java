@@ -117,7 +117,7 @@ public class ImpactWorkPage extends AppCompatActivity {
     }
 
     public void goBack(){
-        Intent impactAcademicPage2 = new Intent(this, impactAcademicPage3.class);
+        Intent impactAcademicPage2 = new Intent(this, SurveyPage1p3.class);
         startActivity(impactAcademicPage2);
 
     }
