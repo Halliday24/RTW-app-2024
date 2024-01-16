@@ -25,17 +25,17 @@ public class MindsetPage extends AppCompatActivity {
                 "you start thinking about your goals and how you can start achieving them. " +
                 "Please indicate how often the statements below are true for you: "); //set text for text view
 
-        Button nextButton = findViewById(R.id.nextButton);
+        Button nextButton = findViewById(R.id.buttonNext);
         nextButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                goToSurveyPage9();
+                goToSurveyPage10();
             }
         });
 
 
-        Button buttonBack=findViewById(R.id.BackButton);
+        Button buttonBack=findViewById(R.id.buttonBack);
 
         //set a click listener for the next Button
         buttonBack.setOnClickListener(new View.OnClickListener(){
@@ -50,7 +50,7 @@ public class MindsetPage extends AppCompatActivity {
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
     }
 
-}
+
 
 
 
@@ -70,9 +70,9 @@ public class MindsetPage extends AppCompatActivity {
 
     }
 
-    public void goToSurveyPage9(){
-        Intent SurveyPage9 = new Intent(this, SurveyPage10.class);
-        startActivity(SurveyPage9);
+    public void goToSurveyPage10(){
+        Intent SurveyPage10 = new Intent(this, SurveyPage10.class);
+        startActivity(SurveyPage10);
 
     }
 

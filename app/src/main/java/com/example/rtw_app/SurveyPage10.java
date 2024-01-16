@@ -35,8 +35,8 @@ public class SurveyPage10 extends AppCompatActivity {
         TextView textview4 = (TextView) findViewById(R.id.surveyPage9_Option4);
         textview4.setText(" I attend class ");
         //option5
-        TextView textview4 = (TextView) findViewById(R.id.surveyPage9_Option5);
-        textview4.setText("I am engaged in class and in " +
+        TextView textview5 = (TextView) findViewById(R.id.surveyPage9_Option5);
+        textview5.setText("I am engaged in class and in " +
                 "small group discussions");
 
 
@@ -46,7 +46,7 @@ public class SurveyPage10 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                goToSurveyPage10_2();
+                goTohere_at_uofa_page();
             }
         });
 
@@ -83,9 +83,9 @@ public class SurveyPage10 extends AppCompatActivity {
 
     }
 
-    public void goToSurveyPage10_2(){
-        Intent SurveyPage10_2 = new Intent(this, SurveyPage10_2.class);
-        startActivity(SurveyPage10_2);
+    public void goTohere_at_uofa_page(){
+        Intent here_at_uofa_page = new Intent(this, HereAtUofAPage.class);
+        startActivity(here_at_uofa_page);
 
     }
 
