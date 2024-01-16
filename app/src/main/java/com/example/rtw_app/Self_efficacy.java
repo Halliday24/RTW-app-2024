@@ -10,24 +10,40 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-//this file is responsible for the end message that will be displayed once completed the workbook
-public class SurveyQuestions26and27Page extends AppCompatActivity {
+public class Self_efficacy extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey_question_26_and27_page);
+        setContentView(R.layout.acyivity_self_efficacy);
+        TextView textView = (TextView) findViewById(R.id.self_efficacy_Question2);
+        textView.setText("Self-Efficacy and Growth Mindset");
+        //option1
+        TextView textView1 = (TextView) findViewById(R.id.self_efficacy_Option1);
+        textView1.setText("Overall, I’m a pretty positive " +
+                "person and I believe in my " +
+                "potential");
+        //option2
+        TextView textview2 = (TextView) findViewById(R.id.self_efficacy_Option2);
+        textview2.setText("I believe my academic ability is " +
+                "something I can substantially " +
+                "change");
+        //option3
+        TextView textview3 = (TextView) findViewById(R.id.self_efficacy_Option3);
+        textview3.setText("Hard work, focus, and " +
+                "perseverance determine my " +
+                "results");
 
-        Button buttonNext=findViewById(R.id.nextButton);
-
-        //set a click listener for the next Button
-        buttonNext.setOnClickListener(new View.OnClickListener(){
+        Button nextButton = findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                goToNextPage();
+                goToself_efficacy2();
             }
         });
+
+
         Button buttonBack=findViewById(R.id.BackButton);
 
         //set a click listener for the next Button
@@ -41,6 +57,8 @@ public class SurveyQuestions26and27Page extends AppCompatActivity {
 
         // Set text color for all TextViews in the layout
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
+
+
     }
 
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
@@ -56,17 +74,18 @@ public class SurveyQuestions26and27Page extends AppCompatActivity {
                 setTextColorForAllTextViews((ViewGroup) childView, color);
             }
         }
+
     }
 
-
-    public void goToNextPage(){
-
-
+    public void goToself_efficacy2(){
+        Intent Self_efficacy2 = new Intent(this, Self_efficacy2.class);
+        startActivity(Self_efficacy2);
 
     }
 
     public void goBack(){
-
+        Intent SurveyPage10 = new Intent(this, SurveyPage10.class);
+        startActivity(SurveyPage10);
 
     }
 }

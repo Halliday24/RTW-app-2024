@@ -58,7 +58,7 @@ public class SurveyPage7 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                goToEndPage();
+                goToSurveyPage8();
             }
         });
         Button buttonBack=findViewById(R.id.BackButton);
@@ -92,9 +92,9 @@ public class SurveyPage7 extends AppCompatActivity {
 
     }
 
-    public void goToEndPage(){
-        Intent SurveyPage4 = new Intent(this, EndPage.class);
-        startActivity(SurveyPage4);
+    public void goToSurveyPage8(){
+        Intent SurveyPage8 = new Intent(this, SurveyPage8.class);
+        startActivity(SurveyPage8);
 
     }
 

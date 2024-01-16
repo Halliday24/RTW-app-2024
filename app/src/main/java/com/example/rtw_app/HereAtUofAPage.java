@@ -73,8 +73,8 @@ public class HereAtUofAPage extends AppCompatActivity {
     }
 
     private void goBack() {
-        //Intent previousIntent = new Intent(this, PreviousActivity.class); // Change PreviousActivity to the actual previous activity
-        //startActivity(previousIntent);
+        Intent SurveyPage10 = new Intent(this, SurveyPage10.class);
+        startActivity(SurveyPage10);
     }
 
     private void collectAndStoreResponses() {
@@ -113,4 +113,6 @@ public class HereAtUofAPage extends AppCompatActivity {
             }
         }
     }
+
+
 }
