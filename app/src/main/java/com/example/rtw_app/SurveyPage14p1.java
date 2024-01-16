@@ -10,22 +10,44 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class SurveyPage1p3 extends AppCompatActivity {
+public class SurveyPage14p1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey_page1p3);
+        setContentView(R.layout.activity_survey_page14p1);
 
-        Button submitButton = findViewById(R.id.nextButton);
+        //option1
+        TextView textView1 = (TextView) findViewById(R.id.TimeManagement_Option1);
+        textView1.setText("I make plans each week about " +
+                "how I will spend my time");
+        //option2
+        TextView textview2 = (TextView) findViewById(R.id.TimeManagement_Option2);
+        textview2.setText("I follow through with the plans I " +
+                "make around how I spend my " +
+                "time");
+        //option3
+        TextView textview3 = (TextView) findViewById(R.id.TimeManagement_Option3);
+        textview3.setText("I complete major assignments " +
+                "and hand them in on time ");
+        //option4
+        TextView textview4 = (TextView) findViewById(R.id.TimeManagement_Option4);
+        textview4.setText("I study at least 2 hours for " +
+                "every hour I spend in class");
+        //option5
+        TextView textview5 = (TextView) findViewById(R.id.TimeManagement_Option5);
+        textview5.setText("I can estimate how much time " +
+                "a task is going to take");
 
-        submitButton.setOnClickListener(new View.OnClickListener() {
+        Button nextButton = findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                goToImpactWorkPage();
+                goToTimeManagement2();
             }
         });
+
 
         Button buttonBack=findViewById(R.id.BackButton);
 
@@ -55,18 +77,18 @@ public class SurveyPage1p3 extends AppCompatActivity {
                 setTextColorForAllTextViews((ViewGroup) childView, color);
             }
         }
+
     }
 
-
-    public void goToImpactWorkPage(){
-        Intent impactWorkPage = new Intent(this, SurveyPage2.class);
-        startActivity(impactWorkPage);
+    public void goToTimeManagement2(){
+        Intent TimeManagement2 = new Intent(this, SurveyPage14p2.class);
+        startActivity(TimeManagement2);
 
     }
 
     public void goBack(){
-        Intent impactAcademicPage2 = new Intent(this, SurveyPage1p2.class);
-        startActivity(impactAcademicPage2);
+        Intent Education_And_Goals2 = new Intent(this, SurveyPage13p2.class);
+        startActivity(Education_And_Goals2);
 
     }
 }

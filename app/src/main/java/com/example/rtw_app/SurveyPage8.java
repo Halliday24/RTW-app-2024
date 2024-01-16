@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-
+//written response section under survey page 7
 public class SurveyPage8 extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;

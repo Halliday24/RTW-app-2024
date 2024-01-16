@@ -10,43 +10,41 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class SurveyPage10 extends AppCompatActivity {
-
+public class SurveyPage13p1 extends AppCompatActivity {
+//need to add Education and Goals to top header
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey_page10);
+        setContentView(R.layout.activity_survey_page13p1);
 
-        TextView textView = (TextView) findViewById(R.id.surveyPage9_Question);
-        textView.setText("Attitude and Motivation");
         //option1
-        TextView textView1 = (TextView) findViewById(R.id.surveyPage9_Option1);
-        textView1.setText("Class lectures and discussion " +
-                "stimulate me");
+        TextView textView1 = (TextView) findViewById(R.id.Education_And_Goals_Option1);
+        textView1.setText("I want to complete a degree");
         //option2
-        TextView textview2 = (TextView) findViewById(R.id.surveyPage9_Option2);
-        textview2.setText("I enjoy and want to be at " +
-                "university ");
+        TextView textview2 = (TextView) findViewById(R.id.Education_And_Goals_Option2);
+        textview2.setText("I feel confident in my major " +
+                "choice  ");
         //option3
-        TextView textview3 = (TextView) findViewById(R.id.surveyPage9_Option3);
-        textview3.setText("There are one or two subjects " +
-                "in school that I always enjoy  ");
+        TextView textview3 = (TextView) findViewById(R.id.Education_And_Goals_Option3);
+        textview3.setText("I am considering graduate " +
+                "school");
         //option4
-        TextView textview4 = (TextView) findViewById(R.id.surveyPage9_Option4);
-        textview4.setText(" I attend class ");
+        TextView textview4 = (TextView) findViewById(R.id.Education_And_Goals_Option4);
+        textview4.setText("I’m actively exploring career " +
+                "options and pursuing " +
+                "opportunities to gain relevant " +
+                "experience ");
         //option5
-        TextView textview5 = (TextView) findViewById(R.id.surveyPage9_Option5);
-        textview5.setText("I am engaged in class and in " +
-                "small group discussions");
-
-
+        TextView textview5 = (TextView) findViewById(R.id.Education_And_Goals_Option5);
+        textview5.setText("I know what it takes to be in the " +
+                "career I have chosen ");
 
         Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                goTohere_at_uofa_page();
+                goToEducation_And_Goals2();
             }
         });
 
@@ -66,7 +64,6 @@ public class SurveyPage10 extends AppCompatActivity {
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
     }
 
-
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -83,16 +80,15 @@ public class SurveyPage10 extends AppCompatActivity {
 
     }
 
-    public void goTohere_at_uofa_page(){
-        Intent here_at_uofa_page = new Intent(this, SurveyPage11.class);
-        startActivity(here_at_uofa_page);
+    public void goToEducation_And_Goals2(){
+        Intent Education_And_Goals2 = new Intent(this, SurveyPage13p2.class);
+        startActivity(Education_And_Goals2);
 
     }
 
     public void goBack(){
-        Intent impactAcademicPage2 = new Intent(this, SurveyPage5.class);
-        startActivity(impactAcademicPage2);
+        Intent Self_efficacy2 = new Intent(this, SurveyPage12p2.class);
+        startActivity(Self_efficacy2);
 
     }
-
 }

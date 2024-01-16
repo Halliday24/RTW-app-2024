@@ -10,22 +10,30 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class SurveyPage1p3 extends AppCompatActivity {
+public class SurveyPage13p2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey_page1p3);
+        setContentView(R.layout.activity_survey_page13p2);
 
-        Button submitButton = findViewById(R.id.nextButton);
+        //option1
+        TextView textView1 = (TextView) findViewById(R.id.Education_And_Goals2_Option1);
+        textView1.setText("I know my strengths and how " +
+                "they will help me be successful");
+        //option2
+        TextView textview2 = (TextView) findViewById(R.id.Education_And_Goals2_Option2);
+        textview2.setText("I have a faculty or staff mentor");
 
-        submitButton.setOnClickListener(new View.OnClickListener() {
+        Button nextButton = findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                goToImpactWorkPage();
+                goToTimeManagement();
             }
         });
+
 
         Button buttonBack=findViewById(R.id.BackButton);
 
@@ -42,6 +50,8 @@ public class SurveyPage1p3 extends AppCompatActivity {
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
     }
 
+
+
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -55,18 +65,18 @@ public class SurveyPage1p3 extends AppCompatActivity {
                 setTextColorForAllTextViews((ViewGroup) childView, color);
             }
         }
+
     }
 
-
-    public void goToImpactWorkPage(){
-        Intent impactWorkPage = new Intent(this, SurveyPage2.class);
-        startActivity(impactWorkPage);
+    public void goToTimeManagement(){
+        Intent TimeManagement = new Intent(this, SurveyPage14p1.class);
+        startActivity(TimeManagement);
 
     }
 
     public void goBack(){
-        Intent impactAcademicPage2 = new Intent(this, SurveyPage1p2.class);
-        startActivity(impactAcademicPage2);
+        Intent Education_And_Goals = new Intent(this, SurveyPage13p1.class);
+        startActivity(Education_And_Goals);
 
     }
 }

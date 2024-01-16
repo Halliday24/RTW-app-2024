@@ -1,0 +1,352 @@
+Index: app/src/main/res/layout/activity_impact_academic_page2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n\n<LinearLayout\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:orientation=\"vertical\"\n    android:padding=\"16dp\">\n\n\n    <ImageView\n        android:id=\"@+id/TopGreenBar\"\n        android:layout_width=\"394dp\"\n        android:layout_height=\"125dp\"\n        android:background=\"#38761d\"\n        android:contentDescription=\"TODO\" />\n\n    <TextView\n        android:id=\"@+id/impactQuestion\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"How much of an impact did each of these potential academic barriers have on your learning and grades last year?\"\n        android:textColor=\"@color/black\"\n        android:textSize=\"13sp\"\n        android:textStyle=\"bold\" />\n\n\n\n    <!-- Question 6: Inadequate reading/writing skills -->\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Inadequate reading/writing skills?\"\n        android:textStyle=\"bold\"/>\n\n    <RadioGroup\n        android:id=\"@+id/prepRadioGroup\"\n        android:layout_width=\"395dp\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"horizontal\">\n\n        <RadioButton\n            android:id=\"@+id/neverRadioButton5\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/sometimesRadioButton5\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/halfRadioButton5\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/mostRadioButton5\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\" />\n\n        <RadioButton\n            android:id=\"@+id/alwaysRadioButton5\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginLeft=\"35dp\"/>\n\n    </RadioGroup>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"Never        Sometimes      About half        Most of        Always\"\n        android:textStyle=\"bold\"\n        />\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"of the time      the time\"\n        android:layout_marginLeft=\"158dp\"\n        android:textStyle=\"bold\"\n        />\n\n    <!-- Question 7: inadequate math skills? -->\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Inadequate math skills?\"\n        android:textStyle=\"bold\"/>\n\n    <RadioGroup\n        android:id=\"@+id/readWriteRadioGroup\"\n        android:layout_width=\"395dp\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"horizontal\">\n\n        <RadioButton\n            android:id=\"@+id/neverRadioButton6\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/sometimesRadioButton6\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/halfRadioButton6\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/mostRadioButton6\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\" />\n\n        <RadioButton\n            android:id=\"@+id/alwaysRadioButton6\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginLeft=\"35dp\"/>\n\n    </RadioGroup>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"Never        Sometimes      About half        Most of        Always\"\n        android:textStyle=\"bold\"\n        />\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"of the time      the time\"\n        android:layout_marginLeft=\"158dp\"\n        android:textStyle=\"bold\"\n        />\n\n\n    <!-- Question 8: Easily distracted? -->\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Easily distracted?\"\n        android:textStyle=\"bold\"/>\n\n    <RadioGroup\n        android:id=\"@+id/mathSkillsRadioGroup\"\n        android:layout_width=\"395dp\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"horizontal\">\n\n        <RadioButton\n            android:id=\"@+id/neverRadioButton2\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/sometimesRadioButton2\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/halfRadioButton2\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/mostRadioButton2\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\" />\n\n        <RadioButton\n            android:id=\"@+id/alwaysRadioButton2\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginLeft=\"35dp\"/>\n\n    </RadioGroup>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"Never        Sometimes      About half        Most of        Always\"\n        android:textStyle=\"bold\"\n        />\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"of the time      the time\"\n        android:layout_marginLeft=\"158dp\"\n        android:textStyle=\"bold\"\n        />\n\n    <!-- Question 9: Unhappy with instructor -->\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Unhappy with instructor?\"\n        android:textStyle=\"bold\"/>\n\n    <RadioGroup\n        android:id=\"@+id/disabilityRadioGroup\"\n        android:layout_width=\"395dp\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"horizontal\">\n\n        <RadioButton\n            android:id=\"@+id/neverRadioButton4\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/sometimesRadioButton4\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/halfRadioButton4\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/mostRadioButton4\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\" />\n\n        <RadioButton\n            android:id=\"@+id/alwaysRadioButton4\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginLeft=\"35dp\"/>\n\n    </RadioGroup>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"Never        Sometimes      About half        Most of        Always\"\n        android:textStyle=\"bold\"\n        />\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"of the time      the time\"\n        android:layout_marginLeft=\"158dp\"\n        android:textStyle=\"bold\"\n        />\n\n\n\n    <!-- Next Button -->\n    <Button\n        android:id=\"@+id/nextButton\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginLeft=\"300dp\"\n        android:text=\"Next\"\n        android:textStyle=\"bold\"\n        android:textSize=\"12dp\"/>\n</LinearLayout>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_impact_academic_page2.xml b/app/src/main/res/layout/activity_impact_academic_page2.xml
+--- a/app/src/main/res/layout/activity_impact_academic_page2.xml	(revision 6f254d15bc2181268d24619c61324bc552969b71)
++++ b/app/src/main/res/layout/activity_impact_academic_page2.xml	(date 1704905334053)
+@@ -12,7 +12,7 @@
+         android:id="@+id/TopGreenBar"
+         android:layout_width="394dp"
+         android:layout_height="125dp"
+-        android:background="#38761d"
++        android:background="@color/Green"
+         android:contentDescription="TODO" />
+ 
+     <TextView
+Index: app/src/main/res/layout/activity_instruction_page.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".InstructionPage\">\n\n    <ImageView\n        android:id=\"@+id/TopGreenBar\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"125dp\"\n        android:background=\"#38761d\"\n        android:contentDescription=\"TODO\"\n        app:layout_constraintBottom_toTopOf=\"@id/Instructions\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintHorizontal_bias=\"0.0\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\">\n\n    </ImageView>\n\n    <TextView\n        android:id=\"@+id/Instructions\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:textSize=\"18dp\"\n        android:layout_marginStart=\"0dp\"\n        android:layout_marginTop=\"200dp\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@id/TopGreenBar\">\n\n    </TextView>\n\n    <ImageView\n        android:id=\"@+id/BottomGreenBar\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"125dp\"\n        android:layout_alignParentBottom=\"true\"\n        android:layout_marginTop=\"700dp\"\n        android:background=\"#38761d\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintHorizontal_bias=\"1.0\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\" />\n\n    <Button\n        android:id=\"@+id/buttonNext\"\n        android:layout_width=\"140dp\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginTop=\"720dp\"\n        android:backgroundTint=\"#3c78d8\"\n        android:text=\"Next\"\n        android:textColor=\"@color/white\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintHorizontal_bias=\"0.498\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\"\n        app:layout_constraintBottom_toBottomOf=\"@id/BottomGreenBar\"/>\n\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_instruction_page.xml b/app/src/main/res/layout/activity_instruction_page.xml
+--- a/app/src/main/res/layout/activity_instruction_page.xml	(revision 6f254d15bc2181268d24619c61324bc552969b71)
++++ b/app/src/main/res/layout/activity_instruction_page.xml	(date 1704905334068)
+@@ -10,7 +10,7 @@
+         android:id="@+id/TopGreenBar"
+         android:layout_width="match_parent"
+         android:layout_height="125dp"
+-        android:background="#38761d"
++        android:background="@color/Green"
+         android:contentDescription="TODO"
+         app:layout_constraintBottom_toTopOf="@id/Instructions"
+         app:layout_constraintEnd_toEndOf="parent"
+@@ -38,7 +38,7 @@
+         android:layout_height="125dp"
+         android:layout_alignParentBottom="true"
+         android:layout_marginTop="700dp"
+-        android:background="#38761d"
++        android:background="@color/Green"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintHorizontal_bias="1.0"
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+deleted file mode 100644
+--- a/.idea/.gitignore	(revision 6f254d15bc2181268d24619c61324bc552969b71)
++++ /dev/null	(revision 6f254d15bc2181268d24619c61324bc552969b71)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: .idea/checkstyle-idea.xml
+===================================================================
+diff --git a/.idea/checkstyle-idea.xml b/.idea/checkstyle-idea.xml
+deleted file mode 100644
+--- a/.idea/checkstyle-idea.xml	(revision 6f254d15bc2181268d24619c61324bc552969b71)
++++ /dev/null	(revision 6f254d15bc2181268d24619c61324bc552969b71)
+@@ -1,15 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="CheckStyle-IDEA" serialisationVersion="2">
+-    <checkstyleVersion>10.12.5</checkstyleVersion>
+-    <scanScope>JavaOnly</scanScope>
+-    <option name="thirdPartyClasspath" />
+-    <option name="activeLocationIds" />
+-    <option name="locations">
+-      <list>
+-        <ConfigurationLocation id="bundled-sun-checks" type="BUNDLED" scope="All" description="Sun Checks">(bundled)</ConfigurationLocation>
+-        <ConfigurationLocation id="bundled-google-checks" type="BUNDLED" scope="All" description="Google Checks">(bundled)</ConfigurationLocation>
+-      </list>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_end_page.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_end_page.xml b/app/src/main/res/layout/activity_end_page.xml
+new file mode 100644
+--- /dev/null	(date 1704905334058)
++++ b/app/src/main/res/layout/activity_end_page.xml	(date 1704905334058)
+@@ -0,0 +1,44 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".EndPage">
++
++    <ImageView
++        android:id="@+id/TopGreenBar"
++        android:layout_width="match_parent"
++        android:layout_height="125dp"
++        android:background="@color/Green"
++        android:contentDescription="TODO"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.0"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"/>
++
++
++
++
++    <ImageView
++        android:id="@+id/BottomGreenBar"
++        android:layout_width="match_parent"
++        android:layout_height="125dp"
++        android:layout_alignParentBottom="true"
++        android:layout_marginTop="700dp"
++        android:background="@color/Green"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintHorizontal_bias="1.0"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <TextView
++        android:id="@+id/textView2"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="What new habits do you plan to dev"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@id/TopGreenBar" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".MainActivity\">\n\n    <ImageView\n        android:id=\"@+id/TopGreenBar\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"125dp\"\n        android:background=\"#38761d\"\n        android:contentDescription=\"TODO\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintHorizontal_bias=\"0.498\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\"\n        app:layout_constraintBottom_toTopOf=\"@id/TopText\">\n\n    </ImageView>\n\n\n    <TextView\n        android:id=\"@+id/TopText\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginBottom=\"700dp\"\n        android:text=\"Requirement to withdraw Appeal Workbook\"\n        android:textAlignment=\"center\"\n        android:textColor=\"@color/black\"\n        android:textSize=\"25dp\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@id/TopGreenBar\"\n        tools:layout_editor_absoluteX=\"16dp\" />\n\n    <TextView\n        android:id=\"@+id/LoginText\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginStart=\"156dp\"\n        android:layout_marginBottom=\"580dp\"\n        android:text=\"Login\"\n        android:textColor=\"@color/black\"\n        android:textSize=\"40dp\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@id/TopText\">\n\n    </TextView>\n\n    <EditText\n        android:id=\"@+id/LoginEmail\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"70dp\"\n        android:hint=\"Email\"\n        android:inputType=\"text\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintHorizontal_bias=\"0.0\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@+id/LoginText\"\n        app:layout_constraintVertical_bias=\"0.254\" />\n\n    <EditText\n        android:id=\"@+id/LoginCCID\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"60dp\"\n        android:hint=\"CCID\"\n        android:inputType=\"textPassword\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintHorizontal_bias=\"0.0\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@id/LoginEmail\"\n        app:layout_constraintVertical_bias=\"0.0\" />\n\n    <EditText\n        android:id=\"@+id/LoginName\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"70dp\"\n        android:hint=\"Name\"\n        android:inputType=\"text\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintHorizontal_bias=\"0.0\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@+id/LoginCCID\"\n        app:layout_constraintVertical_bias=\"0.0\" />\n\n    <ImageView\n        android:id=\"@+id/BottomGreenBar\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"125dp\"\n        android:layout_alignParentBottom=\"true\"\n        android:layout_marginTop=\"700dp\"\n        android:background=\"#38761d\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintHorizontal_bias=\"1.0\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\" />\n\n    <Button\n        android:id=\"@+id/buttonLogin\"\n        android:layout_width=\"140dp\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginTop=\"720dp\"\n        android:backgroundTint=\"#3c78d8\"\n        android:text=\"Start\"\n        android:textColor=\"@color/white\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintHorizontal_bias=\"0.498\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\"\n        app:layout_constraintBottom_toBottomOf=\"@id/BottomGreenBar\"/>\n\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	(revision 6f254d15bc2181268d24619c61324bc552969b71)
++++ b/app/src/main/res/layout/activity_main.xml	(date 1704905334089)
+@@ -10,7 +10,7 @@
+         android:id="@+id/TopGreenBar"
+         android:layout_width="match_parent"
+         android:layout_height="125dp"
+-        android:background="#38761d"
++        android:background="@color/Green"
+         android:contentDescription="TODO"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintHorizontal_bias="0.498"
+@@ -95,7 +95,7 @@
+         android:layout_height="125dp"
+         android:layout_alignParentBottom="true"
+         android:layout_marginTop="700dp"
+-        android:background="#38761d"
++        android:background="@color/Green"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintHorizontal_bias="1.0"
+Index: app/src/main/java/com/example/rtw_app/EndPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/rtw_app/EndPage.java b/app/src/main/java/com/example/rtw_app/EndPage.java
+new file mode 100644
+--- /dev/null	(date 1704905334046)
++++ b/app/src/main/java/com/example/rtw_app/EndPage.java	(date 1704905334046)
+@@ -0,0 +1,15 @@
++package com.example.rtw_app;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.os.Bundle;
++
++//this file is responsible for the end message that will be displayed once completed the workbook
++public class EndPage extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_end_page);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:tools=\"http://schemas.android.com/tools\">\n\n    <application\n        android:allowBackup=\"true\"\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\n        android:fullBackupContent=\"@xml/backup_rules\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/Theme.RTWApp\"\n        tools:targetApi=\"31\">\n        <activity\n            android:name=\".SurveyPage7\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".SurveyPage6\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".SurveyPage4\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".SurveyPage3\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".SurveyPage13\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".impactAcademicPage3\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".impactAcademicPage2\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".SurveyPage\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".ImpactWorkPage\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".LoginPage\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".InstructionPage\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".impactAcademicPage\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".MainActivity\"\n            android:exported=\"true\"\n            android:label=\"@string/app_name\"\n            android:theme=\"@style/Theme.RTWApp\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n    </application>\n\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 6f254d15bc2181268d24619c61324bc552969b71)
++++ b/app/src/main/AndroidManifest.xml	(date 1704904359317)
+@@ -13,6 +13,20 @@
+         android:theme="@style/Theme.RTWApp"
+         tools:targetApi="31">
+         <activity
++            android:name=".EndPage"
++            android:exported="false" />
++        <activity
++            android:name=".MainActivity"
++            android:exported="true"
++            android:label="@string/app_name"
++            android:theme="@style/Theme.RTWApp">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++        <activity
+             android:name=".SurveyPage7"
+             android:exported="false" />
+         <activity
+@@ -48,17 +62,6 @@
+         <activity
+             android:name=".impactAcademicPage"
+             android:exported="false" />
+-        <activity
+-            android:name=".MainActivity"
+-            android:exported="true"
+-            android:label="@string/app_name"
+-            android:theme="@style/Theme.RTWApp">
+-            <intent-filter>
+-                <action android:name="android.intent.action.MAIN" />
+-
+-                <category android:name="android.intent.category.LAUNCHER" />
+-            </intent-filter>
+-        </activity>
+     </application>
+ 
+ </manifest>
+\ No newline at end of file
+Index: settings.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>pluginManagement {\n    repositories {\n        google()\n        mavenCentral()\n        gradlePluginPortal()\n    }\n}\ndependencyResolutionManagement {\n    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)\n    repositories {\n        google()\n        mavenCentral()\n    }\n}\n\nrootProject.name = \"RTW-App\"\ninclude(\":app\")\n 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/settings.gradle.kts b/settings.gradle.kts
+--- a/settings.gradle.kts	(revision 6f254d15bc2181268d24619c61324bc552969b71)
++++ b/settings.gradle.kts	(date 1704903343541)
+@@ -15,4 +15,4 @@
+ 
+ rootProject.name = "RTW-App"
+ include(":app")
+- 
+\ No newline at end of file
++include(":app")
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"VcsDirectoryMappings\">\n    <mapping directory=\"$PROJECT_DIR$\" vcs=\"Git\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml	(revision 6f254d15bc2181268d24619c61324bc552969b71)
++++ b/.idea/vcs.xml	(date 1704903483136)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++    <mapping directory="" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/deploymentTargetDropDown.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"deploymentTargetDropDown\">\n    <value>\n      <entry key=\"MainActivity\">\n        <State />\n      </entry>\n      <entry key=\"SurveyPage\">\n        <State />\n      </entry>\n      <entry key=\"app\">\n        <State>\n          <targetSelectedWithDropDown>\n            <Target>\n              <type value=\"QUICK_BOOT_TARGET\" />\n              <deviceKey>\n                <Key>\n                  <type value=\"VIRTUAL_DEVICE_PATH\" />\n                  <value value=\"C:\\Users\\bomah\\.android\\avd\\Pixel_7_Pro_API_30.avd\" />\n                </Key>\n              </deviceKey>\n            </Target>\n          </targetSelectedWithDropDown>\n          <timeTargetWasSelectedWithDropDown value=\"2024-01-09T16:07:43.268343Z\" />\n        </State>\n      </entry>\n    </value>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+--- a/.idea/deploymentTargetDropDown.xml	(revision 6f254d15bc2181268d24619c61324bc552969b71)
++++ b/.idea/deploymentTargetDropDown.xml	(date 1704903483146)
+@@ -2,27 +2,8 @@
+ <project version="4">
+   <component name="deploymentTargetDropDown">
+     <value>
+-      <entry key="MainActivity">
+-        <State />
+-      </entry>
+-      <entry key="SurveyPage">
++      <entry key="app">
+         <State />
+-      </entry>
+-      <entry key="app">
+-        <State>
+-          <targetSelectedWithDropDown>
+-            <Target>
+-              <type value="QUICK_BOOT_TARGET" />
+-              <deviceKey>
+-                <Key>
+-                  <type value="VIRTUAL_DEVICE_PATH" />
+-                  <value value="C:\Users\bomah\.android\avd\Pixel_7_Pro_API_30.avd" />
+-                </Key>
+-              </deviceKey>
+-            </Target>
+-          </targetSelectedWithDropDown>
+-          <timeTargetWasSelectedWithDropDown value="2024-01-09T16:07:43.268343Z" />
+-        </State>
+       </entry>
+     </value>
+   </component>
+Index: app/src/main/res/layout/activity_impact_academic_page3.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n\n<LinearLayout\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:orientation=\"vertical\"\n    android:padding=\"16dp\">\n\n\n\n\n    <ImageView\n        android:id=\"@+id/TopGreenBar\"\n        android:layout_width=\"394dp\"\n        android:layout_height=\"125dp\"\n        android:background=\"#38761d\"\n        android:contentDescription=\"TODO\" />\n\n    <TextView\n        android:id=\"@+id/impactQuestion\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n\n        android:text=\"How much of an impact did each of these potential academic barriers have on your learning and grades last year?\"\n        android:textColor=\"@color/black\"\n        android:textSize=\"15dp\"\n        android:textStyle=\"bold\" />\n\n    <!-- Question 10: Online course(s) -->\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Online course(s)\"\n        android:textStyle=\"bold\"/>\n\n    <RadioGroup\n        android:id=\"@+id/studyRadioGroup\"\n        android:layout_width=\"395dp\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"horizontal\">\n\n        <RadioButton\n            android:id=\"@+id/neverRadioButton\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/sometimesRadioButton\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/halfRadioButton\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/mostRadioButton\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\" />\n\n        <RadioButton\n            android:id=\"@+id/alwaysRadioButton\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginLeft=\"35dp\"/>\n\n    </RadioGroup>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"Never        Sometimes      About half        Most of        Always\"\n        android:textStyle=\"bold\"/>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"of the time      the time\"\n        android:layout_marginLeft=\"158dp\"\n        android:textStyle=\"bold\"/>\n\n    <!-- Question 11: Lack of proficiency using eClass, Bear Tracks, or required apps -->\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Lack of proficiency using eClass, Bear Tracks, or required apps\"\n        android:textStyle=\"bold\"\n        android:textSize=\"12sp\"/>\n\n    <RadioGroup\n        android:id=\"@+id/timeRadioGroup\"\n        android:layout_width=\"395dp\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"horizontal\">\n\n        <RadioButton\n            android:id=\"@+id/neverRadioButton3\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/sometimesRadioButton3\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/halfRadioButton3\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/mostRadioButton3\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\" />\n\n        <RadioButton\n            android:id=\"@+id/alwaysRadioButton3\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginLeft=\"35dp\"/>\n\n    </RadioGroup>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"Never        Sometimes      About half        Most of        Always\"\n        android:textStyle=\"bold\"/>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"of the time      the time\"\n        android:layout_marginLeft=\"158dp\"\n        />\n\n\n    <!-- Question 12:Lack of awareness of university policies and/ or expectations -->\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Lack of awareness of university policies and/ or expectations\"\n        android:textSize=\"10dp\"\n        android:textStyle=\"bold\"/>\n\n    <RadioGroup\n        android:id=\"@+id/poorStudyRadioGroup2\"\n        android:layout_width=\"395dp\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"horizontal\">\n\n        <RadioButton\n            android:id=\"@+id/neverRadioButton2\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/sometimesRadioButton2\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/halfRadioButton2\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/mostRadioButton2\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\" />\n\n        <RadioButton\n            android:id=\"@+id/alwaysRadioButton2\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginLeft=\"35dp\"/>\n\n    </RadioGroup>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"Never        Sometimes      About half        Most of        Always\"\n        android:textStyle=\"bold\"/>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"of the time      the time\"\n        android:layout_marginLeft=\"158dp\"\n        android:textStyle=\"bold\"\n        />\n\n    <!-- Question 13:Challenges working in groups with classmates -->\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Challenges working in groups with classmates\"\n        android:textStyle=\"bold\"/>\n\n    <RadioGroup\n        android:id=\"@+id/disabilityRadioGroup\"\n        android:layout_width=\"395dp\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"horizontal\">\n\n        <RadioButton\n            android:id=\"@+id/neverRadioButton4\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/sometimesRadioButton4\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/halfRadioButton4\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/mostRadioButton4\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\" />\n\n        <RadioButton\n            android:id=\"@+id/alwaysRadioButton4\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginLeft=\"35dp\"/>\n\n    </RadioGroup>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"Never        Sometimes      About half        Most of        Always\"\n        android:textStyle=\"bold\"/>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"of the time      the time\"\n        android:layout_marginLeft=\"158dp\"\n        android:textStyle=\"bold\" />\n\n\n    <!-- Next Button -->\n    <Button\n        android:id=\"@+id/nextButton\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginLeft=\"300dp\"\n        android:text=\"Next\"\n        android:textStyle=\"bold\"\n        android:textSize=\"12dp\"/>\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_impact_academic_page3.xml b/app/src/main/res/layout/activity_impact_academic_page3.xml
+--- a/app/src/main/res/layout/activity_impact_academic_page3.xml	(revision 6f254d15bc2181268d24619c61324bc552969b71)
++++ b/app/src/main/res/layout/activity_impact_academic_page3.xml	(date 1704905334032)
+@@ -14,7 +14,7 @@
+         android:id="@+id/TopGreenBar"
+         android:layout_width="394dp"
+         android:layout_height="125dp"
+-        android:background="#38761d"
++        android:background="@color/Green"
+         android:contentDescription="TODO" />
+ 
+     <TextView
+Index: app/src/main/res/layout/activity_impact_academic_page.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n\n<LinearLayout\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:orientation=\"vertical\"\n    android:padding=\"16dp\">\n\n\n    <!-- Question 1: study habits -->\n\n    <ImageView\n        android:id=\"@+id/TopGreenBar\"\n        android:layout_width=\"394dp\"\n        android:layout_height=\"125dp\"\n        android:background=\"#38761d\"\n        android:contentDescription=\"TODO\" />\n\n    <TextView\n        android:id=\"@+id/impactQuestion\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n\n        android:text=\"How much of an impact did each of these potential academic barriers have on your learning and grades last year?\"\n        android:textColor=\"@color/black\"\n        android:textSize=\"15dp\"\n        android:textStyle=\"bold\" />\n\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Ineffective study habits?\"\n        android:textStyle=\"bold\"/>\n\n    <RadioGroup\n        android:id=\"@+id/studyRadioGroup\"\n        android:layout_width=\"395dp\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"horizontal\">\n\n        <RadioButton\n            android:id=\"@+id/neverRadioButton\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/sometimesRadioButton\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/halfRadioButton\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/mostRadioButton\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\" />\n\n        <RadioButton\n            android:id=\"@+id/alwaysRadioButton\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginLeft=\"35dp\"/>\n\n    </RadioGroup>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"Never        Sometimes      About half        Most of        Always\"\n        android:textStyle=\"bold\"/>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"of the time      the time\"\n        android:layout_marginLeft=\"158dp\"\n        android:textStyle=\"bold\"/>\n\n    <!-- Question 2: time management -->\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"poor time management?\"\n        android:textStyle=\"bold\"/>\n\n    <RadioGroup\n        android:id=\"@+id/timeRadioGroup\"\n        android:layout_width=\"395dp\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"horizontal\">\n\n        <RadioButton\n            android:id=\"@+id/neverRadioButton3\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/sometimesRadioButton3\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/halfRadioButton3\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/mostRadioButton3\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\" />\n\n        <RadioButton\n            android:id=\"@+id/alwaysRadioButton3\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginLeft=\"35dp\"/>\n\n    </RadioGroup>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"Never        Sometimes      About half        Most of        Always\"\n        android:textStyle=\"bold\"/>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"of the time      the time\"\n        android:layout_marginLeft=\"158dp\"\n        />\n\n\n    <!-- Question 3: Study environment? -->\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"poor study environment?\"\n        android:textStyle=\"bold\"/>\n\n    <RadioGroup\n        android:id=\"@+id/poorStudyRadioGroup2\"\n        android:layout_width=\"395dp\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"horizontal\">\n\n        <RadioButton\n            android:id=\"@+id/neverRadioButton2\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/sometimesRadioButton2\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/halfRadioButton2\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/mostRadioButton2\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\" />\n\n        <RadioButton\n            android:id=\"@+id/alwaysRadioButton2\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginLeft=\"35dp\"/>\n\n    </RadioGroup>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"Never        Sometimes      About half        Most of        Always\"\n        android:textStyle=\"bold\"/>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"of the time      the time\"\n        android:layout_marginLeft=\"158dp\"\n        android:textStyle=\"bold\"\n        />\n\n    <!-- Question 4: Learning disability? -->\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Learning disability?\"\n        android:textStyle=\"bold\"/>\n\n    <RadioGroup\n        android:id=\"@+id/disabilityRadioGroup\"\n        android:layout_width=\"395dp\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"horizontal\">\n\n        <RadioButton\n            android:id=\"@+id/neverRadioButton4\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/sometimesRadioButton4\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/halfRadioButton4\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/mostRadioButton4\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\" />\n\n        <RadioButton\n            android:id=\"@+id/alwaysRadioButton4\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginLeft=\"35dp\"/>\n\n    </RadioGroup>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"Never        Sometimes      About half        Most of        Always\"\n        android:textStyle=\"bold\"/>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"of the time      the time\"\n        android:layout_marginLeft=\"158dp\"\n        android:textStyle=\"bold\" />\n\n    <!-- Question 5: Ineffective academic preparation? -->\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Ineffective academic preparation?\"\n        android:textStyle=\"bold\" />\n\n    <RadioGroup\n        android:id=\"@+id/preparationRadioGroup\"\n        android:layout_width=\"395dp\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"horizontal\">\n\n        <RadioButton\n            android:id=\"@+id/neverRadioButton5\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/sometimesRadioButton5\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/halfRadioButton5\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginRight=\"35dp\"/>\n\n        <RadioButton\n            android:id=\"@+id/mostRadioButton5\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\" />\n\n        <RadioButton\n            android:id=\"@+id/alwaysRadioButton5\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginLeft=\"35dp\"/>\n\n    </RadioGroup>\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"Never        Sometimes      About half        Most of        Always\"\n        android:textStyle=\"bold\" />\n\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"15dp\"\n        android:text=\"of the time      the time\"\n        android:layout_marginLeft=\"158dp\"\n        android:textStyle=\"bold\" />\n\n    <!-- Next Button -->\n    <Button\n        android:id=\"@+id/nextButton\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginLeft=\"300dp\"\n        android:text=\"Next\"\n        android:textStyle=\"bold\"\n        android:textSize=\"12dp\"/>\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_impact_academic_page.xml b/app/src/main/res/layout/activity_impact_academic_page.xml
+--- a/app/src/main/res/layout/activity_impact_academic_page.xml	(revision 6f254d15bc2181268d24619c61324bc552969b71)
++++ b/app/src/main/res/layout/activity_impact_academic_page.xml	(date 1704905334074)
+@@ -14,7 +14,7 @@
+         android:id="@+id/TopGreenBar"
+         android:layout_width="394dp"
+         android:layout_height="125dp"
+-        android:background="#38761d"
++        android:background="@color/Green"
+         android:contentDescription="TODO" />
+ 
+     <TextView

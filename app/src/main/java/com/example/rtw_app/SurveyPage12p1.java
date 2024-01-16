@@ -10,22 +10,39 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class SurveyPage1p3 extends AppCompatActivity {
+public class SurveyPage12p1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey_page1p3);
+        setContentView(R.layout.activity_survey_page12p1);
+        TextView textView = (TextView) findViewById(R.id.self_efficacy_Question2);
+        textView.setText("Self-Efficacy and Growth Mindset");
+        //option1
+        TextView textView1 = (TextView) findViewById(R.id.self_efficacy_Option1);
+        textView1.setText("Overall, I’m a pretty positive " +
+                "person and I believe in my " +
+                "potential");
+        //option2
+        TextView textview2 = (TextView) findViewById(R.id.self_efficacy_Option2);
+        textview2.setText("I believe my academic ability is " +
+                "something I can substantially " +
+                "change");
+        //option3
+        TextView textview3 = (TextView) findViewById(R.id.self_efficacy_Option3);
+        textview3.setText("Hard work, focus, and " +
+                "perseverance determine my " +
+                "results");
 
-        Button submitButton = findViewById(R.id.nextButton);
-
-        submitButton.setOnClickListener(new View.OnClickListener() {
+        Button nextButton = findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                goToImpactWorkPage();
+                goToself_efficacy2();
             }
         });
+
 
         Button buttonBack=findViewById(R.id.BackButton);
 
@@ -40,6 +57,8 @@ public class SurveyPage1p3 extends AppCompatActivity {
 
         // Set text color for all TextViews in the layout
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
+
+
     }
 
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
@@ -55,18 +74,18 @@ public class SurveyPage1p3 extends AppCompatActivity {
                 setTextColorForAllTextViews((ViewGroup) childView, color);
             }
         }
+
     }
 
-
-    public void goToImpactWorkPage(){
-        Intent impactWorkPage = new Intent(this, SurveyPage2.class);
-        startActivity(impactWorkPage);
+    public void goToself_efficacy2(){
+        Intent Self_efficacy2 = new Intent(this, SurveyPage12p2.class);
+        startActivity(Self_efficacy2);
 
     }
 
     public void goBack(){
-        Intent impactAcademicPage2 = new Intent(this, SurveyPage1p2.class);
-        startActivity(impactAcademicPage2);
+        Intent SurveyPage10 = new Intent(this, SurveyPage10.class);
+        startActivity(SurveyPage10);
 
     }
 }

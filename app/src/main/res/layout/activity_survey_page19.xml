@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="Test Preparation Skills"
+        android:text="Test Taking Skills"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -32,7 +32,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My study time for tests is organized and thorough"
+        android:text="I complete my tests with time to review"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:background="@color/gray"/>
@@ -91,7 +91,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I begin studying for tests several days before the test"
+        android:text="When I study hard, my test scores are good"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:background="@color/gray"/>
@@ -151,7 +151,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I tend to do well on tests without a lot of preparation"
+        android:text="I feel confident about my test and have low anxiety"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:background="@color/gray"/>
@@ -210,7 +210,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I do well on tests when I am well prepared"
+        android:text="My test scores accurately reflect my understanding of the course"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:background="@color/gray"/>

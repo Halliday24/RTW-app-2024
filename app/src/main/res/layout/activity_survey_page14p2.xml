@@ -1,216 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/digitalWhite">
-
-
-    <!-- Question 1: study habits -->
+    tools:context=".SurveyPage14p2">
 
     <ImageView
         android:id="@+id/TopGreenBar"
-        android:layout_width="394dp"
+        android:layout_width="match_parent"
         android:layout_height="125dp"
-        android:background="#38761d"
-        android:contentDescription="TODO" />
+        android:layout_marginTop="8dp"
+        android:background="@color/Green"
+        android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/BottomGreenBar"
+        android:layout_width="401dp"
+        android:layout_height="94dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="700dp"
+        android:background="@color/Green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/impactQuestion"
+        android:id="@+id/questionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="Study Habits"
-        android:textColor="@color/black"
-        android:textSize="15dp"
+        android:layout_below="@+id/TopGreenBar"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:text="What time Management tools have worked for you in the past?"
         android:textStyle="bold"
-        android:background="@color/gray"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TopGreenBar" />
 
-    <TextView
+    <CheckBox
+        android:id="@+id/plannerCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I access available tutors or see my instructors during office hours when I need additional help"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:background="@color/gray"/>
+        android:layout_below="@id/questionText"
+        android:layout_marginTop="8dp"
+        android:text="Planner/Agenda"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionText"
+        tools:layout_editor_absoluteX="2dp" />
 
-    <RadioGroup
-        android:id="@+id/colorRadioGroup"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/neverRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
-
-        <RadioButton
-            android:id="@+id/sometimesRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
-
-        <RadioButton
-            android:id="@+id/halfRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
-
-        <RadioButton
-            android:id="@+id/mostRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <RadioButton
-            android:id="@+id/alwaysRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"/>
-
-    </RadioGroup>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="Never        Sometimes      About half        Most of        Always"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="of the time      the time"
-        android:layout_marginLeft="158dp"
-        />
-
-    <!-- Question 2: time management -->
-    <TextView
+    <CheckBox
+        android:id="@+id/eclassCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I find it helps me learn when I study with a group of students"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:background="@color/gray"/>
+        android:layout_below="@id/plannerCheckbox"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="eClass"
+        app:layout_constraintEnd_toStartOf="@+id/WhitboardCheckbox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/plannerCheckbox"
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
 
-    <RadioGroup
-        android:id="@+id/timeRadioGroup"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+    <CheckBox
+        android:id="@+id/WhitboardCheckbox"
+        android:layout_width="140dp"
+        android:layout_height="47dp"
+        android:layout_below="@id/eclassCheckbox"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="Whiteboard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
 
-        <RadioButton
-            android:id="@+id/neverRadioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+    <CheckBox
+        android:id="@+id/CalendercheckBox"
+        android:layout_width="97dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:text="Calender"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plannerCheckbox" />
 
-        <RadioButton
-            android:id="@+id/sometimesRadioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+    <CheckBox
+        android:id="@+id/PhoneAlertcheckBox"
+        android:layout_width="113dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:text="Phone Alert"
+        app:layout_constraintEnd_toStartOf="@+id/NonecheckBox"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/CalendercheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/eclassCheckbox" />
 
-        <RadioButton
-            android:id="@+id/halfRadioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+    <CheckBox
+        android:id="@+id/NonecheckBox"
+        android:layout_width="129dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="20dp"
+        android:text="None"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/WhitboardCheckbox" />
 
-        <RadioButton
-            android:id="@+id/mostRadioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+    <CheckBox
+        android:id="@+id/otherAppscheckBox"
+        android:layout_width="97dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:text="Other Apps"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CalendercheckBox" />
 
-        <RadioButton
-            android:id="@+id/alwaysRadioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"/>
-
-    </RadioGroup>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="Never        Sometimes      About half        Most of        Always"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="of the time      the time"
-        android:layout_marginLeft="158dp"
-        />
-
-
-    <!-- Question 3: Study environment? -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="I know where and how to access resources and other learning materials"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:background="@color/gray"/>
-
-    <RadioGroup
-        android:id="@+id/poorStudyRadioGroup2"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/neverRadioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
-
-        <RadioButton
-            android:id="@+id/sometimesRadioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
-
-        <RadioButton
-            android:id="@+id/halfRadioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
-
-        <RadioButton
-            android:id="@+id/mostRadioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <RadioButton
-            android:id="@+id/alwaysRadioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"/>
-
-    </RadioGroup>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="Never        Sometimes      About half        Most of        Always"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="of the time      the time"
-        android:layout_marginLeft="158dp"
-        />
-
-
-    <!-- Submit Button -->
     <Button
-        android:id="@+id/submitButton"
+        android:id="@+id/BackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit" />
-</LinearLayout>
+        android:layout_marginLeft="250dp"
+        android:text="Back"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/BottomGreenBar"
+        app:layout_constraintRight_toLeftOf="@+id/nextButton"/>
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
+        android:text="Next"
+        android:textStyle="bold"
+        android:textSize="12dp"
+        app:layout_constraintLeft_toRightOf="@+id/BackButton"
+        app:layout_constraintBottom_toTopOf="@id/BottomGreenBar"/>
+
+
+    <!-- Submit Button commented out since may not be last page-->
+<!--    <Button-->
+<!--        android:id="@+id/submitButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="361dp"-->
+<!--        android:layout_marginBottom="95dp"-->
+<!--        android:text="Submit"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/BottomGreenBar"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.05"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/TopGreenBar"-->
+<!--        app:layout_constraintVertical_bias="1.0" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

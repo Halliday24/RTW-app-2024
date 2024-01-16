@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SurveyPage21p1"
+    tools:context=".SurveyPage19"
     android:background="@color/digitalWhite">
 
     <ImageView
@@ -32,25 +32,23 @@
             android:id="@+id/question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:background="@color/gray"
-            android:text="Class Preparation"
+            android:text="Social Engagement"
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold" />
 
-<!--        review syllabus-->
         <TextView
-            android:id="@+id/syllabus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/gray"
-            android:text="I review the syllabus for each course and understand the expectations"
-            android:textSize="11.9dp"
+            android:text="I am able to say no to activities when I should study"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
         <RadioGroup
-            android:id="@+id/syllabusRadioGroup"
+            android:id="@+id/colorRadioGroup"
             android:layout_width="395dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -99,18 +97,17 @@
             android:text="of the time      the time"
             android:textStyle="bold"/>
 
-        <!-- Question 2: complete small assignments -->
+        <!-- Question 2: time management -->
         <TextView
-            android:id="@+id/complete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/gray"
-            android:text="I complete my small assignments with 24 hours after class"
+            android:text="My friends are serious about education"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
         <RadioGroup
-            android:id="@+id/completeRadioGroup"
+            android:id="@+id/timeRadioGroup"
             android:layout_width="395dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -160,18 +157,18 @@
             android:textStyle="bold"/>
 
 
-        <!-- Question 3: read assigned readings? -->
+        <!-- Question 3: Study environment? -->
         <TextView
-            android:id="@+id/read"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/gray"
-            android:text="I read the assigned reading before class"
+            android:text="I have a support system which encourages my success in school
+"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
         <RadioGroup
-            android:id="@+id/readRadioGroup"
+            android:id="@+id/poorStudyRadioGroup2"
             android:layout_width="395dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -220,18 +217,17 @@
             android:text="of the time      the time"
             android:textStyle="bold"/>
 
-        <!-- Question 4: access -->
+        <!-- Question 4: Learning disability? -->
         <TextView
-            android:id="@+id/access"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/gray"
-            android:text="I have access to my textbook and class materials"
+            android:text="I balance time for study and play"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
         <RadioGroup
-            android:id="@+id/accessRadioGroup"
+            android:id="@+id/disabilityRadioGroup"
             android:layout_width="395dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -280,18 +276,17 @@
             android:text="of the time      the time"
             android:textStyle="bold"/>
 
-        <!-- Question 5: deadlines? -->
+        <!-- Question 4: Learning disability? -->
         <TextView
-            android:id="@+id/deadlines"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/gray"
-            android:text="I turn in assignments by the set deadlines"
+            android:text="I experience social anxiety in academic settings"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
         <RadioGroup
-            android:id="@+id/deadlinesRadioGroup"
+            android:id="@+id/StressandWellbeingRadioGroup"
             android:layout_width="395dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">

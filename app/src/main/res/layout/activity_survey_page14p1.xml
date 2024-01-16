@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/digitalWhite">
-
-
-    <!-- Question 1: study habits -->
+    tools:context=".SurveyPage14p1">
 
     <ImageView
         android:id="@+id/TopGreenBar"
@@ -19,26 +15,17 @@
         android:contentDescription="TODO" />
 
     <TextView
-        android:id="@+id/impactQuestion"
+        android:id="@+id/TimeManagement_Option1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="Test Preparation Skills"
         android:textColor="@color/black"
+        android:layout_marginTop="20dp"
         android:textSize="15dp"
-        android:textStyle="bold"
-        android:background="@color/gray"/>
+        android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My study time for tests is organized and thorough"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:background="@color/gray"/>
 
     <RadioGroup
-        android:id="@+id/colorRadioGroup"
+        android:id="@+id/option1_answers"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -87,77 +74,18 @@
         android:layout_marginLeft="158dp"
         />
 
-    <!-- Question 2: time management -->
+    <!-- Option 2 -->
+
     <TextView
+        android:id="@+id/TimeManagement_Option2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I begin studying for tests several days before the test"
-        android:textStyle="bold"
         android:textColor="@color/black"
-        android:background="@color/gray"/>
+        android:textSize="15dp"
+        android:textStyle="bold" />
 
     <RadioGroup
-        android:id="@+id/timeRadioGroup"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/neverRadioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
-
-        <RadioButton
-            android:id="@+id/sometimesRadioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
-
-        <RadioButton
-            android:id="@+id/halfRadioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
-
-        <RadioButton
-            android:id="@+id/mostRadioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <RadioButton
-            android:id="@+id/alwaysRadioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"/>
-
-    </RadioGroup>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="Never        Sometimes      About half        Most of        Always"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="of the time      the time"
-        android:layout_marginLeft="158dp"
-        />
-
-
-    <!-- Question 3: Study environment? -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="I tend to do well on tests without a lot of preparation"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:background="@color/gray"/>
-
-    <RadioGroup
-        android:id="@+id/poorStudyRadioGroup2"
+        android:id="@+id/option2_answers"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -206,17 +134,77 @@
         android:layout_marginLeft="158dp"
         />
 
-    <!-- Question 4: Learning disability? -->
+    <!-- Option 3 -->
+
     <TextView
+        android:id="@+id/TimeManagement_Option3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I do well on tests when I am well prepared"
-        android:textStyle="bold"
         android:textColor="@color/black"
-        android:background="@color/gray"/>
+        android:textSize="15dp"
+        android:textStyle="bold" />
 
     <RadioGroup
-        android:id="@+id/disabilityRadioGroup"
+        android:id="@+id/option3_answers"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/neverRadioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/sometimesRadioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/halfRadioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/mostRadioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/alwaysRadioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="of the time      the time"
+        android:layout_marginLeft="158dp"
+        />
+    <!-- Option 4 -->
+
+    <TextView
+        android:id="@+id/TimeManagement_Option4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/option4_answers"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -264,12 +252,94 @@
         android:text="of the time      the time"
         android:layout_marginLeft="158dp"
         />
-
-
-    <!-- Submit Button -->
-    <Button
-        android:id="@+id/submitButton"
+    <TextView
+        android:id="@+id/TimeManagement_Option5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit" />
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/option5_answers"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/neverRadioButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/sometimesRadioButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/halfRadioButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"/>
+
+        <RadioButton
+            android:id="@+id/mostRadioButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/alwaysRadioButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="of the time      the time"
+        android:layout_marginLeft="158dp"
+        />
+
+    <!-- Next Button -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <Button
+            android:id="@+id/BackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:text="Back"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/nextButton"/>
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:text="Next"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            app:layout_constraintLeft_toRightOf="@+id/BackButton"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </LinearLayout>
