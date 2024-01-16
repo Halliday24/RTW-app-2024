@@ -2,6 +2,7 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -59,10 +60,12 @@ public class SurveyQuestion25Page extends AppCompatActivity {
 
 
     public void goToNextPage(){
-
+        Intent NextPage = new Intent(this, SurveyQuestions26and27Page.class);
+        startActivity(NextPage);
     }
 
     public void goBack(){
-
+        Intent NextPage = new Intent(this, SurveyQuestions26and27Page.class);
+        startActivity(NextPage);
     }
 }

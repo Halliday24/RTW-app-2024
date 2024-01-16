@@ -60,7 +60,8 @@ public class SurveyQuestions26and27Page extends AppCompatActivity {
 
 
     public void goToNextPage(){
-
+        Intent NextPage = new Intent(this, EndPage.class);
+        startActivity(NextPage);
 
 
     }
