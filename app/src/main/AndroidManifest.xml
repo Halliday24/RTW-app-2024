@@ -103,10 +103,10 @@
             android:name=".SurveyPage13p1"
             android:exported="false" />
         <activity
-            android:name=".impactAcademicPage3"
+            android:name=".SurveyPage1p3"
             android:exported="false" />
         <activity
-            android:name=".impactAcademicPage2"
+            android:name=".SurveyPage1p2"
             android:exported="false" />
         <activity
             android:name=".SurveyPage"
@@ -121,7 +121,7 @@
             android:name=".InstructionPage"
             android:exported="false" />
         <activity
-            android:name=".impactAcademicPage"
+            android:name=".SurveyPage1p1"
             android:exported="false" />
     </application>
 
