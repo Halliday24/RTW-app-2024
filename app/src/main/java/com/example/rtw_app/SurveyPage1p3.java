@@ -60,12 +60,14 @@ public class SurveyPage1p3 extends AppCompatActivity {
 
     public void goToImpactWorkPage(){
         Intent impactWorkPage = new Intent(this, SurveyPage2.class);
+
         startActivity(impactWorkPage);
 
     }
 
     public void goBack(){
         Intent impactAcademicPage2 = new Intent(this, SurveyPage1p2.class);
+        impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(impactAcademicPage2);
 
     }
