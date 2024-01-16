@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="Test Taking Skills"
+        android:text="Reading and Writing Skills"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -32,7 +32,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I complete my tests with time to review"
+        android:text="My long papers have multiple drafts"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:background="@color/gray"/>
@@ -91,7 +91,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="When I study hard, my test scores are good"
+        android:text="I feel confident about my writing ability"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:background="@color/gray"/>
@@ -151,7 +151,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I feel confident about my test and have low anxiety"
+        android:text="I frequently stop to check my understanding while reading"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:background="@color/gray"/>
@@ -210,7 +210,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My test scores accurately reflect my understanding of the course"
+        android:text="I have a friend or use the writing center to proofread my assignments before submitting"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:background="@color/gray"/>

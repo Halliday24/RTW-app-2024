@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="Test Preparation Skills"
+        android:text="Study Habits"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -32,7 +32,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My study time for tests is organized and thorough"
+        android:text="I access available tutors or see my instructors during office hours when I need additional help"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:background="@color/gray"/>
@@ -91,7 +91,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I begin studying for tests several days before the test"
+        android:text="I find it helps me learn when I study with a group of students"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:background="@color/gray"/>
@@ -151,7 +151,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I tend to do well on tests without a lot of preparation"
+        android:text="I know where and how to access resources and other learning materials"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:background="@color/gray"/>
@@ -187,65 +187,6 @@
 
         <RadioButton
             android:id="@+id/alwaysRadioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"/>
-
-    </RadioGroup>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="Never        Sometimes      About half        Most of        Always"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="of the time      the time"
-        android:layout_marginLeft="158dp"
-        />
-
-    <!-- Question 4: Learning disability? -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="I do well on tests when I am well prepared"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:background="@color/gray"/>
-
-    <RadioGroup
-        android:id="@+id/disabilityRadioGroup"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/neverRadioButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
-
-        <RadioButton
-            android:id="@+id/sometimesRadioButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
-
-        <RadioButton
-            android:id="@+id/halfRadioButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
-
-        <RadioButton
-            android:id="@+id/mostRadioButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <RadioButton
-            android:id="@+id/alwaysRadioButton4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"/>

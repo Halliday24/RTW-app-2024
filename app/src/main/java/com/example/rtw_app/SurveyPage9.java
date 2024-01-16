@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class SurveyPage9 extends AppCompatActivity {
-//XML Should habve Values and Goals on top but is fine regardless
+//XML Should have Values and Goals on top but is fine regardless
     private SharedPreferences sharedPreferences;
 
     @Override

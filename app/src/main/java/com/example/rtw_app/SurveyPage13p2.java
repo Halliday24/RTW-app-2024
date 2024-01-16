@@ -69,13 +69,13 @@ public class SurveyPage13p2 extends AppCompatActivity {
     }
 
     public void goToTimeManagement(){
-        Intent TimeManagement = new Intent(this, SurveyPage14.class);
+        Intent TimeManagement = new Intent(this, SurveyPage14p1.class);
         startActivity(TimeManagement);
 
     }
 
     public void goBack(){
-        Intent Education_And_Goals = new Intent(this, SurveyPage13.class);
+        Intent Education_And_Goals = new Intent(this, SurveyPage13p1.class);
         startActivity(Education_And_Goals);
 
     }

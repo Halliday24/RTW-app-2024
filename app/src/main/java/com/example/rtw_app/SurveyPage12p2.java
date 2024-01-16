@@ -83,7 +83,7 @@ public class SurveyPage12p2 extends AppCompatActivity {
     }
 
     public void goToEducation_And_Goals(){
-        Intent Education_And_Goals = new Intent(this, SurveyPage13.class);
+        Intent Education_And_Goals = new Intent(this, SurveyPage13p1.class);
         startActivity(Education_And_Goals);
 
     }

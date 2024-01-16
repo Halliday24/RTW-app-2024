@@ -10,41 +10,41 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class SurveyPage14 extends AppCompatActivity {
-
+public class SurveyPage13p1 extends AppCompatActivity {
+//need to add Education and Goals to top header
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_time_management);
+        setContentView(R.layout.activity_survey_page13p1);
 
         //option1
-        TextView textView1 = (TextView) findViewById(R.id.TimeManagement_Option1);
-        textView1.setText("I make plans each week about " +
-                "how I will spend my time");
+        TextView textView1 = (TextView) findViewById(R.id.Education_And_Goals_Option1);
+        textView1.setText("I want to complete a degree");
         //option2
-        TextView textview2 = (TextView) findViewById(R.id.TimeManagement_Option2);
-        textview2.setText("I follow through with the plans I " +
-                "make around how I spend my " +
-                "time");
+        TextView textview2 = (TextView) findViewById(R.id.Education_And_Goals_Option2);
+        textview2.setText("I feel confident in my major " +
+                "choice  ");
         //option3
-        TextView textview3 = (TextView) findViewById(R.id.TimeManagement_Option3);
-        textview3.setText("I complete major assignments " +
-                "and hand them in on time ");
+        TextView textview3 = (TextView) findViewById(R.id.Education_And_Goals_Option3);
+        textview3.setText("I am considering graduate " +
+                "school");
         //option4
-        TextView textview4 = (TextView) findViewById(R.id.TimeManagement_Option4);
-        textview4.setText("I study at least 2 hours for " +
-                "every hour I spend in class");
+        TextView textview4 = (TextView) findViewById(R.id.Education_And_Goals_Option4);
+        textview4.setText("I’m actively exploring career " +
+                "options and pursuing " +
+                "opportunities to gain relevant " +
+                "experience ");
         //option5
-        TextView textview5 = (TextView) findViewById(R.id.TimeManagement_Option5);
-        textview5.setText("I can estimate how much time " +
-                "a task is going to take");
+        TextView textview5 = (TextView) findViewById(R.id.Education_And_Goals_Option5);
+        textview5.setText("I know what it takes to be in the " +
+                "career I have chosen ");
 
         Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                goToTimeManagement2();
+                goToEducation_And_Goals2();
             }
         });
 
@@ -80,15 +80,15 @@ public class SurveyPage14 extends AppCompatActivity {
 
     }
 
-    public void goToTimeManagement2(){
-        Intent TimeManagement2 = new Intent(this, SurveyPage14p2.class);
-        startActivity(TimeManagement2);
+    public void goToEducation_And_Goals2(){
+        Intent Education_And_Goals2 = new Intent(this, SurveyPage13p2.class);
+        startActivity(Education_And_Goals2);
 
     }
 
     public void goBack(){
-        Intent Education_And_Goals2 = new Intent(this, SurveyPage13p2.class);
-        startActivity(Education_And_Goals2);
+        Intent Self_efficacy2 = new Intent(this, SurveyPage12p2.class);
+        startActivity(Self_efficacy2);
 
     }
 }

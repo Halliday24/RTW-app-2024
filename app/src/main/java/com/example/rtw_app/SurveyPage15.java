@@ -20,7 +20,7 @@ public class SurveyPage15 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_class_prep);
+        setContentView(R.layout.activity_survey_page15);
 
         sharedPreferences = getSharedPreferences("impact_responses", MODE_PRIVATE);
 
@@ -104,13 +104,13 @@ public class SurveyPage15 extends AppCompatActivity {
 
 
     public void goToPAGE(){
-        Intent PAGE = new Intent(this, SurveyPage21.class);
+        Intent PAGE = new Intent(this, SurveyPage21p1.class);
         startActivity(PAGE);
 
     }
 
     public void goBack(){
-        Intent timeManagement = new Intent(this, SurveyPage14.class);
+        Intent timeManagement = new Intent(this, SurveyPage14p1.class);
         startActivity(timeManagement);
 
     }

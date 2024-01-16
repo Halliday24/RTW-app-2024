@@ -9,6 +9,6 @@ public class SurveyPage16p2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey_page14p2);
+        setContentView(R.layout.activity_survey_page16p2);
     }
 }
