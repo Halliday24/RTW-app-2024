@@ -121,8 +121,9 @@ public class InstructionPage extends AppCompatActivity {
         }
 
     public void goToimpactAcademicPage(){
-        Intent ImpactAcademicPage = new Intent(this, SurveyPage1p1.class);
-        startActivity(ImpactAcademicPage);
+        Intent impactAcademicPage1 = new Intent(this, SurveyPage1p1.class);
+        impactAcademicPage1.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(impactAcademicPage1);
 
     }
 
