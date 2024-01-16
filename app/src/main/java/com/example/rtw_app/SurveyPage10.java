@@ -3,44 +3,54 @@ package com.example.rtw_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
-public class SurveyPage8 extends AppCompatActivity {
+public class SurveyPage10 extends AppCompatActivity {
 
-    private SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey_page8);
-        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
+        setContentView(R.layout.activity_survey_page10);
 
-        TextView textView = (TextView) findViewById(R.id.surveyPage8_Question);
-        textView.setText("Please describe any other barriers, including any extenuating circumstances, you " +
-                "may have encountered. For example: family emergencies or child care issues. ");
+        TextView textView = (TextView) findViewById(R.id.surveyPage9_Question);
+        textView.setText("Attitude and Motivation");
+        //option1
+        TextView textView1 = (TextView) findViewById(R.id.surveyPage9_Option1);
+        textView1.setText("Class lectures and discussion " +
+                "stimulate me");
+        //option2
+        TextView textview2 = (TextView) findViewById(R.id.surveyPage9_Option2);
+        textview2.setText("I enjoy and want to be at " +
+                "university ");
+        //option3
+        TextView textview3 = (TextView) findViewById(R.id.surveyPage9_Option3);
+        textview3.setText("There are one or two subjects " +
+                "in school that I always enjoy  ");
+        //option4
+        TextView textview4 = (TextView) findViewById(R.id.surveyPage9_Option4);
+        textview4.setText(" I attend class ");
+        //option5
+        TextView textview4 = (TextView) findViewById(R.id.surveyPage9_Option5);
+        textview4.setText("I am engaged in class and in " +
+                "small group discussions");
 
-        TextView textView2 = (TextView) findViewById(R.id.surveyPage8_Question2);
-        textView2.setText("What are the primary sources of stress in your life?");
 
 
-
-
-        Button buttonNext=findViewById(R.id.nextButton);
-
-        //set a click listener for the next Button
-        buttonNext.setOnClickListener(new View.OnClickListener(){
+        Button nextButton = findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                goToMindsetPage();
+                goToSurveyPage10_2();
             }
         });
+
+
         Button buttonBack=findViewById(R.id.BackButton);
 
         //set a click listener for the next Button
@@ -55,6 +65,7 @@ public class SurveyPage8 extends AppCompatActivity {
         // Set text color for all TextViews in the layout
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
     }
+
 
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
@@ -72,15 +83,16 @@ public class SurveyPage8 extends AppCompatActivity {
 
     }
 
-    public void goToMindsetPage(){
-        Intent MindsetPage = new Intent(this, MindsetPage.class);
-        startActivity(MindsetPage);
+    public void goToSurveyPage10_2(){
+        Intent SurveyPage10_2 = new Intent(this, SurveyPage10_2.class);
+        startActivity(SurveyPage10_2);
 
     }
 
     public void goBack(){
-        Intent SurveyPage7 = new Intent(this, SurveyPage7.class);
-        startActivity(SurveyPage7);
+        Intent impactAcademicPage2 = new Intent(this, ImpactFinancial.class);
+        startActivity(impactAcademicPage2);
 
     }
+
 }

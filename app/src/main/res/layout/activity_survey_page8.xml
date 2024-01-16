@@ -21,7 +21,7 @@
         android:id="@+id/surveyPage8_Question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Option1"
+        android:text="Question1"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold" />
@@ -39,7 +39,7 @@
         android:id="@+id/surveyPage8_Question2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Option1"
+        android:text="Question2"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold" />

@@ -3,44 +3,38 @@ package com.example.rtw_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
-public class SurveyPage8 extends AppCompatActivity {
+public class MindsetPage extends AppCompatActivity {
 
-    private SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey_page8);
-        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
+        setContentView(R.layout.activity_mindset_page);
 
-        TextView textView = (TextView) findViewById(R.id.surveyPage8_Question);
-        textView.setText("Please describe any other barriers, including any extenuating circumstances, you " +
-                "may have encountered. For example: family emergencies or child care issues. ");
+        TextView textView = (TextView) findViewById(R.id.Heading) ;
+        textView.setText("Mindset");
+        TextView textView2 = (TextView) findViewById(R.id.Mindset);
+        textView2.setText("Building a positive attitude and a growth mindset are important skills to help you achieve " +
+                "your goals. These next sections will help you reflect on your current mindsets and help " +
+                "you start thinking about your goals and how you can start achieving them. " +
+                "Please indicate how often the statements below are true for you: "); //set text for text view
 
-        TextView textView2 = (TextView) findViewById(R.id.surveyPage8_Question2);
-        textView2.setText("What are the primary sources of stress in your life?");
-
-
-
-
-        Button buttonNext=findViewById(R.id.nextButton);
-
-        //set a click listener for the next Button
-        buttonNext.setOnClickListener(new View.OnClickListener(){
+        Button nextButton = findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                goToMindsetPage();
+                goToSurveyPage9();
             }
         });
+
+
         Button buttonBack=findViewById(R.id.BackButton);
 
         //set a click listener for the next Button
@@ -55,6 +49,10 @@ public class SurveyPage8 extends AppCompatActivity {
         // Set text color for all TextViews in the layout
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
     }
+
+}
+
+
 
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
@@ -72,15 +70,15 @@ public class SurveyPage8 extends AppCompatActivity {
 
     }
 
-    public void goToMindsetPage(){
-        Intent MindsetPage = new Intent(this, MindsetPage.class);
-        startActivity(MindsetPage);
+    public void goToSurveyPage9(){
+        Intent SurveyPage9 = new Intent(this, SurveyPage10.class);
+        startActivity(SurveyPage9);
 
     }
 
     public void goBack(){
-        Intent SurveyPage7 = new Intent(this, SurveyPage7.class);
-        startActivity(SurveyPage7);
+        Intent SurveyPage8 = new Intent(this, SurveyPage8.class);
+        startActivity(SurveyPage8);
 
     }
 }

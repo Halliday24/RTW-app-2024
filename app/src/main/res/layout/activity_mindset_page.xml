@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MindsetPage">
+
+
+    <ImageView
+        android:id="@+id/TopGreenBar"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:background="@color/Green"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toTopOf="@id/Heading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/Heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TopGreenBar">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Mindset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Heading">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/BottomGreenBar"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="700dp"
+        android:background="@color/Green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="720dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="#3c78d8"
+        android:text="Back"
+        android:layout_marginRight="100dp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/BottomGreenBar"
+        app:layout_constraintEnd_toEndOf="@id/buttonNext"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonNext"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="720dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="#3c78d8"
+        android:text="Next"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/BottomGreenBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="150dp"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@id/buttonBack"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
