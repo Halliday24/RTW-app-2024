@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TimeManagement2">
+
+    <ImageView
+        android:id="@+id/TopGreenBar"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/Green"
+        android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/BottomGreenBar"
+        android:layout_width="401dp"
+        android:layout_height="94dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="700dp"
+        android:background="@color/Green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/questionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TopGreenBar"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:text="What time Management tools have worked for you in the past?"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TopGreenBar" />
+
+    <CheckBox
+        android:id="@+id/plannerCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/questionText"
+        android:layout_marginTop="8dp"
+        android:text="Planner/Agenda"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionText"
+        tools:layout_editor_absoluteX="2dp" />
+
+    <CheckBox
+        android:id="@+id/eclassCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/plannerCheckbox"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="eClass"
+        app:layout_constraintEnd_toStartOf="@+id/WhitboardCheckbox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/plannerCheckbox"
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+
+    <CheckBox
+        android:id="@+id/WhitboardCheckbox"
+        android:layout_width="140dp"
+        android:layout_height="47dp"
+        android:layout_below="@id/eclassCheckbox"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="Whiteboard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+
+    <CheckBox
+        android:id="@+id/CalendercheckBox"
+        android:layout_width="97dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:text="Calender"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plannerCheckbox" />
+
+    <CheckBox
+        android:id="@+id/PhoneAlertcheckBox"
+        android:layout_width="113dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:text="Phone Alert"
+        app:layout_constraintEnd_toStartOf="@+id/NonecheckBox"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/CalendercheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/eclassCheckbox" />
+
+    <CheckBox
+        android:id="@+id/NonecheckBox"
+        android:layout_width="129dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="20dp"
+        android:text="None"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/WhitboardCheckbox" />
+
+    <CheckBox
+        android:id="@+id/otherAppscheckBox"
+        android:layout_width="97dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:text="Other Apps"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CalendercheckBox" />
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="361dp"
+        android:layout_marginBottom="95dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toTopOf="@+id/BottomGreenBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TopGreenBar"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
