@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class SurveyPage14p2 extends AppCompatActivity {
+public class surveyPage21p2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_time_management2);
+        setContentView(R.layout.activity_survey_question_24_and_25_page);
     }
 }

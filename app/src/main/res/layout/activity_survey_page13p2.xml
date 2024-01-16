@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".Education_And_Goals2">
+    tools:context=".SurveyPage13p2">
 
     <ImageView
         android:id="@+id/TopGreenBar"

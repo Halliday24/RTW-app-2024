@@ -10,41 +10,36 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class TimeManagement extends AppCompatActivity {
+public class SurveyPage12p1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_time_management);
-
+        setContentView(R.layout.activity_survey_page12p1);
+        TextView textView = (TextView) findViewById(R.id.self_efficacy_Question2);
+        textView.setText("Self-Efficacy and Growth Mindset");
         //option1
-        TextView textView1 = (TextView) findViewById(R.id.TimeManagement_Option1);
-        textView1.setText("I make plans each week about " +
-                "how I will spend my time");
+        TextView textView1 = (TextView) findViewById(R.id.self_efficacy_Option1);
+        textView1.setText("Overall, I’m a pretty positive " +
+                "person and I believe in my " +
+                "potential");
         //option2
-        TextView textview2 = (TextView) findViewById(R.id.TimeManagement_Option2);
-        textview2.setText("I follow through with the plans I " +
-                "make around how I spend my " +
-                "time");
+        TextView textview2 = (TextView) findViewById(R.id.self_efficacy_Option2);
+        textview2.setText("I believe my academic ability is " +
+                "something I can substantially " +
+                "change");
         //option3
-        TextView textview3 = (TextView) findViewById(R.id.TimeManagement_Option3);
-        textview3.setText("I complete major assignments " +
-                "and hand them in on time ");
-        //option4
-        TextView textview4 = (TextView) findViewById(R.id.TimeManagement_Option4);
-        textview4.setText("I study at least 2 hours for " +
-                "every hour I spend in class");
-        //option5
-        TextView textview5 = (TextView) findViewById(R.id.TimeManagement_Option5);
-        textview5.setText("I can estimate how much time " +
-                "a task is going to take");
+        TextView textview3 = (TextView) findViewById(R.id.self_efficacy_Option3);
+        textview3.setText("Hard work, focus, and " +
+                "perseverance determine my " +
+                "results");
 
         Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                goToTimeManagement2();
+                goToself_efficacy2();
             }
         });
 
@@ -62,6 +57,8 @@ public class TimeManagement extends AppCompatActivity {
 
         // Set text color for all TextViews in the layout
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
+
+
     }
 
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
@@ -80,15 +77,15 @@ public class TimeManagement extends AppCompatActivity {
 
     }
 
-    public void goToTimeManagement2(){
-        Intent TimeManagement2 = new Intent(this, TimeManagement2.class);
-        startActivity(TimeManagement2);
+    public void goToself_efficacy2(){
+        Intent Self_efficacy2 = new Intent(this, SurveyPage12p2.class);
+        startActivity(Self_efficacy2);
 
     }
 
     public void goBack(){
-        Intent Education_And_Goals2 = new Intent(this, Education_And_Goals2.class);
-        startActivity(Education_And_Goals2);
+        Intent SurveyPage10 = new Intent(this, SurveyPage10.class);
+        startActivity(SurveyPage10);
 
     }
 }

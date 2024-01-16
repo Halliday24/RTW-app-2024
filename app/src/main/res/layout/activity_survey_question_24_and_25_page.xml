@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SurveyPage19"
+    tools:context=".SurveyPage21"
     android:background="@color/digitalWhite">
 
     <ImageView
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/gray"
-            android:text="I am able to say no to activities when I should study"
+            android:text="I know how to get involved on campus"
             android:textColor="@color/black"
             android:textStyle="bold" />
 

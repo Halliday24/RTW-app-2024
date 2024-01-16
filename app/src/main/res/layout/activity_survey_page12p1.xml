@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Self_efficacy">
+    tools:context=".SurveyPage12p1">
 
     <ImageView
         android:id="@+id/TopGreenBar"

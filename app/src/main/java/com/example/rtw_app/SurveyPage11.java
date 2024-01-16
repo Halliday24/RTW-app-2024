@@ -11,9 +11,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-public class HereAtUofAPage extends AppCompatActivity {
+public class SurveyPage11 extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
     private ImageView TopGreenBar;
@@ -34,7 +33,7 @@ public class HereAtUofAPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_here_at_uofa_page);
+        setContentView(R.layout.activity_survey_page11);
 
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 

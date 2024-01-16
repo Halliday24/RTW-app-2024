@@ -10,12 +10,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Education_And_Goals2 extends AppCompatActivity {
+public class SurveyPage13p2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_education_and_goals2);
+        setContentView(R.layout.activity_survey_page13p2);
 
         //option1
         TextView textView1 = (TextView) findViewById(R.id.Education_And_Goals2_Option1);
@@ -69,13 +69,13 @@ public class Education_And_Goals2 extends AppCompatActivity {
     }
 
     public void goToTimeManagement(){
-        Intent TimeManagement = new Intent(this, TimeManagement.class);
+        Intent TimeManagement = new Intent(this, SurveyPage14.class);
         startActivity(TimeManagement);
 
     }
 
     public void goBack(){
-        Intent Education_And_Goals = new Intent(this, Education_And_Goals.class);
+        Intent Education_And_Goals = new Intent(this, SurveyPage13.class);
         startActivity(Education_And_Goals);
 
     }

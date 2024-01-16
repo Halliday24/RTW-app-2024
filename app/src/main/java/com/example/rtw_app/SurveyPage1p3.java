@@ -59,7 +59,7 @@ public class SurveyPage1p3 extends AppCompatActivity {
 
 
     public void goToImpactWorkPage(){
-        Intent impactWorkPage = new Intent(this, ImpactWorkPage.class);
+        Intent impactWorkPage = new Intent(this, SurveyPage2.class);
         startActivity(impactWorkPage);
 
     }

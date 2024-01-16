@@ -14,14 +14,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ImpactFinancial extends AppCompatActivity {
+//5 should be Please indicate how much of an impact each of these potential financial barriers had
+// on your ability to participate in your education but the s=xml is still correct just missing words
+public class SurveyPage5 extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_impact_financial_page);
+        setContentView(R.layout.activity_survey_page5);
 
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 
@@ -88,7 +90,7 @@ public class ImpactFinancial extends AppCompatActivity {
         editor.apply();
 
         // Display a success message
-        Toast.makeText(ImpactFinancial.this, "Survey submitted successfully!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(SurveyPage5.this, "Survey submitted successfully!", Toast.LENGTH_SHORT).show();
 
         // Navigate to the next page
         goToNextPage();

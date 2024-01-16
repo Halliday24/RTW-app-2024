@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Education_And_Goals">
+    tools:context=".SurveyPage12p2">
 
     <ImageView
         android:id="@+id/TopGreenBar"
@@ -15,7 +15,7 @@
         android:contentDescription="TODO" />
 
     <TextView
-        android:id="@+id/Education_And_Goals_Option1"
+        android:id="@+id/self_efficacy2_Option1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
@@ -77,7 +77,7 @@
     <!-- Option 2 -->
 
     <TextView
-        android:id="@+id/Education_And_Goals_Option2"
+        android:id="@+id/self_efficacy2_Option2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
@@ -137,7 +137,7 @@
     <!-- Option 3 -->
 
     <TextView
-        android:id="@+id/Education_And_Goals_Option3"
+        android:id="@+id/self_efficacy2_Option3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
@@ -196,7 +196,7 @@
     <!-- Option 4 -->
 
     <TextView
-        android:id="@+id/Education_And_Goals_Option4"
+        android:id="@+id/self_efficacy2_Option4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
@@ -253,7 +253,7 @@
         android:layout_marginLeft="158dp"
         />
     <TextView
-        android:id="@+id/Education_And_Goals_Option5"
+        android:id="@+id/self_efficacy2_Option5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
@@ -340,7 +340,6 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </LinearLayout>

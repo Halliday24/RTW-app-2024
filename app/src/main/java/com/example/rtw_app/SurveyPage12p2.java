@@ -10,12 +10,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Self_efficacy2 extends AppCompatActivity {
+public class SurveyPage12p2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_self_efficacy2);
+        setContentView(R.layout.activity_survey_page12p2);
 
         //option1
         TextView textView1 = (TextView) findViewById(R.id.self_efficacy2_Option1);
@@ -83,13 +83,13 @@ public class Self_efficacy2 extends AppCompatActivity {
     }
 
     public void goToEducation_And_Goals(){
-        Intent Education_And_Goals = new Intent(this, Education_And_Goals.class);
+        Intent Education_And_Goals = new Intent(this, SurveyPage13.class);
         startActivity(Education_And_Goals);
 
     }
 
     public void goBack(){
-        Intent Self_efficacy = new Intent(this, Self_efficacy.class);
+        Intent Self_efficacy = new Intent(this, SurveyPage12p1.class);
         startActivity(Self_efficacy);
 
     }

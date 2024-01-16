@@ -13,14 +13,14 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ValuesAndGoalsPage extends AppCompatActivity {
-
+public class SurveyPage9 extends AppCompatActivity {
+//XML Should habve Values and Goals on top but is fine regardless
     private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_values_and_goals_page);
+        setContentView(R.layout.activity_survey_page9);
 
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 
@@ -55,14 +55,14 @@ public class ValuesAndGoalsPage extends AppCompatActivity {
                     editor.apply();
 
                     // Display a success message
-                    Toast.makeText(ValuesAndGoalsPage.this, "Survey submitted successfully!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SurveyPage9.this, "Survey submitted successfully!", Toast.LENGTH_SHORT).show();
 
                     // Go to Next page
                     goToSurveyPage3();
 
                 } else {
                     // Display an error message if not all questions are answered
-                    Toast.makeText(ValuesAndGoalsPage.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SurveyPage9.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
                 }
             }
         });

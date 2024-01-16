@@ -14,14 +14,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Bundle;
 
-public class ImpactWorkPage extends AppCompatActivity {
+public class SurveyPage2 extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_impact_work_page);
+        setContentView(R.layout.activity_survey_page2);
 
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 
@@ -54,7 +54,7 @@ public class ImpactWorkPage extends AppCompatActivity {
 
 
                     // Display a success message
-                    Toast.makeText(ImpactWorkPage.this, "Survey submitted successfully!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SurveyPage2.this, "Survey submitted successfully!", Toast.LENGTH_SHORT).show();
 
 //                    // Check if the app has permission to write to external storage
 //                    if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -72,7 +72,7 @@ public class ImpactWorkPage extends AppCompatActivity {
 
                 } else {
                     // Display an error message if not all questions are answered
-                    Toast.makeText(ImpactWorkPage.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SurveyPage2.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
                 }
             }
         });

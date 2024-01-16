@@ -33,7 +33,7 @@ public class SurveyPage7 extends AppCompatActivity {
 
         TextView textView = (TextView) findViewById(R.id.surveyPage7_Question);
         textView.setText("How much of an impact did each of these potential transportation barriers have on your " +
-                "experience last year:");
+                "ability to participate in your education:");
         //option1
         TextView textView1 = (TextView) findViewById(R.id.surveyPage7_Option1);
         textView1.setText("Long commute times to " +
