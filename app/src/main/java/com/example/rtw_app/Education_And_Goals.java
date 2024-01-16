@@ -10,42 +10,41 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Self_efficacy2 extends AppCompatActivity {
+public class Education_And_Goals extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_self_efficacy2);
+        setContentView(R.layout.activity_education_and_goals);
 
         //option1
-        TextView textView1 = (TextView) findViewById(R.id.self_efficacy2_Option1);
-        textView1.setText("I don’t believe in limitations and  " +
-                "                I can create opportunities for " +
-                "                myself");
+        TextView textView1 = (TextView) findViewById(R.id.Education_And_Goals_Option1);
+        textView1.setText("I want to complete a degree");
         //option2
-        TextView textview2 = (TextView) findViewById(R.id.self_efficacy2_Option2);
-        textview2.setText("I love trying new things and " +
-                "taking on new challenges ");
+        TextView textview2 = (TextView) findViewById(R.id.Education_And_Goals_Option2);
+        textview2.setText("I feel confident in my major " +
+                "choice  ");
         //option3
-        TextView textview3 = (TextView) findViewById(R.id.self_efficacy2_Option3);
-        textview3.setText("Failure doesn’t define me and I " +
-                "can learn from my mistakes");
+        TextView textview3 = (TextView) findViewById(R.id.Education_And_Goals_Option3);
+        textview3.setText("I am considering graduate " +
+                "school");
         //option4
-        TextView textview4 = (TextView) findViewById(R.id.self_efficacy2_Option4);
-        textview4.setText("I avoid negative self-talk and " +
-                "speak constructively about " +
-                "myself and others ");
+        TextView textview4 = (TextView) findViewById(R.id.Education_And_Goals_Option4);
+        textview4.setText("I’m actively exploring career " +
+                "options and pursuing " +
+                "opportunities to gain relevant " +
+                "experience ");
         //option5
-        TextView textview5 = (TextView) findViewById(R.id.self_efficacy2_Option5);
-        textview5.setText(" Challenges are opportunities " +
-                "for growth");
+        TextView textview5 = (TextView) findViewById(R.id.Education_And_Goals_Option5);
+        textview5.setText("I know what it takes to be in the " +
+                "career I have chosen ");
 
         Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                goToEducation_And_Goals();
+                goToEducation_And_Goals2();
             }
         });
 
@@ -63,7 +62,6 @@ public class Self_efficacy2 extends AppCompatActivity {
 
         // Set text color for all TextViews in the layout
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
-
     }
 
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
@@ -82,15 +80,15 @@ public class Self_efficacy2 extends AppCompatActivity {
 
     }
 
-    public void goToEducation_And_Goals(){
-        Intent Education_And_Goals = new Intent(this, Education_And_Goals.class);
-        startActivity(Education_And_Goals);
+    public void goToEducation_And_Goals2(){
+        Intent Education_And_Goals2 = new Intent(this, Education_And_Goals2.class);
+        startActivity(Education_And_Goals2);
 
     }
 
     public void goBack(){
-        Intent Self_efficacy = new Intent(this, Self_efficacy.class);
-        startActivity(Self_efficacy);
+        Intent Self_efficacy2 = new Intent(this, Self_efficacy2.class);
+        startActivity(Self_efficacy2);
 
     }
 }
