@@ -37,6 +37,12 @@
             android:name=".SurveyPage8"
             android:exported="false" />
         <activity
+            android:name=".timeManage"
+            android:exported="false" />
+        <activity
+            android:name=".classPrep"
+            android:exported="false" />
+        <activity
             android:name=".surveyPage19p2"
             android:exported="false" />
         <activity
