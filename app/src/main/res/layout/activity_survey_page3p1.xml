@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/digitalWhite"
-    tools:context=".SurveyPage3">
+    tools:context=".SurveyPage3p1">
 
     <!-- Question 1: study habits -->
     <ImageView
