@@ -289,6 +289,8 @@
             android:layout_marginLeft="250dp"
             android:text="Back"
             android:textSize="12dp"
+            android:backgroundTint="@color/Yellow"
+            android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/nextButton"/>
@@ -299,6 +301,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="200dp"
             android:text="Next"
+            android:backgroundTint="@color/Yellow"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="12dp"
             app:layout_constraintLeft_toRightOf="@+id/BackButton"

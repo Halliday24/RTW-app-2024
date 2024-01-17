@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/Yellow"
+    android:orientation="vertical"
     tools:context=".SurveyPage13p2">
 
     <ImageView
@@ -18,8 +19,8 @@
         android:id="@+id/Education_And_Goals2_Option1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:layout_marginTop="20dp"
+        android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold" />
 
@@ -34,19 +35,19 @@
             android:id="@+id/neverRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp" />
 
         <RadioButton
             android:id="@+id/sometimesRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp" />
 
         <RadioButton
             android:id="@+id/halfRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp" />
 
         <RadioButton
             android:id="@+id/mostRadioButton"
@@ -57,22 +58,20 @@
             android:id="@+id/alwaysRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"/>
+            android:layout_marginLeft="35dp" />
 
     </RadioGroup>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:text="Never        Sometimes      About half        Most of        Always"
-        />
+        android:text="Never        Sometimes      About half        Most of        Always" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:text="of the time      the time"
         android:layout_marginLeft="158dp"
-        />
+        android:text="of the time      the time" />
 
     <!-- Option 2 -->
 
@@ -94,19 +93,19 @@
             android:id="@+id/neverRadioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp" />
 
         <RadioButton
             android:id="@+id/sometimesRadioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp" />
 
         <RadioButton
             android:id="@+id/halfRadioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp" />
 
         <RadioButton
             android:id="@+id/mostRadioButton2"
@@ -117,51 +116,51 @@
             android:id="@+id/alwaysRadioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"/>
+            android:layout_marginLeft="35dp" />
 
     </RadioGroup>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:text="Never        Sometimes      About half        Most of        Always"
-        />
+        android:text="Never        Sometimes      About half        Most of        Always" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:text="of the time      the time"
         android:layout_marginLeft="158dp"
-        />
+        android:text="of the time      the time" />
 
     <!-- Next Button -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:layout_marginTop="50dp">
 
         <Button
             android:id="@+id/BackButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="250dp"
+            android:backgroundTint="@color/Yellow"
             android:text="Back"
+            android:textColor="@color/black"
             android:textSize="12dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/nextButton"/>
+            app:layout_constraintRight_toLeftOf="@+id/nextButton" />
 
         <Button
             android:id="@+id/nextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="200dp"
+            android:backgroundTint="@color/Yellow"
             android:text="Next"
-            android:textStyle="bold"
+            android:textColor="@color/black"
             android:textSize="12dp"
-            app:layout_constraintLeft_toRightOf="@+id/BackButton"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/BackButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -54,6 +54,9 @@ public class SurveyPage3 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                //Store answers
+                //update progress Bar
+                //Go to the next page
                 goToSurveyPage4();
             }
         });

@@ -2,6 +2,7 @@
 <!-- res/layout/activity_values_and_goals_page.xml -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -12,8 +13,8 @@
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="394dp"
-        android:layout_height="125dp"
-        android:background="#38761d"
+        android:layout_height="75dp"
+        android:background="@color/Green"
         android:contentDescription="TODO" />
 
     <!-- Question 1: My purpose for getting a university education is clear -->
@@ -281,30 +282,32 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/BackButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="250dp"
+            android:backgroundTint="@color/Yellow"
             android:text="Back"
+            android:textColor="@color/black"
             android:textSize="12dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/nextButton"/>
+            app:layout_constraintRight_toLeftOf="@+id/nextButton" />
 
         <Button
             android:id="@+id/nextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="200dp"
+            android:backgroundTint="@color/Yellow"
             android:text="Next"
-            android:textStyle="bold"
+            android:textColor="@color/black"
             android:textSize="12dp"
-            app:layout_constraintLeft_toRightOf="@+id/BackButton"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/BackButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
