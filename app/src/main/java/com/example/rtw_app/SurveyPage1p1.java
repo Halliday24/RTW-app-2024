@@ -94,8 +94,9 @@ public class SurveyPage1p1 extends AppCompatActivity {
                     editor.putString("impact_color5", selectedPreparation);
                     editor.apply();
 
+
                     // Generate PDF after submitting survey
-                    generateAndSavePdf();
+                    generateAndSavePdf(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability,selectedPreparation);
 
                     Toast.makeText(SurveyPage1p1.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
                     goToImpactAcademicPage2();
@@ -199,15 +200,15 @@ public class SurveyPage1p1 extends AppCompatActivity {
     }
 
     // Method to get survey answers in a list
-    private List<String[]> getSurveyAnswers() {
+    private List<String[]> getSurveyAnswers(String selectedStudy,String selectedTime,String selectedPoorStudy,String selectedDisability,String selectedPreparation) {
         List<String[]> answersList = new ArrayList<>();
         // Add your survey answers to the list here
         // For example, you can retrieve answers from SharedPreferences
-        String study = sharedPreferences.getString("impact_study", "");
-        String time = sharedPreferences.getString("impact_time", "");
-        String poorStudy = sharedPreferences.getString("impact_poor_study", "");
-        String disability = sharedPreferences.getString("impact_disability", "");
-        String preparation = sharedPreferences.getString("impact_color5", "");
+        String study = sharedPreferences.getString("impact_study",selectedStudy);
+        String time = sharedPreferences.getString("impact_time", selectedTime);
+        String poorStudy = sharedPreferences.getString("impact_poor_study", selectedPoorStudy);
+        String disability = sharedPreferences.getString("impact_disability", selectedDisability);
+        String preparation = sharedPreferences.getString("impact_color5", selectedPreparation);
 
         // Create an array with the survey answers and add it to the list
         String[] surveyAnswers = {study, time, poorStudy, disability, preparation};
@@ -217,7 +218,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
     }
 
     // Method to generate and save PDF
-    private void generateAndSavePdf() {
+    private void generateAndSavePdf(String selectedStudy,String selectedTime,String selectedPoorStudy,String selectedDisability,String selectedPreparation) {
         List<String> questionTexts = new ArrayList<>();
 
         // Add your question texts to the list here
@@ -227,7 +228,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
         questionTexts.add("Learning disability?");
         questionTexts.add("Ineffective academic preparation?");
 
-        List<String[]> surveyAnswers = getSurveyAnswers();
+        List<String[]> surveyAnswers = getSurveyAnswers(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability,selectedPreparation);
         PdfGenerator.generatePdf(SurveyPage1p1.this, "survey_output.pdf", surveyAnswers, questionTexts);
     }
 
