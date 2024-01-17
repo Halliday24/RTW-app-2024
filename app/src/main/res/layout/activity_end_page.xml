@@ -80,20 +80,33 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:layout_editor_absoluteX="4dp" />
 
-    <!-- Submit Button -->
     <Button
-        android:id="@+id/submitButton"
+        android:id="@+id/BackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="417dp"
-        android:layout_marginBottom="47dp"
-        android:text="Submit"
-        app:layout_constraintBottom_toTopOf="@+id/BottomGreenBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TopGreenBar"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_marginRight="216dp"
+        android:layout_marginBottom="88dp"
+        android:text="Back"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/nextButton"
+        android:backgroundTint="@color/Yellow"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="216dp"
+        android:layout_marginBottom="88dp"
+        android:text="Next"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/BackButton"
+        android:backgroundTint="@color/Yellow"
+        android:textColor="@color/black"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
