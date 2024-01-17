@@ -19,6 +19,8 @@ public class SurveyPage1p3 extends AppCompatActivity {
     private ProgressBar progressBar;
     private TextView progressText;
 
+    private Button hint;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +50,7 @@ public class SurveyPage1p3 extends AppCompatActivity {
         });
 
         Button buttonBack=findViewById(R.id.BackButton);
+        hint = findViewById(R.id.hint);
 
         //set a click listener for the next Button
         buttonBack.setOnClickListener(new View.OnClickListener(){
@@ -106,5 +109,12 @@ public class SurveyPage1p3 extends AppCompatActivity {
         int progress = (currentQuestion * 100) / totalQuestions;
         progressBar.setProgress(progress);
         progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
+    }
+
+    //this method is responsible for giving a hint to students to remind them about why they are
+    //filling in this workbook
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage1p3.this, Hint.class);
+        startActivity(Hint);
     }
 }

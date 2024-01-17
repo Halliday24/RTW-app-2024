@@ -25,6 +25,8 @@
         android:layout_height="50dp"
         android:text="This workbook is to help guide and reflect on factors that contributed to your academic progress"
         android:textStyle="bold"
+        android:textColor="@color/black"
+
         app:layout_constraintTop_toBottomOf="@id/TopGreenBar"
         android:textSize="20dp"/>
 
@@ -35,6 +37,7 @@
         android:layout_marginTop="100dp"
         android:text="Select the option that best option that relates to you"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:layout_editor_absoluteX="0dp"
         android:textSize="20dp"/>
@@ -45,6 +48,7 @@
         android:layout_marginTop="250dp"
         android:text="You can exit the form whenever you would like"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:layout_editor_absoluteX="0dp"
         android:textSize="20dp"/>

@@ -14,7 +14,7 @@
 
     <ImageView
         android:id="@+id/TopGreenBar"
-        android:layout_width="407dp"
+        android:layout_width="match_parent"
         android:layout_height="46dp"
         android:background="@color/Green"
         android:contentDescription="TODO"
@@ -25,7 +25,7 @@
 
     <ImageView
         android:id="@+id/BottomGreenBar"
-        android:layout_width="421dp"
+        android:layout_width="match_parent"
         android:layout_height="49dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="700dp"
@@ -42,41 +42,41 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="2dp"
             android:background="@color/Green"
             android:max="100"
             android:progress="0"
             app:layout_constraintTop_toTopOf="@id/TopGreenBar"
             tools:layout_editor_absoluteX="0dp" />
 
-        <TextView
-            android:id="@+id/progressText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/progressBar"
-            android:layout_marginStart="13dp"
-            android:layout_marginBottom="400dp"
-            android:text="Progress: 0%"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/progressBar" />
-
-
-
+    <TextView
+        android:id="@+id/progressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBar"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Progress: 0%"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/impactQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="400dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
+        android:background="@color/gray"
         android:text="How much of an impact did each of these potential academic barriers have on your learning and grades last year?"
         android:textColor="@color/black"
-        android:textSize="15dp"
+        android:textSize="13dp"
         android:textStyle="bold"
-        android:background="@color/gray"
-        app:layout_constraintTop_toBottomOf="@id/TopGreenBar"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TopGreenBar" />
 
     <TextView
         android:id="@+id/textView"
@@ -88,7 +88,8 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/impactQuestion" />
+        app:layout_constraintTop_toBottomOf="@+id/impactQuestion"
+        android:layout_marginLeft="5dp"/>
 
     <RadioGroup
         android:id="@+id/studyRadioGroup"
@@ -97,7 +98,8 @@
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView">
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        android:layout_marginLeft="5dp">
 
         <RadioButton
             android:id="@+id/neverRadioButton"
@@ -138,17 +140,20 @@
         android:text="Never        Sometimes      About half        Most of        Always"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/studyRadioGroup"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="5dp"/>
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="158dp"
+        android:layout_marginLeft="145dp"
         android:text="of the time      the time"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -163,7 +168,8 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="5dp"/>
 
     <RadioGroup
         android:id="@+id/timeRadioGroup"
@@ -172,7 +178,8 @@
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:layout_marginLeft="5dp">
 
         <RadioButton
             android:id="@+id/neverRadioButton3"
@@ -213,18 +220,23 @@
         android:text="Never        Sometimes      About half        Most of        Always"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/timeRadioGroup"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="5dp"/>
 
     <TextView
         android:id="@id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="158dp"
+        android:layout_marginLeft="145dp"
         android:text="of the time      the time"
+        android:textStyle="bold"
         android:textSize="12sp"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
 
     <!-- Question 3: Study environment? -->
@@ -238,7 +250,8 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="5dp"/>
 
     <RadioGroup
         android:id="@+id/poorStudyRadioGroup2"
@@ -246,7 +259,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="5dp">
 
         <RadioButton
             android:id="@+id/neverRadioButton2"
@@ -287,17 +301,20 @@
         android:text="Never        Sometimes      About half        Most of        Always"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/poorStudyRadioGroup2"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="5dp"/>
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="158dp"
+        android:layout_marginLeft="145dp"
         android:text="of the time      the time"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -312,7 +329,8 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="5dp"/>
 
     <RadioGroup
         android:id="@+id/disabilityRadioGroup"
@@ -320,7 +338,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="5dp">
 
         <RadioButton
             android:id="@+id/neverRadioButton4"
@@ -361,17 +380,20 @@
         android:text="Never        Sometimes      About half        Most of        Always"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/disabilityRadioGroup"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="5dp"/>
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="158dp"
+        android:layout_marginLeft="145dp"
         android:text="of the time      the time"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -386,7 +408,8 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="5dp"/>
 
     <RadioGroup
         android:id="@+id/preparationRadioGroup"
@@ -394,7 +417,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="5dp">
 
         <RadioButton
             android:id="@+id/neverRadioButton5"
@@ -435,16 +459,19 @@
         android:text="Never        Sometimes      About half        Most of        Always"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/preparationRadioGroup"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="5dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="158dp"
+        android:layout_marginLeft="145dp"
         android:text="of the time      the time"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/textView14"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -484,7 +511,7 @@
         android:layout_width="64dp"
         android:layout_height="45dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="4dp"
         android:backgroundTint="@color/Green"
         android:onClick="openHint"
         android:text=" ? "
@@ -497,5 +524,5 @@
         app:layout_constraintTop_toTopOf="@id/TopGreenBar"
         tools:visibility="visible" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 

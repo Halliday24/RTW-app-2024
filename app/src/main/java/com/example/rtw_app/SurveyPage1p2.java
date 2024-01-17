@@ -15,13 +15,14 @@ import android.widget.Toast;
 
 public class SurveyPage1p2 extends AppCompatActivity {
 
-    private RadioGroup prepRadioGroup, readWriteRadioGroup, mathSkillsRadioGroup, disabilityRadioGroup;
+    private RadioGroup studyRadioGroup, timeRadioGroup, poorStudyRadioGroup2, disabilityRadioGroup;
 
     private int currentQuestion;
 
     private int totalQuestions = 5; // Set the total number of questions
     private ProgressBar progressBar;
     private TextView progressText;
+    private Button hint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,12 +40,13 @@ public class SurveyPage1p2 extends AppCompatActivity {
         updateProgress();
 
 
-        prepRadioGroup = findViewById(R.id.prepRadioGroup);
-        readWriteRadioGroup = findViewById(R.id.readWriteRadioGroup);
-        mathSkillsRadioGroup = findViewById(R.id.mathSkillsRadioGroup);
+        studyRadioGroup = findViewById(R.id.studyRadioGroup);
+        timeRadioGroup = findViewById(R.id.timeRadioGroup);
+        poorStudyRadioGroup2 = findViewById(R.id.poorStudyRadioGroup2);
         disabilityRadioGroup = findViewById(R.id.disabilityRadioGroup);
 
         Button submitButton = findViewById(R.id.nextButton);
+        hint = findViewById(R.id.hint);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,5 +109,12 @@ public class SurveyPage1p2 extends AppCompatActivity {
         int progress = (currentQuestion * 100) / totalQuestions;
         progressBar.setProgress(progress);
         progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
+    }
+
+    //this method is responsible for giving a hint to students to remind them about why they are
+    //filling in this workbook
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage1p2.this, Hint.class);
+        startActivity(Hint);
     }
 }
