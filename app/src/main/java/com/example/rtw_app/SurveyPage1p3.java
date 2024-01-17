@@ -85,6 +85,10 @@ public class SurveyPage1p3 extends AppCompatActivity {
 
         startActivity(impactWorkPage);
 
+        Intent myIntent = new Intent(SurveyPage1p3.this, SurveyPage2.class);
+        myIntent.putExtra("data1", currentQuestion);
+        SurveyPage1p3.this.startActivity(myIntent);
+
     }
 
     public void goBack(){

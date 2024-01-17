@@ -6,17 +6,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     android:background="@color/digitalWhite">
 
 
-    <ImageView
-        android:id="@+id/TopGreenBar"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:background="#38761d"
-        android:contentDescription="TODO" />
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/TopGreenBar"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@color/Green"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="TODO" >
 
+        </ImageView>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/Green"
+            android:max="100"
+            android:progress="0"
+            app:layout_constraintTop_toTopOf="@id/TopGreenBar"
+            />
+
+        <TextView
+            android:id="@+id/progressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progressBar"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="4dp"
+            android:text="Progress: 0%"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progressBar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- Question 1: Work Too Many Hours -->
     <TextView
         android:layout_width="380dp"
@@ -35,10 +67,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:background="@color/gray"
         android:text="Work Too many hours"
-        android:textStyle="bold"
         android:textColor="@color/black"
-        android:background="@color/gray"/>
+        android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/hoursRadioGroup"
@@ -84,27 +117,30 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
         android:text="Never        Sometimes      About half        Most of        Always"
-        />
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="of the time      the time"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="158dp"
-        />
+        android:text="of the time      the time"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
     <!-- Question 2: Work late hours, or schedules
 that conflict with class time -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:background="@color/gray"
         android:text="Work late hours, or schedules
 that conflict with class time"
-        android:textStyle="bold"
         android:textColor="@color/black"
-        android:background="@color/gray"/>
+        android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/lateRadioGroup"
@@ -143,27 +179,31 @@ that conflict with class time"
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"/>
     </RadioGroup>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="Never        Sometimes      About half        Most of        Always"
-        />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="of the time      the time"
+        android:layout_height="wrap_content"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="158dp"
-        />
+        android:text="of the time      the time"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
     <!-- Question 2:unemployed -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:background="@color/gray"
         android:text="Unemployed"
-        android:textStyle="bold"
         android:textColor="@color/black"
-        android:background="@color/gray"/>
+        android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/unemployedRadioGroup"
@@ -204,21 +244,23 @@ that conflict with class time"
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
         android:text="Never        Sometimes      About half        Most of        Always"
-        />
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="of the time      the time"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="158dp"
-        />
+        android:text="of the time      the time"
+        android:textSize="12sp"
+        android:textStyle="bold" />
     <!-- Next Button -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp">
 
         <Button
             android:id="@+id/BackButton"
