@@ -9,12 +9,10 @@
     android:background="@color/digitalWhite">
 
 
-
-
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="394dp"
-        android:layout_height="125dp"
+        android:layout_height="75dp"
         android:background="@color/Green"
         android:contentDescription="TODO" />
 

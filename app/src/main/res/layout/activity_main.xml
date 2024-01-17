@@ -12,44 +12,57 @@
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="125dp"
+        android:layout_height="75dp"
         android:background="@color/Green"
         android:contentDescription="TODO"
+        app:layout_constraintBottom_toTopOf="@id/TopText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/TopText">
+        app:layout_constraintTop_toTopOf="parent">
 
     </ImageView>
 
+    <ImageView
+        android:id="@+id/BottomGreenBar"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="700dp"
+        android:background="@color/Green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/TopText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="700dp"
+        android:layout_marginBottom="600dp"
         android:text="Requirement to withdraw Appeal Workbook"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/TopGreenBar"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintTop_toBottomOf="@id/TopGreenBar" />
 
     <TextView
         android:id="@+id/LoginText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginBottom="580dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginBottom="480dp"
         android:text="Login"
         android:textColor="@color/black"
         android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/TopText">
+        app:layout_constraintTop_toBottomOf="@id/TopText"
+        app:layout_constraintVertical_bias="1.0">
 
     </TextView>
 
@@ -98,19 +111,6 @@
         app:layout_constraintTop_toBottomOf="@+id/LoginCCID"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/BottomGreenBar"
-        android:layout_width="match_parent"
-        android:layout_height="125dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="700dp"
-        android:background="@color/Green"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 
     <Button
         android:id="@+id/hint"
@@ -118,7 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="616dp"
+        android:layout_marginBottom="584dp"
         android:backgroundTint="@color/Green"
         android:onClick="openHint"
         android:text=" ? "
@@ -140,7 +140,9 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@id/BottomGreenBar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

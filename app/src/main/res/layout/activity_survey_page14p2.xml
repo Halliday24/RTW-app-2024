@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="@color/Yellow"
+    android:padding="16dp"
     tools:context=".SurveyPage14p2">
 
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="125dp"
+        android:layout_height="75dp"
         android:layout_marginTop="8dp"
         android:background="@color/Green"
         android:contentDescription="TODO"
@@ -22,7 +23,7 @@
     <ImageView
         android:id="@+id/BottomGreenBar"
         android:layout_width="401dp"
-        android:layout_height="94dp"
+        android:layout_height="75dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="700dp"
         android:background="@color/Green"

@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     android:backgroundTint="@color/Yellow"
     android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".SurveyPage13p1">
 
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="394dp"
-        android:layout_height="125dp"
+        android:layout_height="75dp"
         android:background="#38761d"
         android:contentDescription="TODO" />
 

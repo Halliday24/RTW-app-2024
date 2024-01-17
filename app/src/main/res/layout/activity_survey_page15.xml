@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding=""
     tools:context=".SurveyPage21p1"
     android:background="@color/digitalWhite">
 
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="125dp"
+        android:layout_height="75dp"
         android:background="@color/Green"
         android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
@@ -365,8 +366,8 @@
 
     <ImageView
         android:id="@+id/BottomGreenBar"
-        android:layout_width="465dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="700dp"
         android:background="@color/Green"
