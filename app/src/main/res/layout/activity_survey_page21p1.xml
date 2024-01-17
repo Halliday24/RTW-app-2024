@@ -335,7 +335,9 @@ My friends are serious about education"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/nextButton" />
+        app:layout_constraintRight_toLeftOf="@+id/nextButton"
+        android:backgroundTint="@color/Yellow"
+        android:textColor="@color/black"/>
 
     <Button
         android:id="@+id/nextButton"
@@ -347,7 +349,9 @@ My friends are serious about education"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/BackButton" />
+        app:layout_constraintLeft_toRightOf="@+id/BackButton"
+        android:backgroundTint="@color/Yellow"
+        android:textColor="@color/black"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
