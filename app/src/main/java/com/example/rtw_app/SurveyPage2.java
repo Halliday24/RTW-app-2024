@@ -23,6 +23,7 @@ public class SurveyPage2 extends AppCompatActivity {
     private ProgressBar progressBar;
     private TextView progressText;
     private SharedPreferences sharedPreferences;
+    private Button hint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +40,13 @@ public class SurveyPage2 extends AppCompatActivity {
         progressText = findViewById(R.id.progressText);
 
         updateProgress();
+        hint = findViewById(R.id.hint);
 
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 
-        final RadioGroup hoursRadioGroup = findViewById(R.id.hoursRadioGroup);
-        final RadioGroup lateRadioGroup = findViewById(R.id.lateRadioGroup);
-        final RadioGroup unemployedRadioGroup = findViewById(R.id.unemployedRadioGroup);
+        final RadioGroup studyRadioGroup = findViewById(R.id.studyRadioGroup);
+        final RadioGroup timeRadioGroup = findViewById(R.id.timeRadioGroup);
+        final RadioGroup poorStudyRadioGroup2 = findViewById(R.id.poorStudyRadioGroup2);
 
         Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -54,9 +56,9 @@ public class SurveyPage2 extends AppCompatActivity {
                 updateProgress();
 
 
-                int selectedHoursId = hoursRadioGroup.getCheckedRadioButtonId();
-                int selectedLateId = lateRadioGroup.getCheckedRadioButtonId();
-                int selectedUnemployedId = unemployedRadioGroup.getCheckedRadioButtonId();
+                int selectedHoursId = studyRadioGroup.getCheckedRadioButtonId();
+                int selectedLateId = timeRadioGroup.getCheckedRadioButtonId();
+                int selectedUnemployedId = poorStudyRadioGroup2.getCheckedRadioButtonId();
 
                 if (selectedHoursId != -1 && selectedLateId != -1 && selectedUnemployedId != -1) {
                     // Get selected answers
@@ -160,5 +162,12 @@ public class SurveyPage2 extends AppCompatActivity {
         int progress = (currentQuestion * 100) / totalQuestions;
         progressBar.setProgress(progress);
         progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
+    }
+
+    //this method is responsible for giving a hint to students to remind them about why they are
+    //filling in this workbook
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage2.this, Hint.class);
+        startActivity(Hint);
     }
 }
