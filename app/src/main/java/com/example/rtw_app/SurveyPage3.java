@@ -26,26 +26,27 @@ public class SurveyPage3 extends AppCompatActivity {
         final RadioGroup option1_answers = findViewById(R.id.option1_answers);
        // final RadioGroup programmingRadioGroup = findViewById(R.id.programmingRadioGroup);
 
-        TextView textView = (TextView) findViewById(R.id.surveyPage3_Question);
-        textView.setText("How did each of these potential major-related barriers impact your education?");
-        //option1
-        TextView textView1 = (TextView) findViewById(R.id.surveyPage3_Option1);
-        textView1.setText("I was not admitted to my first choice program");
-        //option2
-        TextView textview2 = (TextView) findViewById(R.id.surveyPage3_Option2);
-        textview2.setText("Unclear education or career goals");
-        //option3
-        TextView textview3 = (TextView) findViewById(R.id.surveyPage3_Option3);
-        textview3.setText("Pressure to choose a path that was not a good fit for me");
-        //option4
-        TextView textview4 = (TextView) findViewById(R.id.surveyPage3_Option4);
-        textview4.setText("Major related classes were unavailable");
-        //option5
-        TextView textview5 = (TextView) findViewById(R.id.surveyPage3_Option5);
-        textview5.setText("Major not offered");
-        //option6
-        TextView textview6 = (TextView) findViewById(R.id.surveyPage3_Option6);
-        textview6.setText("Unhappy with major");
+        //commented out since changing type
+//        TextView textView = (TextView) findViewById(R.id.surveyPage3_Question);
+//        textView.setText("How did each of these potential major-related barriers impact your education?");
+//        //option1
+//        TextView textView1 = (TextView) findViewById(R.id.surveyPage3_Option1);
+//        textView1.setText("I was not admitted to my first choice program");
+//        //option2
+//        TextView textview2 = (TextView) findViewById(R.id.surveyPage3_Option2);
+//        textview2.setText("Unclear education or career goals");
+//        //option3
+//        TextView textview3 = (TextView) findViewById(R.id.surveyPage3_Option3);
+//        textview3.setText("Pressure to choose a path that was not a good fit for me");
+//        //option4
+//        TextView textview4 = (TextView) findViewById(R.id.surveyPage3_Option4);
+//        textview4.setText("Major related classes were unavailable");
+//        //option5
+//        TextView textview5 = (TextView) findViewById(R.id.surveyPage3_Option5);
+//        textview5.setText("Major not offered");
+//        //option6
+//        TextView textview6 = (TextView) findViewById(R.id.surveyPage3_Option6);
+//        textview6.setText("Unhappy with major");
 
 
         Button submitButton = findViewById(R.id.nextButton);

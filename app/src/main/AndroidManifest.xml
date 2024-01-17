@@ -13,6 +13,9 @@
         android:theme="@style/Theme.RTWApp"
         tools:targetApi="31">
         <activity
+            android:name=".SurveyPage3p2"
+            android:exported="false" />
+        <activity
             android:name=".SurveyPage20p2"
             android:exported="false" />
         <activity

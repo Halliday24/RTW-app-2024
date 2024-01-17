@@ -19,7 +19,8 @@ public class SurveyPage2 extends AppCompatActivity {
 
     private int currentQuestion;
 
-    private int totalQuestions = 5; // Set the total number of questions
+    //changed to 3 since only 3 questions are on page
+    private int totalQuestions = 3; // Set the total number of questions
     private ProgressBar progressBar;
     private TextView progressText;
     private SharedPreferences sharedPreferences;
