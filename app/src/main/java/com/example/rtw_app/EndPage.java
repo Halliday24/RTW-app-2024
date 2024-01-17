@@ -25,7 +25,7 @@ public class EndPage extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                goToEndPage();
+                goTo();
             }
         });
         Button buttonBack=findViewById(R.id.BackButton);
@@ -59,15 +59,15 @@ public class EndPage extends AppCompatActivity {
     }
 
 
-    public void goToEndPage(){
-        Intent SurveyPage4 = new Intent(this, EndPageP2.class);
-        startActivity(SurveyPage4);
+    public void goTo(){
+        Intent EndPageP2 = new Intent(this, EndPageP2.class);
+        startActivity(EndPageP2);
 
     }
 
     public void goBack(){
-        Intent impactAcademicPage2 = new Intent(this, SurveyPage7.class);
-        startActivity(impactAcademicPage2);
+        Intent SurveyPage21p1 = new Intent(this, SurveyPage21p1.class);
+        startActivity(SurveyPage21p1);
 
     }
 }
