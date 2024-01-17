@@ -18,6 +18,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.graphics.Color;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class SurveyPage1p1 extends AppCompatActivity {
 
@@ -47,6 +50,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
         progressText = findViewById(R.id.progressText);
 
         updateProgress();
+
 
 
         // Initialize your RadioGroup instances
@@ -90,6 +94,8 @@ public class SurveyPage1p1 extends AppCompatActivity {
                     editor.putString("impact_color5", selectedPreparation);
                     editor.apply();
 
+                    // Generate PDF after submitting survey
+                    generateAndSavePdf();
 
                     Toast.makeText(SurveyPage1p1.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
                     goToImpactAcademicPage2();
@@ -191,6 +197,41 @@ public class SurveyPage1p1 extends AppCompatActivity {
         myIntent.putExtra("data1", currentQuestion);
         SurveyPage1p1.this.startActivity(myIntent);
     }
+
+    // Method to get survey answers in a list
+    private List<String[]> getSurveyAnswers() {
+        List<String[]> answersList = new ArrayList<>();
+        // Add your survey answers to the list here
+        // For example, you can retrieve answers from SharedPreferences
+        String study = sharedPreferences.getString("impact_study", "");
+        String time = sharedPreferences.getString("impact_time", "");
+        String poorStudy = sharedPreferences.getString("impact_poor_study", "");
+        String disability = sharedPreferences.getString("impact_disability", "");
+        String preparation = sharedPreferences.getString("impact_color5", "");
+
+        // Create an array with the survey answers and add it to the list
+        String[] surveyAnswers = {study, time, poorStudy, disability, preparation};
+        answersList.add(surveyAnswers);
+
+        return answersList;
+    }
+
+    // Method to generate and save PDF
+    private void generateAndSavePdf() {
+        List<String> questionTexts = new ArrayList<>();
+
+        // Add your question texts to the list here
+        questionTexts.add("Ineffective study habits?");
+        questionTexts.add("Poor time management?");
+        questionTexts.add("Poor study environment?");
+        questionTexts.add("Learning disability?");
+        questionTexts.add("Ineffective academic preparation?");
+
+        List<String[]> surveyAnswers = getSurveyAnswers();
+        PdfGenerator.generatePdf(SurveyPage1p1.this, "survey_output.pdf", surveyAnswers, questionTexts);
+    }
+
+
 
     private void updateProgress() {
         int progress = (currentQuestion * 100) / totalQuestions;

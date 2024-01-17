@@ -37,26 +37,21 @@ public class SurveyPage15 extends AppCompatActivity {
                 int selectedColorId = colorRadioGroup.getCheckedRadioButtonId();
                 int selectedTimeId = timeRadioGroup.getCheckedRadioButtonId();
                 int selectedPoorStudyId = poorStudyRadioGroup2.getCheckedRadioButtonId();
-                int selectedDisabilityId = accessRadioGroup.getCheckedRadioButtonId();
-                int selectedPreparationId = deadlinesRadioGroup.getCheckedRadioButtonId();
 
-                if (selectedColorId != -1 && selectedTimeId != -1 && selectedPoorStudyId != -1 &&
-                        selectedDisabilityId != -1 && selectedPreparationId != -1) {
+
+                if (selectedColorId != -1 && selectedTimeId != -1 && selectedPoorStudyId != -1) {
 
                     // Get selected answers
                     String selectedStudy = ((RadioButton) findViewById(selectedColorId)).getText().toString();
                     String selectedTime = ((RadioButton) findViewById(selectedTimeId)).getText().toString();
                     String selectedPoorStudy = ((RadioButton) findViewById(selectedPoorStudyId)).getText().toString();
-                    String selectedDisability = ((RadioButton) findViewById(selectedDisabilityId)).getText().toString();
-                    String selectedPreparation = ((RadioButton) findViewById(selectedPreparationId)).getText().toString();
+
 
                     // Store responses in SharedPreferences
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("impact_study", selectedStudy);
                     editor.putString("impact_time", selectedTime);
                     editor.putString("impact_poor_study", selectedPoorStudy);
-                    editor.putString("impact_disability", selectedDisability);
-                    editor.putString("impact_color5", selectedPreparation);
                     editor.apply();
 
                     // Display a success message
