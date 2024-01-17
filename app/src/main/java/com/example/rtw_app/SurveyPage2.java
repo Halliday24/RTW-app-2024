@@ -112,6 +112,7 @@ public class SurveyPage2 extends AppCompatActivity {
 
     public void goToSurveyPage3(){
         Intent SurveyPage3 = new Intent(this, SurveyPage3.class);
+        SurveyPage3.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage3);
 
     }

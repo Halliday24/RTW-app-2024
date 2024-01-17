@@ -108,11 +108,13 @@ public class SurveyPage5 extends AppCompatActivity {
 
     private void goToNextPage() {
         Intent intent = new Intent(this, SurveyPage6.class); // Replace with the actual next activity
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
     }
 
     public void goBack(){
         Intent impactAcademicPage2 = new Intent(this, SurveyPage4.class);
+        impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(impactAcademicPage2);
 
     }

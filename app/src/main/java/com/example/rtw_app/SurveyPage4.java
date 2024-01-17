@@ -97,12 +97,14 @@ public class SurveyPage4 extends AppCompatActivity {
 
     public void goToImpactFinancial(){
         Intent SurveyPage4 = new Intent(this, SurveyPage6.class);
+        SurveyPage4.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage4);
 
     }
 
     public void goBack(){
         Intent impactAcademicPage2 = new Intent(this, SurveyPage3.class);
+        impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(impactAcademicPage2);
 
     }

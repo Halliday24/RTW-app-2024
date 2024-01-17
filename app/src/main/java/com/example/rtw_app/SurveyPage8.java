@@ -74,12 +74,14 @@ public class SurveyPage8 extends AppCompatActivity {
 
     public void goToMindsetPage(){
         Intent MindsetPage = new Intent(this, MindsetPage.class);
+        MindsetPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(MindsetPage);
 
     }
 
     public void goBack(){
         Intent SurveyPage7 = new Intent(this, SurveyPage7.class);
+        SurveyPage7.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage7);
 
     }

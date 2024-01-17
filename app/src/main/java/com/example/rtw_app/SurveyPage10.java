@@ -85,12 +85,14 @@ public class SurveyPage10 extends AppCompatActivity {
 
     public void goTohere_at_uofa_page(){
         Intent here_at_uofa_page = new Intent(this, SurveyPage11.class);
+        here_at_uofa_page.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(here_at_uofa_page);
 
     }
 
     public void goBack(){
-        Intent impactAcademicPage2 = new Intent(this, SurveyPage5.class);
+        Intent impactAcademicPage2 = new Intent(this, SurveyPage9.class);
+        impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(impactAcademicPage2);
 
     }

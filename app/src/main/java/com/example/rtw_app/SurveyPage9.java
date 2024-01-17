@@ -96,11 +96,14 @@ public class SurveyPage9 extends AppCompatActivity {
     }
 
     public void goToSurveyPage3() {
-        Intent surveyPage3 = new Intent(this, SurveyPage3.class);
+        Intent surveyPage3 = new Intent(this, SurveyPage10.class);
+        surveyPage3.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(surveyPage3);
     }
 
     public void goBack() {
-
+        Intent Mindset = new Intent(this, MindsetPage.class);
+        Mindset.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(Mindset);
     }
 }
