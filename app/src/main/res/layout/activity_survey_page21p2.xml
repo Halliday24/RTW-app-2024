@@ -38,7 +38,8 @@
         android:id="@+id/impactQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        app:layout_constraintTop_toBottomOf="@id/TopGreenBar"
+        app:layout_constraintStart_toStartOf="parent"
         android:background="@color/gray"
         android:text="Social Engagement"
         android:textColor="@color/black"
@@ -57,6 +58,7 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="@+id/impactQuestion"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="9dp" />
 
     <RadioGroup
@@ -66,6 +68,7 @@
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="0dp">
 
         <RadioButton
@@ -106,7 +109,9 @@
         android:text="Never        Sometimes      About half        Most of        Always"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="199dp" />
+        tools:layout_editor_absoluteY="199dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/colorRadioGroup"/>
 
     <TextView
         android:id="@+id/textView8"
@@ -116,6 +121,7 @@
         android:text="                                              of the time      the time"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
@@ -128,6 +134,7 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="9dp" />
 
     <RadioGroup
@@ -137,6 +144,7 @@
         android:layout_marginTop="4dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="8dp">
 
         <RadioButton
@@ -225,6 +233,7 @@
         android:text="In which of the above areas are things working well for you?"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="7dp" />
 
     <EditText

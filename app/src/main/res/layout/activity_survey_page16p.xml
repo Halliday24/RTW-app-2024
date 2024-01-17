@@ -38,7 +38,8 @@
         android:id="@+id/impactQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        app:layout_constraintTop_toBottomOf="@id/TopGreenBar"
+        app:layout_constraintStart_toStartOf="parent"
         android:background="@color/gray"
         android:text="Study Habits"
         android:textColor="@color/black"
@@ -57,6 +58,7 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="@+id/impactQuestion"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="9dp" />
 
     <RadioGroup
@@ -66,6 +68,7 @@
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="0dp">
 
         <RadioButton
@@ -106,7 +109,9 @@
         android:text="Never        Sometimes      About half        Most of        Always"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="199dp" />
+        tools:layout_editor_absoluteY="199dp"
+        app:layout_constraintTop_toBottomOf="@id/colorRadioGroup"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/textView8"
@@ -124,11 +129,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@color/gray"
-        android:text="I have a good understanding of what is required to be successful in each course
-"
+        android:text="I have a good understanding of what is required to be successful in each course"
+        android:textSize="11.5dp"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="9dp" />
 
     <RadioGroup
@@ -138,6 +144,7 @@
         android:layout_marginTop="4dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="8dp">
 
         <RadioButton
@@ -198,6 +205,7 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="9dp" />
 
     <RadioGroup
@@ -207,6 +215,7 @@
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/textView12"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="8dp">
 
         <RadioButton
@@ -261,11 +270,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/gray"
-        android:text="
-Starting an assignment is easy for me"
+        android:text="Starting an assignment is easy for me"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/textView14"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="8dp" />
 
 
@@ -276,6 +285,7 @@ Starting an assignment is easy for me"
         android:layout_marginTop="4dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="8dp">
 
         <RadioButton

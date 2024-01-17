@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/Yellow"
-    android:padding="16dp">
+    android:backgroundTint="@color/Yellow">
 
     <ImageView
         android:id="@+id/TopGreenBar"

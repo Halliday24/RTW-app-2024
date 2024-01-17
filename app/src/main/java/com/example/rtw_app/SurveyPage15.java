@@ -24,20 +24,19 @@ public class SurveyPage15 extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("impact_responses", MODE_PRIVATE);
 
-        final RadioGroup syllabusRadioGroup = findViewById(R.id.syllabusRadioGroup);
-        final RadioGroup completeRadioGroup = findViewById(R.id.completeRadioGroup);
-        final RadioGroup readRadioGroup = findViewById(R.id.readRadioGroup);
-        final RadioGroup accessRadioGroup = findViewById(R.id.accessRadioGroup);
-        final RadioGroup deadlinesRadioGroup = findViewById(R.id.deadlinesRadioGroup);
+        final RadioGroup colorRadioGroup = findViewById(R.id.colorRadioGroup);
+        final RadioGroup timeRadioGroup = findViewById(R.id.timeRadioGroup);
+        final RadioGroup poorStudyRadioGroup2 = findViewById(R.id.poorStudyRadioGroup2);
+
 
         Button submitButton = findViewById(R.id.nextButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                int selectedColorId = syllabusRadioGroup.getCheckedRadioButtonId();
-                int selectedTimeId = completeRadioGroup.getCheckedRadioButtonId();
-                int selectedPoorStudyId = readRadioGroup.getCheckedRadioButtonId();
+                int selectedColorId = colorRadioGroup.getCheckedRadioButtonId();
+                int selectedTimeId = timeRadioGroup.getCheckedRadioButtonId();
+                int selectedPoorStudyId = poorStudyRadioGroup2.getCheckedRadioButtonId();
                 int selectedDisabilityId = accessRadioGroup.getCheckedRadioButtonId();
                 int selectedPreparationId = deadlinesRadioGroup.getCheckedRadioButtonId();
 

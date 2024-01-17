@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:backgroundTint="@color/Yellow"
     android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".SurveyPage12p2">
 
     <ImageView

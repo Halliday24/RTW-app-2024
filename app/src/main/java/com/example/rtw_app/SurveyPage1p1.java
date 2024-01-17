@@ -29,6 +29,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
     private ProgressBar progressBar;
     private TextView progressText;
     private RadioGroup studyRadioGroup, timeRadioGroup, poorStudyRadioGroup, disabilityRadioGroup, preparationRadioGroup;
+    private Button hint;
 
 
     @Override
@@ -56,6 +57,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
         preparationRadioGroup = findViewById(R.id.preparationRadioGroup);
         // Initialize your SharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        hint = findViewById(R.id.hint);
         Button submitButton = findViewById(R.id.nextButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -195,5 +197,13 @@ public class SurveyPage1p1 extends AppCompatActivity {
         progressBar.setProgress(progress);
         progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
     }
+
+    //this method is responsible for giving a hint to students to remind them about why they are
+    //filling in this workbook
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage1p1.this, Hint.class);
+        startActivity(Hint);
+    }
+
 }
 

@@ -21,8 +21,8 @@ public class Hint extends AppCompatActivity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*.4), (int)(height*.4));
-        getWindow().setLayout((int)(width*.25), (int)(height*.25));
+        getWindow().setLayout((int)(width*.7), (int)(height*.5));
+
 
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.CENTER;
