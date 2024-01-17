@@ -8,14 +8,32 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class SurveyPage1p3 extends AppCompatActivity {
+
+    private int currentQuestion;
+
+    private int totalQuestions = 5; // Set the total number of questions
+    private ProgressBar progressBar;
+    private TextView progressText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page1p3);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            currentQuestion = extras.getInt("data1");
+
+        }
+
+        progressBar = findViewById(R.id.progressBar);
+        progressText = findViewById(R.id.progressText);
+
+        updateProgress();
 
         Button submitButton = findViewById(R.id.nextButton);
 
@@ -23,6 +41,8 @@ public class SurveyPage1p3 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                currentQuestion++;
+                updateProgress();
                 goToImpactWorkPage();
             }
         });
@@ -34,6 +54,8 @@ public class SurveyPage1p3 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                currentQuestion--;
+                updateProgress();
                 goBack();
             }
         });
@@ -70,5 +92,15 @@ public class SurveyPage1p3 extends AppCompatActivity {
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(impactAcademicPage2);
 
+        Intent myIntent = new Intent(SurveyPage1p3.this, SurveyPage1p2.class);
+        myIntent.putExtra("data1", currentQuestion);
+        SurveyPage1p3.this.startActivity(myIntent);
+
+    }
+
+    private void updateProgress() {
+        int progress = (currentQuestion * 100) / totalQuestions;
+        progressBar.setProgress(progress);
+        progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
     }
 }

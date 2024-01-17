@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.widget.ProgressBar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -22,6 +23,11 @@ public class SurveyPage1p1 extends AppCompatActivity {
 
 
     private SharedPreferences sharedPreferences;
+
+    private int currentQuestion = 1;
+    private int totalQuestions = 5; // Set the total number of questions
+    private ProgressBar progressBar;
+    private TextView progressText;
     private RadioGroup studyRadioGroup, timeRadioGroup, poorStudyRadioGroup, disabilityRadioGroup, preparationRadioGroup;
 
 
@@ -29,6 +35,17 @@ public class SurveyPage1p1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page1p1);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            currentQuestion = extras.getInt("data1");
+
+        }
+
+        progressBar = findViewById(R.id.progressBar);
+        progressText = findViewById(R.id.progressText);
+
+        updateProgress();
 
 
         // Initialize your RadioGroup instances
@@ -43,6 +60,8 @@ public class SurveyPage1p1 extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                currentQuestion++;
+                updateProgress();
                 int selectedColorId = studyRadioGroup.getCheckedRadioButtonId();
                 int selectedTimeId = timeRadioGroup.getCheckedRadioButtonId();
                 int selectedPoorStudyId = poorStudyRadioGroup.getCheckedRadioButtonId();
@@ -83,6 +102,8 @@ public class SurveyPage1p1 extends AppCompatActivity {
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                currentQuestion--;
+                updateProgress();
                 goBack();
             }
         });
@@ -147,15 +168,32 @@ public class SurveyPage1p1 extends AppCompatActivity {
 
 
     public void goToImpactAcademicPage2() {
+        updateProgress();
+        Intent myIntent = new Intent(SurveyPage1p1.this, SurveyPage1p2.class);
+        myIntent.putExtra("data1", currentQuestion);
+        SurveyPage1p1.this.startActivity(myIntent);
+
         Intent impactAcademicPage2 = new Intent(this, SurveyPage1p2.class);
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(impactAcademicPage2);
+
+
     }
 
 
     public void goBack() {
         Intent impactAcademicPage2 = new Intent(this, InstructionPage.class);
         startActivity(impactAcademicPage2);
+
+        Intent myIntent = new Intent(SurveyPage1p1.this, InstructionPage.class);
+        myIntent.putExtra("data1", currentQuestion);
+        SurveyPage1p1.this.startActivity(myIntent);
+    }
+
+    private void updateProgress() {
+        int progress = (currentQuestion * 100) / totalQuestions;
+        progressBar.setProgress(progress);
+        progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
     }
 }
 

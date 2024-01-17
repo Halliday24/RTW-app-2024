@@ -2,19 +2,54 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     android:background="@color/digitalWhite">
 
 
-    <ImageView
-        android:id="@+id/TopGreenBar"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:background="@color/Green"
-        android:contentDescription="TODO" />
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/TopGreenBar"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@color/Green"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="TODO" >
+
+        </ImageView>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/Green"
+            android:max="100"
+            android:progress="0"
+            app:layout_constraintTop_toTopOf="@id/TopGreenBar"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/progressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progressBar"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="4dp"
+            android:text="Progress: 0%"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progressBar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/impactQuestion"
@@ -32,10 +67,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/gray"
         android:text="Inadequate reading/writing skills?"
-        android:textStyle="bold"
         android:textColor="@color/black"
-        android:background="@color/gray"/>
+        android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/prepRadioGroup"
@@ -76,27 +112,28 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
         android:text="Never        Sometimes      About half        Most of        Always"
-        android:textStyle="bold"
-        />
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="of the time      the time"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="158dp"
-        android:textStyle="bold"
-        />
+        android:text="of the time      the time"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
     <!-- Question 7: inadequate math skills? -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/gray"
         android:text="Inadequate math skills?"
-        android:textStyle="bold"
         android:textColor="@color/black"
-        android:background="@color/gray"/>
+        android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/readWriteRadioGroup"
@@ -137,28 +174,29 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
         android:text="Never        Sometimes      About half        Most of        Always"
-        android:textStyle="bold"
-        />
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="of the time      the time"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="158dp"
-        android:textStyle="bold"
-        />
+        android:text="of the time      the time"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
 
     <!-- Question 8: Easily distracted? -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/gray"
         android:text="Easily distracted?"
-        android:textStyle="bold"
         android:textColor="@color/black"
-        android:background="@color/gray"/>
+        android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/mathSkillsRadioGroup"
@@ -199,27 +237,28 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
         android:text="Never        Sometimes      About half        Most of        Always"
-        android:textStyle="bold"
-        />
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="of the time      the time"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="158dp"
-        android:textStyle="bold"
-        />
+        android:text="of the time      the time"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
     <!-- Question 9: Unhappy with instructor -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/gray"
         android:text="Unhappy with instructor?"
-        android:textStyle="bold"
         android:textColor="@color/black"
-        android:background="@color/gray"/>
+        android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/disabilityRadioGroup"
@@ -260,53 +299,52 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
         android:text="Never        Sometimes      About half        Most of        Always"
-        android:textStyle="bold"
-        />
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="of the time      the time"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="158dp"
-        android:textStyle="bold"
-        />
+        android:text="of the time      the time"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
 
 
     <!-- Next Button -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:layout_marginTop="150dp">
 
         <Button
             android:id="@+id/BackButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="250dp"
-            android:text="Back"
-            android:textSize="12dp"
             android:backgroundTint="@color/Yellow"
+            android:text="Back"
             android:textColor="@color/black"
+            android:textSize="12dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/nextButton"/>
+            app:layout_constraintRight_toLeftOf="@+id/nextButton" />
 
         <Button
             android:id="@+id/nextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="200dp"
-            android:text="Next"
             android:backgroundTint="@color/Yellow"
+            android:text="Next"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:textSize="12dp"
-            app:layout_constraintLeft_toRightOf="@+id/BackButton"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/BackButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
