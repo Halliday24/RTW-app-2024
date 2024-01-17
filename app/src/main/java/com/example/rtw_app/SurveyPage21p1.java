@@ -14,7 +14,7 @@ public class SurveyPage21p1 extends AppCompatActivity {
     }
 
     public void goTo(){
-        Intent SurveyPage21p2 = new Intent(this, SurveyPage21p2.class);
+        Intent SurveyPage21p2 = new Intent(this, surveyPage21p2.class);
         startActivity(SurveyPage21p2);
 
     }
