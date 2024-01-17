@@ -2,6 +2,7 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 public class SurveyPage17 extends AppCompatActivity {
@@ -10,5 +11,17 @@ public class SurveyPage17 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page17);
+    }
+
+    public void goToPAGE(){
+        Intent PAGE = new Intent(this, SurveyPage21p1.class);
+        startActivity(PAGE);
+
+    }
+
+    public void goBack(){
+        Intent timeManagement = new Intent(this, SurveyPage14p1.class);
+        startActivity(timeManagement);
+
     }
 }

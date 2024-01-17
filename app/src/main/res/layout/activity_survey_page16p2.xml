@@ -38,14 +38,13 @@
         android:id="@+id/impactQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:background="@color/gray"
         android:text="Study Habits"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="82dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TopGreenBar" />
 
     <TextView
         android:id="@+id/textView6"
@@ -56,8 +55,8 @@
         android:text="I have a designated study location where I can focus"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="@+id/impactQuestion"
-        tools:layout_editor_absoluteX="9dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/impactQuestion" />
 
     <RadioGroup
         android:id="@+id/colorRadioGroup"
@@ -65,8 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
 
         <RadioButton
             android:id="@+id/neverRadioButton"
@@ -105,8 +104,8 @@
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="199dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colorRadioGroup" />
 
     <TextView
         android:id="@+id/textView8"
@@ -115,8 +114,8 @@
         android:layout_marginTop="8dp"
         android:text="                                              of the time      the time"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView9"
@@ -127,8 +126,8 @@
         android:text="I access available tutors or see my instructor during office hours when I need additional help"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        tools:layout_editor_absoluteX="9dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <RadioGroup
         android:id="@+id/timeRadioGroup"
@@ -136,8 +135,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        tools:layout_editor_absoluteX="8dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9">
 
         <RadioButton
             android:id="@+id/neverRadioButton3"
@@ -175,16 +174,16 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
-        app:layout_constraintTop_toBottomOf="@+id/timeRadioGroup"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeRadioGroup" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="                                              of the time      the time"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
 
     <TextView
@@ -196,8 +195,8 @@
         android:text="I find it helps me to learn when I study with a group of students"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"
-        tools:layout_editor_absoluteX="9dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <RadioGroup
         android:id="@+id/poorStudyRadioGroup2"
@@ -205,8 +204,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        tools:layout_editor_absoluteX="8dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12">
 
         <RadioButton
             android:id="@+id/neverRadioButton2"
@@ -244,16 +243,16 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
-        app:layout_constraintTop_toBottomOf="@+id/poorStudyRadioGroup2"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/poorStudyRadioGroup2" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="                                              of the time      the time"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <TextView
         android:id="@+id/textView15"
@@ -263,8 +262,8 @@
         android:text="I know where and how to access resources and other learning materials"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
-        tools:layout_editor_absoluteX="8dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
 
     <RadioGroup
@@ -273,8 +272,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
-        tools:layout_editor_absoluteX="8dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15">
 
         <RadioButton
             android:id="@+id/neverRadioButton4"
@@ -313,16 +312,16 @@
         android:layout_height="15dp"
         android:layout_marginTop="4dp"
         android:text="Never        Sometimes      About half        Most of        Always"
-        app:layout_constraintTop_toBottomOf="@+id/disabilityRadioGroup"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/disabilityRadioGroup" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:layout_marginTop="4dp"
         android:text="                                              of the time      the time"
-        app:layout_constraintTop_toBottomOf="@+id/textView16"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <Button
         android:id="@+id/BackButton"
