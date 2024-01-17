@@ -13,15 +13,15 @@ public class SurveyPage16p2 extends AppCompatActivity {
         setContentView(R.layout.activity_survey_page16p2);
     }
 
-    public void goToPAGE(){
-        Intent PAGE = new Intent(this, SurveyPage21p1.class);
-        startActivity(PAGE);
+    public void goTo(){
+        Intent SurveyPage17 = new Intent(this, SurveyPage17.class);
+        startActivity(SurveyPage17);
 
     }
 
     public void goBack(){
-        Intent timeManagement = new Intent(this, SurveyPage14p1.class);
-        startActivity(timeManagement);
+        Intent SurveyPage16p1 = new Intent(this, SurveyPage16p1.class);
+        startActivity(SurveyPage16p1);
 
     }
 }

@@ -12,11 +12,11 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.os.Bundle;
+import android.widget.Toast;
 
-public class SurveyPage2 extends AppCompatActivity {
 
+public class SurveyPage3p1 extends AppCompatActivity {
     private int currentQuestion;
 
     //changed to 3 since only 3 questions are on page
@@ -25,11 +25,10 @@ public class SurveyPage2 extends AppCompatActivity {
     private TextView progressText;
     private SharedPreferences sharedPreferences;
     private Button hint;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey_page2);
+        setContentView(R.layout.activity_survey_page3p1);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -51,8 +50,12 @@ public class SurveyPage2 extends AppCompatActivity {
 
         Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                //Store answers
+                //update progress Bar
+                //Go to the next page
                 currentQuestion++;
                 updateProgress();
 
@@ -78,7 +81,7 @@ public class SurveyPage2 extends AppCompatActivity {
 
 
                     // Display a success message
-                    Toast.makeText(SurveyPage2.this, "Survey submitted successfully!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SurveyPage3p1.this, "Survey submitted successfully!", Toast.LENGTH_SHORT).show();
 
 //                    // Check if the app has permission to write to external storage
 //                    if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -92,16 +95,14 @@ public class SurveyPage2 extends AppCompatActivity {
 //                    generatePDF(selectedColor, selectedProgramming);
 
                     // Go to Next page
-                    goToSurveyPage3();
+                    goToSurveyPage3p2();
 
                 } else {
                     // Display an error message if not all questions are answered
-                    Toast.makeText(SurveyPage2.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SurveyPage3p1.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-
 
         Button buttonBack=findViewById(R.id.BackButton);
 
@@ -110,9 +111,6 @@ public class SurveyPage2 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-
-                currentQuestion--;
-                updateProgress();
                 goBack();
             }
         });
@@ -135,27 +133,20 @@ public class SurveyPage2 extends AppCompatActivity {
             }
         }
 
-    }
 
-    public void goToSurveyPage3(){
-        Intent SurveyPage3 = new Intent(this, SurveyPage3p1.class);
-        SurveyPage3.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivity(SurveyPage3);
 
-        Intent myIntent = new Intent(SurveyPage2.this, SurveyPage3p1.class);
-        myIntent.putExtra("data1", currentQuestion);
-        SurveyPage2.this.startActivity(myIntent);
+            }
+    public void goToSurveyPage3p2(){
+        Intent SurveyPage3p2 = new Intent(this, SurveyPage3p2.class);
+        SurveyPage3p2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(SurveyPage3p2);
 
     }
 
     public void goBack(){
-        Intent impactAcademicPage2 = new Intent(this, SurveyPage1p3.class);
+        Intent impactAcademicPage2 = new Intent(this, SurveyPage2.class);
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(impactAcademicPage2);
-
-        Intent myIntent = new Intent(SurveyPage2.this, SurveyPage1p3.class);
-        myIntent.putExtra("data1", currentQuestion);
-        SurveyPage2.this.startActivity(myIntent);
 
     }
 
@@ -168,7 +159,8 @@ public class SurveyPage2 extends AppCompatActivity {
     //this method is responsible for giving a hint to students to remind them about why they are
     //filling in this workbook
     private void openHint() {
-        Intent Hint = new Intent(SurveyPage2.this, Hint.class);
+        Intent Hint = new Intent(SurveyPage3p1.this, Hint.class);
         startActivity(Hint);
     }
+
 }

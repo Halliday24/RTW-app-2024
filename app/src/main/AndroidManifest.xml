@@ -106,7 +106,7 @@
             android:name=".SurveyPage16"
             android:exported="false" />
         <activity
-            android:name=".SurveyPage3"
+            android:name=".SurveyPage3p1"
             android:exported="false" />
         <activity
             android:name=".SurveyPage13p1"
