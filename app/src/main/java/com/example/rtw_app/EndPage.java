@@ -13,6 +13,8 @@ import android.widget.TextView;
 //this file is responsible for the end message that will be displayed once completed the workbook
 public class EndPage extends AppCompatActivity {
 
+    private Button hint;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,15 @@ public class EndPage extends AppCompatActivity {
 
         // Set text color for all TextViews in the layout
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
+
+        hint = findViewById(R.id.hint);
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
+            }
+        });
     }
 
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
@@ -70,4 +81,10 @@ public class EndPage extends AppCompatActivity {
         startActivity(SurveyPage21p1);
 
     }
+
+    private void openHint() {
+        Intent Hint = new Intent(EndPage.this, Hint.class);
+        startActivity(Hint);
+    }
+
 }
