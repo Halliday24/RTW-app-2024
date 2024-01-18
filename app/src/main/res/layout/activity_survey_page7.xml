@@ -48,6 +48,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/hint"
+        android:layout_width="64dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="@color/Green"
+        android:onClick="openHint"
+        android:text=" ? "
+        android:textColor="@color/Yellow"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
+        tools:visibility="visible" />
+
     <TextView
         android:id="@+id/surveyPage7_Question"
         android:layout_width="400dp"
@@ -469,22 +486,6 @@
         android:backgroundTint="@color/Yellow"
         android:textColor="@color/black"/>
 
-    <Button
-        android:id="@+id/hint"
-        android:layout_width="64dp"
-        android:layout_height="45dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="4dp"
-        android:backgroundTint="@color/Green"
-        android:onClick="openHint"
-        android:text=" ? "
-        android:textColor="@color/Yellow"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
-        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/BottomGreenBar"
