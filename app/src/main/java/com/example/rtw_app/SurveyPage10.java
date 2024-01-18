@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 public class SurveyPage10 extends AppCompatActivity {
 
+    private Button hint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,15 @@ public class SurveyPage10 extends AppCompatActivity {
         textview5.setText("I am engaged in class and in " +
                 "small group discussions");
 
+        hint = findViewById(R.id.hint);
 
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
+            }
+        });
 
         Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener(){
@@ -97,4 +106,10 @@ public class SurveyPage10 extends AppCompatActivity {
 
     }
 
+    //this method is responsible for giving a hint to students to remind them about why they are
+    //filling in this workbook
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage10.this, Hint.class);
+        startActivity(Hint);
+    }
 }

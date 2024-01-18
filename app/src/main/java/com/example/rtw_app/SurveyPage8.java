@@ -15,6 +15,7 @@ import android.widget.TextView;
 public class SurveyPage8 extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
+    private Button hint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +29,15 @@ public class SurveyPage8 extends AppCompatActivity {
         TextView textView2 = (TextView) findViewById(R.id.surveyPage8_Question2);
         textView2.setText("What are the primary sources of stress in your life?");
 
+        hint = findViewById(R.id.hint);
 
-
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
+            }
+        });
 
         Button buttonNext=findViewById(R.id.nextButton);
 
@@ -84,5 +92,12 @@ public class SurveyPage8 extends AppCompatActivity {
         SurveyPage7.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage7);
 
+    }
+
+    //this method is responsible for giving a hint to students to remind them about why they are
+    //filling in this workbook
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage8.this, Hint.class);
+        startActivity(Hint);
     }
 }

@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 public class SurveyPage13p2 extends AppCompatActivity {
 
+    private Button hint;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,16 @@ public class SurveyPage13p2 extends AppCompatActivity {
         //option2
         TextView textview2 = (TextView) findViewById(R.id.Education_And_Goals2_Option2);
         textview2.setText("I have a faculty or staff mentor");
+
+        hint = findViewById(R.id.hint);
+
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
+            }
+        });
 
         Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener(){
@@ -78,5 +90,12 @@ public class SurveyPage13p2 extends AppCompatActivity {
         Intent Education_And_Goals = new Intent(this, SurveyPage13p1.class);
         startActivity(Education_And_Goals);
 
+    }
+
+    //this method is responsible for giving a hint to students to remind them about why they are
+    //filling in this workbook
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage13p2.this, Hint.class);
+        startActivity(Hint);
     }
 }

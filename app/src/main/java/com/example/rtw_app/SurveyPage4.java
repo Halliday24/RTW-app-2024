@@ -51,6 +51,14 @@ public class SurveyPage4 extends AppCompatActivity {
         Button nextButton = findViewById(R.id.nextButton);
         hint = findViewById(R.id.hint);
 
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
+            }
+        });
+
 
         nextButton.setOnClickListener(new View.OnClickListener() {
 

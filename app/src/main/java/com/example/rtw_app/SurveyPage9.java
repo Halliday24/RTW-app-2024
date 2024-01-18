@@ -16,6 +16,7 @@ import android.widget.Toast;
 public class SurveyPage9 extends AppCompatActivity {
 //XML Should have Values and Goals on top but is fine regardless
     private SharedPreferences sharedPreferences;
+    private Button hint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,16 @@ public class SurveyPage9 extends AppCompatActivity {
         final RadioGroup confidenceRadioGroup = findViewById(R.id.confidenceRadioGroup);
         final RadioGroup goalsRadioGroup = findViewById(R.id.goalsRadioGroup);
         final RadioGroup valuesRadioGroup = findViewById(R.id.valuesRadioGroup);
+
+        hint = findViewById(R.id.hint);
+
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
+            }
+        });
 
         Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -105,5 +116,12 @@ public class SurveyPage9 extends AppCompatActivity {
         Intent Mindset = new Intent(this, MindsetPage.class);
         Mindset.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(Mindset);
+    }
+
+    //this method is responsible for giving a hint to students to remind them about why they are
+    //filling in this workbook
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage9.this, Hint.class);
+        startActivity(Hint);
     }
 }
