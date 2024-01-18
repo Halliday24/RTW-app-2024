@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 public class SurveyPage12p1 extends AppCompatActivity {
 
+    private Button hint;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,16 @@ public class SurveyPage12p1 extends AppCompatActivity {
         textview3.setText("Hard work, focus, and " +
                 "perseverance determine my " +
                 "results");
+
+        hint = findViewById(R.id.hint);
+
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
+            }
+        });
 
         Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener(){
@@ -87,5 +99,12 @@ public class SurveyPage12p1 extends AppCompatActivity {
         Intent SurveyPage10 = new Intent(this, SurveyPage11.class);
         startActivity(SurveyPage10);
 
+    }
+
+    //this method is responsible for giving a hint to students to remind them about why they are
+    //filling in this workbook
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage12p1.this, Hint.class);
+        startActivity(Hint);
     }
 }

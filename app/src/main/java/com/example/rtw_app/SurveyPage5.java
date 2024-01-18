@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class SurveyPage5 extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
+    private Button hint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,16 @@ public class SurveyPage5 extends AppCompatActivity {
         setContentView(R.layout.activity_survey_page5);
 
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
+
+        hint = findViewById(R.id.hint);
+
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
+            }
+        });
 
         // Initialize UI elements
         Button nextButton = findViewById(R.id.nextButton);
@@ -117,5 +128,12 @@ public class SurveyPage5 extends AppCompatActivity {
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(impactAcademicPage2);
 
+    }
+
+    //this method is responsible for giving a hint to students to remind them about why they are
+    //filling in this workbook
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage5.this, Hint.class);
+        startActivity(Hint);
     }
 }

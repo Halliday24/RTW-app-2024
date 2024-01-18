@@ -29,6 +29,7 @@ public class SurveyPage11 extends AppCompatActivity {
     private EditText otherReasonEditText;
     private Button backButton;
     private Button nextButton;
+    private Button hint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,16 @@ public class SurveyPage11 extends AppCompatActivity {
             public void onClick(View view) {
                 collectAndStoreResponses();
                 goToNextPage();
+            }
+        });
+
+        hint = findViewById(R.id.hint);
+
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
             }
         });
 
@@ -113,5 +124,11 @@ public class SurveyPage11 extends AppCompatActivity {
         }
     }
 
+    //this method is responsible for giving a hint to students to remind them about why they are
+    //filling in this workbook
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage11.this, Hint.class);
+        startActivity(Hint);
+    }
 
 }

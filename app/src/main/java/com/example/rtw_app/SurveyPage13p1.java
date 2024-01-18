@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 public class SurveyPage13p1 extends AppCompatActivity {
 //need to add Education and Goals to top header
+    private Button hint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +39,16 @@ public class SurveyPage13p1 extends AppCompatActivity {
         TextView textview5 = (TextView) findViewById(R.id.Education_And_Goals_Option5);
         textview5.setText("I know what it takes to be in the " +
                 "career I have chosen ");
+
+        hint = findViewById(R.id.hint);
+
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
+            }
+        });
 
         Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener(){
@@ -91,5 +102,12 @@ public class SurveyPage13p1 extends AppCompatActivity {
         Intent Self_efficacy2 = new Intent(this, SurveyPage12p2.class);
         startActivity(Self_efficacy2);
 
+    }
+
+    //this method is responsible for giving a hint to students to remind them about why they are
+    //filling in this workbook
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage13p1.this, Hint.class);
+        startActivity(Hint);
     }
 }
