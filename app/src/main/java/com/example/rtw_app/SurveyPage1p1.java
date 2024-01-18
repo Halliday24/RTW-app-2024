@@ -220,7 +220,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
     // Method to generate and save PDF
     private void generateAndSavePdf(String selectedStudy,String selectedTime,String selectedPoorStudy,String selectedDisability,String selectedPreparation) {
         List<String> questionTexts = new ArrayList<>();
-
+        String mainQuestion = "How much of an impact did each of these potential academic barriers have on your learning and grades last year?";
         // Add your question texts to the list here
         questionTexts.add("Ineffective study habits?");
         questionTexts.add("Poor time management?");
@@ -229,7 +229,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
         questionTexts.add("Ineffective academic preparation?");
 
         List<String[]> surveyAnswers = getSurveyAnswers(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability,selectedPreparation);
-        PdfGenerator.generatePdf(SurveyPage1p1.this, "survey_output.pdf", surveyAnswers, questionTexts);
+        PdfGenerator.generatePdf(SurveyPage1p1.this, "survey_output.pdf", surveyAnswers, questionTexts, mainQuestion);
     }
 
 
