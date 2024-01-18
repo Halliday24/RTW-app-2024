@@ -89,30 +89,45 @@
             android:id="@+id/neverRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp"
+            android:text="Never"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/sometimesRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp"
+            android:text="SomeTimes"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/halfRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp"
+            android:text="About Half the Time"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/mostRadioButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Most of the Time"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/alwaysRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"/>
+            android:layout_marginLeft="35dp"
+            android:text="Always"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
     </RadioGroup>
 
@@ -121,9 +136,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="Never        Sometimes      About half        Most of        Always"
-        android:textSize="12sp"
+        android:text="Never          Sometimes        About half          Most of               Always"
         android:textStyle="bold"
+        android:textSize="12sp"
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/option1_answers"
         app:layout_constraintStart_toStartOf="parent"
@@ -134,9 +149,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="of the time      the time"
-        android:layout_marginLeft="150dp"
-        android:textSize="12sp"
+        android:layout_marginLeft="165dp"
         android:textStyle="bold"
+        android:textSize="12sp"
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/option1_text"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -170,30 +185,45 @@
             android:id="@+id/neverRadioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp"
+            android:text="Never"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/sometimesRadioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp"
+            android:text="SomeTimes"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/halfRadioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp"
+            android:text="About Half the Time"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/mostRadioButton2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Most of the Time"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/alwaysRadioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"/>
+            android:layout_marginLeft="35dp"
+            android:text="Always"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
     </RadioGroup>
 
@@ -201,7 +231,7 @@
         android:id="@+id/option2_text"
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:text="Never        Sometimes      About half        Most of        Always"
+        android:text="Never          Sometimes        About half          Most of               Always"
         android:textSize="12sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -214,7 +244,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="of the time      the time"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="165dp"
         android:textStyle="bold"
         android:textSize="12sp"
         android:textColor="@color/black"
@@ -248,30 +278,45 @@
             android:id="@+id/neverRadioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp"
+            android:text="Never"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/sometimesRadioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp"
+            android:text="SomeTimes"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/halfRadioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp"
+            android:text="About Half the Time"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/mostRadioButton3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Most of the Time"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/alwaysRadioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"/>
+            android:layout_marginLeft="35dp"
+            android:text="Always"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
     </RadioGroup>
 
@@ -279,7 +324,7 @@
         android:id="@+id/option3_text"
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:text="Never        Sometimes      About half        Most of        Always"
+        android:text="Never          Sometimes        About half          Most of               Always"
         android:layout_marginTop="5dp"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -293,7 +338,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="of the time      the time"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="165dp"
         android:textSize="12sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -329,30 +374,45 @@
             android:id="@+id/neverRadioButton4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp"
+            android:text="Never"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/sometimesRadioButton4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp"
+            android:text="SomeTimes"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/halfRadioButton4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp"
+            android:text="About Half the Time"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/mostRadioButton4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Most of the Time"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/alwaysRadioButton4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"/>
+            android:layout_marginLeft="35dp"
+            android:text="Always"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
     </RadioGroup>
 
@@ -360,7 +420,7 @@
         android:id="@+id/option4_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Never        Sometimes      About half        Most of        Always"
+        android:text="Never          Sometimes        About half          Most of               Always"
         android:layout_marginLeft="10dp"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -373,7 +433,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="of the time      the time"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="165dp"
         android:textSize="12sp"
         android:textStyle="bold"
         android:textColor="@color/black"

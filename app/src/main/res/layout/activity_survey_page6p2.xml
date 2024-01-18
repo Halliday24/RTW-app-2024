@@ -106,7 +106,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginRight="35dp"
         android:text="Never"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -115,7 +115,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginRight="35dp"
         android:text="SomeTimes"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -124,7 +124,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginRight="35dp"
         android:text="About Half the Time"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -132,7 +132,7 @@ tools:context=".SurveyPage6p2">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Most of the Time"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -141,7 +141,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
         android:text="Always"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
 </RadioGroup>
@@ -151,7 +151,7 @@ tools:context=".SurveyPage6p2">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
-    android:text="Never        Sometimes      About half        Most of        Always"
+    android:text="Never          Sometimes        About half          Most of               Always"
     android:textSize="12sp"
     android:textStyle="bold"
     android:textColor="@color/black"
@@ -163,7 +163,7 @@ tools:context=".SurveyPage6p2">
     android:id="@+id/textView3"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="150dp"
+    android:layout_marginLeft="165dp"
     android:text="of the time      the time"
     android:textSize="12sp"
     android:textStyle="bold"
@@ -201,7 +201,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginRight="35dp"
         android:text="Never"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -210,7 +210,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginRight="35dp"
         android:text="Sometimes"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -219,7 +219,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginRight="35dp"
         android:text="About half of the time"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -227,7 +227,7 @@ tools:context=".SurveyPage6p2">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Most of the time"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -236,7 +236,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
         android:text="Always"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
 </RadioGroup>
@@ -246,7 +246,7 @@ tools:context=".SurveyPage6p2">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
-    android:text="Never        Sometimes      About half        Most of        Always"
+    android:text="Never          Sometimes        About half          Most of               Always"
     android:textSize="12sp"
     android:textStyle="bold"
     android:textColor="@color/black"
@@ -258,7 +258,7 @@ tools:context=".SurveyPage6p2">
     android:id="@id/textView6"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="150dp"
+    android:layout_marginLeft="165dp"
     android:text="of the time      the time"
     android:textStyle="bold"
     android:textSize="12sp"
@@ -297,7 +297,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginRight="35dp"
         android:text="Never"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -306,7 +306,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginRight="35dp"
         android:text="Sometimes"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -315,7 +315,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginRight="35dp"
         android:text="Around half of the time"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -323,7 +323,7 @@ tools:context=".SurveyPage6p2">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Most of the time"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -332,7 +332,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
         android:text="Always"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
 </RadioGroup>
@@ -342,7 +342,7 @@ tools:context=".SurveyPage6p2">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
-    android:text="Never        Sometimes      About half        Most of        Always"
+    android:text="Never          Sometimes        About half          Most of               Always"
     android:textSize="12sp"
     android:textStyle="bold"
     android:textColor="@color/black"
@@ -354,7 +354,7 @@ tools:context=".SurveyPage6p2">
     android:id="@+id/textView9"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="150dp"
+    android:layout_marginLeft="165dp"
     android:text="of the time      the time"
     android:textSize="12sp"
     android:textStyle="bold"
@@ -391,7 +391,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginRight="35dp"
         android:text="Never"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -400,7 +400,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginRight="35dp"
         android:text="SomeTimes"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -409,7 +409,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginRight="35dp"
         android:text="Around half of the time"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -417,7 +417,7 @@ tools:context=".SurveyPage6p2">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Most of the time"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -426,7 +426,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
         android:text="Always"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
 </RadioGroup>
@@ -436,7 +436,7 @@ tools:context=".SurveyPage6p2">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
-    android:text="Never        Sometimes      About half        Most of        Always"
+    android:text="Never          Sometimes        About half          Most of               Always"
     android:textSize="12sp"
     android:textStyle="bold"
     android:textColor="@color/black"
@@ -448,7 +448,7 @@ tools:context=".SurveyPage6p2">
     android:id="@+id/textView12"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="150dp"
+    android:layout_marginLeft="165dp"
     android:text="of the time      the time"
     android:textSize="12sp"
     android:textStyle="bold"
@@ -485,7 +485,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginRight="35dp"
         android:text="Never"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -494,7 +494,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginRight="35dp"
         android:text="Sometimes"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -503,7 +503,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginRight="35dp"
         android:text="Around half of the time"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -511,7 +511,7 @@ tools:context=".SurveyPage6p2">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Most of the time"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
     <RadioButton
@@ -520,7 +520,7 @@ tools:context=".SurveyPage6p2">
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
         android:text="Always"
-        android:textSize="1sp"
+        android:textSize="0sp"
         android:textColor="@android:color/transparent" />
 
 </RadioGroup>
@@ -530,7 +530,7 @@ tools:context=".SurveyPage6p2">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
-    android:text="Never        Sometimes      About half        Most of        Always"
+    android:text="Never          Sometimes        About half          Most of               Always"
     android:textSize="12sp"
     android:textStyle="bold"
     android:textColor="@color/black"
@@ -541,7 +541,7 @@ tools:context=".SurveyPage6p2">
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="150dp"
+    android:layout_marginLeft="165dp"
     android:text="of the time      the time"
     android:textSize="12sp"
     android:textStyle="bold"
