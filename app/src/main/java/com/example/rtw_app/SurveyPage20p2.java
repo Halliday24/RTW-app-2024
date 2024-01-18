@@ -21,7 +21,7 @@ public class SurveyPage20p2 extends AppCompatActivity {
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openHint();
+                //openHint();
             }
         });
     }
