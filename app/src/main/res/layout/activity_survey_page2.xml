@@ -226,14 +226,13 @@
         android:id="@id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="145dp"
         android:text="of the time      the time"
+        android:layout_marginLeft="145dp"
         android:textStyle="bold"
         android:textSize="12sp"
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <!-- Question 8: Easily distracted? -->
@@ -241,9 +240,9 @@
         android:id="@id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Unemployment"
         android:layout_marginTop="2px"
         android:background="@color/gray"
-        android:text="Unemployment"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
@@ -294,8 +293,8 @@
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:text="Never        Sometimes      About half        Most of        Always"
+        android:layout_marginTop="5dp"
         android:textSize="12sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -307,8 +306,8 @@
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="145dp"
         android:text="of the time      the time"
+        android:layout_marginLeft="145dp"
         android:textSize="12sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -361,7 +360,6 @@
         android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintTop_toTopOf="@id/TopGreenBar"
         tools:visibility="visible" />
 
