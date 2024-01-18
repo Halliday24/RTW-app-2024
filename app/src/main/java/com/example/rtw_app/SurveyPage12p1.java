@@ -39,7 +39,7 @@ public class SurveyPage12p1 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                goToself_efficacy2();
+                goToNextPage();
             }
         });
 
@@ -77,14 +77,14 @@ public class SurveyPage12p1 extends AppCompatActivity {
 
     }
 
-    public void goToself_efficacy2(){
-        Intent Self_efficacy2 = new Intent(this, SurveyPage12p2.class);
-        startActivity(Self_efficacy2);
+    public void goToNextPage(){
+        Intent nextPage = new Intent(this, SurveyPage12p2.class);
+        startActivity(nextPage);
 
     }
 
     public void goBack(){
-        Intent SurveyPage10 = new Intent(this, SurveyPage10.class);
+        Intent SurveyPage10 = new Intent(this, SurveyPage11.class);
         startActivity(SurveyPage10);
 
     }

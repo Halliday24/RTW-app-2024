@@ -44,7 +44,7 @@ public class SurveyPage14p1 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                goToTimeManagement2();
+                goToNextPage();
             }
         });
 
@@ -80,9 +80,9 @@ public class SurveyPage14p1 extends AppCompatActivity {
 
     }
 
-    public void goToTimeManagement2(){
-        Intent TimeManagement2 = new Intent(this, SurveyPage14p2.class);
-        startActivity(TimeManagement2);
+    public void goToNextPage(){
+        Intent nextPage = new Intent(this, SurveyPage14p2.class);
+        startActivity(nextPage);
 
     }
 
