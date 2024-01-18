@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="Never"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -116,7 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="SomeTimes"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -125,7 +125,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="About Half the Time"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -133,7 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Most of the Time"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -142,7 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
             android:text="Always"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
     </RadioGroup>
@@ -202,7 +202,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="Never"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -211,7 +211,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="Sometimes"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -220,7 +220,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="About half of the time"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -228,7 +228,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Most of the time"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -237,7 +237,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
             android:text="Always"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
     </RadioGroup>
@@ -298,7 +298,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="Never"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -307,7 +307,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="Sometimes"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -316,7 +316,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="Around half of the time"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -324,7 +324,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Most of the time"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -333,7 +333,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
             android:text="Always"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
     </RadioGroup>
@@ -392,7 +392,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="Never"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -401,7 +401,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="SomeTimes"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -410,7 +410,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="Around half of the time"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -418,7 +418,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Most of the time"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -427,7 +427,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
             android:text="Always"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
     </RadioGroup>
@@ -486,7 +486,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="Never"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -495,7 +495,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="Sometimes"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -504,7 +504,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="Around half of the time"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -512,7 +512,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Most of the time"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
         <RadioButton
@@ -521,7 +521,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
             android:text="Always"
-            android:textSize="1sp"
+            android:textSize="0sp"
             android:textColor="@android:color/transparent" />
 
     </RadioGroup>
