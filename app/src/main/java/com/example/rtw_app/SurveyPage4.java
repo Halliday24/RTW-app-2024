@@ -15,6 +15,8 @@ import android.os.Bundle;
 public class SurveyPage4 extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
+
+    private Button hint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,7 @@ public class SurveyPage4 extends AppCompatActivity {
                 "extracurricular activities");
 
         Button nextButton = findViewById(R.id.nextButton);
+        hint = findViewById(R.id.hint);
 
 
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -89,9 +92,9 @@ public class SurveyPage4 extends AppCompatActivity {
     }
 
     public void goToImpactFinancial(){
-        Intent SurveyPage4 = new Intent(this, SurveyPage6.class);
-        SurveyPage4.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivity(SurveyPage4);
+        Intent SurveyPage5 = new Intent(this, SurveyPage5.class);
+        SurveyPage5.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(SurveyPage5);
 
     }
 
@@ -100,5 +103,12 @@ public class SurveyPage4 extends AppCompatActivity {
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(impactAcademicPage2);
 
+    }
+
+    //this method is responsible for giving a hint to students to remind them about why they are
+    //filling in this workbook
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage4.this, Hint.class);
+        startActivity(Hint);
     }
 }

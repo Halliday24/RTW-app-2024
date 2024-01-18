@@ -21,6 +21,7 @@ import java.io.FileOutputStream;
 public class SurveyPage7 extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
+    private Button hint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +53,7 @@ public class SurveyPage7 extends AppCompatActivity {
 
 
         Button buttonNext=findViewById(R.id.nextButton);
+        hint = findViewById(R.id.hint);
 
         //set a click listener for the next Button
         buttonNext.setOnClickListener(new View.OnClickListener(){
@@ -104,5 +106,12 @@ public class SurveyPage7 extends AppCompatActivity {
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(impactAcademicPage2);
 
+    }
+
+    //this method is responsible for giving a hint to students to remind them about why they are
+    //filling in this workbook
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage7.this, Hint.class);
+        startActivity(Hint);
     }
 }

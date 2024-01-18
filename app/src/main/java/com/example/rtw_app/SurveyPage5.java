@@ -70,16 +70,16 @@ public class SurveyPage5 extends AppCompatActivity {
     }
 
     private void handleNextButtonClick() {
-        RadioGroup moneyRadioGroup = findViewById(R.id.moneyRadioGroup);
-        RadioGroup aidRadioGroup = findViewById(R.id.aidRadioGroup);
-        RadioGroup managementRadioGroup = findViewById(R.id.managementRadioGroup);
-        RadioGroup toolsRadioGroup = findViewById(R.id.toolsRadioGroup);
+        RadioGroup studyRadioGroup = findViewById(R.id.studyRadioGroup);
+        RadioGroup timeRadioGroup = findViewById(R.id.timeRadioGroup);
+        RadioGroup poorStudyRadioGroup2 = findViewById(R.id.poorStudyRadioGroup2);
+        RadioGroup disabilityRadioGroup = findViewById(R.id.disabilityRadioGroup);
 
         // Get selected answers
-        String selectedMoney = getSelectedRadioButtonText(moneyRadioGroup);
-        String selectedAid = getSelectedRadioButtonText(aidRadioGroup);
-        String selectedManagement = getSelectedRadioButtonText(managementRadioGroup);
-        String selectedTools = getSelectedRadioButtonText(toolsRadioGroup);
+        String selectedMoney = getSelectedRadioButtonText(studyRadioGroup);
+        String selectedAid = getSelectedRadioButtonText(timeRadioGroup);
+        String selectedManagement = getSelectedRadioButtonText(poorStudyRadioGroup2);
+        String selectedTools = getSelectedRadioButtonText(disabilityRadioGroup);
 
         // Store responses in SharedPreferences
         SharedPreferences.Editor editor = sharedPreferences.edit();
