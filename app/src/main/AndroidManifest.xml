@@ -57,9 +57,6 @@
             android:name=".SurveyPage8"
             android:exported="false" />
         <activity
-            android:name=".timeManage"
-            android:exported="false" />
-        <activity
             android:name=".SurveyPage15p1"
             android:exported="false" />
         <activity
@@ -114,13 +111,14 @@
             android:name=".SurveyPage4"
             android:exported="false" />
         <activity
-            android:name=".SurveyPage16"
+            android:name=".SurveyPage16p1"
             android:exported="false" />
         <activity
             android:name=".SurveyPage3p1"
             android:exported="false" />
+
         <activity
-            android:name=".SurveyPage13p1"
+            android:name=".SurveyPage5"
             android:exported="false" />
         <activity
             android:name=".SurveyPage1p3"
@@ -129,13 +127,7 @@
             android:name=".SurveyPage1p2"
             android:exported="false" />
         <activity
-            android:name=".SurveyPage"
-            android:exported="false" />
-        <activity
             android:name=".SurveyPage2"
-            android:exported="false" />
-        <activity
-            android:name=".LoginPage"
             android:exported="false" />
         <activity
             android:name=".InstructionPage"
