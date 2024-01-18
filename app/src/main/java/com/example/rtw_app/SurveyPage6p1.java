@@ -177,11 +177,6 @@ public class SurveyPage6p1 extends AppCompatActivity {
 
 
     public void goToNextPage() {
-        updateProgress();
-        Intent myIntent = new Intent(SurveyPage6p1.this, SurveyPage6p2.class);
-        myIntent.putExtra("data1", currentQuestion);
-        SurveyPage6p1.this.startActivity(myIntent);
-
         Intent nextPage = new Intent(this, SurveyPage6p2.class);
         nextPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(nextPage);

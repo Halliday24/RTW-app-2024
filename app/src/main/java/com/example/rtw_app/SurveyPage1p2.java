@@ -1,6 +1,10 @@
 package com.example.rtw_app;
 
+import static android.app.PendingIntent.getActivity;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -23,6 +27,8 @@ public class SurveyPage1p2 extends AppCompatActivity {
 
     private int currentQuestion;
 
+    private static final String KEY_CURRENT_QUESTION = "current_question";
+
     private SharedPreferences sharedPreferences;
     private int totalQuestions = 5; // Set the total number of questions
     private ProgressBar progressBar;
@@ -33,69 +39,32 @@ public class SurveyPage1p2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page1p2);
 
-
-
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            currentQuestion = extras.getInt("data1");
-
-        }
-
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
-
-        updateProgress();
 
 
         studyRadioGroup = findViewById(R.id.studyRadioGroup);
         timeRadioGroup = findViewById(R.id.timeRadioGroup);
         poorStudyRadioGroup2 = findViewById(R.id.poorStudyRadioGroup2);
         disabilityRadioGroup = findViewById(R.id.disabilityRadioGroup);
+
         // Initialize your SharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,1);
 
+        updateProgress();
 
         Button submitButton = findViewById(R.id.nextButton);
         hint = findViewById(R.id.hint);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                currentQuestion++;
-                updateProgress();
-                int selectedColorId = studyRadioGroup.getCheckedRadioButtonId();
-                int selectedTimeId = timeRadioGroup.getCheckedRadioButtonId();
-                int selectedPoorStudyId = poorStudyRadioGroup2.getCheckedRadioButtonId();
-                int selectedDisabilityId = disabilityRadioGroup.getCheckedRadioButtonId();
-
-
-
-                if (selectedColorId != -1 && selectedTimeId != -1 && selectedPoorStudyId != -1 &&
-                        selectedDisabilityId != -1) {
-
-
-                    String selectedStudy = ((RadioButton) findViewById(selectedColorId)).getText().toString();
-                    String selectedTime = ((RadioButton) findViewById(selectedTimeId)).getText().toString();
-                    String selectedPoorStudy = ((RadioButton) findViewById(selectedPoorStudyId)).getText().toString();
-                    String selectedDisability = ((RadioButton) findViewById(selectedDisabilityId)).getText().toString();
-
-
-
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("impact_study", selectedStudy);
-                    editor.putString("impact_time", selectedTime);
-                    editor.putString("impact_poor_study", selectedPoorStudy);
-                    editor.putString("impact_disability", selectedDisability);
-                    editor.apply();
-
-
-                    // Generate PDF after submitting survey
-                    generateAndSavePdf(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability);
-
-                    Toast.makeText(SurveyPage1p2.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
-                    goToImpactAcademicPage3();
-                } else {
-                    Toast.makeText(SurveyPage1p2.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
-                }
+            public void onClick(View view) {
+                //currentQuestion++;
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt(KEY_CURRENT_QUESTION, 1);
+                editor.putInt("Total_questions", totalQuestions);
+                editor.apply();
+                goToImpactAcademicPage3();
             }
         });
 
@@ -103,8 +72,11 @@ public class SurveyPage1p2 extends AppCompatActivity {
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentQuestion--;
-                updateProgress();
+                //currentQuestion--;
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt(KEY_CURRENT_QUESTION, 1);
+                editor.putInt("Total_questions", totalQuestions);
+                editor.apply();
                 goBack();
             }
         });
@@ -126,10 +98,6 @@ public class SurveyPage1p2 extends AppCompatActivity {
     }
 
     public void goToImpactAcademicPage3() {
-        Intent myIntent = new Intent(SurveyPage1p2.this, SurveyPage1p3.class);
-        myIntent.putExtra("data1", currentQuestion);
-        SurveyPage1p2.this.startActivity(myIntent);
-
         Intent impactAcademicPage3 = new Intent(this, SurveyPage1p3.class);
         impactAcademicPage3.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(impactAcademicPage3);
@@ -169,13 +137,11 @@ public class SurveyPage1p2 extends AppCompatActivity {
         PdfGenerator.generatePdf(SurveyPage1p2.this, "survey_output2.pdf", surveyAnswers, questionTexts, mainQuestion);
     }
     public void goBack() {
-        Intent impactAcademicPage1 = new Intent(this, SurveyPage1p1.class);
-        impactAcademicPage1.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivity(impactAcademicPage1);
+        Intent impactAcademicPage3 = new Intent(this, SurveyPage1p1.class);
+        impactAcademicPage3.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(impactAcademicPage3);
 
-        Intent myIntent = new Intent(SurveyPage1p2.this, SurveyPage1p1.class);
-        myIntent.putExtra("data1", currentQuestion);
-        SurveyPage1p2.this.startActivity(myIntent);
+
 
     }
 

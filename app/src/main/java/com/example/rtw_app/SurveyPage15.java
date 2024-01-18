@@ -40,8 +40,7 @@ public class SurveyPage15 extends AppCompatActivity {
                 //int selectedDisabilityId = accessRadioGroup.getCheckedRadioButtonId();
                 //int selectedPreparationId = deadlinesRadioGroup.getCheckedRadioButtonId();
 
-                if (selectedColorId != -1 && selectedTimeId != -1 && selectedPoorStudyId != -1
-                        ) {
+                if (selectedColorId != -1 && selectedTimeId != -1 && selectedPoorStudyId != -1 ) {
 
                     // Get selected answers
                     String selectedStudy = ((RadioButton) findViewById(selectedColorId)).getText().toString();
