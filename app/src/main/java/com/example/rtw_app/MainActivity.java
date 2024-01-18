@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextEmail, editTextCCID, editTextName;
     private Button buttonLogin;
 
+    private String userInfo;
     private Button hint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
                 String email = editTextEmail.getText().toString();
                 String ccid = editTextCCID.getText().toString();
                 String name = editTextName.getText().toString();
-
+                userInfo = name + ccid;
                 // Implement authentication logic here (will change when we get confirmation on if we can use servers or not)
-                if ((email.equals("Admin") && ccid.equals("123")) &&(name.length()>0)) {
+                if ((ccid.length()<8 &&(name.length()>0))){
                     // Successful login
                     Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
                     goToInstructionPage();
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
      */
    public void goToInstructionPage(){
         Intent instructionPage = new Intent(this, InstructionPage.class);
+        instructionPage.putExtra("userInfo", userInfo);
         startActivity(instructionPage);
 
     }

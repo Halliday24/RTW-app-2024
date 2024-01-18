@@ -26,6 +26,7 @@ public class SurveyPage1p3 extends AppCompatActivity {
     private ProgressBar progressBar;
     private TextView progressText;
 
+    private String userInfo;
     private SharedPreferences sharedPreferences;
 
     private Button hint;
@@ -34,7 +35,7 @@ public class SurveyPage1p3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page1p3);
-
+        userInfo = getIntent().getStringExtra("userInfo");
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             currentQuestion = extras.getInt("data1");
@@ -141,6 +142,7 @@ public class SurveyPage1p3 extends AppCompatActivity {
 
         Intent myIntent = new Intent(SurveyPage1p3.this, SurveyPage2.class);
         myIntent.putExtra("data1", currentQuestion);
+        myIntent.putExtra("userInfo", userInfo);
         SurveyPage1p3.this.startActivity(myIntent);
 
     }
@@ -152,6 +154,7 @@ public class SurveyPage1p3 extends AppCompatActivity {
 
         Intent myIntent = new Intent(SurveyPage1p3.this, SurveyPage1p2.class);
         myIntent.putExtra("data1", currentQuestion);
+        myIntent.putExtra("userInfo", userInfo);
         SurveyPage1p3.this.startActivity(myIntent);
 
     }
@@ -188,10 +191,10 @@ public class SurveyPage1p3 extends AppCompatActivity {
         questionTexts.add("Lack of proficiency using eClass, Bear Tracks, or required apps?");
         questionTexts.add("Lack of awareness of university policies and/or expectations");
         questionTexts.add("Challenges working in groups with classmates");
-
+        String output = userInfo + "_output3.pdf";
 
         List<String[]> surveyAnswers = getSurveyAnswers(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability);
-        PdfGenerator.generatePdf(SurveyPage1p3.this, "survey_output3.pdf", surveyAnswers, questionTexts, mainQuestion);
+        PdfGenerator.generatePdf(SurveyPage1p3.this, output, surveyAnswers, questionTexts, mainQuestion);
     }
 
     //this method is responsible for giving a hint to students to remind them about why they are

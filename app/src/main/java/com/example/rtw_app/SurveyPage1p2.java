@@ -28,11 +28,13 @@ public class SurveyPage1p2 extends AppCompatActivity {
     private ProgressBar progressBar;
     private TextView progressText;
     private Button hint;
+
+    private String userInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page1p2);
-
+        userInfo = getIntent().getStringExtra("userInfo");
 
 
         Bundle extras = getIntent().getExtras();
@@ -128,6 +130,7 @@ public class SurveyPage1p2 extends AppCompatActivity {
     public void goToImpactAcademicPage3() {
         Intent myIntent = new Intent(SurveyPage1p2.this, SurveyPage1p3.class);
         myIntent.putExtra("data1", currentQuestion);
+        myIntent.putExtra("userInfo", userInfo);
         SurveyPage1p2.this.startActivity(myIntent);
 
         Intent impactAcademicPage3 = new Intent(this, SurveyPage1p3.class);
@@ -163,10 +166,10 @@ public class SurveyPage1p2 extends AppCompatActivity {
         questionTexts.add("Inadequate Math Skills?");
         questionTexts.add("Easily Distracted?");
         questionTexts.add("Unhappy with instructor?");
-
+        String output = userInfo + "_output2.pdf";
 
         List<String[]> surveyAnswers = getSurveyAnswers(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability);
-        PdfGenerator.generatePdf(SurveyPage1p2.this, "survey_output2.pdf", surveyAnswers, questionTexts, mainQuestion);
+        PdfGenerator.generatePdf(SurveyPage1p2.this, output, surveyAnswers, questionTexts, mainQuestion);
     }
     public void goBack() {
         Intent impactAcademicPage1 = new Intent(this, SurveyPage1p1.class);
@@ -175,6 +178,7 @@ public class SurveyPage1p2 extends AppCompatActivity {
 
         Intent myIntent = new Intent(SurveyPage1p2.this, SurveyPage1p1.class);
         myIntent.putExtra("data1", currentQuestion);
+        myIntent.putExtra("userInfo", userInfo);
         SurveyPage1p2.this.startActivity(myIntent);
 
     }

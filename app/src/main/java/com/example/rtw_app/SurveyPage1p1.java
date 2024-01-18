@@ -35,12 +35,14 @@ public class SurveyPage1p1 extends AppCompatActivity {
     private RadioGroup studyRadioGroup, timeRadioGroup, poorStudyRadioGroup, disabilityRadioGroup, preparationRadioGroup;
     private Button hint;
 
+    private String userInfo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page1p1);
-
+        userInfo = getIntent().getStringExtra("userInfo");
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             currentQuestion = extras.getInt("data1");
@@ -187,6 +189,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
         updateProgress();
         Intent myIntent = new Intent(SurveyPage1p1.this, SurveyPage1p2.class);
         myIntent.putExtra("data1", currentQuestion);
+        myIntent.putExtra("userInfo", userInfo);
         SurveyPage1p1.this.startActivity(myIntent);
 
         Intent impactAcademicPage2 = new Intent(this, SurveyPage1p2.class);
@@ -203,6 +206,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
 
         Intent myIntent = new Intent(SurveyPage1p1.this, InstructionPage.class);
         myIntent.putExtra("data1", currentQuestion);
+        myIntent.putExtra("userInfo", userInfo);
         SurveyPage1p1.this.startActivity(myIntent);
     }
 
@@ -234,15 +238,11 @@ public class SurveyPage1p1 extends AppCompatActivity {
         questionTexts.add("Poor study environment?");
         questionTexts.add("Learning disability?");
         questionTexts.add("Ineffective academic preparation?");
+        String output = userInfo + "_output1.pdf";
 
-        Log.d("Debug", "selectedStudy: " + selectedStudy);
-        Log.d("Debug", "selectedTime: " + selectedTime);
-        Log.d("Debug", "selectedPoorStudy: " + selectedPoorStudy);
-        Log.d("Debug", "selectedDisability: " + selectedDisability);
-        Log.d("Debug", "selectedPreparation: " + selectedPreparation);
 
         List<String[]> surveyAnswers = getSurveyAnswers(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability,selectedPreparation);
-        PdfGenerator.generatePdf(SurveyPage1p1.this, "survey_output.pdf", surveyAnswers, questionTexts, mainQuestion);
+        PdfGenerator.generatePdf(SurveyPage1p1.this, output, surveyAnswers, questionTexts, mainQuestion);
     }
 
 

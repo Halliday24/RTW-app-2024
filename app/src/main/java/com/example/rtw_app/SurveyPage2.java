@@ -21,7 +21,7 @@ import java.util.List;
 public class SurveyPage2 extends AppCompatActivity {
 
     private int currentQuestion;
-
+    private String userInfo;
     //changed to 3 since only 3 questions are on page
     private int totalQuestions = 3; // Set the total number of questions
     private ProgressBar progressBar;
@@ -33,7 +33,7 @@ public class SurveyPage2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page2);
-
+        userInfo = getIntent().getStringExtra("userInfo");
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             currentQuestion = extras.getInt("data1");
@@ -167,11 +167,12 @@ public class SurveyPage2 extends AppCompatActivity {
         questionTexts.add("Work too many hours?");
         questionTexts.add("Work late hours, or schedules that conflict with class time?");
         questionTexts.add("Unemployment?");
+        String output = userInfo + "_output4.pdf";
 
 
 
         List<String[]> surveyAnswers = getSurveyAnswers(selectedHours,selectedLate,selectedUnemployed);
-        PdfGenerator.generatePdf(SurveyPage2.this, "survey_output4.pdf", surveyAnswers, questionTexts, mainQuestion);
+        PdfGenerator.generatePdf(SurveyPage2.this, output, surveyAnswers, questionTexts, mainQuestion);
     }
 
     public void goToSurveyPage3(){
@@ -181,6 +182,7 @@ public class SurveyPage2 extends AppCompatActivity {
 
         Intent myIntent = new Intent(SurveyPage2.this, SurveyPage3p1.class);
         myIntent.putExtra("data1", currentQuestion);
+        myIntent.putExtra("userInfo",userInfo);
         SurveyPage2.this.startActivity(myIntent);
 
     }
@@ -192,6 +194,8 @@ public class SurveyPage2 extends AppCompatActivity {
 
         Intent myIntent = new Intent(SurveyPage2.this, SurveyPage1p3.class);
         myIntent.putExtra("data1", currentQuestion);
+        myIntent.putExtra("userInfo", userInfo);
+        myIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         SurveyPage2.this.startActivity(myIntent);
 
     }
