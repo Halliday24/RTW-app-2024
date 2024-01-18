@@ -44,7 +44,7 @@ public class SurveyPage13p1 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                goToEducation_And_Goals2();
+                goToNextPage();
             }
         });
 
@@ -80,9 +80,10 @@ public class SurveyPage13p1 extends AppCompatActivity {
 
     }
 
-    public void goToEducation_And_Goals2(){
-        Intent Education_And_Goals2 = new Intent(this, SurveyPage13p2.class);
-        startActivity(Education_And_Goals2);
+    public void goToNextPage(){
+        Intent nextPage = new Intent(this, SurveyPage13p2.class);
+        nextPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(nextPage);
 
     }
 

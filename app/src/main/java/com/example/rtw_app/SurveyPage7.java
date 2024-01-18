@@ -96,7 +96,7 @@ public class SurveyPage7 extends AppCompatActivity {
     }
 
     public void goBack(){
-        Intent impactAcademicPage2 = new Intent(this, SurveyPage6p1.class);
+        Intent impactAcademicPage2 = new Intent(this, SurveyPage6p4.class);
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(impactAcademicPage2);
 
