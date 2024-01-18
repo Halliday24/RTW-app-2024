@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.util.Log;
 import android.widget.ProgressBar;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,6 +74,12 @@ public class SurveyPage1p1 extends AppCompatActivity {
                 int selectedPoorStudyId = poorStudyRadioGroup.getCheckedRadioButtonId();
                 int selectedDisabilityId = disabilityRadioGroup.getCheckedRadioButtonId();
                 int selectedPreparationId = preparationRadioGroup.getCheckedRadioButtonId();
+
+                Log.d("Debug", "selectedStudy: " + selectedColorId);
+                Log.d("Debug", "selectedTime: " + selectedTimeId);
+                Log.d("Debug", "selectedPoorStudy: " + selectedPoorStudyId);
+                Log.d("Debug", "selectedDisability: " + selectedDisabilityId);
+                Log.d("Debug", "selectedPreparation: " + selectedPreparationId);
 
 
                 if (selectedColorId != -1 && selectedTimeId != -1 && selectedPoorStudyId != -1 &&
@@ -227,6 +234,12 @@ public class SurveyPage1p1 extends AppCompatActivity {
         questionTexts.add("Poor study environment?");
         questionTexts.add("Learning disability?");
         questionTexts.add("Ineffective academic preparation?");
+
+        Log.d("Debug", "selectedStudy: " + selectedStudy);
+        Log.d("Debug", "selectedTime: " + selectedTime);
+        Log.d("Debug", "selectedPoorStudy: " + selectedPoorStudy);
+        Log.d("Debug", "selectedDisability: " + selectedDisability);
+        Log.d("Debug", "selectedPreparation: " + selectedPreparation);
 
         List<String[]> surveyAnswers = getSurveyAnswers(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability,selectedPreparation);
         PdfGenerator.generatePdf(SurveyPage1p1.this, "survey_output.pdf", surveyAnswers, questionTexts, mainQuestion);
