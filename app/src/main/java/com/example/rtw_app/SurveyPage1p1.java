@@ -65,6 +65,14 @@ public class SurveyPage1p1 extends AppCompatActivity {
         // Initialize your SharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
         hint = findViewById(R.id.hint);
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
+            }
+        });
+
         Button submitButton = findViewById(R.id.nextButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
