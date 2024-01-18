@@ -71,6 +71,12 @@ public class SurveyPage11 extends AppCompatActivity {
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
     }
 
+    public void goToNextPage(){
+        Intent nextPage = new Intent(this, SurveyPage12p1.class);
+        nextPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(nextPage);
+
+    }
     private void goBack() {
         Intent SurveyPage10 = new Intent(this, SurveyPage10.class);
         startActivity(SurveyPage10);
@@ -91,12 +97,6 @@ public class SurveyPage11 extends AppCompatActivity {
         editor.apply();
     }
 
-    private void goToNextPage() {
-        // Handle going to the next page or performing any necessary actions
-        // For example, you can collect user input, validate, and then proceed
-        //Intent nextIntent = new Intent(this, NextActivity.class); // Change NextActivity to the actual next activity
-        //startActivity(nextIntent);
-    }
 
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();

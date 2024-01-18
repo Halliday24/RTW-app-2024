@@ -46,7 +46,7 @@ public class SurveyPage10 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                goTohere_at_uofa_page();
+                goToNextPage();
             }
         });
 
@@ -83,10 +83,10 @@ public class SurveyPage10 extends AppCompatActivity {
 
     }
 
-    public void goTohere_at_uofa_page(){
-        Intent here_at_uofa_page = new Intent(this, SurveyPage11.class);
-        here_at_uofa_page.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivity(here_at_uofa_page);
+    public void goToNextPage(){
+        Intent nextPage = new Intent(this, SurveyPage11.class);
+        nextPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(nextPage);
 
     }
 

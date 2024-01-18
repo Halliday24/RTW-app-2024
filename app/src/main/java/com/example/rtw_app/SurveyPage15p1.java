@@ -14,7 +14,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class SurveyPage15 extends AppCompatActivity {
+public class SurveyPage15p1 extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
     @Override
@@ -59,11 +59,11 @@ public class SurveyPage15 extends AppCompatActivity {
                     editor.apply();
 
                     // Display a success message
-                    Toast.makeText(SurveyPage15.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SurveyPage15p1.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
                     goTo();
                 } else {
                     // Display an error message if not all questions are answered
-                    Toast.makeText(SurveyPage15.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SurveyPage15p1.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
                 }
             }
         });

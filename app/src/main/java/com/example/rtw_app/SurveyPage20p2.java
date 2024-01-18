@@ -20,7 +20,7 @@ public class SurveyPage20p2 extends AppCompatActivity {
     }
 
     public void goBack(){
-        Intent SurveyPage20 = new Intent(this, SurveyPage20.class);
+        Intent SurveyPage20 = new Intent(this, SurveyPage20p1.class);
         startActivity(SurveyPage20);
 
     }

@@ -60,7 +60,7 @@
             android:name=".timeManage"
             android:exported="false" />
         <activity
-            android:name=".SurveyPage15"
+            android:name=".SurveyPage15p1"
             android:exported="false" />
         <activity
             android:name=".surveyPage21p2"
@@ -69,7 +69,7 @@
             android:name=".SurveyPage21p1"
             android:exported="false" />
         <activity
-            android:name=".SurveyPage20"
+            android:name=".SurveyPage20p1"
             android:exported="false" />
         <activity
             android:name=".SurveyPage19"
