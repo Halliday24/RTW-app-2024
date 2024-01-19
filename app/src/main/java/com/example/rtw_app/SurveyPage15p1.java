@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 public class SurveyPage15p1 extends AppCompatActivity {
 
+    private Button hint;
+
     private SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +83,15 @@ public class SurveyPage15p1 extends AppCompatActivity {
 
         // Set text color for all TextViews in the layout
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
+
+        hint = findViewById(R.id.hint);
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
+            }
+        });
     }
 
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
@@ -112,4 +123,10 @@ public class SurveyPage15p1 extends AppCompatActivity {
         startActivity(SurveyPage14p2);
 
     }
+
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage15p1.this, Hint.class);
+        startActivity(Hint);
+    }
+
 }

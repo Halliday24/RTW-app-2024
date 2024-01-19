@@ -47,6 +47,14 @@ public class SurveyPage3p1 extends AppCompatActivity {
         updateProgress();
         hint = findViewById(R.id.hint);
 
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
+            }
+        });
+
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 
         final RadioGroup studyRadioGroup = findViewById(R.id.studyRadioGroup);
