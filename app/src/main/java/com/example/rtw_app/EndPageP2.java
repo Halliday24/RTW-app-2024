@@ -29,12 +29,14 @@ public class EndPageP2 extends AppCompatActivity {
     private CheckBox CheckBox7;
     private CheckBox CheckBox8;
     private CheckBox CheckBox9;
-
+    private String userInfo;
     private Button hint;
     private Button nextButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        userInfo = getIntent().getStringExtra("userInfo");
         setContentView(R.layout.activity_end_page_p2);
         javaCheckBox = findViewById(R.id.javaCheckbox);
         kotlinCheckBox = findViewById(R.id.kotlinCheckbox);
@@ -49,12 +51,14 @@ public class EndPageP2 extends AppCompatActivity {
         CheckBox7 = findViewById(R.id.checkBox8);
         CheckBox8 = findViewById(R.id.checkBox9);
         CheckBox9 = findViewById(R.id.checkBox10);
-
+        nextButton = findViewById(R.id.submitButton);
         // Set a click listener for the Next button
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 generateAndSavePdf();
+
             }
         });
 
@@ -89,7 +93,7 @@ public class EndPageP2 extends AppCompatActivity {
         questionTexts.add("Career Services");
         questionTexts.add("Campus Recreation");
 
-        String output = "_output36.pdf";
+        String output = userInfo + "_output36.pdf";
 
         // Call the PdfGenerator to generate PDF
         PdfGenerator.generatePdf(EndPageP2.this, output, selectedCheckboxesList, questionTexts, "Final Survey Questions");
@@ -98,22 +102,19 @@ public class EndPageP2 extends AppCompatActivity {
         Toast.makeText(EndPageP2.this, "PDF generated and saved successfully!", Toast.LENGTH_SHORT).show();
 
         // Call the goTo method after generating and saving the PDF
-        done();
+        // After generating all individual PDFs
+        PdfGenerator.combinePdfFiles(this, userInfo +"_output.pdf", 36);
+
     }
 
     private List<String[]> getSelectedCheckboxes() {
         List<String[]> selectedCheckboxesList = new ArrayList<>();
 
         // Create an array with the selected Checkboxes for each question and add it to the list
-        String[] question1Checkboxes = {
+        String[] questionCheckboxes = {
                 javaCheckBox.isChecked() ? javaCheckBox.getText().toString() : "",
                 kotlinCheckBox.isChecked() ? kotlinCheckBox.getText().toString() : "",
-                swiftCheckBox.isChecked() ? swiftCheckBox.getText().toString() : ""
-                // Add more Checkboxes for the first question
-        };
-        selectedCheckboxesList.add(question1Checkboxes);
-
-        String[] question2Checkboxes = {
+                swiftCheckBox.isChecked() ? swiftCheckBox.getText().toString() : "",
                 CheckBox.isChecked() ? CheckBox.getText().toString() : "",
                 CheckBox1.isChecked() ? CheckBox1.getText().toString() : "",
                 CheckBox2.isChecked() ? CheckBox2.getText().toString() : "",
@@ -124,9 +125,9 @@ public class EndPageP2 extends AppCompatActivity {
                 CheckBox7.isChecked() ? CheckBox7.getText().toString() : "",
                 CheckBox8.isChecked() ? CheckBox8.getText().toString() : "",
                 CheckBox9.isChecked() ? CheckBox9.getText().toString() : ""
-                // Add more Checkboxes for the second question
         };
-        selectedCheckboxesList.add(question2Checkboxes);
+        selectedCheckboxesList.add(questionCheckboxes);
+
 
         return selectedCheckboxesList;
     }

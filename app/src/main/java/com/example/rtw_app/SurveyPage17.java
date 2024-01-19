@@ -75,7 +75,7 @@ public class SurveyPage17 extends AppCompatActivity {
                 "writing ability");
         questionTexts.add("Second Additional Question");
         questionTexts.add("Second Additional Question");
-        String output = userInfo + "_survey_output28.pdf";
+        String output = userInfo + "_output28.pdf";
 
         // Call the PdfGenerator to generate PDF
         PdfGenerator.generatePdf(SurveyPage17.this, output,

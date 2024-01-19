@@ -71,7 +71,7 @@ public class SurveyPage21p1 extends AppCompatActivity {
         questionTexts.add("I balance time for study and\n" +
                 "play ");
 
-        String output = userInfo + ".output33.pdf";
+        String output = userInfo + "_output33.pdf";
 
         // Call the PdfGenerator to generate PDF
         PdfGenerator.generatePdf(SurveyPage21p1.this, output,

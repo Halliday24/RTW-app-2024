@@ -1,7 +1,10 @@
 package com.example.rtw_app;
 
 import android.content.Context;
+import android.os.Environment;
+
 import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
@@ -12,7 +15,7 @@ import java.util.List;
 
 public class PdfGenerator {
 
-    public static void generatePdf(Context context, String fileName, List<String[]> surveyAnswers, List<String> questionTexts,String MainQuestion) {
+    public static void generatePdf(Context context, String fileName, List<String[]> surveyAnswers, List<String> questionTexts, String MainQuestion) {
         String filePath = new File(context.getExternalFilesDir(null), fileName).getAbsolutePath();
 
         try {
@@ -34,6 +37,28 @@ public class PdfGenerator {
             document.close();
 
             // You can add code here to share or open the generated PDF if needed
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void combinePdfFiles(Context context, String baseFileName, int totalFiles) {
+        String combinedFilePath = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), baseFileName + "_combined.pdf").getAbsolutePath();
+
+        try {
+            PdfWriter writer = new PdfWriter(new FileOutputStream(combinedFilePath));
+            com.itextpdf.kernel.pdf.PdfDocument combinedPdf = new com.itextpdf.kernel.pdf.PdfDocument(writer);
+
+            // Iterate through all PDF files to be combined
+            for (int i = 1; i <= totalFiles; i++) {
+                String filePath = new File(context.getExternalFilesDir(null), baseFileName + i + ".pdf").getAbsolutePath();
+                com.itextpdf.kernel.pdf.PdfDocument pdf = new com.itextpdf.kernel.pdf.PdfDocument(new PdfReader(filePath));
+                pdf.copyPagesTo(1, pdf.getNumberOfPages(), combinedPdf);
+                pdf.close();
+
+            }
+
+            combinedPdf.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

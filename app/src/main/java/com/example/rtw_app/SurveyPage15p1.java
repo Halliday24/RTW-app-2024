@@ -26,7 +26,7 @@ public class SurveyPage15p1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page15p1);
-
+        userInfo = getIntent().getStringExtra("userInfo");
         sharedPreferences = getSharedPreferences("impact_responses", MODE_PRIVATE);
 
         final RadioGroup colorRadioGroup = findViewById(R.id.colorRadioGroup);
