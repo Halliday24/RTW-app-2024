@@ -27,6 +27,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
 
 
     private SharedPreferences sharedPreferences;
+    private String userInfo;
 
     private static final String KEY_CURRENT_QUESTION = "current_question";
 
@@ -42,7 +43,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page1p1);
-
+        userInfo = getIntent().getStringExtra("userInfo");
         // get the progressBar and progressText
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
@@ -208,6 +209,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
     public void goToImpactAcademicPage2() {
         //updateProgress();
         Intent impactAcademicPage2 = new Intent(this, SurveyPage1p2.class);
+        impactAcademicPage2.putExtra("userInfo",userInfo);
         startActivity(impactAcademicPage2);
 
     }
@@ -215,6 +217,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
 
     public void goBack() {
         Intent impactAcademicPage2 = new Intent(this, InstructionPage.class);
+        impactAcademicPage2.putExtra("userInfo",userInfo);
         startActivity(impactAcademicPage2);
 
 
@@ -248,8 +251,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
         questionTexts.add("Poor study environment?");
         questionTexts.add("Learning disability?");
         questionTexts.add("Ineffective academic preparation?");
-        String userInfo = "";
-        String output = userInfo + "_output2.pdf";
+        String output = userInfo + "_output1.pdf";
 
         Log.d("Debug", "selectedStudy: " + selectedStudy);
         Log.d("Debug", "selectedTime: " + selectedTime);
@@ -258,7 +260,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
         Log.d("Debug", "selectedPreparation: " + selectedPreparation);
 
         List<String[]> surveyAnswers = getSurveyAnswers(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability,selectedPreparation);
-        PdfGenerator.generatePdf(SurveyPage1p1.this, "survey_output.pdf", surveyAnswers, questionTexts, mainQuestion);
+        PdfGenerator.generatePdf(SurveyPage1p1.this, output, surveyAnswers, questionTexts, mainQuestion);
     }
 
 

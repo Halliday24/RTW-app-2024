@@ -26,7 +26,7 @@ public class SurveyPage1p2 extends AppCompatActivity {
     private RadioGroup studyRadioGroup, timeRadioGroup, poorStudyRadioGroup2, disabilityRadioGroup;
 
     private int currentQuestion;
-
+private  String userInfo;
     private static final String KEY_CURRENT_QUESTION = "current_question";
 
     private SharedPreferences sharedPreferences;
@@ -38,7 +38,7 @@ public class SurveyPage1p2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page1p2);
-
+        userInfo = getIntent().getStringExtra("userInfo");
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
 
@@ -67,12 +67,26 @@ public class SurveyPage1p2 extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //currentQuestion++;
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putInt(KEY_CURRENT_QUESTION, 1);
-                editor.putInt("Total_questions", totalQuestions);
-                editor.apply();
-                goToImpactAcademicPage3();
+                // Get the selected answers from your RadioGroups
+                int selectedStudyId = studyRadioGroup.getCheckedRadioButtonId();
+                int selectedTimeId = timeRadioGroup.getCheckedRadioButtonId();
+                int selectedPoorStudyId = poorStudyRadioGroup2.getCheckedRadioButtonId();
+                int selectedDisabilityId = disabilityRadioGroup.getCheckedRadioButtonId();
+
+                // Check if any option is selected
+                if (selectedStudyId != -1 && selectedTimeId != -1 && selectedPoorStudyId != -1 && selectedDisabilityId != -1) {
+                    String selectedStudy = ((RadioButton) findViewById(selectedStudyId)).getText().toString();
+                    String selectedTime = ((RadioButton) findViewById(selectedTimeId)).getText().toString();
+                    String selectedPoorStudy = ((RadioButton) findViewById(selectedPoorStudyId)).getText().toString();
+                    String selectedDisability = ((RadioButton) findViewById(selectedDisabilityId)).getText().toString();
+
+                    generateAndSavePdf(selectedStudy, selectedTime, selectedPoorStudy, selectedDisability);
+
+                    // Rest of your code
+                } else {
+                    // Show a message or handle the case where no option is selected
+                    Toast.makeText(SurveyPage1p2.this, "Please select answers for all questions.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -108,6 +122,7 @@ public class SurveyPage1p2 extends AppCompatActivity {
     public void goToImpactAcademicPage3() {
         Intent impactAcademicPage3 = new Intent(this, SurveyPage1p3.class);
         impactAcademicPage3.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        impactAcademicPage3.putExtra("userInfo", userInfo);
         startActivity(impactAcademicPage3);
 
 
@@ -131,7 +146,7 @@ public class SurveyPage1p2 extends AppCompatActivity {
     }
 
     // Method to generate and save PDF
-    private void generateAndSavePdf(String selectedStudy,String selectedTime,String selectedPoorStudy,String selectedDisability) {
+    private void generateAndSavePdf(String selectedStudy, String selectedTime, String selectedPoorStudy, String selectedDisability) {
         List<String> questionTexts = new ArrayList<>();
         String mainQuestion = "How much of an impact did each of these potential academic barriers have on your learning and grades last year?";
         // Add your question texts to the list here
@@ -139,15 +154,16 @@ public class SurveyPage1p2 extends AppCompatActivity {
         questionTexts.add("Inadequate Math Skills?");
         questionTexts.add("Easily Distracted?");
         questionTexts.add("Unhappy with instructor?");
-        String userInfo = "";
-        String output = userInfo + "_output1.pdf";
+        String output = userInfo + "_output2.pdf";
 
-        List<String[]> surveyAnswers = getSurveyAnswers(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability);
-        PdfGenerator.generatePdf(SurveyPage1p2.this, "survey_output2.pdf", surveyAnswers, questionTexts, mainQuestion);
+        List<String[]> surveyAnswers = getSurveyAnswers(selectedStudy, selectedTime, selectedPoorStudy, selectedDisability);
+        PdfGenerator.generatePdf(SurveyPage1p2.this, output, surveyAnswers, questionTexts, mainQuestion);
+        goToImpactAcademicPage3();
     }
     public void goBack() {
         Intent impactAcademicPage3 = new Intent(this, SurveyPage1p1.class);
         impactAcademicPage3.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        impactAcademicPage3.putExtra("userInfo", userInfo);
         startActivity(impactAcademicPage3);
 
 

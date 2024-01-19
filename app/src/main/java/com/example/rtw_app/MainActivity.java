@@ -73,30 +73,28 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View view) {
-                performLogin();
+                // Retrieve entered username and password
+                String email = editTextEmail.getText().toString();
+                String ccid = editTextCCID.getText().toString();
+                String name = editTextName.getText().toString();
+                userInfo = name + ccid;
+
+                // Implement authentication logic here (will change when we get confirmation on if we can use servers or not)
+                if ((ccid.length() < 8 && (name.length() > 0))) {
+                    // Successful login
+                    Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                    goToInstructionPage();
+                } else {
+                    // Failed login
+                    Toast.makeText(MainActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
 
     }
 
-    private void performLogin(){
-        // Retrieve entered username and password
-        String email = editTextEmail.getText().toString();
-        String ccid = editTextCCID.getText().toString();
-        String name = editTextName.getText().toString();
-        userInfo = name + ccid;
 
-        // Implement authentication logic here (will change when we get confirmation on if we can use servers or not)
-        if ((ccid.length() < 8 && (name.length() > 0))) {
-            // Successful login
-            Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-            goToInstructionPage();
-        } else {
-            // Failed login
-            Toast.makeText(MainActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
-        }
-    }
     /**
      * This function sends the user to the Instructionpage from the LoginPage
      */
