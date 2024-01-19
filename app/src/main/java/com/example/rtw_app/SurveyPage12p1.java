@@ -3,21 +3,39 @@ package com.example.rtw_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
-public class SurveyPage12p1 extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
 
+public class SurveyPage12p1 extends AppCompatActivity {
+    private SharedPreferences sharedPreferences;
     private Button hint;
 
+    private RadioGroup option1Group,option2Group,option3Group;
+    private EditText FirstTextAnswer;
+    private String userInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page12p1);
+
+        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
+        userInfo = getIntent().getStringExtra("userInfo");
+
+        option1Group = findViewById(R.id.option1_answers);
+        option2Group = findViewById(R.id.option2_answers);
+        option3Group = findViewById(R.id.option3_answers);
+        FirstTextAnswer = findViewById(R.id.self_efficacy_Answer1);
+
         TextView textView = (TextView) findViewById(R.id.self_efficacy_Question2);
         textView.setText("Self-Efficacy and Growth Mindset");
         //option1
@@ -73,6 +91,39 @@ public class SurveyPage12p1 extends AppCompatActivity {
 
     }
 
+    private void generateAndSavePdf(String selectedOption1, String selectedOption2, String selectedOption3, String textAnswer) {
+        List<String> questionTexts = new ArrayList<>();
+        String mainQuestion = "Self-Efficacy and Growth Mindset";
+
+        // Add your question texts to the list here
+        questionTexts.add("What do you want to gain from or contribute to society during your lifetime?");
+        questionTexts.add("Overall, I’m a pretty positive\n" +
+                "person and I believe in my\n" +
+                "potential ");
+        questionTexts.add("I believe my academic ability is\n" +
+                "something I can substantially\n" +
+                "change");
+        questionTexts.add("Hard work, focus, and\n" +
+                "perseverance determine my\n" +
+                "results\n");
+
+        String output = userInfo + "_output18.pdf";
+        List<String[]> surveyAnswers = getSurveyAnswers(selectedOption1, selectedOption2, selectedOption3, textAnswer);
+        PdfGenerator.generatePdf(SurveyPage12p1.this, output, surveyAnswers,
+                questionTexts, mainQuestion);
+    }
+
+    // Method to get survey answers in a list
+    private List<String[]> getSurveyAnswers(String selectedOption1, String selectedOption2, String selectedOption3,String textAnswer) {
+        List<String[]> answersList = new ArrayList<>();
+
+        // Create an array with the survey answers and add it to the list
+        String[] surveyAnswers = {textAnswer, selectedOption1, selectedOption2, selectedOption3};
+        answersList.add(surveyAnswers);
+
+        return answersList;
+    }
+
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -91,12 +142,14 @@ public class SurveyPage12p1 extends AppCompatActivity {
 
     public void goToNextPage(){
         Intent nextPage = new Intent(this, SurveyPage12p2.class);
+        nextPage.putExtra("userInfo", userInfo);
         startActivity(nextPage);
 
     }
 
     public void goBack(){
         Intent SurveyPage10 = new Intent(this, SurveyPage11.class);
+        SurveyPage10.putExtra("userInfo", userInfo);
         startActivity(SurveyPage10);
 
     }
