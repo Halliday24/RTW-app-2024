@@ -79,17 +79,18 @@
         app:layout_constraintTop_toBottomOf="@id/TopGreenBar" />
 
     <!--    Question 1: new situation-->
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="#999999"
         android:text="New independent status/living away from home for the first time"
         android:textColor="@color/black"
-        android:textSize="12dp"
         android:textStyle="bold"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/impactQuestion" />
 
