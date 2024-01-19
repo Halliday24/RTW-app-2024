@@ -11,12 +11,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MindsetPage extends AppCompatActivity {
-
+    private String userInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mindset_page);
-
+        userInfo = getIntent().getStringExtra("userInfo");
         TextView textView = (TextView) findViewById(R.id.Heading) ;
         textView.setText("Mindset");
         TextView textView2 = (TextView) findViewById(R.id.Mindset);
@@ -73,6 +73,7 @@ public class MindsetPage extends AppCompatActivity {
     public void goToSurveyPage10(){
         Intent SurveyPage9 = new Intent(this, SurveyPage9.class);
         SurveyPage9.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        SurveyPage9.putExtra("userInfo", userInfo);
         startActivity(SurveyPage9);
 
     }
@@ -80,6 +81,7 @@ public class MindsetPage extends AppCompatActivity {
     public void goBack(){
         Intent SurveyPage8 = new Intent(this, SurveyPage8.class);
         SurveyPage8.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        SurveyPage8.putExtra("userInfo", userInfo);
         startActivity(SurveyPage8);
 
     }

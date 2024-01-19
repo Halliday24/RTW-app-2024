@@ -63,7 +63,7 @@ public class SurveyPage4 extends AppCompatActivity {
         option2RadioGroup = findViewById(R.id.option2_answers);
         option3RadioGroup2 = findViewById(R.id.option3_answers);
         option4RadioGroup = findViewById(R.id.option4_answers);
-        Button nextButton = findViewById(R.id.nextButton);
+
         hint = findViewById(R.id.hint);
         // Initialize your SharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
@@ -145,9 +145,9 @@ public class SurveyPage4 extends AppCompatActivity {
         // Add your survey answers to the list here
         // For example, you can retrieve answers from SharedPreferences
         String option1 = sharedPreferences.getString("option1",selectedStudy);
-        String option2 = sharedPreferences.getString("option2",selectedStudy);
-        String option3 = sharedPreferences.getString("option3",selectedStudy);
-        String option4 = sharedPreferences.getString("option4",selectedStudy);
+        String option2 = sharedPreferences.getString("option2",selectedTime);
+        String option3 = sharedPreferences.getString("option3",selectedPoorStudy);
+        String option4 = sharedPreferences.getString("option4",selectedDisability);
 
 
         // Create an array with the survey answers and add it to the list
