@@ -49,6 +49,16 @@ public class SurveyPage20p2 extends AppCompatActivity {
                 generateAndSavePdf();
             }
         });
+
+        Button backButton = findViewById(R.id.BackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Call the goBack method
+                goBack();
+
+            }
+        });
     }
 
 

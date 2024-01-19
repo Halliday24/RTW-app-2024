@@ -52,6 +52,16 @@ public class EndPage extends AppCompatActivity {
                 openHint();
             }
         });
+
+        Button backButton = findViewById(R.id.BackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Call the goBack method
+                goBack();
+
+            }
+        });
     }
 
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
