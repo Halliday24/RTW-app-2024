@@ -37,4 +37,9 @@ public class SurveyPage20p2 extends AppCompatActivity {
         startActivity(SurveyPage20);
 
     }
+
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage20p2.this, Hint.class);
+        startActivity(Hint);
+    }
 }

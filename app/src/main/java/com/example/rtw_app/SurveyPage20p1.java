@@ -14,7 +14,7 @@ public class SurveyPage20p1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey_page20);
+        setContentView(R.layout.activity_survey_page20p1);
 
         hint = findViewById(R.id.hint);
         //Set an onClick listener for using the hint button

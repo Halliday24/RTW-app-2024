@@ -25,7 +25,7 @@ public class SurveyPage15p1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey_page15);
+        setContentView(R.layout.activity_survey_page15p1);
 
         sharedPreferences = getSharedPreferences("impact_responses", MODE_PRIVATE);
 
