@@ -453,25 +453,29 @@
         android:id="@+id/BackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="216dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/Yellow"
         android:text="Back"
+        android:textColor="@color/black"
         android:textSize="12dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/BottomGreenBar"
-        app:layout_constraintRight_toLeftOf="@+id/nextButton" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="216dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="40dp"
+        android:backgroundTint="@color/Yellow"
         android:text="Next"
+        android:textColor="@color/black"
         android:textSize="12dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/BottomGreenBar"
-        app:layout_constraintRight_toLeftOf="@id/BackButton" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 

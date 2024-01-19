@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="600dp"
-        android:text="Requirement to withdraw Appeal Workbook"
+        android:text="Requirement to Withdraw Appeal Workbook"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="25dp"

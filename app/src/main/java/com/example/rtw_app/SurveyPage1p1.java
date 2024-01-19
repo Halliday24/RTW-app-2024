@@ -68,6 +68,14 @@ public class SurveyPage1p1 extends AppCompatActivity {
         //update the information on the progress bar
         updateProgress();
         hint = findViewById(R.id.hint);
+
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
+            }
+        });
         Button submitButton = findViewById(R.id.nextButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
