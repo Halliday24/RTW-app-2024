@@ -38,12 +38,23 @@ public class SurveyPage15p2 extends AppCompatActivity {
             }
         });
 
-        Button submitButton = findViewById(R.id.nextButton);
-        submitButton.setOnClickListener(new View.OnClickListener() {
+        Button BackButton = findViewById(R.id.nextButton);
+        BackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Call the generateAndSavePdf method
                 generateAndSavePdf();
+            }
+        });
+
+        Button buttonBack=findViewById(R.id.BackButton);
+
+        //set a click listener for the next Button
+        buttonBack.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                goBack();
             }
         });
     }
