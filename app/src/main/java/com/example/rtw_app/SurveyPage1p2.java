@@ -174,7 +174,7 @@ public class SurveyPage1p2 extends AppCompatActivity {
         questionTexts.add("Inadequate Math Skills?");
         questionTexts.add("Easily Distracted?");
         questionTexts.add("Unhappy with instructor?");
-        String output = userInfo + "_output2.pdf";
+        String output = userInfo + "_output1.pdf";
 
         List<String[]> surveyAnswers = getSurveyAnswers(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability);
         PdfGenerator.generatePdf(SurveyPage1p2.this, output, surveyAnswers, questionTexts, mainQuestion);
