@@ -23,19 +23,32 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
         android:text="This workbook is to help guide and reflect on factors that contributed to your academic progress"
         android:textStyle="bold"
         android:textColor="@color/black"
-
         app:layout_constraintTop_toBottomOf="@id/TopGreenBar"
-        android:textSize="20dp"/>
+        android:textSize="18dp"/>
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="100dp"
-        android:text="Select the option that best option that relates to you"
+        android:layout_marginLeft="10dp"
+        android:text="Select the option that best option that            relates to you"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:layout_editor_absoluteX="0dp"
+        android:textSize="18dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="10dp"
+        android:text="You can exit the form and continue       whenever you would like"
         android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
@@ -45,13 +58,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="250dp"
-        android:text="You can exit the form whenever you would like"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="40dp"
+        android:text="*This workbook is for Augustana students*"
         android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:layout_editor_absoluteX="0dp"
-        android:textSize="20dp"/>
+        android:textSize="14dp"/>
 
     <ImageView
         android:id="@+id/BottomGreenBar"
