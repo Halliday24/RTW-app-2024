@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="60dp"
         android:background="@color/Green"
         android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +66,7 @@
     <ImageView
         android:id="@+id/BottomGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="49dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="700dp"
         android:background="@color/Green"
@@ -98,11 +98,12 @@
 
     <TextView
         android:id="@+id/questionText2"
-        android:layout_width="406dp"
-        android:layout_height="39dp"
+        android:layout_width="389dp"
+        android:layout_height="38dp"
         android:layout_below="@+id/TopGreenBar"
         android:layout_marginTop="56dp"
         android:text="Highlight the top 5 resources you will use next year to help you be successful:"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TopGreenBar" />
@@ -110,13 +111,12 @@
     <CheckBox
         android:id="@+id/javaCheckbox"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_below="@id/questionText"
         android:layout_marginTop="8dp"
         android:text="Tutoring"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionText2"
-        tools:layout_editor_absoluteX="2dp" />
+        app:layout_constraintTop_toBottomOf="@+id/questionText2" />
 
     <CheckBox
         android:id="@+id/kotlinCheckbox"
@@ -134,7 +134,7 @@
     <CheckBox
         android:id="@+id/swiftCheckbox"
         android:layout_width="140dp"
-        android:layout_height="47dp"
+        android:layout_height="60dp"
         android:layout_below="@id/kotlinCheckbox"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
@@ -147,7 +147,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/swiftCheckbox"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="2dp"
         android:backgroundTint="@color/Yellow"
         android:text="DONE"
         android:textColor="@color/black"
@@ -159,7 +159,7 @@
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="97dp"
-        android:layout_height="47dp"
+        android:layout_height="60dp"
         android:layout_marginTop="4dp"
         android:text="Peer Mentorship"
         app:layout_constraintStart_toStartOf="parent"
@@ -168,7 +168,7 @@
     <CheckBox
         android:id="@+id/checkBox2"
         android:layout_width="113dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_marginTop="4dp"
         android:text="Student Experience Coordinators"
         app:layout_constraintEnd_toStartOf="@+id/checkBox3"
@@ -179,7 +179,7 @@
     <CheckBox
         android:id="@+id/checkBox3"
         android:layout_width="129dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="20dp"
         android:text="Accessibility Resources"
@@ -189,7 +189,7 @@
     <CheckBox
         android:id="@+id/checkBox4"
         android:layout_width="97dp"
-        android:layout_height="44dp"
+        android:layout_height="60dp"
         android:layout_marginTop="8dp"
         android:text="Financial Aid"
         app:layout_constraintStart_toStartOf="parent"
@@ -198,7 +198,7 @@
     <CheckBox
         android:id="@+id/checkBox5"
         android:layout_width="109dp"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:layout_marginTop="4dp"
         android:text="Wellness Resources"
         app:layout_constraintEnd_toStartOf="@+id/checkBox6"
@@ -210,7 +210,7 @@
     <CheckBox
         android:id="@+id/checkBox6"
         android:layout_width="129dp"
-        android:layout_height="49dp"
+        android:layout_height="60dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="20dp"
         android:text="Student Success Workshops"
@@ -220,7 +220,7 @@
     <CheckBox
         android:id="@+id/checkBox7"
         android:layout_width="99dp"
-        android:layout_height="54dp"
+        android:layout_height="60dp"
         android:layout_marginStart="4dp"
         android:layout_marginBottom="316dp"
         android:text="eClass Tutorial"
@@ -230,7 +230,7 @@
     <CheckBox
         android:id="@+id/checkBox8"
         android:layout_width="109dp"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="316dp"
         android:text="Academic Advising"
@@ -240,7 +240,7 @@
     <CheckBox
         android:id="@+id/checkBox9"
         android:layout_width="102dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="316dp"
         android:text="Career Services"
