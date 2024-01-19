@@ -65,6 +65,14 @@ public class SurveyPage4 extends AppCompatActivity {
         option4RadioGroup = findViewById(R.id.option4_answers);
 
         hint = findViewById(R.id.hint);
+
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
+            }
+        });
         // Initialize your SharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
 

@@ -29,12 +29,12 @@ public class SurveyPage18 extends AppCompatActivity {
         setContentView(R.layout.activity_survey_page18);
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
         userInfo = getIntent().getStringExtra("userInfo");
-        hint = findViewById(R.id.hint);
         // Initialize your RadioGroup instances
         colorRadioGroup = findViewById(R.id.colorRadioGroup);
         timeRadioGroup = findViewById(R.id.timeRadioGroup);
         poorStudyRadioGroup = findViewById(R.id.poorStudyRadioGroup2);
         disabilityRadioGroup = findViewById(R.id.disabilityRadioGroup);
+        hint = findViewById(R.id.hint);
         //Set an onClick listener for using the hint button
         hint.setOnClickListener(new View.OnClickListener() {
             @Override

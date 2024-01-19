@@ -41,9 +41,10 @@ public class SurveyPage8 extends AppCompatActivity {
         TextView textView2 = (TextView) findViewById(R.id.surveyPage8_Question2);
         textView2.setText("What are the primary sources of stress in your life?");
 
-        hint = findViewById(R.id.hint);
         FirstAnswer = findViewById(R.id.FirstAnswer);
         SecondAnswer = findViewById(R.id.SecondAnswer);
+
+        hint = findViewById(R.id.hint);
         //Set an onClick listener for using the hint button
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
