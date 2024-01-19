@@ -37,6 +37,7 @@ public class SurveyPage16p1 extends AppCompatActivity {
         timeRadioGroup = findViewById(R.id.timeRadioGroup);
         poorStudyRadioGroup = findViewById(R.id.poorStudyRadioGroup2);
         disabilityRadioGroup = findViewById(R.id.disabilityRadioGroup);
+
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,11 +52,12 @@ public class SurveyPage16p1 extends AppCompatActivity {
             public void onClick(View v) {
                 // Call the generateAndSavePdf method
                 generateAndSavePdf();
+                goTo();
             }
         });
 
-        Button SubmitButton = findViewById(R.id.BackButton);
-        submitButton.setOnClickListener(new View.OnClickListener() {
+        Button backButton = findViewById(R.id.BackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Call the goBack method
@@ -89,7 +91,7 @@ public class SurveyPage16p1 extends AppCompatActivity {
                 getSurveyAnswers(), questionTexts, mainQuestion);
 
         // Call the goTo method after generating and saving the PDF
-        goTo();
+        //goTo();
     }
 
     private List<String[]> getSurveyAnswers() {
