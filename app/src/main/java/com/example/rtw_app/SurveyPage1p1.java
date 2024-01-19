@@ -240,6 +240,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
         questionTexts.add("Poor study environment?");
         questionTexts.add("Learning disability?");
         questionTexts.add("Ineffective academic preparation?");
+        String userInfo = "";
         String output = userInfo + "_output2.pdf";
 
         Log.d("Debug", "selectedStudy: " + selectedStudy);

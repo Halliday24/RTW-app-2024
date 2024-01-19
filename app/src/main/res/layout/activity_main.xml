@@ -12,30 +12,15 @@
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="49dp"
         android:background="@color/Green"
         android:contentDescription="TODO"
+        app:layout_constraintTop_toBottomOf="@id/TopText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
 
-    <Button
-        android:id="@+id/hint"
-        android:layout_width="64dp"
-        android:layout_height="45dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="4dp"
-        android:backgroundTint="@color/Green"
-        android:onClick="openHint"
-        android:text=" ? "
-        android:textColor="@color/Yellow"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
-        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/BottomGreenBar"
@@ -46,7 +31,7 @@
         android:background="@color/Green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -56,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="600dp"
-        android:text="Requirement to Withdraw Appeal Workbook"
+        android:text="Requirement to withdraw Appeal Workbook"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="25dp"
@@ -127,6 +112,25 @@
         app:layout_constraintTop_toBottomOf="@+id/LoginCCID"
         app:layout_constraintVertical_bias="0.0" />
 
+
+    <Button
+        android:id="@+id/hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="608dp"
+        android:backgroundTint="@color/Green"
+        android:onClick="openHint"
+        android:text=" ? "
+        android:textColor="@color/Yellow"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
+
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="140dp"
@@ -134,8 +138,10 @@
         android:layout_marginTop="720dp"
         android:backgroundTint="@color/Yellow"
         android:text="Start"
+        android:textSize="12dp"
         android:textStyle="bold"
         android:textColor="@color/black"
+        android:layout_marginBottom="1.5dp"
         app:layout_constraintBottom_toBottomOf="@id/BottomGreenBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
