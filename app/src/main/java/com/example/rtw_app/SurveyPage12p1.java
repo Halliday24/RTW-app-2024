@@ -34,7 +34,7 @@ public class SurveyPage12p1 extends AppCompatActivity {
         option1Group = findViewById(R.id.option1_answers);
         option2Group = findViewById(R.id.option2_answers);
         option3Group = findViewById(R.id.option3_answers);
-        FirstTextAnswer = findViewById(R.id.self_efficacy_Answer1);
+
 
         TextView textView = (TextView) findViewById(R.id.self_efficacy_Question2);
         textView.setText("Self-Efficacy and Growth Mindset");
