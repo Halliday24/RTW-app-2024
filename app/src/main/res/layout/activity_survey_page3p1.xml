@@ -103,30 +103,45 @@
             android:id="@+id/neverRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp" />
+            android:layout_marginRight="35dp"
+            android:text="Never"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/sometimesRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp" />
+            android:layout_marginRight="35dp"
+            android:text="SomeTimes"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/halfRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp" />
+            android:layout_marginRight="35dp"
+            android:text="About Half the Time"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/mostRadioButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Most of the Time"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/alwaysRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp" />
+            android:layout_marginLeft="35dp"
+            android:text="Always"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
     </RadioGroup>
 
@@ -183,30 +198,45 @@
             android:id="@+id/neverRadioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp" />
+            android:layout_marginRight="35dp"
+            android:text="Never"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/sometimesRadioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp" />
+            android:layout_marginRight="35dp"
+            android:text="SomeTimes"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/halfRadioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp" />
+            android:layout_marginRight="35dp"
+            android:text="About Half the Time"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/mostRadioButton3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Most of the Time"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/alwaysRadioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp" />
+            android:layout_marginLeft="35dp"
+            android:text="Always"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
     </RadioGroup>
 
@@ -259,35 +289,50 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginLeft="5dp">
-
         <RadioButton
             android:id="@+id/neverRadioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp"
+            android:text="Never"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/sometimesRadioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp"
+            android:text="SomeTimes"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/halfRadioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"/>
+            android:layout_marginRight="35dp"
+            android:text="About Half the Time"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/mostRadioButton2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Most of the Time"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/alwaysRadioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"/>
+            android:layout_marginLeft="35dp"
+            android:text="Always"
+            android:textSize="0sp"
+            android:textColor="@android:color/transparent"/>
+
 
     </RadioGroup>
 

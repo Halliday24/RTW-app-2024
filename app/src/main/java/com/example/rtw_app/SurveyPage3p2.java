@@ -15,10 +15,14 @@ import android.widget.TextView;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class SurveyPage3p2 extends AppCompatActivity {
     private int currentQuestion;
 
+    private String userInfo;
     //changed to 3 since only 3 questions are on page
     private int totalQuestions = 3; // Set the total number of questions
     private ProgressBar progressBar;
@@ -29,7 +33,7 @@ public class SurveyPage3p2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page3p2);
-
+        userInfo = getIntent().getStringExtra("userInfo");
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             currentQuestion = extras.getInt("data1");
@@ -72,11 +76,10 @@ public class SurveyPage3p2 extends AppCompatActivity {
                     // Store responses in SharedPreferences
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("Work Too many hours", selectedHours);
-                    editor.putString("Work late hours, or schedules\n" +
-                            "that conflict with class time", selectedLate);
+                    editor.putString("Work late hours", selectedLate);
                     editor.putString("Unemployed", selectedUnemployed);
                     editor.apply();
-
+                    generateAndSavePdf(selectedHours,selectedLate,selectedUnemployed);
                     //
 
 
@@ -136,9 +139,42 @@ public class SurveyPage3p2 extends AppCompatActivity {
 
 
     }
+
+    private List<String[]> getSurveyAnswers(String selectedHours, String selectedLate, String selectedUnemployed) {
+        List<String[]> answersList = new ArrayList<>();
+        // Add your survey answers to the list here
+        // For example, you can retrieve answers from SharedPreferences
+        String hours = sharedPreferences.getString("Work Too many hours",selectedHours);
+        String late = sharedPreferences.getString("Work late hours", selectedLate);
+        String unemployed = sharedPreferences.getString("Unemployed", selectedUnemployed);
+
+
+
+        // Create an array with the survey answers and add it to the list
+        String[] surveyAnswers = {hours, late, unemployed};
+        answersList.add(surveyAnswers);
+
+        return answersList;
+    }
+
+    // Method to generate and save PDF
+    private void generateAndSavePdf(String selectedHours,String selectedLate,String selectedUnemployed) {
+        List<String> questionTexts = new ArrayList<>();
+        String mainQuestion = "How did each of these potential major-related barriers impact your education?";
+        // Add your question texts to the list here
+        questionTexts.add("Major related classes were unavailable");
+        questionTexts.add("Major not offered");
+        questionTexts.add("Unhappy with major");
+        String output = userInfo + "_output6.pdf";
+
+
+        List<String[]> surveyAnswers = getSurveyAnswers(selectedHours,selectedLate,selectedUnemployed);
+        PdfGenerator.generatePdf(SurveyPage3p2.this, output, surveyAnswers, questionTexts, mainQuestion);
+    }
     public void goToSurveyPage4(){
         Intent SurveyPage4 = new Intent(this, SurveyPage4.class);
         SurveyPage4.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        SurveyPage4.putExtra("userInfo", userInfo);
         startActivity(SurveyPage4);
 
     }
@@ -146,6 +182,7 @@ public class SurveyPage3p2 extends AppCompatActivity {
     public void goBack(){
         Intent impactAcademicPage2 = new Intent(this, SurveyPage3p1.class);
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        impactAcademicPage2.putExtra("userInfo", userInfo);
         startActivity(impactAcademicPage2);
 
     }
