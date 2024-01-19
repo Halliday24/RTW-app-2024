@@ -33,13 +33,13 @@ public class SurveyPage6p4 extends AppCompatActivity {
     private TextView progressText;
     private RadioGroup studyRadioGroup, timeRadioGroup, poorStudyRadioGroup, disabilityRadioGroup;
     private Button hint;
-
+    private String userInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page6p4);
-
+        userInfo = getIntent().getStringExtra("userInfo");
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             currentQuestion = extras.getInt("data1");
@@ -185,9 +185,11 @@ public class SurveyPage6p4 extends AppCompatActivity {
         updateProgress();
         Intent myIntent = new Intent(SurveyPage6p4.this, SurveyPage7.class);
         myIntent.putExtra("data1", currentQuestion);
+        myIntent.putExtra("userInfo", userInfo);
         SurveyPage6p4.this.startActivity(myIntent);
 
         Intent nextPage = new Intent(this, SurveyPage7.class);
+        nextPage.putExtra("userInfo", userInfo);
         nextPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(nextPage);
 
@@ -201,6 +203,7 @@ public class SurveyPage6p4 extends AppCompatActivity {
 
         Intent myIntent = new Intent(SurveyPage6p4.this, SurveyPage6p3.class);
         myIntent.putExtra("data1", currentQuestion);
+        myIntent.putExtra("userInfo", userInfo);
         SurveyPage6p4.this.startActivity(myIntent);
     }
 
@@ -224,16 +227,17 @@ public class SurveyPage6p4 extends AppCompatActivity {
     // Method to generate and save PDF
     private void generateAndSavePdf(String selectedStudy,String selectedTime,String selectedPoorStudy,String selectedDisability) {
         List<String> questionTexts = new ArrayList<>();
-        String mainQuestion = "How much of an impact did each of these potential academic barriers have on your learning and grades last year?";
+        String mainQuestion = "How much of an impact did each of these potential social barriers have on your\n" +
+                "experience last year:?";
         // Add your question texts to the list here
-        questionTexts.add("Ineffective study habits?");
-        questionTexts.add("Poor time management?");
-        questionTexts.add("Poor study environment?");
-        questionTexts.add("Learning disability?");
-
+        questionTexts.add("Fear of disappointing others");
+        questionTexts.add("Previous failure");
+        questionTexts.add("Experiences of discrimination");
+        questionTexts.add("Experiences of violence or trauma");
+        String output = userInfo + "_output12.pdf";
 
         List<String[]> surveyAnswers = getSurveyAnswers(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability);
-        PdfGenerator.generatePdf(SurveyPage6p4.this, "survey_output.pdf", surveyAnswers, questionTexts, mainQuestion);
+        PdfGenerator.generatePdf(SurveyPage6p4.this, output, surveyAnswers, questionTexts, mainQuestion);
     }
 
 
