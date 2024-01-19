@@ -16,6 +16,8 @@ import java.util.List;
 public class SurveyPage16p1 extends AppCompatActivity {
     private Button hint;
 
+
+
     private String userInfo;
 
 
@@ -51,7 +53,18 @@ public class SurveyPage16p1 extends AppCompatActivity {
                 generateAndSavePdf();
             }
         });
+
+        Button SubmitButton = findViewById(R.id.BackButton);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Call the goBack method
+                goBack();
+
+            }
+        });
     }
+
 
     private void generateAndSavePdf() {
         List<String> questionTexts = new ArrayList<>();
