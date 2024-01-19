@@ -30,10 +30,16 @@ public class SurveyPage18 extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
         userInfo = getIntent().getStringExtra("userInfo");
         hint = findViewById(R.id.hint);
+        // Initialize your RadioGroup instances
+        colorRadioGroup = findViewById(R.id.colorRadioGroup);
+        timeRadioGroup = findViewById(R.id.timeRadioGroup);
+        poorStudyRadioGroup = findViewById(R.id.poorStudyRadioGroup2);
+        disabilityRadioGroup = findViewById(R.id.disabilityRadioGroup);
         //Set an onClick listener for using the hint button
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 openHint();
             }
         });
@@ -88,7 +94,7 @@ public class SurveyPage18 extends AppCompatActivity {
                 getSelectedRadioButtonText(colorRadioGroup),
                 getSelectedRadioButtonText(timeRadioGroup),
                 getSelectedRadioButtonText(poorStudyRadioGroup),
-                getSelectedRadioButtonText(disabilityRadioGroup)
+                getSelectedRadioButtonText(disabilityRadioGroup),
         };
         answersList.add(surveyAnswers);
 

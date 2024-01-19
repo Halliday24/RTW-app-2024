@@ -21,7 +21,17 @@ public class surveyPage21p2 extends AppCompatActivity {
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 openHint();
+            }
+        });
+
+        Button submitButton = findViewById(R.id.nextButton);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Call the generateAndSavePdf method
+                goTo();
             }
         });
 

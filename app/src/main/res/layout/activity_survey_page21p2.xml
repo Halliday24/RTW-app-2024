@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="60dp"
         android:background="@color/Green"
         android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,21 +24,25 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="25dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="2dp"
+        android:layout_marginEnd="84dp"
         android:background="@color/Green"
         android:max="100"
         android:progress="0"
-        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar" />
 
     <TextView
         android:id="@+id/progressText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/progressBar"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="20dp"
         android:text="Progress: 0%"
+        android:textColor="@color/black"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +70,7 @@
     <ImageView
         android:id="@+id/BottomGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="49dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="700dp"
         android:background="@color/Green"
@@ -94,11 +98,11 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
         android:layout_marginLeft="10dp"
-        android:background="@color/gray"
+        android:layout_marginTop="28dp"
+        android:background="#999999"
         android:text="I experience social anxiety in academic settings"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -109,8 +113,8 @@
         android:id="@+id/colorRadioGroup"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginLeft="10dp"
+        android:background="#999999"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
@@ -121,8 +125,8 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="Never"
-            android:textSize="0sp"
-            android:textColor="@android:color/transparent"/>
+            android:textColor="@android:color/transparent"
+            android:textSize="0sp" />
 
         <RadioButton
             android:id="@+id/sometimesRadioButton"
@@ -130,8 +134,8 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="SomeTimes"
-            android:textSize="0sp"
-            android:textColor="@android:color/transparent"/>
+            android:textColor="@android:color/transparent"
+            android:textSize="0sp" />
 
         <RadioButton
             android:id="@+id/halfRadioButton"
@@ -139,16 +143,16 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="35dp"
             android:text="About Half the Time"
-            android:textSize="0sp"
-            android:textColor="@android:color/transparent"/>
+            android:textColor="@android:color/transparent"
+            android:textSize="0sp" />
 
         <RadioButton
             android:id="@+id/mostRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Most of the Time"
-            android:textSize="0sp"
-            android:textColor="@android:color/transparent"/>
+            android:textColor="@android:color/transparent"
+            android:textSize="0sp" />
 
         <RadioButton
             android:id="@+id/alwaysRadioButton"
@@ -156,29 +160,33 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
             android:text="Always"
-            android:textSize="0sp"
-            android:textColor="@android:color/transparent"/>
+            android:textColor="@android:color/transparent"
+            android:textSize="0sp" />
 
     </RadioGroup>
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="Never        Sometimes      About half        Most of        Always"
-        android:textStyle="bold"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
+        android:background="#999999"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="199dp"
-        app:layout_constraintTop_toBottomOf="@+id/colorRadioGroup"/>
+        app:layout_constraintTop_toBottomOf="@+id/colorRadioGroup" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:layout_marginTop="8dp"
-        android:text="of the time      the time"
-        android:layout_marginLeft="165dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:background="#999999"
+        android:text="                                              of the time      the time"
+        android:textColor="@color/black"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -255,19 +263,23 @@
     <TextView
         android:id="@+id/textView10"
         android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="Never        Sometimes      About half        Most of        Always"
-        android:textStyle="bold"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
+        android:text="Never        Sometimes      About half        Most of        Always"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timeRadioGroup" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="of the time      the time"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="165dp"
+        android:text="of the time      the time"
+        android:textColor="@color/black"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -276,9 +288,10 @@
         android:id="@+id/textView17"
         android:layout_width="396dp"
         android:layout_height="25dp"
-        android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
         android:text="In which of the above areas are things working well for you?"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -301,9 +314,10 @@
         android:id="@+id/textView18"
         android:layout_width="398dp"
         android:layout_height="41dp"
-        android:layout_marginTop="8dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
         android:text="What challenges are most important for you to address right now?"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.39"
@@ -325,28 +339,28 @@
         android:id="@+id/BackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="216dp"
-        android:layout_marginBottom="55dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/Yellow"
         android:text="Back"
+        android:textColor="@color/black"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/nextButton"
-        android:backgroundTint="@color/Yellow"
-        android:textColor="@color/black"/>
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="216dp"
-        android:layout_marginBottom="55dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="40dp"
+        android:backgroundTint="@color/Yellow"
         android:text="Next"
+        android:textColor="@color/black"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/BackButton"
-        android:backgroundTint="@color/Yellow"
-        android:textColor="@color/black"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

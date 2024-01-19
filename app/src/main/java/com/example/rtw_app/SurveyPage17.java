@@ -28,6 +28,8 @@ public class SurveyPage17 extends AppCompatActivity {
         setContentView(R.layout.activity_survey_page17);
         userInfo = getIntent().getStringExtra("userInfo");
 
+
+
         hint = findViewById(R.id.hint);
         //Set an onClick listener for using the hint button
 
