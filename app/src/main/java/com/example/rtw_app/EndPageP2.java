@@ -110,21 +110,37 @@ public class EndPageP2 extends AppCompatActivity {
     private List<String[]> getSelectedCheckboxes() {
         List<String[]> selectedCheckboxesList = new ArrayList<>();
 
+
+          boolean selectedJava  =   javaCheckBox.isChecked();
+           boolean selectedKotlin =     kotlinCheckBox.isChecked();
+             boolean selectedSwift =    swiftCheckBox.isChecked();
+             boolean selected1 = CheckBox.isChecked();
+        boolean selected2 =  CheckBox1.isChecked();
+        boolean selected3 =  CheckBox2.isChecked();
+        boolean selected4 =    CheckBox3.isChecked();
+        boolean selected5 =     CheckBox4.isChecked();
+        boolean selected6 =    CheckBox5.isChecked();
+        boolean selected7 =     CheckBox6.isChecked();
+        boolean selected8 =       CheckBox7.isChecked();
+        boolean selected9 =      CheckBox8.isChecked();
+        boolean selected10 =     CheckBox9.isChecked();
         // Create an array with the selected Checkboxes for each question and add it to the list
         String[] questionCheckboxes = {
-                javaCheckBox.isChecked() ? javaCheckBox.getText().toString() : "",
-                kotlinCheckBox.isChecked() ? kotlinCheckBox.getText().toString() : "",
-                swiftCheckBox.isChecked() ? swiftCheckBox.getText().toString() : "",
-                CheckBox.isChecked() ? CheckBox.getText().toString() : "",
-                CheckBox1.isChecked() ? CheckBox1.getText().toString() : "",
-                CheckBox2.isChecked() ? CheckBox2.getText().toString() : "",
-                CheckBox3.isChecked() ? CheckBox3.getText().toString() : "",
-                CheckBox4.isChecked() ? CheckBox4.getText().toString() : "",
-                CheckBox5.isChecked() ? CheckBox5.getText().toString() : "",
-                CheckBox6.isChecked() ? CheckBox6.getText().toString() : "",
-                CheckBox7.isChecked() ? CheckBox7.getText().toString() : "",
-                CheckBox8.isChecked() ? CheckBox8.getText().toString() : "",
-                CheckBox9.isChecked() ? CheckBox9.getText().toString() : ""
+                String.valueOf(selectedJava),
+                String.valueOf(selectedKotlin),
+                String.valueOf(selectedSwift),
+                String.valueOf(selected1),
+                String.valueOf(selected2),
+                String.valueOf(selected3),
+                String.valueOf(selected4),
+                String.valueOf(selected5),
+                String.valueOf(selected6),
+                String.valueOf(selected7),
+                String.valueOf(selected8),
+                String.valueOf(selected9),
+                String.valueOf(selected10)
+
+
         };
         selectedCheckboxesList.add(questionCheckboxes);
 
