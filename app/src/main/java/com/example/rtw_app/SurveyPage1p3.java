@@ -110,8 +110,6 @@ public class SurveyPage1p3 extends AppCompatActivity {
         });
 
         Button buttonBack=findViewById(R.id.BackButton);
-        hint = findViewById(R.id.hint);
-
         //set a click listener for the next Button
         buttonBack.setOnClickListener(new View.OnClickListener(){
 

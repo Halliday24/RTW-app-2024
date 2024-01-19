@@ -30,7 +30,7 @@ public class MindsetPage extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                goToSurveyPage10();
+                goToNextPage();
             }
         });
 
@@ -70,7 +70,7 @@ public class MindsetPage extends AppCompatActivity {
 
     }
 
-    public void goToSurveyPage10(){
+    public void goToNextPage(){
         Intent SurveyPage9 = new Intent(this, SurveyPage9.class);
         SurveyPage9.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         SurveyPage9.putExtra("userInfo", userInfo);

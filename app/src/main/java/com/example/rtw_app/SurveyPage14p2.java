@@ -44,9 +44,15 @@ public class SurveyPage14p2 extends AppCompatActivity {
         checkBox17 = findViewById(R.id.checkBox17);
 
 
-        //hint = findViewById(R.id.hint);
+        hint = findViewById(R.id.hint);
 
         //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
+            }
+        });
         Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
