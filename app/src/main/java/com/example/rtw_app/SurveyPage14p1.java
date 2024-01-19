@@ -36,6 +36,8 @@ public class SurveyPage14p1 extends AppCompatActivity {
         option3Group = findViewById(R.id.option3_answers);
         option4Group = findViewById(R.id.option4_answers);
         option5Group = findViewById(R.id.option5_answers);
+        TextView textView = (TextView) findViewById(R.id.surveyPage14p1_Question);
+        textView.setText("Time Management");
 
         //option1
         TextView textView1 = (TextView) findViewById(R.id.TimeManagement_Option1);
@@ -58,7 +60,7 @@ public class SurveyPage14p1 extends AppCompatActivity {
         TextView textview5 = (TextView) findViewById(R.id.TimeManagement_Option5);
         textview5.setText("I can estimate how much time " +
                 "a task is going to take");
-        //hint = findViewById(R.id.hint);
+        hint = findViewById(R.id.hint);
 
         //Set an onClick listener for using the hint button
         hint.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +93,7 @@ public class SurveyPage14p1 extends AppCompatActivity {
 
                     // Call the generateAndSavePdf method
                     generateAndSavePdf(selectedOption1, selectedOption2, selectedOption3, selectedOption4, selectedOption5);
+                    goToNextPage();
 
                     // ... (rest of the existing code)
                 } else {

@@ -35,6 +35,8 @@ public class SurveyPage13p2 extends AppCompatActivity {
 
         option1Group = findViewById(R.id.option1_answers);
         option2Group = findViewById(R.id.option2_answers);
+        TextView textView = (TextView) findViewById(R.id.surveyPage13p2_Question);
+        textView.setText("Education and Goals");
         //option1
         TextView textView1 = (TextView) findViewById(R.id.Education_And_Goals2_Option1);
         textView1.setText("I know my strengths and how " +
@@ -43,7 +45,7 @@ public class SurveyPage13p2 extends AppCompatActivity {
         TextView textview2 = (TextView) findViewById(R.id.Education_And_Goals2_Option2);
         textview2.setText("I have a faculty or staff mentor");
 
-        //hint = findViewById(R.id.hint);
+        hint = findViewById(R.id.hint);
 
         //Set an onClick listener for using the hint button
         hint.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +69,7 @@ public class SurveyPage13p2 extends AppCompatActivity {
 
                     // Call the generateAndSavePdf method
                     generateAndSavePdf(selectedOption1, selectedOption2);
+                    goToNextPage();
 
 
                 } else {

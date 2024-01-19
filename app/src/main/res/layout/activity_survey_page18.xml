@@ -278,7 +278,6 @@
         android:layout_marginTop="8dp"
         android:background="@color/gray"
         android:layout_marginLeft="10dp"
-        app:layout_marginTop="10dp"
         android:text="I tend to do well on tests without a lot of preparation"
         android:textColor="@color/black"
         android:textStyle="bold"

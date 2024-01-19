@@ -5,18 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SurveyPage11"
-    android:backgroundTint="@color/Yellow">
+    android:background="@color/digitalWhite">
 
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="60dp"
         android:background="@color/Green"
         android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/BottomGreenBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="700dp"
+        android:background="@color/Green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/hint"
@@ -29,7 +43,6 @@
         android:text=" ? "
         android:textColor="@color/Yellow"
         android:textSize="20dp"
-        android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/TopGreenBar"
@@ -144,7 +157,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/unsureCheckBox"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="24dp"
         android:text="Other:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/unsureCheckBox" />
@@ -154,8 +167,9 @@
         android:layout_width="305dp"
         android:layout_height="66dp"
         android:layout_below="@id/unsureCheckBox"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@color/black"
         android:hint="Specify other reason"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -179,7 +193,9 @@
         android:layout_width="386dp"
         android:layout_height="44dp"
         android:layout_marginStart="12dp"
-        android:layout_marginBottom="188dp"
+        android:layout_marginBottom="160dp"
+        android:layout_marginTop="5dp"
+        android:textColorHint="@color/black"
         android:hint="Answer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -188,43 +204,31 @@
         android:id="@+id/BackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="196dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="5dp"
         android:backgroundTint="@color/Yellow"
         android:text="Back"
         android:textColor="@color/black"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/nextButton" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="232dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="40dp"
         android:backgroundTint="@color/Yellow"
         android:text="Next"
         android:textColor="@color/black"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/BackButton" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <ImageView
-        android:id="@+id/BottomGreenBar"
-        android:layout_width="match_parent"
-        android:layout_height="49dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="700dp"
-        android:background="@color/Green"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

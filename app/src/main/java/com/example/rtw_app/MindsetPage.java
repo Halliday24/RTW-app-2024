@@ -21,9 +21,9 @@ public class MindsetPage extends AppCompatActivity {
         textView.setText("Mindset");
         TextView textView2 = (TextView) findViewById(R.id.Mindset);
         textView2.setText("Building a positive attitude and a growth mindset are important skills to help you achieve " +
-                "your goals. These next sections will help you reflect on your current mindsets and help " +
+                "your goals.\n"+ "\nThese next sections will help you reflect on your current mindsets and help " +
                 "you start thinking about your goals and how you can start achieving them. " +
-                "Please indicate how often the statements below are true for you: "); //set text for text view
+                "\n \nPlease continue to actively answer these questions as best as you can. "); //set text for text view
 
         Button nextButton = findViewById(R.id.buttonNext);
         nextButton.setOnClickListener(new View.OnClickListener(){

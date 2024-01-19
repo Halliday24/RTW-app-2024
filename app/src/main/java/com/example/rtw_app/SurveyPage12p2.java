@@ -35,6 +35,9 @@ public class SurveyPage12p2 extends AppCompatActivity {
         option3Group = findViewById(R.id.option3_answers);
         option4Group = findViewById(R.id.option4_answers);
         option5Group = findViewById(R.id.option5_answers);
+
+        TextView textView = (TextView) findViewById(R.id.surveyPage12_Question);
+        textView.setText("Self-Efficacy and Growth Mindset");
         //option1
         TextView textView1 = (TextView) findViewById(R.id.self_efficacy2_Option1);
         textView1.setText("I don’t believe in limitations and  " +
@@ -58,7 +61,7 @@ public class SurveyPage12p2 extends AppCompatActivity {
         textview5.setText(" Challenges are opportunities " +
                 "for growth");
 
-        //hint = findViewById(R.id.hint);
+        hint = findViewById(R.id.hint);
 
         //Set an onClick listener for using the hint button
         hint.setOnClickListener(new View.OnClickListener() {

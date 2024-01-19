@@ -23,7 +23,7 @@ public class SurveyPage16p2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey_page16p);
+        setContentView(R.layout.activity_survey_page16p2);
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
         userInfo = getIntent().getStringExtra("userInfo");
         hint = findViewById(R.id.hint);
