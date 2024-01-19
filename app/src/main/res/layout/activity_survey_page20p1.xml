@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SurveyPage21p1"
-    android:background="@color/digitalWhite">
+    android:background="@color/digitalWhite"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:context=".SurveyPage20p1">
 
 
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="46dp"
         android:background="@color/Green"
         android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,10 +20,54 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/Green"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/progressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBar"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Progress: 0%"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/hint"
+        android:layout_width="64dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="@color/Green"
+        android:onClick="openHint"
+        android:text=" ? "
+        android:textColor="@color/Yellow"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
+        tools:visibility="visible" />
+
     <ImageView
         android:id="@+id/BottomGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="49dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="700dp"
         android:background="@color/Green"
@@ -38,14 +83,14 @@
         android:id="@+id/impactQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/TopGreenBar"
         android:background="@color/gray"
-        android:text="Class Preparation"
+        android:layout_marginLeft="10dp"
+        android:text="Stress and Wellbeing"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="82dp" />
+        app:layout_constraintTop_toBottomOf="@+id/TopGreenBar" />
 
     <TextView
         android:id="@+id/textView6"
@@ -53,7 +98,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:background="@color/gray"
-        android:text="I review the sylllabus for each course and understand the expectations"
+        android:layout_marginLeft="10dp"
+        android:text="I believe in my capacity to do well in university"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +110,7 @@
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
@@ -120,16 +167,18 @@
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="199dp"
-        app:layout_constraintTop_toBottomOf="@+id/colorRadioGroup"/>
+        android:layout_marginLeft="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/colorRadioGroup"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="199dp" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:layout_marginTop="8dp"
-        android:text="                                              of the time      the time"
+        android:text="of the time      the time"
+        android:layout_marginLeft="165dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -140,7 +189,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@color/gray"
-        android:text="I complete my small assignments with 24 hours after class"
+        android:layout_marginLeft="10dp"
+        android:text="I ask for help when I need it"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -151,6 +201,7 @@
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:layout_marginLeft="10dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9">
@@ -206,6 +257,8 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timeRadioGroup" />
 
@@ -213,7 +266,9 @@
         android:id="@+id/textView11"
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:text="                                              of the time      the time"
+        android:text="of the time      the time"
+        android:layout_marginLeft="165dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -224,7 +279,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@color/gray"
-        android:text="I read the assigned reading before class"
+        android:layout_marginLeft="10dp"
+        android:text="I have little difficulty managing challenges in my life"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -235,6 +291,7 @@
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12">
@@ -290,6 +347,8 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:text="Never        Sometimes      About half        Most of        Always"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/poorStudyRadioGroup2" />
 
@@ -297,17 +356,20 @@
         android:id="@+id/textView14"
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:text="                                              of the time      the time"
+        android:text="of the time      the time"
+        android:layout_marginLeft="165dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
 
+    <!-- Next Button -->
     <Button
         android:id="@+id/BackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="216dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="55dp"
         android:text="Back"
         android:textSize="12dp"
         android:textStyle="bold"
@@ -321,7 +383,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="216dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="55dp"
         android:text="Next"
         android:textSize="12dp"
         android:textStyle="bold"
@@ -329,24 +391,6 @@
         app:layout_constraintLeft_toRightOf="@+id/BackButton"
         android:backgroundTint="@color/Yellow"
         android:textColor="@color/black"/>
-
-    <Button
-        android:id="@+id/hint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="584dp"
-        android:backgroundTint="@color/Green"
-        android:onClick="openHint"
-        android:text=" ? "
-        android:textColor="@color/Yellow"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@id/BottomGreenBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:visibility="visible" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

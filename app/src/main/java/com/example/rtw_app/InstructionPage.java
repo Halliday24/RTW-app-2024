@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class InstructionPage extends AppCompatActivity {
-    private String userInfo;
+
     private Button buttonNext;
     private Button buttonBack;
     int Counter = 0;
@@ -19,7 +19,6 @@ public class InstructionPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        userInfo = getIntent().getStringExtra("userInfo");
         setContentView(R.layout.activity_instruction_page);
         TextView textView = (TextView) findViewById(R.id.Instructions);
         textView.setText("This self-guided workbook is designed to help you to identify, and reflect on, the factors" +
@@ -122,10 +121,6 @@ public class InstructionPage extends AppCompatActivity {
         }
 
     public void goToimpactAcademicPage(){
-        Intent myIntent = new Intent(InstructionPage.this, SurveyPage1p1.class);
-        myIntent.putExtra("data1", 1);
-        myIntent.putExtra("userInfo", userInfo);
-        InstructionPage.this.startActivity(myIntent);
 
         Intent impactAcademicPage1 = new Intent(this, SurveyPage1p1.class);
         impactAcademicPage1.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

@@ -12,21 +12,20 @@
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="49dp"
         android:background="@color/Green"
         android:contentDescription="TODO"
-        app:layout_constraintBottom_toTopOf="@id/TopText"
+        app:layout_constraintTop_toBottomOf="@id/TopText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
 
-    </ImageView>
 
     <ImageView
         android:id="@+id/BottomGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="49dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="700dp"
         android:background="@color/Green"
@@ -46,6 +45,7 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/TopGreenBar" />
@@ -59,6 +59,7 @@
         android:text="Login"
         android:textColor="@color/black"
         android:textSize="40dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/TopText"
@@ -85,7 +86,7 @@
         android:id="@+id/LoginCCID"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:hint="CCID"
+        android:hint="Student ID"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:inputType="textPassword"
@@ -118,15 +119,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="584dp"
+        android:layout_marginBottom="608dp"
         android:backgroundTint="@color/Green"
         android:onClick="openHint"
         android:text=" ? "
         android:textColor="@color/Yellow"
-        android:textSize="50dp"
+        android:textSize="25dp"
         android:textStyle="bold"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@id/BottomGreenBar"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
         app:layout_constraintEnd_toEndOf="parent"
         tools:visibility="visible" />
 
@@ -137,7 +138,10 @@
         android:layout_marginTop="720dp"
         android:backgroundTint="@color/Yellow"
         android:text="Start"
+        android:textSize="12dp"
+        android:textStyle="bold"
         android:textColor="@color/black"
+        android:layout_marginBottom="1.5dp"
         app:layout_constraintBottom_toBottomOf="@id/BottomGreenBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

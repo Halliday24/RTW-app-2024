@@ -50,34 +50,27 @@
 
     <Button
         android:id="@+id/buttonBack"
-        android:layout_width="140dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="720dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/Yellow"
         android:text="Back"
-        android:layout_marginRight="100dp"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@id/BottomGreenBar"
-        app:layout_constraintEnd_toEndOf="@id/buttonNext"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/TopGreenBar" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonNext"
-        android:layout_width="140dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="720dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/Yellow"
         android:text="Next"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@id/BottomGreenBar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginLeft="150dp"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@id/buttonBack"
-        app:layout_constraintTop_toTopOf="@id/TopGreenBar" />
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

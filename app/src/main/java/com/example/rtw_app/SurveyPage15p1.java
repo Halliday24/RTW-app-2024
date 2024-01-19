@@ -14,15 +14,18 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SurveyPage15p1 extends AppCompatActivity {
 
     private Button hint;
-
+    private String userInfo;
     private SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey_page15);
+        setContentView(R.layout.activity_survey_page15p1);
 
         sharedPreferences = getSharedPreferences("impact_responses", MODE_PRIVATE);
 
@@ -42,8 +45,7 @@ public class SurveyPage15p1 extends AppCompatActivity {
                 //int selectedDisabilityId = accessRadioGroup.getCheckedRadioButtonId();
                 //int selectedPreparationId = deadlinesRadioGroup.getCheckedRadioButtonId();
 
-                if (selectedColorId != -1 && selectedTimeId != -1 && selectedPoorStudyId != -1
-                        ) {
+                if (selectedColorId != -1 && selectedTimeId != -1 && selectedPoorStudyId != -1 ) {
 
                     // Get selected answers
                     String selectedStudy = ((RadioButton) findViewById(selectedColorId)).getText().toString();
@@ -63,7 +65,9 @@ public class SurveyPage15p1 extends AppCompatActivity {
 
                     // Display a success message
                     Toast.makeText(SurveyPage15p1.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
+                    generateAndSavePdf();
                     goTo();
+
                 } else {
                     // Display an error message if not all questions are answered
                     Toast.makeText(SurveyPage15p1.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
@@ -112,16 +116,52 @@ public class SurveyPage15p1 extends AppCompatActivity {
 
     }
 
+    private void generateAndSavePdf() {
+        List<String> questionTexts = new ArrayList<>();
+        String mainQuestion = "Class Preparation";
 
+        // Add your question texts to the list here
+        questionTexts.add("I review the syllabus for each\n" +
+                "course and understand the\n" +
+                "expectations ");
+        questionTexts.add("I complete my small\n" +
+                "assignments with 24 hours\n" +
+                "after class\n");
+        questionTexts.add("I read the assigned reading\n" +
+                "before class");
+
+        String output = userInfo + "_output24.pdf";
+
+        // Call the PdfGenerator to generate PDF
+        PdfGenerator.generatePdf(SurveyPage15p1.this, output,
+                getSurveyAnswers(), questionTexts, mainQuestion);
+    }
+
+    private List<String[]> getSurveyAnswers() {
+        List<String[]> answersList = new ArrayList<>();
+
+        // Create an array with the survey answers and add it to the list
+        String[] surveyAnswers = {
+                sharedPreferences.getString("impact_study", ""),
+                sharedPreferences.getString("impact_time", ""),
+                sharedPreferences.getString("impact_poor_study", "")
+        };
+        answersList.add(surveyAnswers);
+
+        return answersList;
+    }
     public void goTo(){
         Intent SurveyPage15p2 = new Intent(this, SurveyPage15p2.class);
+        SurveyPage15p2.putExtra("userInfo", userInfo);
         startActivity(SurveyPage15p2);
 
     }
 
     public void goBack(){
         Intent SurveyPage14p2 = new Intent(this, SurveyPage14p2.class);
+        SurveyPage14p2.putExtra("userInfo", userInfo);
         startActivity(SurveyPage14p2);
+
 
     }
 

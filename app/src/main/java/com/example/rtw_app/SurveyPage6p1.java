@@ -33,13 +33,14 @@ public class SurveyPage6p1 extends AppCompatActivity {
     private TextView progressText;
     private RadioGroup studyRadioGroup, timeRadioGroup, poorStudyRadioGroup, disabilityRadioGroup, preparationRadioGroup;
     private Button hint;
+    private String userInfo;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page6p1);
-
+        userInfo = getIntent().getStringExtra("userInfo");
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             currentQuestion = extras.getInt("data1");
@@ -62,6 +63,15 @@ public class SurveyPage6p1 extends AppCompatActivity {
         // Initialize your SharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
         hint = findViewById(R.id.hint);
+
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHint();
+            }
+        });
+
         Button submitButton = findViewById(R.id.nextButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,6 +172,7 @@ public class SurveyPage6p1 extends AppCompatActivity {
     }
 
 
+
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -180,9 +191,11 @@ public class SurveyPage6p1 extends AppCompatActivity {
         updateProgress();
         Intent myIntent = new Intent(SurveyPage6p1.this, SurveyPage6p2.class);
         myIntent.putExtra("data1", currentQuestion);
+        myIntent.putExtra("userInfo", userInfo);
         SurveyPage6p1.this.startActivity(myIntent);
 
         Intent nextPage = new Intent(this, SurveyPage6p2.class);
+        nextPage.putExtra("userInfo", userInfo);
         nextPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(nextPage);
 
@@ -196,6 +209,7 @@ public class SurveyPage6p1 extends AppCompatActivity {
 
         Intent myIntent = new Intent(SurveyPage6p1.this, SurveyPage5.class);
         myIntent.putExtra("data1", currentQuestion);
+        myIntent.putExtra("userInfo", userInfo);
         SurveyPage6p1.this.startActivity(myIntent);
     }
 
@@ -220,16 +234,19 @@ public class SurveyPage6p1 extends AppCompatActivity {
     // Method to generate and save PDF
     private void generateAndSavePdf(String selectedStudy,String selectedTime,String selectedPoorStudy,String selectedDisability,String selectedPreparation) {
         List<String> questionTexts = new ArrayList<>();
-        String mainQuestion = "How much of an impact did each of these potential academic barriers have on your learning and grades last year?";
+        String mainQuestion = "How much of an impact did each of these potential social barriers have on your\n" +
+                "experience last year?";
         // Add your question texts to the list here
-        questionTexts.add("Ineffective study habits?");
-        questionTexts.add("Poor time management?");
-        questionTexts.add("Poor study environment?");
-        questionTexts.add("Learning disability?");
-        questionTexts.add("Ineffective academic preparation?");
-
+        questionTexts.add("New independent status/living\n" +
+                "away from home for the first\n" +
+                "time");
+        questionTexts.add("Roommate problems");
+        questionTexts.add("Relationship worries");
+        questionTexts.add("Loneliness");
+        questionTexts.add("Socially uncomfortable/shy");
+        String output = userInfo + "_output9.pdf";
         List<String[]> surveyAnswers = getSurveyAnswers(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability,selectedPreparation);
-        PdfGenerator.generatePdf(SurveyPage6p1.this, "survey_output.pdf", surveyAnswers, questionTexts, mainQuestion);
+        PdfGenerator.generatePdf(SurveyPage6p1.this, output, surveyAnswers, questionTexts, mainQuestion);
     }
 
 

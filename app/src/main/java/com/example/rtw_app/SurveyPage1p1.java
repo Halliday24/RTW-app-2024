@@ -28,31 +28,28 @@ public class SurveyPage1p1 extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
 
-    private int currentQuestion = 1;
+    private static final String KEY_CURRENT_QUESTION = "current_question";
+
+    private int currentQuestion;
     private int totalQuestions = 5; // Set the total number of questions
     private ProgressBar progressBar;
     private TextView progressText;
     private RadioGroup studyRadioGroup, timeRadioGroup, poorStudyRadioGroup, disabilityRadioGroup, preparationRadioGroup;
     private Button hint;
 
-    private String userInfo;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page1p1);
-        userInfo = getIntent().getStringExtra("userInfo");
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            currentQuestion = extras.getInt("data1");
 
-        }
-
+        // get the progressBar and progressText
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
 
-        updateProgress();
+
+
+
 
 
 
@@ -62,23 +59,24 @@ public class SurveyPage1p1 extends AppCompatActivity {
         poorStudyRadioGroup = findViewById(R.id.poorStudyRadioGroup2);
         disabilityRadioGroup = findViewById(R.id.disabilityRadioGroup);
         preparationRadioGroup = findViewById(R.id.preparationRadioGroup);
+
+
         // Initialize your SharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        // Load the saved currentQuestion value from SharedPreferences
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION, 1);
+        //update the information on the progress bar
+        updateProgress();
         hint = findViewById(R.id.hint);
-        //Set an onClick listener for using the hint button
-        hint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openHint();
-            }
-        });
-
         Button submitButton = findViewById(R.id.nextButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // Move to the next question
                 currentQuestion++;
-                updateProgress();
+
+                //go to the next question
                 int selectedColorId = studyRadioGroup.getCheckedRadioButtonId();
                 int selectedTimeId = timeRadioGroup.getCheckedRadioButtonId();
                 int selectedPoorStudyId = poorStudyRadioGroup.getCheckedRadioButtonId();
@@ -90,6 +88,8 @@ public class SurveyPage1p1 extends AppCompatActivity {
                 Log.d("Debug", "selectedPoorStudy: " + selectedPoorStudyId);
                 Log.d("Debug", "selectedDisability: " + selectedDisabilityId);
                 Log.d("Debug", "selectedPreparation: " + selectedPreparationId);
+
+
 
 
                 if (selectedColorId != -1 && selectedTimeId != -1 && selectedPoorStudyId != -1 &&
@@ -109,15 +109,22 @@ public class SurveyPage1p1 extends AppCompatActivity {
                     editor.putString("impact_poor_study", selectedPoorStudy);
                     editor.putString("impact_disability", selectedDisability);
                     editor.putString("impact_color5", selectedPreparation);
+                    //storing the increased current Question
+                    editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
+                    editor.putInt("Total_questions", totalQuestions);
                     editor.apply();
 
 
+                    //update the progress bar
+                    updateProgress();
                     // Generate PDF after submitting survey
                     generateAndSavePdf(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability,selectedPreparation);
 
                     Toast.makeText(SurveyPage1p1.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
                     goToImpactAcademicPage2();
-                } else {
+                }
+
+                else {
                     Toast.makeText(SurveyPage1p1.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -128,8 +135,6 @@ public class SurveyPage1p1 extends AppCompatActivity {
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentQuestion--;
-                updateProgress();
                 goBack();
             }
         });
@@ -138,45 +143,44 @@ public class SurveyPage1p1 extends AppCompatActivity {
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
     }
 
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-
-        int selectedStudyId = studyRadioGroup.getCheckedRadioButtonId();
-        int selectedTimeId = timeRadioGroup.getCheckedRadioButtonId();
-        int selectedPoorStudyId = poorStudyRadioGroup.getCheckedRadioButtonId();
-        int selectedDisabilityId = disabilityRadioGroup.getCheckedRadioButtonId();
-        int selectedPreparationId = preparationRadioGroup.getCheckedRadioButtonId();
-
-
-        outState.putInt("selectedStudyId", selectedStudyId);
-        outState.putInt("selectedTimeId", selectedTimeId);
-        outState.putInt("selectedPoorStudyId", selectedPoorStudyId);
-        outState.putInt("selectedDisabilityId", selectedDisabilityId);
-        outState.putInt("selectedPreparationId", selectedPreparationId);
-    }
-
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-
-        int selectedStudyId = savedInstanceState.getInt("selectedStudyId");
-        int selectedTimeId = savedInstanceState.getInt("selectedTimeId");
-        int selectedPoorStudyId = savedInstanceState.getInt("selectedPoorStudyId");
-        int selectedDisabilityId = savedInstanceState.getInt("selectedDisabilityId");
-        int selectedPreparationId = savedInstanceState.getInt("selectedPreparationId");
-
-
-        studyRadioGroup.check(selectedStudyId);
-        timeRadioGroup.check(selectedTimeId);
-        poorStudyRadioGroup.check(selectedPoorStudyId);
-        disabilityRadioGroup.check(selectedDisabilityId);
-        preparationRadioGroup.check(selectedPreparationId);
-    }
+//    @Override
+//    public void onSaveInstanceState(Bundle outState) {
+//        super.onSaveInstanceState(outState);
+//
+//
+//        int selectedStudyId = studyRadioGroup.getCheckedRadioButtonId();
+//        int selectedTimeId = timeRadioGroup.getCheckedRadioButtonId();
+//        int selectedPoorStudyId = poorStudyRadioGroup.getCheckedRadioButtonId();
+//        int selectedDisabilityId = disabilityRadioGroup.getCheckedRadioButtonId();
+//        int selectedPreparationId = preparationRadioGroup.getCheckedRadioButtonId();
+//
+//
+//        outState.putInt("selectedStudyId", selectedStudyId);
+//        outState.putInt("selectedTimeId", selectedTimeId);
+//        outState.putInt("selectedPoorStudyId", selectedPoorStudyId);
+//        outState.putInt("selectedDisabilityId", selectedDisabilityId);
+//        outState.putInt("selectedPreparationId", selectedPreparationId);
+//    }
+//
+//
+//    @Override
+//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+//        super.onRestoreInstanceState(savedInstanceState);
+//
+//
+//        int selectedStudyId = savedInstanceState.getInt("selectedStudyId");
+//        int selectedTimeId = savedInstanceState.getInt("selectedTimeId");
+//        int selectedPoorStudyId = savedInstanceState.getInt("selectedPoorStudyId");
+//        int selectedDisabilityId = savedInstanceState.getInt("selectedDisabilityId");
+//        int selectedPreparationId = savedInstanceState.getInt("selectedPreparationId");
+//
+//
+//        studyRadioGroup.check(selectedStudyId);
+//        timeRadioGroup.check(selectedTimeId);
+//        poorStudyRadioGroup.check(selectedPoorStudyId);
+//        disabilityRadioGroup.check(selectedDisabilityId);
+//        preparationRadioGroup.check(selectedPreparationId);
+//    }
 
 
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
@@ -194,16 +198,9 @@ public class SurveyPage1p1 extends AppCompatActivity {
 
 
     public void goToImpactAcademicPage2() {
-        updateProgress();
-        Intent myIntent = new Intent(SurveyPage1p1.this, SurveyPage1p2.class);
-        myIntent.putExtra("data1", currentQuestion);
-        myIntent.putExtra("userInfo", userInfo);
-        SurveyPage1p1.this.startActivity(myIntent);
-
+        //updateProgress();
         Intent impactAcademicPage2 = new Intent(this, SurveyPage1p2.class);
-        impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(impactAcademicPage2);
-
 
     }
 
@@ -212,10 +209,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
         Intent impactAcademicPage2 = new Intent(this, InstructionPage.class);
         startActivity(impactAcademicPage2);
 
-        Intent myIntent = new Intent(SurveyPage1p1.this, InstructionPage.class);
-        myIntent.putExtra("data1", currentQuestion);
-        myIntent.putExtra("userInfo", userInfo);
-        SurveyPage1p1.this.startActivity(myIntent);
+
     }
 
     // Method to get survey answers in a list
@@ -246,11 +240,17 @@ public class SurveyPage1p1 extends AppCompatActivity {
         questionTexts.add("Poor study environment?");
         questionTexts.add("Learning disability?");
         questionTexts.add("Ineffective academic preparation?");
-        String output = userInfo + "_output1.pdf";
+        String userInfo = "";
+        String output = userInfo + "_output2.pdf";
 
+        Log.d("Debug", "selectedStudy: " + selectedStudy);
+        Log.d("Debug", "selectedTime: " + selectedTime);
+        Log.d("Debug", "selectedPoorStudy: " + selectedPoorStudy);
+        Log.d("Debug", "selectedDisability: " + selectedDisability);
+        Log.d("Debug", "selectedPreparation: " + selectedPreparation);
 
         List<String[]> surveyAnswers = getSurveyAnswers(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability,selectedPreparation);
-        PdfGenerator.generatePdf(SurveyPage1p1.this, output, surveyAnswers, questionTexts, mainQuestion);
+        PdfGenerator.generatePdf(SurveyPage1p1.this, "survey_output.pdf", surveyAnswers, questionTexts, mainQuestion);
     }
 
 

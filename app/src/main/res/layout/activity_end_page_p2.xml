@@ -5,31 +5,74 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="@color/Yellow"
-    android:padding="16dp">
+    tools:context=".EndPageP2">
 
 
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="46dp"
         android:background="@color/Green"
         android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/Green"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/progressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBar"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Progress: 0%"
+        android:textSize="17sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/hint"
+        android:layout_width="64dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="@color/Green"
+        android:onClick="openHint"
+        android:text=" ? "
+        android:textColor="@color/Yellow"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
+        tools:visibility="visible" />
+
     <ImageView
         android:id="@+id/BottomGreenBar"
-        android:layout_width="401dp"
-        android:layout_height="94dp"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="700dp"
         android:background="@color/Green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -43,12 +86,23 @@
 
     <TextView
         android:id="@+id/questionText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="406dp"
+        android:layout_height="39dp"
         android:layout_below="@+id/TopGreenBar"
         android:layout_marginTop="16dp"
-        android:text="What support or resources will be most useful for you to address these
-challenges next year?                            Highlight the top 5 resources you will use next year to help you be successful:"
+        android:text="What support or resources will be most
+                                  useful for you to address these challenges next year?"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TopGreenBar" />
+
+    <TextView
+        android:id="@+id/questionText2"
+        android:layout_width="406dp"
+        android:layout_height="39dp"
+        android:layout_below="@+id/TopGreenBar"
+        android:layout_marginTop="56dp"
+        android:text="Highlight the top 5 resources you will use next year to help you be successful:"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TopGreenBar" />
@@ -61,7 +115,7 @@ challenges next year?                            Highlight the top 5 resources y
         android:layout_marginTop="8dp"
         android:text="Tutoring"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionText"
+        app:layout_constraintTop_toBottomOf="@+id/questionText2"
         tools:layout_editor_absoluteX="2dp" />
 
     <CheckBox
@@ -75,7 +129,7 @@ challenges next year?                            Highlight the top 5 resources y
         app:layout_constraintEnd_toStartOf="@+id/swiftCheckbox"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/javaCheckbox"
-        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+        app:layout_constraintTop_toBottomOf="@+id/questionText2" />
 
     <CheckBox
         android:id="@+id/swiftCheckbox"
@@ -86,19 +140,20 @@ challenges next year?                            Highlight the top 5 resources y
         android:layout_marginEnd="12dp"
         android:text="Counseling Services"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+        app:layout_constraintTop_toBottomOf="@+id/questionText2" />
 
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/swiftCheckbox"
+        android:layout_marginBottom="60dp"
         android:backgroundTint="@color/Yellow"
         android:text="DONE"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
@@ -214,24 +269,6 @@ you can schedule an appointment."
         android:text="Campus Recreation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/hint"
-        android:layout_width="91dp"
-        android:layout_height="71dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/Green"
-        android:onClick="openHint"
-        android:text=" ? "
-        android:textColor="@color/Yellow"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="@+id/TopGreenBar"
-        app:layout_constraintTop_toTopOf="@+id/TopGreenBar"
-        tools:visibility="visible" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,13 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.Toast;
+
+
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SurveyPage11 extends AppCompatActivity {
 
@@ -27,14 +34,16 @@ public class SurveyPage11 extends AppCompatActivity {
     private CheckBox unsureCheckBox;
     private CheckBox otherCheckBox;
     private EditText otherReasonEditText;
+    private EditText gainEditText;
     private Button backButton;
     private Button nextButton;
-
+    private Button hint;
+    private String userInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page11);
-
+        userInfo = getIntent().getStringExtra("userInfo");
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 
         TopGreenBar = findViewById(R.id.TopGreenBar);
@@ -49,6 +58,7 @@ public class SurveyPage11 extends AppCompatActivity {
         unsureCheckBox = findViewById(R.id.unsureCheckBox);
         otherCheckBox = findViewById(R.id.otherCheckBox);
         otherReasonEditText = findViewById(R.id.otherReasonEditText);
+        gainEditText = findViewById(R.id.gainEditText);
         backButton = findViewById(R.id.BackButton);
         nextButton = findViewById(R.id.nextButton);
 
@@ -59,11 +69,62 @@ public class SurveyPage11 extends AppCompatActivity {
             }
         });
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
+        Button submitButton = findViewById(R.id.nextButton);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int optionOtherId = otherReasonEditText.getId();
+                int degreeID = degreeCheckBox.getId();
+                int helpOthersID = helpOthersCheckBox.getId();
+                int getJobID = getJobCheckBox.getId();
+                int supportFamilyID = supportFamilyCheckBox.getId();
+                int lifeGoalID = lifeGoalCheckBox.getId();
+                int differenceID = differenceCheckBox.getId();
+                int learnID = learnCheckBox.getId();
+                int unsureID = unsureCheckBox.getId();
+                int gainId =  gainEditText.getId();
+                if (optionOtherId != -1 && degreeID != -1 && helpOthersID !=-1 && getJobID != -1
+                && supportFamilyID != -1 && lifeGoalID != -1 && differenceID != -1
+                && learnID !=-1 && unsureID != -1) {
+
+
+
+
+
+                    // Retrieve values from checkboxes and EditText
+                    boolean selectedDegree = degreeCheckBox.isChecked();
+                    boolean selectedHelp = helpOthersCheckBox.isChecked();
+                    boolean selectedJob = getJobCheckBox.isChecked();
+                    boolean selectedFamily = supportFamilyCheckBox.isChecked();
+                    boolean selectedGoal = lifeGoalCheckBox.isChecked();
+                    boolean selectedDifference = differenceCheckBox.isChecked();
+                    boolean selectedLearn = learnCheckBox.isChecked();
+                    boolean selectedUnsure = unsureCheckBox.isChecked();
+                    String selectedOther = otherReasonEditText.getText().toString();
+                    String selectedGain = gainEditText.getText().toString();
+
+                    // Call the generateAndSavePdf method
+                    generateAndSavePdf(selectedDegree, selectedHelp, selectedJob, selectedFamily,
+                            selectedGoal, selectedDifference, selectedLearn, selectedUnsure, selectedOther,selectedGain);
+
+
+
+                    Toast.makeText(SurveyPage11.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
+                    goToNextPage();
+                } else {
+                    Toast.makeText(SurveyPage11.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        hint = findViewById(R.id.hint);
+
+        //Set an onClick listener for using the hint button
+        hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                collectAndStoreResponses();
-                goToNextPage();
+                openHint();
             }
         });
 
@@ -71,31 +132,70 @@ public class SurveyPage11 extends AppCompatActivity {
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
     }
 
+    private void generateAndSavePdf(boolean selectedDegree, boolean selectedHelp, boolean selectedJob,
+                                    boolean selectedFamily, boolean selectedGoal, boolean selectedDifference,
+                                    boolean selectedLearn, boolean selectedUnsure, String selectedOther,String selectedGain) {
+        List<String> questionTexts = new ArrayList<>();
+        String mainQuestion = "Select the reasons that influenced your decision to return to school (check all that apply):";
+
+        // Add your question texts to the list here
+        questionTexts.add("Degree or certification pursuit");
+        questionTexts.add("Desire to help others");
+        questionTexts.add("Desire to get a job or improve job prospects");
+        questionTexts.add("Supporting family or dependents");
+        questionTexts.add("Pursuing a life goal");
+        questionTexts.add("Making a difference in the community");
+        questionTexts.add("Learning for personal growth");
+        questionTexts.add("Unsure");
+        questionTexts.add("Other (please specify):");
+        questionTexts.add("What do you want to gain from or contribute to society during your lifetime?");
+
+        String output = userInfo + "_output17.pdf";
+       List<String[]> surveyAnswers =  getSurveyAnswers(selectedDegree, selectedHelp, selectedJob, selectedFamily, selectedGoal,
+                selectedDifference, selectedLearn, selectedUnsure, selectedOther,selectedGain);
+        PdfGenerator.generatePdf(SurveyPage11.this, output,surveyAnswers, questionTexts, mainQuestion);
+
+
+    }
+
+    // Method to get survey answers in a list
+    private List<String[]> getSurveyAnswers(boolean selectedDegree, boolean selectedHelp, boolean selectedJob,
+                                            boolean selectedFamily, boolean selectedGoal, boolean selectedDifference,
+                                            boolean selectedLearn, boolean selectedUnsure, String selectedOther,String selectedGain) {
+        List<String[]> answersList = new ArrayList<>();
+
+        // Create an array with the survey answers and add it to the list
+        String[] surveyAnswers = {
+                String.valueOf(selectedDegree),
+                String.valueOf(selectedHelp),
+                String.valueOf(selectedJob),
+                String.valueOf(selectedFamily),
+                String.valueOf(selectedGoal),
+                String.valueOf(selectedDifference),
+                String.valueOf(selectedLearn),
+                String.valueOf(selectedUnsure),
+                selectedOther,
+                selectedGain
+        };
+        answersList.add(surveyAnswers);
+
+        return answersList;
+    }
+
     public void goToNextPage(){
         Intent nextPage = new Intent(this, SurveyPage12p1.class);
         nextPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        nextPage.putExtra("userInfo", userInfo);
         startActivity(nextPage);
 
     }
     private void goBack() {
         Intent SurveyPage10 = new Intent(this, SurveyPage10.class);
+        SurveyPage10.putExtra("userInfo", userInfo);
         startActivity(SurveyPage10);
     }
 
-    private void collectAndStoreResponses() {
-        // Collect and store user responses in SharedPreferences
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("degreeCheckBox", degreeCheckBox.isChecked());
-        editor.putBoolean("helpOthersCheckBox", helpOthersCheckBox.isChecked());
-        editor.putBoolean("getJobCheckBox", getJobCheckBox.isChecked());
-        editor.putBoolean("supportFamilyCheckBox", supportFamilyCheckBox.isChecked());
-        editor.putBoolean("lifeGoalCheckBox", lifeGoalCheckBox.isChecked());
-        editor.putBoolean("differenceCheckBox", differenceCheckBox.isChecked());
-        editor.putBoolean("learnCheckBox", learnCheckBox.isChecked());
-        editor.putBoolean("unsureCheckBox", unsureCheckBox.isChecked());
-        editor.putString("otherReason", otherReasonEditText.getText().toString());
-        editor.apply();
-    }
+
 
 
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
@@ -113,5 +213,11 @@ public class SurveyPage11 extends AppCompatActivity {
         }
     }
 
+    //this method is responsible for giving a hint to students to remind them about why they are
+    //filling in this workbook
+    private void openHint() {
+        Intent Hint = new Intent(SurveyPage11.this, Hint.class);
+        startActivity(Hint);
+    }
 
 }

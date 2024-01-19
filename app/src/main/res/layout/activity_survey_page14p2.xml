@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SurveyPage21p1"
+    tools:context=".SurveyPage14p2"
     android:background="@color/digitalWhite">
 
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="60dp"
         android:background="@color/Green"
         android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,10 +18,57 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="84dp"
+        android:background="@color/Green"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar" />
+
+    <TextView
+        android:id="@+id/progressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBar"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="20dp"
+        android:text="Progress: 0%"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/hint"
+        android:layout_width="64dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="@color/Green"
+        android:onClick="openHint"
+        android:text=" ? "
+        android:textColor="@color/Yellow"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
+        tools:visibility="visible" />
+
     <ImageView
         android:id="@+id/BottomGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="700dp"
         android:background="@color/Green"
@@ -38,6 +85,7 @@
         android:layout_height="52dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
+        android:textStyle="bold"
         android:text="What time Management tools have worked for you in the past?"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TopGreenBar" />
@@ -48,6 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="20dp"
+        android:textStyle="bold"
         android:text="Planner/Agenda"
         app:layout_constraintEnd_toStartOf="@+id/checkBox15"
         app:layout_constraintHorizontal_bias="0.8"
@@ -61,6 +110,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="Phone Alert"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox11" />
 
@@ -70,7 +120,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="24dp"
-        android:text="eclass"
+        android:text="eClass"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox12" />
 
@@ -82,6 +133,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginBottom="232dp"
         android:text="Calender"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/BottomGreenBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox13" />
@@ -91,7 +143,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="80dp"
         android:text="Whiteboard"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/textView19"
         tools:layout_editor_absoluteX="182dp" />
 
@@ -102,6 +157,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="16dp"
         android:text="None"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toEndOf="@+id/checkBox12"
@@ -113,41 +169,41 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:layout_marginTop="24dp"
-        android:text="Other"
+        android:text="Other App"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.182"
         app:layout_constraintStart_toEndOf="@+id/checkBox13"
         app:layout_constraintTop_toBottomOf="@+id/checkBox16" />
 
+    <!-- Next Button -->
     <Button
         android:id="@+id/BackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="216dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="5dp"
         android:backgroundTint="@color/Yellow"
         android:text="Back"
         android:textColor="@color/black"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/nextButton"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox14"
-        app:layout_constraintVertical_bias="0.964" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="208dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="40dp"
         android:backgroundTint="@color/Yellow"
         android:text="Next"
         android:textColor="@color/black"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/BackButton" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

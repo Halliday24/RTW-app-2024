@@ -13,7 +13,7 @@
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="60dp"
         android:background="@color/Green"
         android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,26 +21,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/BottomGreenBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="700dp"
+        android:background="@color/Green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="25dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="2dp"
+        android:layout_marginEnd="84dp"
         android:background="@color/Green"
         android:max="100"
         android:progress="0"
-        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar" />
 
     <TextView
         android:id="@+id/progressText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/progressBar"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="20dp"
         android:text="Progress: 0%"
+        android:textColor="@color/black"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,8 +88,7 @@
         android:layout_width="400dp"
         android:layout_height="35dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginTop="100dp"
         android:text="Question1"
         android:textColor="@color/black"
         android:textSize="15dp"
@@ -82,13 +99,14 @@
 
     <EditText
         android:id="@+id/FirstAnswer"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:hint="Answer"
-        app:layout_constraintTop_toBottomOf="@+id/surveyPage8_Question"
-        app:layout_constraintStart_toStartOf="parent">
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/surveyPage8_Question">
 
     </EditText>
 
@@ -108,13 +126,14 @@
 
     <EditText
         android:id="@+id/SecondAnswer"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:hint="Answer"
-        app:layout_constraintTop_toBottomOf="@+id/surveyPage8_Question2"
-        app:layout_constraintStart_toStartOf="parent">
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/surveyPage8_Question2">
 
     </EditText>
 
@@ -123,43 +142,31 @@
         android:id="@+id/BackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="216dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/Yellow"
         android:text="Back"
+        android:textColor="@color/black"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/nextButton"
-        android:backgroundTint="@color/Yellow"
-        android:textColor="@color/black"/>
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="216dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="40dp"
+        android:backgroundTint="@color/Yellow"
         android:text="Next"
+        android:textColor="@color/black"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/BackButton"
-        android:backgroundTint="@color/Yellow"
-        android:textColor="@color/black"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
-    <ImageView
-        android:id="@+id/BottomGreenBar"
-        android:layout_width="match_parent"
-        android:layout_height="49dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="700dp"
-        android:background="@color/Green"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
