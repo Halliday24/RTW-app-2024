@@ -29,6 +29,9 @@
             android:name=".SurveyPage3p2"
             android:exported="false" />
         <activity
+            android:name=".SurveyPage9"
+            android:exported="false" />
+        <activity
             android:name=".SurveyPage20p2"
             android:exported="false" />
         <activity
@@ -57,6 +60,9 @@
             android:exported="false" />
         <activity
             android:name=".SurveyPage8"
+            android:exported="false" />
+        <activity
+            android:name=".SurveyPage11"
             android:exported="false" />
         <activity
             android:name=".SurveyPage15p1"

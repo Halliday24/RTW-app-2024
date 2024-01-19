@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -13,16 +14,19 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SurveyPage9 extends AppCompatActivity {
 //XML Should have Values and Goals on top but is fine regardless
     private SharedPreferences sharedPreferences;
     private Button hint;
-
+    private String userInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page9);
-
+        userInfo = getIntent().getStringExtra("userInfo");
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 
         final RadioGroup purposeRadioGroup = findViewById(R.id.purposeRadioGroup);
@@ -48,6 +52,10 @@ public class SurveyPage9 extends AppCompatActivity {
                 int selectedConfidenceId = confidenceRadioGroup.getCheckedRadioButtonId();
                 int selectedGoalsId = goalsRadioGroup.getCheckedRadioButtonId();
                 int selectedValuesId = valuesRadioGroup.getCheckedRadioButtonId();
+                Log.d("Debug", "selectedStudy: " + selectedPurposeId);
+                Log.d("Debug", "selectedTime: " + selectedConfidenceId);
+                Log.d("Debug", "selectedPoorStudy: " + selectedGoalsId);
+                Log.d("Debug", "selectedDisability: " + selectedValuesId);
 
                 if (selectedPurposeId != -1 && selectedConfidenceId != -1
                         && selectedGoalsId != -1 && selectedValuesId != -1) {
@@ -56,7 +64,10 @@ public class SurveyPage9 extends AppCompatActivity {
                     String selectedConfidence = ((RadioButton) findViewById(selectedConfidenceId)).getText().toString();
                     String selectedGoals = ((RadioButton) findViewById(selectedGoalsId)).getText().toString();
                     String selectedValues = ((RadioButton) findViewById(selectedValuesId)).getText().toString();
-
+                    Log.d("Debug", "selectedStudy: " + selectedPurpose);
+                    Log.d("Debug", "selectedTime: " + selectedConfidence);
+                    Log.d("Debug", "selectedPoorStudy: " + selectedGoals);
+                    Log.d("Debug", "selectedDisability: " + selectedValues);
                     // Store responses in SharedPreferences
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("Purpose", selectedPurpose);
@@ -65,11 +76,12 @@ public class SurveyPage9 extends AppCompatActivity {
                     editor.putString("Values", selectedValues);
                     editor.apply();
 
+                    generateAndSavePdf(selectedPurpose,selectedConfidence,selectedGoals,selectedValues);
                     // Display a success message
                     Toast.makeText(SurveyPage9.this, "Survey submitted successfully!", Toast.LENGTH_SHORT).show();
 
                     // Go to Next page
-                    goToSurveyPage3();
+                    goToSurveyPage10();
 
                 } else {
                     // Display an error message if not all questions are answered
@@ -77,6 +89,8 @@ public class SurveyPage9 extends AppCompatActivity {
                 }
             }
         });
+
+
 
         Button backButton = findViewById(R.id.BackButton);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +104,40 @@ public class SurveyPage9 extends AppCompatActivity {
         // Set text color for all TextViews in the layout
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
     }
+    private List<String[]> getSurveyAnswers(String selectedStudy, String selectedTime, String selectedPoorStudy, String selectedDisability) {
+        List<String[]> answersList = new ArrayList<>();
+        // Add your survey answers to the list here
+        // For example, you can retrieve answers from SharedPreferences
+        String option1 = sharedPreferences.getString("Purpose",selectedStudy);
+        String option2 = sharedPreferences.getString("Confidence",selectedTime);
+        String option3 = sharedPreferences.getString("Goals",selectedPoorStudy);
+        String option4 = sharedPreferences.getString("Values",selectedDisability);
 
+
+        // Create an array with the survey answers and add it to the list
+        String[] surveyAnswers = {option1, option2, option3, option4};
+        answersList.add(surveyAnswers);
+
+        return answersList;
+    }
+
+    // Method to generate and save PDF
+    private void generateAndSavePdf(String option1,String option2,String option3,String option4) {
+        List<String> questionTexts = new ArrayList<>();
+        String mainQuestion = "Values and Goals";
+        // Add your question texts to the list here
+        questionTexts.add("My purpose for getting a university education is clear");
+        questionTexts.add("I feel confident I can reach my\n" +
+                "goal to graduate from university");
+        questionTexts.add("I set specific goals which lead\n" +
+                "to success in my life ");
+        questionTexts.add("I am clear about my values and\n" +
+                "what is important to me ");
+        String output = userInfo + "_output15.pdf";
+
+        List<String[]> surveyAnswers = getSurveyAnswers(option1,option2,option3,option4);
+        PdfGenerator.generatePdf(SurveyPage9.this, output, surveyAnswers, questionTexts, mainQuestion);
+    }
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -106,15 +153,17 @@ public class SurveyPage9 extends AppCompatActivity {
         }
     }
 
-    public void goToSurveyPage3() {
-        Intent surveyPage3 = new Intent(this, SurveyPage10.class);
-        surveyPage3.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivity(surveyPage3);
+    public void goToSurveyPage10() {
+        Intent surveyPage10 = new Intent(this, SurveyPage10.class);
+        surveyPage10.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        surveyPage10.putExtra("userInfo", userInfo);
+        startActivity(surveyPage10);
     }
 
     public void goBack() {
         Intent Mindset = new Intent(this, MindsetPage.class);
         Mindset.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        Mindset.putExtra("userInfo", userInfo);
         startActivity(Mindset);
     }
 

@@ -67,8 +67,8 @@ public class SurveyPage8 extends AppCompatActivity {
                 if (option1Id != -1 && option2Id != -1) {
 
 
-                    String selectedOption1 = ((RadioButton) findViewById(option1Id)).getText().toString();
-                    String selectedOption2 = ((RadioButton) findViewById(option2Id)).getText().toString();
+                    String selectedOption1 = ((EditText) findViewById(option1Id)).getText().toString();
+                    String selectedOption2 = ((EditText) findViewById(option2Id)).getText().toString();
 
 
 
@@ -144,9 +144,7 @@ public class SurveyPage8 extends AppCompatActivity {
         // Add your question texts to the list here
         questionTexts.add("Please describe any other barriers, including any extenuating circumstances, you \" +\n" +
                 "                \"may have encountered. For example: family emergencies or child care issues.?");
-        questionTexts.add("Too much screen time (video\n" +
-                "games, streaming, internet,\n" +
-                "etc)");
+        questionTexts.add("What are the primary sources of stress in your life");
 
         String output = userInfo + "_output14.pdf";
 
