@@ -11,24 +11,68 @@
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="46dp"
         android:background="@color/Green"
         android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/Green"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/progressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBar"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Progress: 0%"
+        android:textSize="17sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/hint"
+        android:layout_width="64dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="@color/Green"
+        android:onClick="openHint"
+        android:text=" ? "
+        android:textColor="@color/Yellow"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
+        tools:visibility="visible" />
+
     <ImageView
         android:id="@+id/BottomGreenBar"
-        android:layout_width="401dp"
-        android:layout_height="75dp"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="700dp"
         android:background="@color/Green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -39,6 +83,7 @@
         android:layout_height="56dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
+        android:layout_marginLeft="10dp"
         android:text="What new habits do you plan to develop to support your academic success? Are there changes you feel need to be made so that you can fully participate in your education?"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +109,8 @@
         android:layout_height="48dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="32dp"
-        android:text="How important is it for you to continue in your program next year?"
+        android:layout_marginLeft="10dp"
+        android:text="How important is it for you to continue in your program      next year?"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerbox" />
@@ -107,23 +153,6 @@
         android:backgroundTint="@color/Yellow"
         android:textColor="@color/black"/>
 
-    <Button
-        android:id="@+id/hint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="584dp"
-        android:backgroundTint="@color/Green"
-        android:onClick="openHint"
-        android:text=" ? "
-        android:textColor="@color/Yellow"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@id/BottomGreenBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:visibility="visible" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

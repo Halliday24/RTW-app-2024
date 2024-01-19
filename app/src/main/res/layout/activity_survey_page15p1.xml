@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SurveyPage21p1"
+    tools:context=".SurveyPage15p1"
     android:background="@color/digitalWhite">
-
 
     <ImageView
         android:id="@+id/TopGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="46dp"
         android:background="@color/Green"
         android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,19 +18,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/BottomGreenBar"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="700dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="2dp"
         android:background="@color/Green"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/progressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBar"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Progress: 0%"
+        android:textSize="17sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/hint"
+        android:layout_width="64dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="@color/Green"
+        android:onClick="openHint"
+        android:text=" ? "
+        android:textColor="@color/Yellow"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
+        tools:visibility="visible" />
+
 
 
     <TextView
@@ -40,10 +70,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/TopGreenBar"
         android:background="@color/gray"
-        android:text="Study Habits"
+        android:text="Class Preparation"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold"
+        android:layout_marginLeft="10dp"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="82dp" />
 
@@ -53,9 +84,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:background="@color/gray"
-        android:text="I study at a regularly scheduled time each day"
+        android:text="I review the sylllabus for each course and understand the expectations"
         android:textColor="@color/black"
         android:textStyle="bold"
+        android:layout_marginLeft="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/impactQuestion" />
 
@@ -64,6 +96,7 @@
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
@@ -118,6 +151,7 @@
         android:id="@+id/textView7"
         android:layout_width="match_parent"
         android:layout_height="15dp"
+        android:layout_marginLeft="10dp"
         android:text="Never        Sometimes      About half        Most of        Always"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -129,7 +163,8 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:layout_marginTop="8dp"
-        android:text="                                              of the time      the time"
+        android:text="of the time      the time"
+        android:layout_marginLeft="165dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -139,9 +174,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
         android:background="@color/gray"
-        android:text="I have a good understanding of what is required to be successful in each course
-"
+        android:text="I complete my small assignments with 24 hours after class"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -152,6 +187,7 @@
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:layout_marginLeft="10dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9">
@@ -206,7 +242,9 @@
         android:id="@+id/textView10"
         android:layout_width="match_parent"
         android:layout_height="15dp"
+        android:layout_marginLeft="10dp"
         android:text="Never        Sometimes      About half        Most of        Always"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timeRadioGroup" />
 
@@ -214,7 +252,9 @@
         android:id="@+id/textView11"
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:text="                                              of the time      the time"
+        android:text="of the time      the time"
+        android:layout_marginLeft="165dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -224,8 +264,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
         android:background="@color/gray"
-        android:text="I know how to break down large assignments to make them more manageable"
+        android:text="I read the assigned reading before class"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -236,6 +277,7 @@
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12">
@@ -290,7 +332,9 @@
         android:id="@+id/textView13"
         android:layout_width="match_parent"
         android:layout_height="15dp"
+        android:layout_marginLeft="10dp"
         android:text="Never        Sometimes      About half        Most of        Always"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/poorStudyRadioGroup2" />
 
@@ -298,101 +342,20 @@
         android:id="@+id/textView14"
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:text="                                              of the time      the time"
+        android:text="of the time      the time"
+        android:layout_marginLeft="165dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/gray"
-        android:text="
-Starting an assignment is easy for me"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
-
-    <RadioGroup
-        android:id="@+id/disabilityRadioGroup"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15">
-
-        <RadioButton
-            android:id="@+id/neverRadioButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"
-            android:text="Never"
-            android:textSize="0sp"
-            android:textColor="@android:color/transparent"/>
-
-        <RadioButton
-            android:id="@+id/sometimesRadioButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"
-            android:text="SomeTimes"
-            android:textSize="0sp"
-            android:textColor="@android:color/transparent"/>
-
-        <RadioButton
-            android:id="@+id/halfRadioButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="35dp"
-            android:text="About Half the Time"
-            android:textSize="0sp"
-            android:textColor="@android:color/transparent"/>
-
-        <RadioButton
-            android:id="@+id/mostRadioButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Most of the Time"
-            android:textSize="0sp"
-            android:textColor="@android:color/transparent"/>
-
-        <RadioButton
-            android:id="@+id/alwaysRadioButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
-            android:text="Always"
-            android:textSize="0sp"
-            android:textColor="@android:color/transparent"/>
-
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:layout_marginTop="4dp"
-        android:text="Never        Sometimes      About half        Most of        Always"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/disabilityRadioGroup" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:layout_marginTop="4dp"
-        android:text="                                              of the time      the time"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
+    <!-- Next Button -->
     <Button
         android:id="@+id/BackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="216dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="55dp"
         android:text="Back"
         android:textSize="12dp"
         android:textStyle="bold"
@@ -406,7 +369,7 @@ Starting an assignment is easy for me"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="216dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="55dp"
         android:text="Next"
         android:textSize="12dp"
         android:textStyle="bold"
@@ -415,23 +378,20 @@ Starting an assignment is easy for me"
         android:backgroundTint="@color/Yellow"
         android:textColor="@color/black"/>
 
-    <Button
-        android:id="@+id/hint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/BottomGreenBar"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="584dp"
-        android:backgroundTint="@color/Green"
-        android:onClick="openHint"
-        android:text=" ? "
-        android:textColor="@color/Yellow"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@id/BottomGreenBar"
+        android:layout_marginTop="700dp"
+        android:background="@color/Green"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:visibility="visible" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
