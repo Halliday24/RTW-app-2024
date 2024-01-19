@@ -61,7 +61,6 @@ public class SurveyPage20p2 extends AppCompatActivity {
         });
     }
 
-
     private void generateAndSavePdf() {
         List<String> questionTexts = new ArrayList<>();
         String mainQuestion = "Stress and Wellbeing";
@@ -103,8 +102,6 @@ public class SurveyPage20p2 extends AppCompatActivity {
         return "";
     }
 
-
-
     public void goTo(){
         Intent SurveyPage21p1 = new Intent(this, SurveyPage21p1.class);
         SurveyPage21p1.putExtra("userInfo", userInfo);
@@ -113,7 +110,7 @@ public class SurveyPage20p2 extends AppCompatActivity {
     }
 
     public void goBack(){
-        Intent SurveyPage20 = new Intent(this, SurveyPage20p2.class);
+        Intent SurveyPage20 = new Intent(this, SurveyPage20p1.class);
         SurveyPage20.putExtra("userInfo", userInfo);
         startActivity(SurveyPage20);
 
