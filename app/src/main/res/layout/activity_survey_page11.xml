@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SurveyPage11"
-    android:background="@color/digitalWhite">
+    android:background="@color/digitalWhite"
+    tools:context=".SurveyPage11">
 
     <ImageView
         android:id="@+id/TopGreenBar"
@@ -65,21 +65,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/questionText"
-        android:layout_marginStart="232dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="36dp"
         android:text="To get a degree"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.281"
+        app:layout_constraintStart_toEndOf="@+id/lifeGoalCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/learnCheckBox" />
 
     <CheckBox
         android:id="@+id/helpOthersCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/questionText"
-        android:layout_marginStart="232dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="36dp"
         android:text="To help others"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toEndOf="@+id/supportFamilyCheckBox"
         app:layout_constraintTop_toBottomOf="@+id/degreeCheckBox" />
 
     <CheckBox
@@ -87,10 +91,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/helpOthersCheckBox"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:text="To get a job I like"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/learnCheckBox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionText" />
 
     <CheckBox
@@ -98,46 +104,45 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="28dp"
         android:text="To support my family"
-        app:layout_constraintEnd_toStartOf="@+id/lifeGoalCheckBox"
+        app:layout_constraintEnd_toStartOf="@+id/unsureCheckBox"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lifeGoalCheckBox" />
 
     <CheckBox
         android:id="@+id/lifeGoalCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/supportFamilyCheckBox"
-        android:layout_marginTop="108dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
         android:text="To accomplish a life goal"
-        app:layout_constraintEnd_toStartOf="@+id/differenceCheckBox"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/supportFamilyCheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/differenceCheckBox" />
 
     <CheckBox
         android:id="@+id/differenceCheckBox"
         android:layout_width="108dp"
         android:layout_height="35dp"
         android:layout_below="@id/lifeGoalCheckBox"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="12dp"
         android:text="To make a difference in the world"
-        app:layout_constraintEnd_toStartOf="@+id/learnCheckBox"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/lifeGoalCheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+        app:layout_constraintEnd_toStartOf="@+id/degreeCheckBox"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/getJobCheckBox" />
 
     <CheckBox
         android:id="@+id/learnCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/differenceCheckBox"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="108dp"
         android:text="To learn"
-        app:layout_constraintEnd_toStartOf="@+id/unsureCheckBox"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/differenceCheckBox"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionText" />
 
     <CheckBox
@@ -145,34 +150,35 @@
         android:layout_width="90dp"
         android:layout_height="43dp"
         android:layout_below="@id/learnCheckBox"
-        android:layout_marginStart="232dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="104dp"
         android:text="Unsure"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/learnCheckBox" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpOthersCheckBox" />
 
     <CheckBox
         android:id="@+id/otherCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/unsureCheckBox"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="36dp"
         android:text="Other:"
+        app:layout_constraintEnd_toStartOf="@+id/unsureCheckBox"
+        app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/unsureCheckBox" />
+        app:layout_constraintTop_toBottomOf="@+id/supportFamilyCheckBox" />
 
     <EditText
         android:id="@+id/otherReasonEditText"
         android:layout_width="305dp"
         android:layout_height="66dp"
         android:layout_below="@id/unsureCheckBox"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="28dp"
         android:hint="Specify other reason"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/otherCheckBox"
         app:layout_constraintTop_toBottomOf="@+id/unsureCheckBox" />
 
@@ -180,25 +186,28 @@
         android:id="@+id/textView5"
         android:layout_width="380dp"
         android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="236dp"
+        android:layout_marginTop="28dp"
         android:text="What do you want to gain from or contribute to society during your lifetime?"
         android:textSize="15dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otherReasonEditText" />
 
     <EditText
         android:id="@+id/gainEditText"
         android:layout_width="386dp"
         android:layout_height="44dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginBottom="160dp"
-        android:layout_marginTop="5dp"
-        android:textColorHint="@color/black"
+        android:layout_marginTop="36dp"
         android:hint="Answer"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/BottomGreenBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/BackButton"
@@ -218,17 +227,15 @@
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
         android:layout_marginRight="40dp"
+        android:layout_marginBottom="5dp"
         android:backgroundTint="@color/Yellow"
         android:text="Next"
         android:textColor="@color/black"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
