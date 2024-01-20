@@ -114,6 +114,7 @@ public class SurveyPage18 extends AppCompatActivity {
     public void goTo(){
         Intent SurveyPage19 = new Intent(this, SurveyPage19.class);
         SurveyPage19.putExtra("userInfo", userInfo);
+        SurveyPage19.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage19);
 
     }
@@ -121,6 +122,7 @@ public class SurveyPage18 extends AppCompatActivity {
     public void goBack(){
         Intent SurveyPage17 = new Intent(this, SurveyPage17.class);
         SurveyPage17.putExtra("userInfo", userInfo);
+        SurveyPage17.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage17);
 
     }

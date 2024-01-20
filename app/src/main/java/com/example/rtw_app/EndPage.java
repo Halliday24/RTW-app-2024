@@ -135,6 +135,7 @@ public class EndPage extends AppCompatActivity {
     public void goTo(){
         Intent EndPageP2 = new Intent(this, EndPageP2.class);
         EndPageP2.putExtra("userInfo", userInfo);
+        EndPageP2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(EndPageP2);
 
     }
@@ -142,6 +143,7 @@ public class EndPage extends AppCompatActivity {
     public void goBack(){
         Intent SurveyPage21p1 = new Intent(this, surveyPage21p2.class);
         SurveyPage21p1.putExtra("userInfo", userInfo);
+        SurveyPage21p1.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage21p1);
 
     }

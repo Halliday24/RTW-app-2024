@@ -192,6 +192,7 @@ public class SurveyPage11 extends AppCompatActivity {
     private void goBack() {
         Intent SurveyPage10 = new Intent(this, SurveyPage10.class);
         SurveyPage10.putExtra("userInfo", userInfo);
+        SurveyPage10.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage10);
     }
 

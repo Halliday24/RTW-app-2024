@@ -209,6 +209,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
     public void goToImpactAcademicPage2() {
         //updateProgress();
         Intent impactAcademicPage2 = new Intent(this, SurveyPage1p2.class);
+        impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         impactAcademicPage2.putExtra("userInfo",userInfo);
         startActivity(impactAcademicPage2);
 
@@ -217,6 +218,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
 
     public void goBack() {
         Intent impactAcademicPage2 = new Intent(this, InstructionPage.class);
+        impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         impactAcademicPage2.putExtra("userInfo",userInfo);
         startActivity(impactAcademicPage2);
 

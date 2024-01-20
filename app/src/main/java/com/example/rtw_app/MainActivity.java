@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
      */
    public void goToInstructionPage(){
         Intent instructionPage = new Intent(this, InstructionPage.class);
+        instructionPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         instructionPage.putExtra("userInfo", userInfo);
         startActivity(instructionPage);
 

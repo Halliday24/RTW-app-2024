@@ -115,6 +115,7 @@ public class SurveyPage13p2 extends AppCompatActivity {
     public void goToNextPage(){
         Intent nextPage = new Intent(this, SurveyPage14p1.class);
         nextPage.putExtra("userInfo", userInfo);
+        nextPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(nextPage);
 
     }
@@ -122,6 +123,7 @@ public class SurveyPage13p2 extends AppCompatActivity {
     public void goBack(){
         Intent Education_And_Goals = new Intent(this, SurveyPage13p1.class);
         Education_And_Goals.putExtra("userInfo", userInfo);
+        Education_And_Goals.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(Education_And_Goals);
 
     }

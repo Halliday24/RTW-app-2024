@@ -177,6 +177,7 @@ public class SurveyPage13p1 extends AppCompatActivity {
     public void goBack(){
         Intent Self_efficacy2 = new Intent(this, SurveyPage12p2.class);
         Self_efficacy2.putExtra("userInfo", userInfo);
+        Self_efficacy2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(Self_efficacy2);
 
     }

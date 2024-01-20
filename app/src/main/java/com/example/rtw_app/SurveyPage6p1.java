@@ -210,6 +210,7 @@ public class SurveyPage6p1 extends AppCompatActivity {
         Intent myIntent = new Intent(SurveyPage6p1.this, SurveyPage5.class);
         myIntent.putExtra("data1", currentQuestion);
         myIntent.putExtra("userInfo", userInfo);
+        myIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         SurveyPage6p1.this.startActivity(myIntent);
     }
 

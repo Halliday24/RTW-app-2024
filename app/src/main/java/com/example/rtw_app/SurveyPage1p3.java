@@ -149,6 +149,7 @@ public class SurveyPage1p3 extends AppCompatActivity {
         Intent myIntent = new Intent(SurveyPage1p3.this, SurveyPage2.class);
         myIntent.putExtra("data1", currentQuestion);
         myIntent.putExtra("userInfo", userInfo);
+        myIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         SurveyPage1p3.this.startActivity(myIntent);
 
     }
@@ -161,6 +162,7 @@ public class SurveyPage1p3 extends AppCompatActivity {
         Intent myIntent = new Intent(SurveyPage1p3.this, SurveyPage1p2.class);
         myIntent.putExtra("data1", currentQuestion);
         myIntent.putExtra("userInfo", userInfo);
+        myIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         SurveyPage1p3.this.startActivity(myIntent);
 
     }

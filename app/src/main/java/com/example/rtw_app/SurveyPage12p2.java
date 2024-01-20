@@ -168,6 +168,7 @@ public class SurveyPage12p2 extends AppCompatActivity {
     public void goToEducation_And_Goals(){
         Intent Education_And_Goals = new Intent(this, SurveyPage13p1.class);
         Education_And_Goals.putExtra("userInfo", userInfo);
+        Education_And_Goals.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(Education_And_Goals);
 
     }
@@ -175,6 +176,7 @@ public class SurveyPage12p2 extends AppCompatActivity {
     public void goBack(){
         Intent Self_efficacy = new Intent(this, SurveyPage12p1.class);
         Self_efficacy.putExtra("userInfo", userInfo);
+        Self_efficacy.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(Self_efficacy);
 
     }
