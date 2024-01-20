@@ -147,13 +147,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/swiftCheckbox"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="39dp"
         android:backgroundTint="@color/Yellow"
         android:text="DONE"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/BottomGreenBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
@@ -222,7 +221,7 @@
         android:layout_width="99dp"
         android:layout_height="54dp"
         android:layout_marginStart="4dp"
-        android:layout_marginBottom="316dp"
+        android:layout_marginBottom="372dp"
         android:text="eClass Tutorial"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -231,8 +230,8 @@
         android:id="@+id/checkBox8"
         android:layout_width="109dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="316dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="376dp"
         android:text="Academic Advising"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/checkBox9" />
@@ -241,8 +240,8 @@
         android:id="@+id/checkBox9"
         android:layout_width="102dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="316dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="380dp"
         android:text="Career Services"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -251,21 +250,24 @@
         android:id="@+id/textView4"
         android:layout_width="362dp"
         android:layout_height="96dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="56dp"
         android:text="Submit your appeal to auappeal@ualberta.ca within 30 days of receiving your academic
 standing letter.              If you would like a Student Advisor to review your appeal before you submit it,
 you can schedule an appointment."
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/submitButton"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox10"
+        app:layout_constraintVertical_bias="1.0" />
 
     <CheckBox
         android:id="@+id/checkBox10"
         android:layout_width="129dp"
         android:layout_height="44dp"
         android:layout_marginStart="4dp"
-        android:layout_marginBottom="272dp"
+        android:layout_marginBottom="328dp"
         android:text="Campus Recreation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
