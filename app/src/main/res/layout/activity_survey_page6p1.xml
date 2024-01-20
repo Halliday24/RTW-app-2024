@@ -96,7 +96,7 @@
 
     <RadioGroup
         android:id="@+id/studyRadioGroup"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="16dp"
@@ -193,7 +193,7 @@
 
     <RadioGroup
         android:id="@+id/timeRadioGroup"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
@@ -289,7 +289,7 @@
 
     <RadioGroup
         android:id="@+id/poorStudyRadioGroup2"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:background="#999999"
@@ -385,7 +385,7 @@
 
     <RadioGroup
         android:id="@+id/disabilityRadioGroup"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:orientation="horizontal"
@@ -479,7 +479,7 @@
 
     <RadioGroup
         android:id="@+id/preparationRadioGroup"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:background="#999999"

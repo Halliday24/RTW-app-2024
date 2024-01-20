@@ -111,7 +111,7 @@
 
     <RadioGroup
         android:id="@+id/option1_answers"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:background="#999999"
@@ -208,7 +208,7 @@
 
     <RadioGroup
         android:id="@+id/option2_answers"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
@@ -302,7 +302,7 @@
 
     <RadioGroup
         android:id="@+id/option3_answers"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:background="#999999"
@@ -396,7 +396,7 @@
 
     <RadioGroup
         android:id="@+id/option4_answers"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/gray"
         android:orientation="horizontal"

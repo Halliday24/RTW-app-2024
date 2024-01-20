@@ -92,7 +92,7 @@
 
     <RadioGroup
         android:id="@+id/purposeRadioGroup"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="19dp"
@@ -189,7 +189,7 @@
 
     <RadioGroup
         android:id="@+id/confidenceRadioGroup"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="39dp"
         android:orientation="horizontal"
@@ -287,7 +287,7 @@
 
     <RadioGroup
         android:id="@+id/goalsRadioGroup"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:background="#999999"
@@ -383,7 +383,7 @@
 
     <RadioGroup
         android:id="@+id/valuesRadioGroup"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
