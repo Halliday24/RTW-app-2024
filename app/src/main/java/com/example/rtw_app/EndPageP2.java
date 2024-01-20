@@ -101,9 +101,13 @@ public class EndPageP2 extends AppCompatActivity {
         // Display a success message
         Toast.makeText(EndPageP2.this, "PDF generated and saved successfully!", Toast.LENGTH_SHORT).show();
 
-        // Call the goTo method after generating and saving the PDF
-        // After generating all individual PDFs
-        PdfGenerator.combinePdfFiles(this, userInfo +"_output.pdf", 36);
+        List<String> originalFileNames = new ArrayList<>();
+        for (int i = 1; i <= 36; i++) {
+            originalFileNames.add(userInfo + "_output" + i + ".pdf");
+        }
+
+        PdfGenerator.createZipFile(this,userInfo,originalFileNames);
+
 
     }
 

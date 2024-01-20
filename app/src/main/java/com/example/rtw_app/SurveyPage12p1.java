@@ -10,8 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,11 +67,29 @@ public class SurveyPage12p1 extends AppCompatActivity {
         });
 
         Button nextButton = findViewById(R.id.nextButton);
-        nextButton.setOnClickListener(new View.OnClickListener(){
-
+        nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToNextPage();
+                // Retrieve values from radio buttons
+                int selectedOption1Id = option1Group.getCheckedRadioButtonId();
+                int selectedOption2Id = option2Group.getCheckedRadioButtonId();
+                int selectedOption3Id = option3Group.getCheckedRadioButtonId();
+
+
+
+                if (selectedOption1Id != -1 && selectedOption2Id != -1 && selectedOption3Id != -1) {
+                    String selectedOption1 = ((RadioButton) findViewById(selectedOption1Id)).getText().toString();
+                    String selectedOption2 = ((RadioButton) findViewById(selectedOption2Id)).getText().toString();
+                    String selectedOption3 = ((RadioButton) findViewById(selectedOption3Id)).getText().toString();
+
+
+                    // Call the generateAndSavePdf method
+                    generateAndSavePdf(selectedOption1, selectedOption2, selectedOption3);
+                    goToNextPage();
+
+                } else {
+                    Toast.makeText(SurveyPage12p1.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -91,12 +111,11 @@ public class SurveyPage12p1 extends AppCompatActivity {
 
     }
 
-    private void generateAndSavePdf(String selectedOption1, String selectedOption2, String selectedOption3, String textAnswer) {
+    private void generateAndSavePdf(String selectedOption1, String selectedOption2, String selectedOption3) {
         List<String> questionTexts = new ArrayList<>();
         String mainQuestion = "Self-Efficacy and Growth Mindset";
 
         // Add your question texts to the list here
-        questionTexts.add("What do you want to gain from or contribute to society during your lifetime?");
         questionTexts.add("Overall, I’m a pretty positive\n" +
                 "person and I believe in my\n" +
                 "potential ");
@@ -108,17 +127,17 @@ public class SurveyPage12p1 extends AppCompatActivity {
                 "results\n");
 
         String output = userInfo + "_output18.pdf";
-        List<String[]> surveyAnswers = getSurveyAnswers(selectedOption1, selectedOption2, selectedOption3, textAnswer);
+        List<String[]> surveyAnswers = getSurveyAnswers(selectedOption1, selectedOption2, selectedOption3);
         PdfGenerator.generatePdf(SurveyPage12p1.this, output, surveyAnswers,
                 questionTexts, mainQuestion);
     }
 
     // Method to get survey answers in a list
-    private List<String[]> getSurveyAnswers(String selectedOption1, String selectedOption2, String selectedOption3,String textAnswer) {
+    private List<String[]> getSurveyAnswers(String selectedOption1, String selectedOption2, String selectedOption3){
         List<String[]> answersList = new ArrayList<>();
 
         // Create an array with the survey answers and add it to the list
-        String[] surveyAnswers = {textAnswer, selectedOption1, selectedOption2, selectedOption3};
+        String[] surveyAnswers = {selectedOption1, selectedOption2, selectedOption3};
         answersList.add(surveyAnswers);
 
         return answersList;

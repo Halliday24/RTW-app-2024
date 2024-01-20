@@ -25,7 +25,7 @@ public class SurveyPage7 extends AppCompatActivity {
     private RadioGroup option2RadioGroup;
     private RadioGroup option3RadioGroup2;
     private RadioGroup option4RadioGroup;
-
+ private Button buttonNext;
     private String userInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,10 @@ public class SurveyPage7 extends AppCompatActivity {
         setContentView(R.layout.activity_survey_page7);
         userInfo = getIntent().getStringExtra("userInfo");
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
-
+        option1RadioGroup = findViewById(R.id.option1_answers);
+        option2RadioGroup = findViewById(R.id.option2_answers);
+        option3RadioGroup2 = findViewById(R.id.option3_answers);
+        option4RadioGroup = findViewById(R.id.option4_answers);
         final RadioGroup option1_answers = findViewById(R.id.option1_answers);
         // final RadioGroup programmingRadioGroup = findViewById(R.id.programmingRadioGroup);
 
@@ -55,12 +58,9 @@ public class SurveyPage7 extends AppCompatActivity {
         //option4
         TextView textview4 = (TextView) findViewById(R.id.surveyPage7_Option4);
         textview4.setText("Transportation costs");
-        option1RadioGroup = findViewById(R.id.option1_answers);
-        option2RadioGroup = findViewById(R.id.option2_answers);
-        option3RadioGroup2 = findViewById(R.id.option3_answers);
-        option4RadioGroup = findViewById(R.id.option4_answers);
 
-        Button buttonNext=findViewById(R.id.nextButton);
+
+        buttonNext=findViewById(R.id.nextButton);
         hint = findViewById(R.id.hint);
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,8 +70,8 @@ public class SurveyPage7 extends AppCompatActivity {
         });
 
         //Set an onClick listener for using the hint button
-        Button submitButton = findViewById(R.id.nextButton);
-        submitButton.setOnClickListener(new View.OnClickListener() {
+        buttonNext=findViewById(R.id.nextButton);
+        buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -101,24 +101,19 @@ public class SurveyPage7 extends AppCompatActivity {
                     editor.apply();
 
 
+
+
+                    Toast.makeText(SurveyPage7.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
                     // Generate PDF after submitting survey
                     generateAndSavePdf(selectedOption1,selectedOption2,selectedOption3,selectedOption4);
 
-                    Toast.makeText(SurveyPage7.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
-                    goToSurveyPage8();
                 } else {
                     Toast.makeText(SurveyPage7.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
                 }
             }
         });
         //set a click listener for the next Button
-        buttonNext.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View view) {
-                goToSurveyPage8();
-            }
-        });
         Button buttonBack=findViewById(R.id.BackButton);
 
         //set a click listener for the next Button
@@ -156,9 +151,9 @@ public class SurveyPage7 extends AppCompatActivity {
         // Add your survey answers to the list here
         // For example, you can retrieve answers from SharedPreferences
         String option1 = sharedPreferences.getString("option1",selectedStudy);
-        String option2 = sharedPreferences.getString("option2",selectedStudy);
-        String option3 = sharedPreferences.getString("option3",selectedStudy);
-        String option4 = sharedPreferences.getString("option4",selectedStudy);
+        String option2 = sharedPreferences.getString("option2",selectedTime);
+        String option3 = sharedPreferences.getString("option3",selectedPoorStudy);
+        String option4 = sharedPreferences.getString("option4",selectedDisability);
 
 
         // Create an array with the survey answers and add it to the list
@@ -169,7 +164,7 @@ public class SurveyPage7 extends AppCompatActivity {
     }
 
     // Method to generate and save PDF
-    private void generateAndSavePdf(String option1,String option2,String option3,String option4) {
+    private void generateAndSavePdf(String option1, String option2, String option3, String option4) {
         List<String> questionTexts = new ArrayList<>();
         String mainQuestion = "How much of an impact did each of these potential transportation barriers have\n" +
                 "on your ability to participate in your education?";
@@ -180,11 +175,14 @@ public class SurveyPage7 extends AppCompatActivity {
                 "to campus");
         questionTexts.add("Challenges getting to shops to\n" +
                 "purchase required supplies");
-        questionTexts.add("Transportation costs ");
+        questionTexts.add("Transportation costs");
+
         String output = userInfo + "_output13.pdf";
 
-        List<String[]> surveyAnswers = getSurveyAnswers(option1,option2,option3,option4);
+
+        List<String[]> surveyAnswers = getSurveyAnswers(option1, option2, option3, option4);
         PdfGenerator.generatePdf(SurveyPage7.this, output, surveyAnswers, questionTexts, mainQuestion);
+        goToSurveyPage8();
     }
     public void goToSurveyPage8(){
         Intent SurveyPage8 = new Intent(this, SurveyPage8.class);

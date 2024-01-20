@@ -6,12 +6,27 @@ import android.os.Environment;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.utils.PdfMerger;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import android.content.Context;
+
+import com.itextpdf.kernel.pdf.PdfAConformanceLevel;
+import android.content.Context;
+import android.os.ParcelFileDescriptor;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
+
 
 public class PdfGenerator {
 
@@ -42,25 +57,39 @@ public class PdfGenerator {
         }
     }
 
-    public static void combinePdfFiles(Context context, String baseFileName, int totalFiles) {
-        String combinedFilePath = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), baseFileName + "_combined.pdf").getAbsolutePath();
-
+    public static void createZipFile(Context context, String zipFileName, List<String> fileNames) {
         try {
-            PdfWriter writer = new PdfWriter(new FileOutputStream(combinedFilePath));
-            com.itextpdf.kernel.pdf.PdfDocument combinedPdf = new com.itextpdf.kernel.pdf.PdfDocument(writer);
+            File documentsFolder = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "YourAppFolder");
+            documentsFolder.mkdirs(); // Create the folder if it doesn't exist
 
-            // Iterate through all PDF files to be combined
-            for (int i = 1; i <= totalFiles; i++) {
-                String filePath = new File(context.getExternalFilesDir(null), baseFileName + i + ".pdf").getAbsolutePath();
-                com.itextpdf.kernel.pdf.PdfDocument pdf = new com.itextpdf.kernel.pdf.PdfDocument(new PdfReader(filePath));
-                pdf.copyPagesTo(1, pdf.getNumberOfPages(), combinedPdf);
-                pdf.close();
+            File zipFile = new File(documentsFolder, zipFileName);
+            FileOutputStream fos = new FileOutputStream(zipFile);
+            ZipOutputStream zos = new ZipOutputStream(fos);
 
+            for (String fileName : fileNames) {
+                File pdfFile = new File(context.getExternalFilesDir(null), fileName);
+                FileInputStream fis = new FileInputStream(pdfFile);
+
+                zos.putNextEntry(new ZipEntry(fileName));
+
+                byte[] buffer = new byte[1024];
+                int length;
+                while ((length = fis.read(buffer)) > 0) {
+                    zos.write(buffer, 0, length);
+                }
+
+                zos.closeEntry();
+                fis.close();
             }
 
-            combinedPdf.close();
+            zos.close();
+            fos.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }
+
+
+
