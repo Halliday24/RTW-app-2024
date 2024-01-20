@@ -109,7 +109,7 @@
 
     <RadioGroup
         android:id="@+id/option1_answers"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:background="#999999"
@@ -300,10 +300,9 @@
 
     <RadioGroup
         android:id="@+id/option3_answers"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="0dp"
         android:background="#999999"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"

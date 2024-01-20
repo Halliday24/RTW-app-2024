@@ -323,7 +323,7 @@
         <RadioButton
             android:id="@+id/mostRadioButton2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="Most of the time"
             android:textColor="@android:color/transparent"
             android:textSize="0sp" />
