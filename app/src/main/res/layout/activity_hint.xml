@@ -36,7 +36,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="100dp"
         android:layout_marginLeft="10dp"
-        android:text="Select the option that best option that            relates to you"
+        android:text="Select the option that best option that relates to you"
         android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
