@@ -1,7 +1,9 @@
 package com.example.rtw_app;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -87,12 +89,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    private void saveUserInfoToSharedPreferences(String name, String ccid) {
+        // Use SharedPreferences to save user information
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        // Save user information with keys
+        editor.putString("Name", name);
+        editor.putString("CCID", ccid);
+
+        // Commit the changes
+        editor.apply();
+    }
+
     private void performLogin(){
         // Retrieve entered username and password
         String email = editTextEmail.getText().toString();
         String ccid = editTextCCID.getText().toString();
         String name = editTextName.getText().toString();
-        userInfo = name + ccid;
+        saveUserInfoToSharedPreferences(name,ccid);
 
         // Implement authentication logic here (will change when we get confirmation on if we can use servers or not)
         if ((ccid.length() < 8 && (name.length() > 0))) {

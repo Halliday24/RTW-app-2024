@@ -4,6 +4,7 @@ package com.example.rtw_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -243,6 +244,17 @@ public class SurveyPage1p1 extends AppCompatActivity {
         return answersList;
     }
 
+
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
+    }
+
     // Method to generate and save PDF
     private void generateAndSavePdf(String selectedStudy,String selectedTime,String selectedPoorStudy,String selectedDisability,String selectedPreparation) {
         List<String> questionTexts = new ArrayList<>();
@@ -253,7 +265,14 @@ public class SurveyPage1p1 extends AppCompatActivity {
         questionTexts.add("Poor study environment?");
         questionTexts.add("Learning disability?");
         questionTexts.add("Ineffective academic preparation?");
-        String output = userInfo + "_output1.pdf";
+// Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name + ccid + "_output1.pdf";
 
         Log.d("Debug", "selectedStudy: " + selectedStudy);
         Log.d("Debug", "selectedTime: " + selectedTime);

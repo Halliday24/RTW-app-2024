@@ -38,7 +38,6 @@ private  String userInfo;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page1p2);
-        userInfo = getIntent().getStringExtra("userInfo");
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
 
@@ -144,6 +143,15 @@ private  String userInfo;
 
         return answersList;
     }
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
+    }
 
     // Method to generate and save PDF
     private void generateAndSavePdf(String selectedStudy, String selectedTime, String selectedPoorStudy, String selectedDisability) {
@@ -154,7 +162,14 @@ private  String userInfo;
         questionTexts.add("Inadequate Math Skills?");
         questionTexts.add("Easily Distracted?");
         questionTexts.add("Unhappy with instructor?");
-        String output = userInfo + "_output2.pdf";
+        // Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name + ccid + "_output2.pdf";
 
         List<String[]> surveyAnswers = getSurveyAnswers(selectedStudy, selectedTime, selectedPoorStudy, selectedDisability);
         PdfGenerator.generatePdf(SurveyPage1p2.this, output, surveyAnswers, questionTexts, mainQuestion);
