@@ -142,15 +142,13 @@ public class SurveyPage1p3 extends AppCompatActivity {
 
 
     public void goToImpactWorkPage(){
-        Intent impactWorkPage = new Intent(this, SurveyPage2.class);
 
-        startActivity(impactWorkPage);
 
         Intent myIntent = new Intent(SurveyPage1p3.this, SurveyPage2.class);
         myIntent.putExtra("data1", currentQuestion);
         myIntent.putExtra("userInfo", userInfo);
         myIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        SurveyPage1p3.this.startActivity(myIntent);
+        startActivity(myIntent);
 
     }
 
