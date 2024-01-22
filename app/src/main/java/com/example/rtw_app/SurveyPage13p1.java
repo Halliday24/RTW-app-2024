@@ -2,6 +2,7 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -30,7 +31,7 @@ public class SurveyPage13p1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page13p1);
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
-        userInfo = getIntent().getStringExtra("userInfo");
+
 
         option1Group = findViewById(R.id.option1_answers);
         option2Group = findViewById(R.id.option2_answers);
@@ -146,13 +147,28 @@ public class SurveyPage13p1 extends AppCompatActivity {
         questionTexts.add("I’m actively exploring career options and pursuing opportunities to gain relevant experience");
         questionTexts.add("I know what it takes to be in the career I have chosen");
 
-        String output = userInfo + "_output20.pdf";
+        // Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name + ccid + "_output20.pdf";
 
         PdfGenerator.generatePdf(SurveyPage13p1.this, output,
                 getSurveyAnswers(selectedOption1, selectedOption2, selectedOption3, selectedOption4, selectedOption5),
                 questionTexts, mainQuestion);
     }
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
+    }
     // Method to get survey answers in a list
     private List<String[]> getSurveyAnswers(String selectedOption1, String selectedOption2,
                                             String selectedOption3, String selectedOption4,

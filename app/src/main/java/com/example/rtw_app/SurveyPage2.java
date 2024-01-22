@@ -2,6 +2,7 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -21,15 +22,11 @@ import java.util.List;
 public class SurveyPage2 extends AppCompatActivity {
 
     private int currentQuestion;
-
-    private RadioGroup studyRadioGroup, timeRadioGroup, poorStudyRadioGroup2, disabilityRadioGroup;
     private String userInfo;
     //changed to 3 since only 3 questions are on page
-    private int totalQuestions = 35; // Set the total number of questions
+    private int totalQuestions = 3; // Set the total number of questions
     private ProgressBar progressBar;
     private TextView progressText;
-
-    private static final String KEY_CURRENT_QUESTION = "current_question";
     private SharedPreferences sharedPreferences;
     private Button hint;
 
@@ -37,28 +34,27 @@ public class SurveyPage2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page2);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            currentQuestion = extras.getInt("data1");
 
-        //get the progress bar and text
+        }
+
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
-        //Initialize the sharedPreferences
-        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
-        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
-        updateProgress();
 
+        updateProgress();
         hint = findViewById(R.id.hint);
 
         //Set an onClick listener for using the hint button
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 openHint();
             }
         });
 
-
-
+        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 
         final RadioGroup studyRadioGroup = findViewById(R.id.studyRadioGroup);
         final RadioGroup timeRadioGroup = findViewById(R.id.timeRadioGroup);
@@ -68,13 +64,8 @@ public class SurveyPage2 extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(currentQuestion<4){
-                    currentQuestion++;
-                }
-                else{
-                    currentQuestion=currentQuestion;
-                }
-
+                currentQuestion++;
+                updateProgress();
 
 
                 int selectedHoursId = studyRadioGroup.getCheckedRadioButtonId();
@@ -91,11 +82,7 @@ public class SurveyPage2 extends AppCompatActivity {
                     editor.putString("Work Too many hours", selectedHours);
                     editor.putString("Work late hours", selectedLate);
                     editor.putString("Unemployed", selectedUnemployed);
-                    editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
-                    editor.putInt("Total_questions", totalQuestions);
                     editor.apply();
-                    //update the progress bar
-                    updateProgress();
 
                     generateAndSavePdf(selectedHours,selectedLate,selectedUnemployed);
 
@@ -136,7 +123,8 @@ public class SurveyPage2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
+                currentQuestion--;
+                updateProgress();
                 goBack();
             }
         });
@@ -178,6 +166,16 @@ public class SurveyPage2 extends AppCompatActivity {
         return answersList;
     }
 
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
+    }
+
     // Method to generate and save PDF
     private void generateAndSavePdf(String selectedHours,String selectedLate,String selectedUnemployed) {
         List<String> questionTexts = new ArrayList<>();
@@ -187,7 +185,14 @@ public class SurveyPage2 extends AppCompatActivity {
         questionTexts.add("Work too many hours?");
         questionTexts.add("Work late hours, or schedules that conflict with class time?");
         questionTexts.add("Unemployment?");
-        String output = userInfo + "_output4.pdf";
+        // Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name + ccid + "_output4.pdf";
 
 
 
@@ -196,12 +201,14 @@ public class SurveyPage2 extends AppCompatActivity {
     }
 
     public void goToSurveyPage3(){
-
         Intent SurveyPage3 = new Intent(this, SurveyPage3p1.class);
         SurveyPage3.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage3);
 
-
+        Intent myIntent = new Intent(SurveyPage2.this, SurveyPage3p1.class);
+        myIntent.putExtra("data1", currentQuestion);
+        myIntent.putExtra("userInfo",userInfo);
+        SurveyPage2.this.startActivity(myIntent);
 
     }
 
@@ -210,6 +217,11 @@ public class SurveyPage2 extends AppCompatActivity {
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(impactAcademicPage2);
 
+        Intent myIntent = new Intent(SurveyPage2.this, SurveyPage1p3.class);
+        myIntent.putExtra("data1", currentQuestion);
+        myIntent.putExtra("userInfo", userInfo);
+        myIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        SurveyPage2.this.startActivity(myIntent);
 
     }
 

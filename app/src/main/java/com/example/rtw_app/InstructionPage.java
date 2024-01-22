@@ -22,7 +22,6 @@ public class InstructionPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instruction_page);
-        userInfo = getIntent().getStringExtra("userInfo");
         TextView textView = (TextView) findViewById(R.id.Instructions);
         textView.setText("This self-guided workbook is designed to help you to identify, and reflect on, the factors" +
                 " that lead to being required to withdraw. The workbook will also help you " +

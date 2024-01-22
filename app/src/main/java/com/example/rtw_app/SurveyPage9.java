@@ -1,6 +1,8 @@
 package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -26,7 +28,6 @@ public class SurveyPage9 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page9);
-        userInfo = getIntent().getStringExtra("userInfo");
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 
         final RadioGroup purposeRadioGroup = findViewById(R.id.purposeRadioGroup);
@@ -133,10 +134,26 @@ public class SurveyPage9 extends AppCompatActivity {
                 "to success in my life ");
         questionTexts.add("I am clear about my values and\n" +
                 "what is important to me ");
-        String output = userInfo + "_output15.pdf";
+        // Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name + ccid + "_output15.pdf";
 
         List<String[]> surveyAnswers = getSurveyAnswers(option1,option2,option3,option4);
         PdfGenerator.generatePdf(SurveyPage9.this, output, surveyAnswers, questionTexts, mainQuestion);
+    }
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
     }
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();

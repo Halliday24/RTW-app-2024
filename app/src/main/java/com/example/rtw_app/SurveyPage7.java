@@ -2,6 +2,7 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -31,7 +32,7 @@ public class SurveyPage7 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page7);
-        userInfo = getIntent().getStringExtra("userInfo");
+
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
         option1RadioGroup = findViewById(R.id.option1_answers);
         option2RadioGroup = findViewById(R.id.option2_answers);
@@ -177,12 +178,29 @@ public class SurveyPage7 extends AppCompatActivity {
                 "purchase required supplies");
         questionTexts.add("Transportation costs");
 
-        String output = userInfo + "_output13.pdf";
+        // Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name + ccid + "_output13.pdf";
 
 
         List<String[]> surveyAnswers = getSurveyAnswers(option1, option2, option3, option4);
         PdfGenerator.generatePdf(SurveyPage7.this, output, surveyAnswers, questionTexts, mainQuestion);
         goToSurveyPage8();
+    }
+
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
     }
     public void goToSurveyPage8(){
         Intent SurveyPage8 = new Intent(this, SurveyPage8.class);

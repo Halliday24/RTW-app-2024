@@ -2,6 +2,7 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -26,7 +27,6 @@ public class SurveyPage15p1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page15p1);
-        userInfo = getIntent().getStringExtra("userInfo");
         sharedPreferences = getSharedPreferences("impact_responses", MODE_PRIVATE);
 
         final RadioGroup colorRadioGroup = findViewById(R.id.colorRadioGroup);
@@ -123,7 +123,14 @@ public class SurveyPage15p1 extends AppCompatActivity {
         questionTexts.add("I read the assigned reading\n" +
                 "before class");
 
-        String output = userInfo + "_output24.pdf";
+        // Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name + ccid + "_output24.pdf";
 
         // Call the PdfGenerator to generate PDF
         PdfGenerator.generatePdf(SurveyPage15p1.this, output,
@@ -142,6 +149,15 @@ public class SurveyPage15p1 extends AppCompatActivity {
         answersList.add(surveyAnswers);
 
         return answersList;
+    }
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
     }
     public void goTo(){
         Intent SurveyPage15p2 = new Intent(this, SurveyPage15p2.class);

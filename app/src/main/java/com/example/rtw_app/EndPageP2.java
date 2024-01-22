@@ -2,7 +2,9 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -36,7 +38,7 @@ public class EndPageP2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        userInfo = getIntent().getStringExtra("userInfo");
+
         setContentView(R.layout.activity_end_page_p2);
         javaCheckBox = findViewById(R.id.javaCheckbox);
         kotlinCheckBox = findViewById(R.id.kotlinCheckbox);
@@ -93,7 +95,14 @@ public class EndPageP2 extends AppCompatActivity {
         questionTexts.add("Career Services");
         questionTexts.add("Campus Recreation");
 
-        String output = userInfo + "_output36.pdf";
+        // Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name + ccid + "_output36.pdf";
 
         // Call the PdfGenerator to generate PDF
         PdfGenerator.generatePdf(EndPageP2.this, output, selectedCheckboxesList, questionTexts, "Final Survey Questions");
@@ -103,14 +112,22 @@ public class EndPageP2 extends AppCompatActivity {
 
         List<String> originalFileNames = new ArrayList<>();
         for (int i = 1; i <= 36; i++) {
-            originalFileNames.add(userInfo + "_output" + i + ".pdf");
+            originalFileNames.add(name + ccid + "_output" + i + ".pdf");
         }
 
         PdfGenerator.createZipFile(this,userInfo,originalFileNames);
 
 
     }
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
+    }
     private List<String[]> getSelectedCheckboxes() {
         List<String[]> selectedCheckboxesList = new ArrayList<>();
 

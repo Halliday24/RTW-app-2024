@@ -2,6 +2,7 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -33,7 +34,7 @@ public class SurveyPage8 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page8);
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
-        userInfo = getIntent().getStringExtra("userInfo");
+
         TextView textView = (TextView) findViewById(R.id.surveyPage8_Question);
         textView.setText("Please describe any other barriers, including any extenuating circumstances, you " +
                 "may have encountered. For example: family emergencies or child care issues. ");
@@ -147,10 +148,27 @@ public class SurveyPage8 extends AppCompatActivity {
                 "                \"may have encountered. For example: family emergencies or child care issues.?");
         questionTexts.add("What are the primary sources of stress in your life");
 
-        String output = userInfo + "_output14.pdf";
+        // Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name + ccid + "_output14.pdf";
 
         List<String[]> surveyAnswers = getSurveyAnswers(option1,option2);
         PdfGenerator.generatePdf(SurveyPage8.this, output, surveyAnswers, questionTexts, mainQuestion);
+    }
+
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
     }
     public void goToMindsetPage(){
         Intent MindsetPage = new Intent(this, MindsetPage.class);

@@ -2,13 +2,13 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -22,19 +22,10 @@ public class SurveyPage4 extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
 
-    private int currentQuestion;
-
-    private int totalQuestions = 35; // Set the total number of questions
-
-    private static final String KEY_CURRENT_QUESTION = "current_question";
-
     private RadioGroup option1RadioGroup;
     private RadioGroup option2RadioGroup;
     private RadioGroup option3RadioGroup2;
     private RadioGroup option4RadioGroup;
-
-    private ProgressBar progressBar;
-    private TextView progressText;
 
     private String userInfo;
     private Button hint;
@@ -42,13 +33,7 @@ public class SurveyPage4 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page4);
-
-        progressBar = findViewById(R.id.progressBar);
-        progressText = findViewById(R.id.progressText);
-
-        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
-        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
-        updateProgress();
+        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 
         final RadioGroup option1_answers = findViewById(R.id.option1_answers);
         // final RadioGroup programmingRadioGroup = findViewById(R.id.programmingRadioGroup);
@@ -96,13 +81,6 @@ public class SurveyPage4 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(currentQuestion<7){
-                    currentQuestion++;
-                }
-                else{
-                    currentQuestion=currentQuestion;
-                }
-
                 int option1Id = option1RadioGroup.getCheckedRadioButtonId();
                 int option2Id = option2RadioGroup.getCheckedRadioButtonId();
                 int option3Id = option3RadioGroup2.getCheckedRadioButtonId();
@@ -128,7 +106,6 @@ public class SurveyPage4 extends AppCompatActivity {
                     editor.putString("option4", selectedOption4);
                     editor.apply();
 
-                    updateProgress();
 
                     // Generate PDF after submitting survey
                     generateAndSavePdf(selectedOption1,selectedOption2,selectedOption3,selectedOption4);
@@ -187,7 +164,15 @@ public class SurveyPage4 extends AppCompatActivity {
 
         return answersList;
     }
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
+    }
     // Method to generate and save PDF
     private void generateAndSavePdf(String option1,String option2,String option3,String option4) {
         List<String> questionTexts = new ArrayList<>();
@@ -202,7 +187,14 @@ public class SurveyPage4 extends AppCompatActivity {
         questionTexts.add("A very active social life");
         questionTexts.add("Overextended in my\n" +
                 "extracurricular activities ");
-        String output = userInfo + "_output7.pdf";
+        // Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name + ccid + "_output7.pdf";
 
         List<String[]> surveyAnswers = getSurveyAnswers(option1,option2,option3,option4);
         PdfGenerator.generatePdf(SurveyPage4.this, output, surveyAnswers, questionTexts, mainQuestion);
@@ -210,6 +202,7 @@ public class SurveyPage4 extends AppCompatActivity {
     public void goToImpactFinancial(){
         Intent SurveyPage5 = new Intent(this, SurveyPage5.class);
         SurveyPage5.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        SurveyPage5.putExtra("userInfo", userInfo);
         startActivity(SurveyPage5);
 
     }
@@ -217,6 +210,7 @@ public class SurveyPage4 extends AppCompatActivity {
     public void goBack(){
         Intent impactAcademicPage2 = new Intent(this, SurveyPage3p2.class);
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        impactAcademicPage2.putExtra("userInfo", userInfo);
         startActivity(impactAcademicPage2);
 
     }
@@ -226,11 +220,5 @@ public class SurveyPage4 extends AppCompatActivity {
     private void openHint() {
         Intent Hint = new Intent(SurveyPage4.this, Hint.class);
         startActivity(Hint);
-    }
-
-    private void updateProgress() {
-        int progress = (currentQuestion * 100) / totalQuestions;
-        progressBar.setProgress(progress);
-        progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
     }
 }

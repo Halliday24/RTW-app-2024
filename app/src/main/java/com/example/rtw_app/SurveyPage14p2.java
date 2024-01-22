@@ -2,6 +2,7 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -33,7 +34,7 @@ public class SurveyPage14p2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page14p2);
-        userInfo = getIntent().getStringExtra("userInfo");
+
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
         checkBox11 = findViewById(R.id.checkBox11);
         checkBox12 = findViewById(R.id.checkBox12);
@@ -91,13 +92,28 @@ public class SurveyPage14p2 extends AppCompatActivity {
         questionTexts.add("None");
         questionTexts.add("Other App");
 
-        String output = userInfo + "_output23.pdf";
+        // Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name + ccid + "_output23.pdf";
 
         // Call the PdfGenerator to generate PDF
         PdfGenerator.generatePdf(SurveyPage14p2.this, output,
                 getSurveyAnswers(), questionTexts, mainQuestion);
     }
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
+    }
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {

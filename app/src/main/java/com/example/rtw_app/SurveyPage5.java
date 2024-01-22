@@ -1,5 +1,6 @@
 package com.example.rtw_app;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -30,7 +31,6 @@ public class   SurveyPage5 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page5);
-        userInfo = getIntent().getStringExtra("userInfo");
 
         // Initialize your RadioGroup instances
         studyRadioGroup = findViewById(R.id.studyRadioGroup);
@@ -178,7 +178,15 @@ public class   SurveyPage5 extends AppCompatActivity {
 
         return answersList;
     }
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
+    }
     // Method to generate and save PDF
     private void generateAndSavePdf(String selectedStudy,String selectedTime,String selectedPoorStudy,String selectedDisability) {
         List<String> questionTexts = new ArrayList<>();
@@ -194,7 +202,14 @@ public class   SurveyPage5 extends AppCompatActivity {
         questionTexts.add("Unable to purchase textbooks,\n" +
                 "laptop, or other necessary\n" +
                 "learning tools");
-        String output = userInfo + "_output8.pdf";
+        // Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name + ccid + "_output8.pdf";
 
 
         List<String[]> surveyAnswers = getSurveyAnswers(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability);

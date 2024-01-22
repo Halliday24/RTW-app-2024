@@ -2,6 +2,7 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -33,7 +34,6 @@ public class SurveyPage10 extends AppCompatActivity {
 
         setContentView(R.layout.activity_survey_page10);
 
-        userInfo = getIntent().getStringExtra("userInfo");
 
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 
@@ -164,12 +164,27 @@ public class SurveyPage10 extends AppCompatActivity {
         questionTexts.add("I attend class");
         questionTexts.add("I am engaged in class and in\n" +
                 "small group discussions\n");
-        String output = userInfo + "_output16.pdf";
+        // Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name + ccid+ "_output16.pdf";
 
         List<String[]> surveyAnswers = getSurveyAnswers(option1,option2,option3,option4,option5);
         PdfGenerator.generatePdf(SurveyPage10.this, output, surveyAnswers, questionTexts, mainQuestion);
     }
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
+    }
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {

@@ -2,6 +2,7 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -23,19 +24,22 @@ public class SurveyPage3p1 extends AppCompatActivity {
     private int currentQuestion;
 
     //changed to 3 since only 3 questions are on page
-    private int totalQuestions = 35; // Set the total number of questions
+    private int totalQuestions = 3; // Set the total number of questions
     private ProgressBar progressBar;
     private TextView progressText;
 
     private String userInfo;
     private SharedPreferences sharedPreferences;
-
-    private static final String KEY_CURRENT_QUESTION = "current_question";
     private Button hint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page3p1);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            currentQuestion = extras.getInt("data1");
+
+        }
 
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
@@ -51,9 +55,7 @@ public class SurveyPage3p1 extends AppCompatActivity {
             }
         });
 
-        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
-        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
-        updateProgress();
+        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 
         final RadioGroup studyRadioGroup = findViewById(R.id.studyRadioGroup);
         final RadioGroup timeRadioGroup = findViewById(R.id.timeRadioGroup);
@@ -64,12 +66,11 @@ public class SurveyPage3p1 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                if(currentQuestion<5){
-                    currentQuestion++;
-                }
-                else{
-                    currentQuestion=currentQuestion;
-                }
+                //Store answers
+                //update progress Bar
+                //Go to the next page
+                currentQuestion++;
+                updateProgress();
 
 
                 int selectedHoursId = studyRadioGroup.getCheckedRadioButtonId();
@@ -87,9 +88,6 @@ public class SurveyPage3p1 extends AppCompatActivity {
                     editor.putString("Work late hours", selectedLate);
                     editor.putString("Unemployed", selectedUnemployed);
                     editor.apply();
-
-                    //update the progress bar
-                    updateProgress();
                     generateAndSavePdf(selectedHours,selectedLate,selectedUnemployed);
                     //
 
@@ -153,6 +151,7 @@ public class SurveyPage3p1 extends AppCompatActivity {
     public void goToSurveyPage3p2(){
         Intent SurveyPage3p2 = new Intent(this, SurveyPage3p2.class);
         SurveyPage3p2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        SurveyPage3p2.putExtra("userInfo", userInfo);
         startActivity(SurveyPage3p2);
 
     }
@@ -172,7 +171,15 @@ public class SurveyPage3p1 extends AppCompatActivity {
 
         return answersList;
     }
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
+    }
     // Method to generate and save PDF
     private void generateAndSavePdf(String selectedHours,String selectedLate,String selectedUnemployed) {
         List<String> questionTexts = new ArrayList<>();
@@ -181,16 +188,23 @@ public class SurveyPage3p1 extends AppCompatActivity {
         questionTexts.add("I was not admitted to my first choice program");
         questionTexts.add("Unclear education or career goals");
         questionTexts.add("Pressure to choose a path that was not a good fit for me");
-        String output = userInfo + "_output5.pdf";
+        // Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name + ccid + "_output5.pdf";
 
 
         List<String[]> surveyAnswers = getSurveyAnswers(selectedHours,selectedLate,selectedUnemployed);
         PdfGenerator.generatePdf(SurveyPage3p1.this, output, surveyAnswers, questionTexts, mainQuestion);
     }
-
     public void goBack(){
         Intent impactAcademicPage2 = new Intent(this, SurveyPage2.class);
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        impactAcademicPage2.putExtra("userInfo", userInfo);
         startActivity(impactAcademicPage2);
 
     }

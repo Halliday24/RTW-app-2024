@@ -2,6 +2,7 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -31,7 +32,7 @@ public class EndPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_page);
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
-        userInfo = getIntent().getStringExtra("userInfo");
+
 
         Button buttonNext=findViewById(R.id.nextButton);
 
@@ -91,7 +92,14 @@ public class EndPage extends AppCompatActivity {
                 "challenges next year?");
 
 
-        String output = userInfo + "_output35.pdf";
+        // Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name +ccid + "_output35.pdf";
 
         // Call the PdfGenerator to generate PDF
         PdfGenerator.generatePdf(EndPage.this, output,
@@ -103,7 +111,15 @@ public class EndPage extends AppCompatActivity {
         // Call the goTo method after generating and saving the PDF
         goTo();
     }
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
+    }
     private List<String[]> getSurveyAnswers() {
         List<String[]> answersList = new ArrayList<>();
 

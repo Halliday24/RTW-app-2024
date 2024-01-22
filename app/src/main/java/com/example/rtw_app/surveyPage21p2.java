@@ -2,6 +2,7 @@ package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -29,7 +30,7 @@ public class surveyPage21p2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page21p2);
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
-        userInfo = getIntent().getStringExtra("userInfo");
+
 
         colorRadioGroup = findViewById(R.id.colorRadioGroup);
         timeRadioGroup = findViewById(R.id.timeRadioGroup);
@@ -64,7 +65,15 @@ public class surveyPage21p2 extends AppCompatActivity {
         });
 
     }
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
+    }
     private void generateAndSavePdf() {
         List<String> questionTexts = new ArrayList<>();
         String mainQuestion = "Social Engagement";
@@ -77,7 +86,14 @@ public class surveyPage21p2 extends AppCompatActivity {
         questionTexts.add("In which of the above areas are things working well for you?" );
         questionTexts.add("What challenges are most important for you to address right now?" );
 
-        String output = userInfo + "_output34.pdf";
+        // Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name + ccid + "_output34.pdf";
 
         // Call the PdfGenerator to generate PDF
         PdfGenerator.generatePdf(surveyPage21p2.this, output,

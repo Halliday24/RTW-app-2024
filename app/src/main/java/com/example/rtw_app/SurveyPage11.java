@@ -1,6 +1,8 @@
 package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -43,7 +45,6 @@ public class SurveyPage11 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page11);
-        userInfo = getIntent().getStringExtra("userInfo");
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 
         TopGreenBar = findViewById(R.id.TopGreenBar);
@@ -150,14 +151,29 @@ public class SurveyPage11 extends AppCompatActivity {
         questionTexts.add("Other (please specify):");
         questionTexts.add("What do you want to gain from or contribute to society during your lifetime?");
 
-        String output = userInfo + "_output17.pdf";
+        // Example of calling the method to get user information
+        String[] userInfoArray = getUserInfoFromSharedPreferences();
+
+// Access the individual elements
+        String name = userInfoArray[0];
+        String ccid = userInfoArray[1];
+
+        String output = name + ccid + "_output17.pdf";
        List<String[]> surveyAnswers =  getSurveyAnswers(selectedDegree, selectedHelp, selectedJob, selectedFamily, selectedGoal,
                 selectedDifference, selectedLearn, selectedUnsure, selectedOther,selectedGain);
         PdfGenerator.generatePdf(SurveyPage11.this, output,surveyAnswers, questionTexts, mainQuestion);
 
 
     }
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
+    }
     // Method to get survey answers in a list
     private List<String[]> getSurveyAnswers(boolean selectedDegree, boolean selectedHelp, boolean selectedJob,
                                             boolean selectedFamily, boolean selectedGoal, boolean selectedDifference,
