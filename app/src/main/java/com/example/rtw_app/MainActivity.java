@@ -43,7 +43,13 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int PERMISSION_REQ_CODE_READ = 200;
     private EditText editTextEmail, editTextCCID, editTextName;
+    private static final String KEY_CURRENT_QUESTION = "current_question";
     private Button buttonLogin;
+    private int currentQuestion = 0;
+
+    private int totalQuestions = 5; // Set the total number of questions
+
+    private SharedPreferences sharedPreferences;
 
     private String userInfo;
     private Button hint;
@@ -51,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Initialize your SharedPreferences
+        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
 
         // Initialize UI elements
         editTextEmail = findViewById(R.id.LoginEmail);
@@ -82,7 +91,13 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View view) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                //storing the increased current Question
+                editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
+                editor.putInt("Total_questions", totalQuestions);
+                editor.apply();
                 performLogin();
+
             }
         });
 

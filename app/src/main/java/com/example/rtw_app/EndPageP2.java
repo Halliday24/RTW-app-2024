@@ -115,10 +115,10 @@ public class EndPageP2 extends AppCompatActivity {
         List<String[]> selectedCheckboxesList = new ArrayList<>();
 
 
-          boolean selectedJava  =   javaCheckBox.isChecked();
-           boolean selectedKotlin =     kotlinCheckBox.isChecked();
-             boolean selectedSwift =    swiftCheckBox.isChecked();
-             boolean selected1 = CheckBox.isChecked();
+        boolean selectedJava  =   javaCheckBox.isChecked();
+        boolean selectedKotlin =     kotlinCheckBox.isChecked();
+        boolean selectedSwift =    swiftCheckBox.isChecked();
+        boolean selected1 = CheckBox.isChecked();
         boolean selected2 =  CheckBox1.isChecked();
         boolean selected3 =  CheckBox2.isChecked();
         boolean selected4 =    CheckBox3.isChecked();

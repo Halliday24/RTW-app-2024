@@ -24,21 +24,17 @@ public class SurveyPage3p2 extends AppCompatActivity {
 
     private String userInfo;
     //changed to 3 since only 3 questions are on page
-    private int totalQuestions = 3; // Set the total number of questions
+    private int totalQuestions = 35; // Set the total number of questions
     private ProgressBar progressBar;
     private TextView progressText;
     private SharedPreferences sharedPreferences;
+
+    private static final String KEY_CURRENT_QUESTION = "current_question";
     private Button hint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page3p2);
-        userInfo = getIntent().getStringExtra("userInfo");
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            currentQuestion = extras.getInt("data1");
-
-        }
 
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
@@ -54,7 +50,9 @@ public class SurveyPage3p2 extends AppCompatActivity {
             }
         });
 
-        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        updateProgress();
 
         final RadioGroup studyRadioGroup = findViewById(R.id.studyRadioGroup);
         final RadioGroup timeRadioGroup = findViewById(R.id.timeRadioGroup);
@@ -65,11 +63,12 @@ public class SurveyPage3p2 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                //Store answers
-                //update progress Bar
-                //Go to the next page
-                currentQuestion++;
-                updateProgress();
+                if(currentQuestion<6){
+                    currentQuestion++;
+                }
+                else{
+                    currentQuestion=currentQuestion;
+                }
 
 
                 int selectedHoursId = studyRadioGroup.getCheckedRadioButtonId();
@@ -87,6 +86,9 @@ public class SurveyPage3p2 extends AppCompatActivity {
                     editor.putString("Work late hours", selectedLate);
                     editor.putString("Unemployed", selectedUnemployed);
                     editor.apply();
+
+                    //update the progress bar
+                    updateProgress();
                     generateAndSavePdf(selectedHours,selectedLate,selectedUnemployed);
                     //
 
@@ -182,7 +184,6 @@ public class SurveyPage3p2 extends AppCompatActivity {
     public void goToSurveyPage4(){
         Intent SurveyPage4 = new Intent(this, SurveyPage4.class);
         SurveyPage4.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        SurveyPage4.putExtra("userInfo", userInfo);
         startActivity(SurveyPage4);
 
     }
@@ -190,7 +191,6 @@ public class SurveyPage3p2 extends AppCompatActivity {
     public void goBack(){
         Intent impactAcademicPage2 = new Intent(this, SurveyPage3p1.class);
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        impactAcademicPage2.putExtra("userInfo", userInfo);
         startActivity(impactAcademicPage2);
 
     }

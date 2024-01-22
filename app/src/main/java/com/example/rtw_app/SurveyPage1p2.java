@@ -30,7 +30,7 @@ private  String userInfo;
     private static final String KEY_CURRENT_QUESTION = "current_question";
 
     private SharedPreferences sharedPreferences;
-    private int totalQuestions = 5; // Set the total number of questions
+    private int totalQuestions = 35; // Set the total number of questions
     private ProgressBar progressBar;
     private TextView progressText;
     private Button hint;
@@ -49,8 +49,8 @@ private  String userInfo;
 
         // Initialize your SharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
-        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,1);
-
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        //update the information on the progress bar
         updateProgress();
 
         Button submitButton = findViewById(R.id.nextButton);
@@ -66,6 +66,14 @@ private  String userInfo;
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Move to the next question
+                //if this question hasn't been answered, then increment
+                if(currentQuestion<2){
+                    currentQuestion++;
+                }
+                else{
+                    currentQuestion=currentQuestion;
+                }
                 // Get the selected answers from your RadioGroups
                 int selectedStudyId = studyRadioGroup.getCheckedRadioButtonId();
                 int selectedTimeId = timeRadioGroup.getCheckedRadioButtonId();
@@ -78,6 +86,13 @@ private  String userInfo;
                     String selectedTime = ((RadioButton) findViewById(selectedTimeId)).getText().toString();
                     String selectedPoorStudy = ((RadioButton) findViewById(selectedPoorStudyId)).getText().toString();
                     String selectedDisability = ((RadioButton) findViewById(selectedDisabilityId)).getText().toString();
+                    //storing the increased current Question
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
+                    editor.putInt("Total_questions", totalQuestions);
+                    editor.apply();
+                    //update the progress bar
+                    updateProgress();
 
                     generateAndSavePdf(selectedStudy, selectedTime, selectedPoorStudy, selectedDisability);
 
@@ -93,11 +108,7 @@ private  String userInfo;
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //currentQuestion--;
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putInt(KEY_CURRENT_QUESTION, 1);
-                editor.putInt("Total_questions", totalQuestions);
-                editor.apply();
+
                 goBack();
             }
         });
@@ -121,7 +132,6 @@ private  String userInfo;
     public void goToImpactAcademicPage3() {
         Intent impactAcademicPage3 = new Intent(this, SurveyPage1p3.class);
         impactAcademicPage3.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        impactAcademicPage3.putExtra("userInfo", userInfo);
         startActivity(impactAcademicPage3);
 
 
@@ -178,7 +188,6 @@ private  String userInfo;
     public void goBack() {
         Intent impactAcademicPage3 = new Intent(this, SurveyPage1p1.class);
         impactAcademicPage3.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        impactAcademicPage3.putExtra("userInfo", userInfo);
         startActivity(impactAcademicPage3);
 
 

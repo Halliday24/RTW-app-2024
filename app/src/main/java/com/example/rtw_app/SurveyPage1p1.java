@@ -33,7 +33,7 @@ public class SurveyPage1p1 extends AppCompatActivity {
     private static final String KEY_CURRENT_QUESTION = "current_question";
 
     private int currentQuestion;
-    private int totalQuestions = 5; // Set the total number of questions
+    private int totalQuestions = 35; // Set the total number of questions
     private ProgressBar progressBar;
     private TextView progressText;
     private RadioGroup studyRadioGroup, timeRadioGroup, poorStudyRadioGroup, disabilityRadioGroup, preparationRadioGroup;
@@ -44,16 +44,11 @@ public class SurveyPage1p1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page1p1);
-        userInfo = getIntent().getStringExtra("userInfo");
+
+
         // get the progressBar and progressText
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
-
-
-
-
-
-
 
         // Initialize your RadioGroup instances
         studyRadioGroup = findViewById(R.id.studyRadioGroup);
@@ -66,9 +61,10 @@ public class SurveyPage1p1 extends AppCompatActivity {
         // Initialize your SharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
         // Load the saved currentQuestion value from SharedPreferences
-        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION, 1);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION, currentQuestion);
         //update the information on the progress bar
         updateProgress();
+
         hint = findViewById(R.id.hint);
 
         //Set an onClick listener for using the hint button
@@ -78,13 +74,21 @@ public class SurveyPage1p1 extends AppCompatActivity {
                 openHint();
             }
         });
+
+        //Next button
         Button submitButton = findViewById(R.id.nextButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 // Move to the next question
-                currentQuestion++;
+                //if this question hasn't been answered, then increment
+                if(currentQuestion<1){
+                    currentQuestion++;
+                }
+                else{
+                    currentQuestion=currentQuestion;
+                }
 
                 //go to the next question
                 int selectedColorId = studyRadioGroup.getCheckedRadioButtonId();
@@ -211,7 +215,6 @@ public class SurveyPage1p1 extends AppCompatActivity {
         //updateProgress();
         Intent impactAcademicPage2 = new Intent(this, SurveyPage1p2.class);
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        impactAcademicPage2.putExtra("userInfo",userInfo);
         startActivity(impactAcademicPage2);
 
     }
@@ -220,7 +223,6 @@ public class SurveyPage1p1 extends AppCompatActivity {
     public void goBack() {
         Intent impactAcademicPage2 = new Intent(this, InstructionPage.class);
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        impactAcademicPage2.putExtra("userInfo",userInfo);
         startActivity(impactAcademicPage2);
 
 

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -68,119 +67,130 @@
         android:id="@+id/degreeCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/questionText"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/Yellow"
         android:text="To get a degree"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.281"
-        app:layout_constraintStart_toEndOf="@+id/lifeGoalCheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/learnCheckBox" />
+        app:layout_constraintTop_toBottomOf="@id/learnCheckBox" />
 
     <CheckBox
         android:id="@+id/helpOthersCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/questionText"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/Yellow"
         android:text="To help others"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toEndOf="@+id/supportFamilyCheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/degreeCheckBox" />
+        app:layout_constraintTop_toBottomOf="@id/degreeCheckBox" />
 
     <!-- Group 2: Checkboxes -->
     <CheckBox
         android:id="@+id/getJobCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/helpOthersCheckBox"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="@color/Yellow"
         android:text="To get a job I like"
-        app:layout_constraintEnd_toStartOf="@+id/learnCheckBox"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionText"
-        app:layout_constraintRight_toLeftOf="@+id/learnCheckBox"/>
+        app:layout_constraintTop_toBottomOf="@id/questionText" />
 
     <CheckBox
         android:id="@+id/supportFamilyCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="@color/Yellow"
         android:text="To support my family"
-        app:layout_constraintRight_toLeftOf="@+id/unsureCheckBox"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lifeGoalCheckBox" />
+        app:layout_constraintTop_toBottomOf="@id/lifeGoalCheckBox" />
 
     <!-- Group 3: Checkboxes -->
     <CheckBox
         android:id="@+id/lifeGoalCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/supportFamilyCheckBox"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="@color/Yellow"
         android:text="To accomplish a life goal"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/differenceCheckBox"
-        app:layout_constraintRight_toLeftOf="@+id/helpOthersCheckBox"/>
+        app:layout_constraintTop_toBottomOf="@id/differenceCheckBox" />
+
+    <!-- Group 4: Checkboxes -->
 
     <CheckBox
         android:id="@+id/differenceCheckBox"
-        android:layout_width="108dp"
-        android:layout_height="35dp"
-        android:layout_below="@id/lifeGoalCheckBox"
-        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="@color/Yellow"
         android:text="To make a difference in the world"
-        app:layout_constraintEnd_toStartOf="@+id/degreeCheckBox"
-        app:layout_constraintHorizontal_bias="0.123"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getJobCheckBox"
-        app:layout_constraintRight_toLeftOf="@+id/degreeCheckBox"/>
+        app:layout_constraintTop_toBottomOf="@id/getJobCheckBox" />
 
-    <!-- Group 4: Checkboxes -->
     <CheckBox
         android:id="@+id/learnCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/differenceCheckBox"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="108dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/Yellow"
         android:text="To learn"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+        app:layout_constraintTop_toBottomOf="@id/questionText" />
 
     <CheckBox
         android:id="@+id/unsureCheckBox"
-        android:layout_width="90dp"
-        android:layout_height="43dp"
-        android:layout_below="@id/learnCheckBox"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="104dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/Yellow"
         android:text="Unsure"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/helpOthersCheckBox" />
+        app:layout_constraintTop_toBottomOf="@id/helpOthersCheckBox" />
 
     <!-- Other Views -->
 
     <EditText
         android:id="@+id/otherReasonEditText"
-        android:layout_width="305dp"
+        android:layout_width="match_parent"
         android:layout_height="66dp"
         android:layout_below="@id/unsureCheckBox"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="28dp"
         android:hint="Specify other reason"
         android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
-        app:layout_constraintStart_toEndOf="@+id/unsureCheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/unsureCheckBox" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="366dp"
+        app:layout_constraintTop_toBottomOf="@+id/otherCheckBox"/>
 
     <TextView
         android:id="@+id/textView5"
@@ -240,13 +250,15 @@
         android:id="@+id/otherCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/unsureCheckBox"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="@color/Yellow"
         android:text="Other:"
-        app:layout_constraintEnd_toStartOf="@+id/unsureCheckBox"
-        app:layout_constraintHorizontal_bias="0.081"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/supportFamilyCheckBox" />
+        app:layout_constraintTop_toBottomOf="@id/supportFamilyCheckBox" />
     -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
