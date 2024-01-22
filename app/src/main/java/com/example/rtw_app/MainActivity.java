@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -12,10 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Environment;
 import android.provider.Settings;
 import android.view.View;
 
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.WindowCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -53,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
         editTextName = findViewById(R.id.LoginName);
         buttonLogin = findViewById(R.id.buttonLogin);
         hint = findViewById(R.id.hint);
+        // Check and request storage permissions if needed
+        if (!checkStoragePermissions()) {
+            requestStoragePermissions();
+        }
 
 
         //Set an onClick listener for using the hint button
@@ -97,6 +104,58 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public boolean checkStoragePermissions() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            // Android is 11 (R) or above
+            return Environment.isExternalStorageManager();
+        } else {
+            // Below android 11
+            int write = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            int read = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+
+            return read == PackageManager.PERMISSION_GRANTED && write == PackageManager.PERMISSION_GRANTED;
+        }
+    }
+
+    private void requestStoragePermissions() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            // Request MANAGE_EXTERNAL_STORAGE permission for Android 11 and above
+            try {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+                startActivity(intent);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            // Request WRITE_EXTERNAL_STORAGE and READ_EXTERNAL_STORAGE permissions for below Android 11
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE},
+                    PERMISSION_REQ_CODE_WRITE
+            );
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_REQ_CODE_WRITE) {
+            // Check if the permission is granted
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, perform the desired action
+                Toast.makeText(this, "Storage permissions granted", Toast.LENGTH_SHORT).show();
+            } else {
+                // Permission denied, show a message or handle accordingly
+                Toast.makeText(this, "Storage permissions denied", Toast.LENGTH_SHORT).show();
+            }
+        }
+        // Handle other permission requests if needed
+
+        // ... (existing code)
+    }
+
+
     /**
      * This function sends the user to the Instructionpage from the LoginPage
      */
