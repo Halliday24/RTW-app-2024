@@ -50,11 +50,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/TopGreenBar" />
 
+
     <TextView
         android:id="@+id/LoginText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
+        android:layout_marginStart="172dp"
         android:layout_marginBottom="480dp"
         android:text="Login"
         android:textColor="@color/black"
@@ -63,8 +64,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/TopText"
-        app:layout_constraintVertical_bias="1.0"/>
-
+        app:layout_constraintVertical_bias="0.986"
+        android:gravity="center"/>
 
     <EditText
         android:id="@+id/LoginEmail"

@@ -198,7 +198,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginLeft="10dp"
         android:background="@color/gray"
-        android:text="I have a good understanding of what is required to be successful   in each course"
+        android:text="I have a good understanding of what is required to be successful in each course"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="13.5dp"
@@ -287,7 +287,7 @@
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="8dp"

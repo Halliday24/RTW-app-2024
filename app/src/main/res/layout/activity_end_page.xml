@@ -66,7 +66,7 @@
     <ImageView
         android:id="@+id/BottomGreenBar"
         android:layout_width="match_parent"
-        android:layout_height="49dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="700dp"
         android:background="@color/Green"
@@ -79,8 +79,8 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="402dp"
-        android:layout_height="56dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:layout_marginLeft="10dp"
@@ -98,10 +98,10 @@
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.323" />
 
     <TextView
         android:id="@+id/textView3"
@@ -129,29 +129,29 @@
         android:id="@+id/BackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="216dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/Yellow"
         android:text="Back"
+        android:textColor="@color/black"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/nextButton"
-        android:backgroundTint="@color/Yellow"
-        android:textColor="@color/black"/>
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="216dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="40dp"
+        android:backgroundTint="@color/Yellow"
         android:text="Next"
+        android:textColor="@color/black"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/BackButton"
-        android:backgroundTint="@color/Yellow"
-        android:textColor="@color/black"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 

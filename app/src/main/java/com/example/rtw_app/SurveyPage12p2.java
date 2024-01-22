@@ -41,8 +41,8 @@ public class SurveyPage12p2 extends AppCompatActivity {
         //option1
         TextView textView1 = (TextView) findViewById(R.id.self_efficacy2_Option1);
         textView1.setText("I don’t believe in limitations and  " +
-                "                I can create opportunities for " +
-                "                myself");
+                "I can create opportunities for " +
+                " myself");
         //option2
         TextView textview2 = (TextView) findViewById(R.id.self_efficacy2_Option2);
         textview2.setText("I love trying new things and " +

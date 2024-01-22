@@ -96,10 +96,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="20dp"
-        android:textStyle="bold"
         android:text="Planner/Agenda"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/checkBox15"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
@@ -108,7 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="Phone Alert"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -129,26 +129,26 @@
         android:id="@+id/checkBox14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="28dp"
         android:layout_marginBottom="232dp"
         android:text="Calender"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/BottomGreenBar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox13" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox13"
+        app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
         android:id="@+id/checkBox15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="80dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="116dp"
         android:text="Whiteboard"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/textView19"
-        tools:layout_editor_absoluteX="182dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
     <CheckBox
         android:id="@+id/checkBox16"

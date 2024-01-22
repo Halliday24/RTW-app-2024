@@ -286,13 +286,14 @@
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="396dp"
-        android:layout_height="25dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
         android:text="In which of the above areas are things working well for you?"
         android:textColor="@color/black"
         android:textStyle="bold"
+
+        app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -312,14 +313,13 @@
 
     <TextView
         android:id="@+id/textView18"
-        android:layout_width="398dp"
-        android:layout_height="41dp"
-        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="What challenges are most important for you to address right now?"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerbox" />

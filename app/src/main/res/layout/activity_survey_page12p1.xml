@@ -98,7 +98,7 @@
         android:id="@+id/self_efficacy_Option1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="8dp"
         android:background="#999999"
         android:textColor="@color/black"
@@ -111,7 +111,7 @@
         android:id="@+id/option1_answers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+
         android:background="#999999"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
@@ -167,7 +167,7 @@
         android:id="@+id/option1_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+
         android:background="#999999"
         android:text="Never          Sometimes        About half          Most of        Always"
         android:textColor="@color/black"
@@ -180,7 +180,7 @@
         android:id="@+id/option1_text2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+
         android:background="#999999"
         android:text="                                              of the time      the time"
         android:textColor="@color/black"
@@ -195,7 +195,7 @@
         android:id="@+id/self_efficacy_Option2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -209,7 +209,7 @@
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/self_efficacy_Option2"
-        android:layout_marginLeft="10dp">
+        >
 
         <RadioButton
             android:id="@+id/neverRadioButton2"
@@ -262,7 +262,7 @@
         android:id="@+id/option2_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+
         android:layout_marginTop="5dp"
         android:text="Never          Sometimes        About half          Most of        Always"
         android:textColor="@color/black"
@@ -289,7 +289,7 @@
         android:id="@+id/self_efficacy_Option3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="40dp"
         android:background="#999999"
         android:textColor="@color/black"
@@ -302,7 +302,7 @@
         android:id="@+id/option3_answers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="0dp"
         android:background="#999999"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
@@ -358,7 +358,7 @@
         android:id="@+id/option3_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+
         android:background="#999999"
         android:text="Never          Sometimes        About half          Most of        Always"
         android:textColor="@color/black"
@@ -371,7 +371,7 @@
         android:id="@+id/option3_text2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+
         android:background="#999999"
         android:text="                                               of the time      the time"
         android:textColor="@color/black"
