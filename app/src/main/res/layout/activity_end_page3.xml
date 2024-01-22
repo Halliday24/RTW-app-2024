@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/digitalWhite"
+    tools:context=".EndPageP2">
+
+
+    <ImageView
+        android:id="@+id/TopGreenBar"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@color/Green"
+        android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/Green"
+        android:max="100"
+        android:progress="100"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/progressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBar"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Progress: 100%"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/hint"
+        android:layout_width="64dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="@color/Green"
+        android:onClick="openHint"
+        android:text=" ? "
+        android:textColor="@color/Yellow"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/TopGreenBar"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/BottomGreenBar"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="700dp"
+        android:background="@color/Green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/include"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="What to include in an Requirement to Withdraw (RTW) Appeal Letter: "
+        android:textStyle="bold"
+        android:textSize="13dp"
+        app:layout_constraintTop_toBottomOf="@id/TopGreenBar"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/fullName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text=" ● Your full name"
+        android:textStyle="bold"
+        android:textSize="13dp"
+        app:layout_constraintTop_toBottomOf="@id/include"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/studentID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text=" ● Student ID number"
+        android:textStyle="bold"
+        android:textSize="13dp"
+        app:layout_constraintTop_toBottomOf="@id/fullName"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/degree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text=" ● Degree program and major"
+        android:textStyle="bold"
+        android:textSize="13dp"
+        app:layout_constraintTop_toBottomOf="@id/studentID"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/number1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="1.Reasons for any poor academic performance on your record (suggested factors to consider – study habits; study skills; writing skill; difficulties with the language of
+instruction; time management; workload demands; unstructured time; social life;
+personal/family life; work (paid or volunteer) hours; physical or mental health;
+bereavement; motivation; lack of necessary learning accommodations; etc.). Having just completed this workbook, you should have a number of factors you've identified that can be included in your appeal letter."
+        android:textStyle="bold"
+        android:textSize="13dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="212dp"
+        app:layout_constraintTop_toBottomOf="@id/degree"/>
+
+    <TextView
+        android:id="@+id/number2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="2.Provide the reason(s) you think it would be in your best interest to return to university
+studies this fall rather than taking the year away from academic studies to address the
+factors that led to the RTW decision (outlined in 1.)."
+        android:textStyle="bold"
+        android:textSize="13dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="212dp"
+        app:layout_constraintTop_toBottomOf="@id/number1"/>
+
+    <TextView
+        android:id="@+id/number3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="3.Proposed changes/strategies to ensure ultimate academic success should you be
+permitted to return on Academic Probation (these should specifically address the factors
+identified in 1. above). If you are struggling to come up with some concrete changes or
+strategies you could apply, you may want to meet with a Student Advisor, or the Student
+Success Advisor prior to writing your appeal."
+        android:textStyle="bold"
+        android:textSize="13dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="212dp"
+        app:layout_constraintTop_toBottomOf="@id/number2"/>
+
+    <TextView
+        android:id="@+id/number4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="4.Any other information you feel may assist in strengthening your appeal.
+a.Your academic strengths and how they align with your chosen program
+b.Your career aspirations c.Why your current Augustana program/major is well suited for you/if you intend to
+pursue a different program/major at Augustana"
+        android:textStyle="bold"
+        android:textSize="13dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="212dp"
+        app:layout_constraintTop_toBottomOf="@id/number3"/>
+
+    <TextView
+        android:id="@+id/number4a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="a.Your academic strengths and how they align with your chosen program
+b.Your career aspirations c.Why your current Augustana program/major is well suited for you/if you intend to
+pursue a different program/major at Augustana"
+        android:textStyle="bold"
+        android:textSize="11dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="212dp"
+        app:layout_constraintTop_toBottomOf="@id/number4"/>
+
+    <TextView
+        android:id="@+id/number4b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="b.Your career aspirations"
+        android:textStyle="bold"
+        android:textSize="11dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="212dp"
+        app:layout_constraintTop_toBottomOf="@id/number4a"/>
+
+    <TextView
+        android:id="@+id/number4c"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="c.Why your current Augustana program/major is well suited for you/if you intend to
+pursue a different program/major at Augustana"
+        android:textStyle="bold"
+        android:textSize="11dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="212dp"
+        app:layout_constraintTop_toBottomOf="@id/number4b"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

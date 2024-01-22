@@ -197,7 +197,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="What do you want to gain from or contribute to society during your lifetime?"
+        android:text="What do you want to gain from or contribute to society during your lifetime??"
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.483"
@@ -259,6 +259,5 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/supportFamilyCheckBox" />
-    -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
