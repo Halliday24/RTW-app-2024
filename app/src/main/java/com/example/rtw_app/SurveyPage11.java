@@ -13,7 +13,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -40,12 +42,29 @@ public class SurveyPage11 extends AppCompatActivity {
     private Button backButton;
     private Button nextButton;
     private Button hint;
+
+    private int currentQuestion;
+
+    private int totalQuestions = 35; // Set the total number of questions
+    private static final String KEY_CURRENT_QUESTION = "current_question";
+
+    private ProgressBar progressBar;
+    private TextView progressText;
     private String userInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page11);
-        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
+
+        progressBar = findViewById(R.id.progressBar);
+        progressText = findViewById(R.id.progressText);
+
+        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        updateProgress();
+
+
+
 
         TopGreenBar = findViewById(R.id.TopGreenBar);
         BottomGreenBar = findViewById(R.id.BottomGreenBar);
@@ -74,6 +93,17 @@ public class SurveyPage11 extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(currentQuestion<17){
+                    currentQuestion++;
+                }
+                else{
+                    currentQuestion=currentQuestion;
+                }
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
+                editor.putInt("Total_questions", totalQuestions);
+                editor.apply();
 
                 int optionOtherId = otherReasonEditText.getId();
                 int degreeID = degreeCheckBox.getId();
@@ -104,6 +134,8 @@ public class SurveyPage11 extends AppCompatActivity {
                     boolean selectedUnsure = unsureCheckBox.isChecked();
                     String selectedOther = otherReasonEditText.getText().toString();
                     String selectedGain = gainEditText.getText().toString();
+
+                    updateProgress();
 
                     // Call the generateAndSavePdf method
                     generateAndSavePdf(selectedDegree, selectedHelp, selectedJob, selectedFamily,
@@ -201,13 +233,11 @@ public class SurveyPage11 extends AppCompatActivity {
     public void goToNextPage(){
         Intent nextPage = new Intent(this, SurveyPage12p1.class);
         nextPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        nextPage.putExtra("userInfo", userInfo);
         startActivity(nextPage);
 
     }
     private void goBack() {
         Intent SurveyPage10 = new Intent(this, SurveyPage10.class);
-        SurveyPage10.putExtra("userInfo", userInfo);
         SurveyPage10.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage10);
     }
@@ -235,6 +265,12 @@ public class SurveyPage11 extends AppCompatActivity {
     private void openHint() {
         Intent Hint = new Intent(SurveyPage11.this, Hint.class);
         startActivity(Hint);
+    }
+
+    private void updateProgress() {
+        int progress = (currentQuestion * 100) / totalQuestions;
+        progressBar.setProgress(progress);
+        progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
     }
 
 }

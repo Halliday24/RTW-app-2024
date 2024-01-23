@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -22,13 +23,28 @@ import java.util.List;
 public class SurveyPage9 extends AppCompatActivity {
 //XML Should have Values and Goals on top but is fine regardless
     private SharedPreferences sharedPreferences;
+
+    private int currentQuestion;
+
+    private int totalQuestions = 35; // Set the total number of questions
+    private static final String KEY_CURRENT_QUESTION = "current_question";
+
+    private ProgressBar progressBar;
+    private TextView progressText;
+
     private Button hint;
     private String userInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page9);
-        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
+
+        progressBar = findViewById(R.id.progressBar);
+        progressText = findViewById(R.id.progressText);
+
+        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        updateProgress();
 
         final RadioGroup purposeRadioGroup = findViewById(R.id.purposeRadioGroup);
         final RadioGroup confidenceRadioGroup = findViewById(R.id.confidenceRadioGroup);
@@ -49,6 +65,13 @@ public class SurveyPage9 extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(currentQuestion<15){
+                    currentQuestion++;
+                }
+                else{
+                    currentQuestion=currentQuestion;
+                }
+
                 int selectedPurposeId = purposeRadioGroup.getCheckedRadioButtonId();
                 int selectedConfidenceId = confidenceRadioGroup.getCheckedRadioButtonId();
                 int selectedGoalsId = goalsRadioGroup.getCheckedRadioButtonId();
@@ -75,7 +98,11 @@ public class SurveyPage9 extends AppCompatActivity {
                     editor.putString("Confidence", selectedConfidence);
                     editor.putString("Goals", selectedGoals);
                     editor.putString("Values", selectedValues);
+                    editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
+                    editor.putInt("Total_questions", totalQuestions);
                     editor.apply();
+
+                    updateProgress();
 
                     generateAndSavePdf(selectedPurpose,selectedConfidence,selectedGoals,selectedValues);
                     // Display a success message
@@ -173,14 +200,12 @@ public class SurveyPage9 extends AppCompatActivity {
     public void goToSurveyPage10() {
         Intent surveyPage10 = new Intent(this, SurveyPage10.class);
         surveyPage10.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        surveyPage10.putExtra("userInfo", userInfo);
         startActivity(surveyPage10);
     }
 
     public void goBack() {
         Intent Mindset = new Intent(this, MindsetPage.class);
         Mindset.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        Mindset.putExtra("userInfo", userInfo);
         startActivity(Mindset);
     }
 
@@ -189,5 +214,11 @@ public class SurveyPage9 extends AppCompatActivity {
     private void openHint() {
         Intent Hint = new Intent(SurveyPage9.this, Hint.class);
         startActivity(Hint);
+    }
+
+    private void updateProgress() {
+        int progress = (currentQuestion * 100) / totalQuestions;
+        progressBar.setProgress(progress);
+        progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
     }
 }

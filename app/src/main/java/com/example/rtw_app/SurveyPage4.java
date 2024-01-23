@@ -104,6 +104,8 @@ public class SurveyPage4 extends AppCompatActivity {
                     editor.putString("option2", selectedOption2);
                     editor.putString("option3", selectedOption3);
                     editor.putString("option4", selectedOption4);
+                    editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
+                    editor.putInt("Total_questions", totalQuestions);
                     editor.apply();
 
 

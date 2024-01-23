@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -23,7 +24,13 @@ import java.util.List;
 public class SurveyPage8 extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
+    private int currentQuestion;
 
+    private int totalQuestions = 35; // Set the total number of questions
+    private static final String KEY_CURRENT_QUESTION = "current_question";
+
+    private ProgressBar progressBar;
+    private TextView progressText;
     private EditText FirstAnswer;
     private  EditText SecondAnswer;
 
@@ -33,7 +40,13 @@ public class SurveyPage8 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page8);
-        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
+
+        progressBar = findViewById(R.id.progressBar);
+        progressText = findViewById(R.id.progressText);
+
+        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        updateProgress();
 
         TextView textView = (TextView) findViewById(R.id.surveyPage8_Question);
         textView.setText("Please describe any other barriers, including any extenuating circumstances, you " +
@@ -62,6 +75,13 @@ public class SurveyPage8 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if(currentQuestion<14){
+                    currentQuestion++;
+                }
+                else{
+                    currentQuestion=currentQuestion;
+                }
+
                 int option1Id = FirstAnswer.getId();
                 int option2Id = SecondAnswer.getId();
 
@@ -78,9 +98,12 @@ public class SurveyPage8 extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("option1", selectedOption1);
                     editor.putString("option2", selectedOption2);
+                    editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
+                    editor.putInt("Total_questions", totalQuestions);
 
                     editor.apply();
 
+                    updateProgress();
 
                     // Generate PDF after submitting survey
                     generateAndSavePdf(selectedOption1,selectedOption2);
@@ -173,7 +196,6 @@ public class SurveyPage8 extends AppCompatActivity {
     public void goToMindsetPage(){
         Intent MindsetPage = new Intent(this, MindsetPage.class);
         MindsetPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        MindsetPage.putExtra("userInfo", userInfo);
         startActivity(MindsetPage);
 
     }
@@ -181,7 +203,6 @@ public class SurveyPage8 extends AppCompatActivity {
     public void goBack(){
         Intent SurveyPage7 = new Intent(this, SurveyPage7.class);
         SurveyPage7.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        SurveyPage7.putExtra("userInfo", userInfo);
         startActivity(SurveyPage7);
 
     }
@@ -191,5 +212,11 @@ public class SurveyPage8 extends AppCompatActivity {
     private void openHint() {
         Intent Hint = new Intent(SurveyPage8.this, Hint.class);
         startActivity(Hint);
+    }
+
+    private void updateProgress() {
+        int progress = (currentQuestion * 100) / totalQuestions;
+        progressBar.setProgress(progress);
+        progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
     }
 }

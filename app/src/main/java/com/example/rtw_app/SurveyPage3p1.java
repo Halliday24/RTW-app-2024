@@ -87,6 +87,8 @@ public class SurveyPage3p1 extends AppCompatActivity {
                     editor.putString("Work Too many hours", selectedHours);
                     editor.putString("Work late hours", selectedLate);
                     editor.putString("Unemployed", selectedUnemployed);
+                    editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
+                    editor.putInt("Total_questions", totalQuestions);
                     editor.apply();
                     generateAndSavePdf(selectedHours,selectedLate,selectedUnemployed);
                     //

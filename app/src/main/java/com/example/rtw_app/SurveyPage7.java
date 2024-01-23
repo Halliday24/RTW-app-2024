@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -21,6 +22,15 @@ import java.util.List;
 public class SurveyPage7 extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
+
+    private int currentQuestion;
+
+    private int totalQuestions = 35; // Set the total number of questions
+
+    private static final String KEY_CURRENT_QUESTION = "current_question";
+
+    private ProgressBar progressBar;
+    private TextView progressText;
     private Button hint;
     private RadioGroup option1RadioGroup;
     private RadioGroup option2RadioGroup;
@@ -33,7 +43,13 @@ public class SurveyPage7 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page7);
 
-        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
+        progressBar = findViewById(R.id.progressBar);
+        progressText = findViewById(R.id.progressText);
+
+        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        updateProgress();
+
         option1RadioGroup = findViewById(R.id.option1_answers);
         option2RadioGroup = findViewById(R.id.option2_answers);
         option3RadioGroup2 = findViewById(R.id.option3_answers);
@@ -76,6 +92,13 @@ public class SurveyPage7 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if(currentQuestion<13){
+                    currentQuestion++;
+                }
+                else{
+                    currentQuestion=currentQuestion;
+                }
+
                 int option1Id = option1RadioGroup.getCheckedRadioButtonId();
                 int option2Id = option2RadioGroup.getCheckedRadioButtonId();
                 int option3Id = option3RadioGroup2.getCheckedRadioButtonId();
@@ -99,10 +122,13 @@ public class SurveyPage7 extends AppCompatActivity {
                     editor.putString("option2", selectedOption2);
                     editor.putString("option3", selectedOption3);
                     editor.putString("option4", selectedOption4);
+                    editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
+                    editor.putInt("Total_questions", totalQuestions);
                     editor.apply();
 
 
 
+                    updateProgress();
 
                     Toast.makeText(SurveyPage7.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
                     // Generate PDF after submitting survey
@@ -205,7 +231,6 @@ public class SurveyPage7 extends AppCompatActivity {
     public void goToSurveyPage8(){
         Intent SurveyPage8 = new Intent(this, SurveyPage8.class);
         SurveyPage8.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        SurveyPage8.putExtra("userInfo", userInfo);
         startActivity(SurveyPage8);
 
     }
@@ -213,7 +238,6 @@ public class SurveyPage7 extends AppCompatActivity {
     public void goBack(){
         Intent impactAcademicPage2 = new Intent(this, SurveyPage6p4.class);
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        impactAcademicPage2.putExtra("userInfo", userInfo);
         startActivity(impactAcademicPage2);
 
     }
@@ -223,5 +247,11 @@ public class SurveyPage7 extends AppCompatActivity {
     private void openHint() {
         Intent Hint = new Intent(SurveyPage7.this, Hint.class);
         startActivity(Hint);
+    }
+
+    private void updateProgress() {
+        int progress = (currentQuestion * 100) / totalQuestions;
+        progressBar.setProgress(progress);
+        progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
     }
 }

@@ -9,8 +9,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,14 +20,27 @@ import java.util.List;
 public class SurveyPage15p2 extends AppCompatActivity {
     private Button hint;
     private SharedPreferences sharedPreferences;
+    private int currentQuestion;
+
+    private int totalQuestions = 35; // Set the total number of questions
+    private static final String KEY_CURRENT_QUESTION = "current_question";
+
+    private ProgressBar progressBar;
+    private TextView progressText;
     private RadioGroup FirstAnswer;
     private RadioGroup SecondAnswer;
     private String userInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
         setContentView(R.layout.activity_survey_page15p2);
+
+        progressBar = findViewById(R.id.progressBar);
+        progressText = findViewById(R.id.progressText);
+
+        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        updateProgress();
 
         FirstAnswer = findViewById(R.id.colorRadioGroup);
         SecondAnswer = findViewById(R.id.timeRadioGroup);
@@ -42,7 +57,18 @@ public class SurveyPage15p2 extends AppCompatActivity {
         BackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(currentQuestion<25){
+                    currentQuestion++;
+                }
+                else{
+                    currentQuestion=currentQuestion;
+                }
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
+                editor.putInt("Total_questions", totalQuestions);
+                editor.apply();
                 // Call the generateAndSavePdf method
+                updateProgress();
                 generateAndSavePdf();
             }
         });
@@ -134,6 +160,12 @@ public class SurveyPage15p2 extends AppCompatActivity {
     private void openHint() {
         Intent Hint = new Intent(SurveyPage15p2.this, Hint.class);
         startActivity(Hint);
+    }
+
+    private void updateProgress() {
+        int progress = (currentQuestion * 100) / totalQuestions;
+        progressBar.setProgress(progress);
+        progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
     }
 
 }

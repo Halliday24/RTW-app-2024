@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -23,11 +24,25 @@ public class SurveyPage15p1 extends AppCompatActivity {
     private Button hint;
     private String userInfo;
     private SharedPreferences sharedPreferences;
+
+    private int currentQuestion;
+
+    private int totalQuestions = 35; // Set the total number of questions
+    private static final String KEY_CURRENT_QUESTION = "current_question";
+
+    private ProgressBar progressBar;
+    private TextView progressText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page15p1);
-        sharedPreferences = getSharedPreferences("impact_responses", MODE_PRIVATE);
+
+        progressBar = findViewById(R.id.progressBar);
+        progressText = findViewById(R.id.progressText);
+
+        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        updateProgress();
 
         final RadioGroup colorRadioGroup = findViewById(R.id.colorRadioGroup);
         final RadioGroup timeRadioGroup = findViewById(R.id.timeRadioGroup);
@@ -44,6 +59,13 @@ public class SurveyPage15p1 extends AppCompatActivity {
 
                 if (selectedColorId != -1 && selectedTimeId != -1 && selectedPoorStudyId != -1 ) {
 
+                    if(currentQuestion<24){
+                        currentQuestion++;
+                    }
+                    else{
+                        currentQuestion=currentQuestion;
+                    }
+
                     // Get selected answers
                     String selectedStudy = ((RadioButton) findViewById(selectedColorId)).getText().toString();
                     String selectedTime = ((RadioButton) findViewById(selectedTimeId)).getText().toString();
@@ -53,11 +75,14 @@ public class SurveyPage15p1 extends AppCompatActivity {
                     editor.putString("impact_study", selectedStudy);
                     editor.putString("impact_time", selectedTime);
                     editor.putString("impact_poor_study", selectedPoorStudy);
+                    editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
+                    editor.putInt("Total_questions", totalQuestions);
 
                     editor.apply();
 
                     // Display a success message
                     Toast.makeText(SurveyPage15p1.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
+                    updateProgress();
                     generateAndSavePdf();
                     goTo();
 
@@ -161,7 +186,6 @@ public class SurveyPage15p1 extends AppCompatActivity {
     }
     public void goTo(){
         Intent SurveyPage15p2 = new Intent(this, SurveyPage15p2.class);
-        SurveyPage15p2.putExtra("userInfo", userInfo);
         SurveyPage15p2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage15p2);
 
@@ -169,7 +193,6 @@ public class SurveyPage15p1 extends AppCompatActivity {
 
     public void goBack(){
         Intent SurveyPage14p2 = new Intent(this, SurveyPage14p2.class);
-        SurveyPage14p2.putExtra("userInfo", userInfo);
         SurveyPage14p2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage14p2);
 
@@ -178,6 +201,12 @@ public class SurveyPage15p1 extends AppCompatActivity {
     private void openHint() {
         Intent Hint = new Intent(SurveyPage15p1.this, Hint.class);
         startActivity(Hint);
+    }
+
+    private void updateProgress() {
+        int progress = (currentQuestion * 100) / totalQuestions;
+        progressBar.setProgress(progress);
+        progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
     }
 
 }

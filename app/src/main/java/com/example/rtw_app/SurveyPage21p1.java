@@ -8,8 +8,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,14 +24,26 @@ public class SurveyPage21p1 extends AppCompatActivity {
 
 
     private SharedPreferences sharedPreferences;
+
+    private int currentQuestion;
+
+    private int totalQuestions = 35; // Set the total number of questions
+    private static final String KEY_CURRENT_QUESTION = "current_question";
+
+    private ProgressBar progressBar;
+    private TextView progressText;
     private RadioGroup colorRadioGroup, timeRadioGroup, poorStudyRadioGroup, disabilityRadioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page21p1);
-        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
+        progressBar = findViewById(R.id.progressBar);
+        progressText = findViewById(R.id.progressText);
 
+        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        updateProgress();
 
         // Initialize your RadioGroup instances
         colorRadioGroup = findViewById(R.id.colorRadioGroup);
@@ -51,6 +65,17 @@ public class SurveyPage21p1 extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(currentQuestion<33){
+                    currentQuestion++;
+                }
+                else{
+                    currentQuestion=currentQuestion;
+                }
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
+                editor.putInt("Total_questions", totalQuestions);
+                editor.apply();
+                updateProgress();
                 // Call the generateAndSavePdf method
                 generateAndSavePdf();
             }
@@ -122,7 +147,6 @@ public class SurveyPage21p1 extends AppCompatActivity {
 
     public void goTo(){
         Intent SurveyPage21p2 = new Intent(this, surveyPage21p2.class);
-        SurveyPage21p2.putExtra("userInfo", userInfo);
         SurveyPage21p2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage21p2);
 
@@ -130,7 +154,6 @@ public class SurveyPage21p1 extends AppCompatActivity {
 
     public void goBack(){
         Intent SurveyPage20p2 = new Intent(this, SurveyPage20p2.class);
-        SurveyPage20p2.putExtra("userInfo", userInfo);
         SurveyPage20p2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage20p2);
 
@@ -139,6 +162,12 @@ public class SurveyPage21p1 extends AppCompatActivity {
     private void openHint() {
         Intent Hint = new Intent(SurveyPage21p1.this, Hint.class);
         startActivity(Hint);
+    }
+
+    private void updateProgress() {
+        int progress = (currentQuestion * 100) / totalQuestions;
+        progressBar.setProgress(progress);
+        progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
     }
 
 }

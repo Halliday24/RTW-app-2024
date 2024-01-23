@@ -100,7 +100,7 @@ public class SurveyPage1p3 extends AppCompatActivity {
                     editor.putString("impact_time", selectedTime);
                     editor.putString("impact_poor_study", selectedPoorStudy);
                     editor.putString("impact_disability", selectedDisability);
-                    editor.putInt(KEY_CURRENT_QUESTION, currentQuestion++);
+                    editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
                     editor.putInt("Total_questions", totalQuestions);
                     editor.apply();
                     //update the progress bar

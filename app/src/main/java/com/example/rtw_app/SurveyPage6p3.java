@@ -28,8 +28,10 @@ public class SurveyPage6p3 extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
 
-    private int currentQuestion = 1;
-    private int totalQuestions = 5; // Set the total number of questions
+    private int currentQuestion;
+    private int totalQuestions = 35; // Set the total number of questions
+
+    private static final String KEY_CURRENT_QUESTION = "current_question";
     private ProgressBar progressBar;
     private TextView progressText;
     private RadioGroup studyRadioGroup, timeRadioGroup, poorStudyRadioGroup, disabilityRadioGroup, preparationRadioGroup;
@@ -40,18 +42,12 @@ public class SurveyPage6p3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page6p3);
-
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            currentQuestion = extras.getInt("data1");
-
-        }
-
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
 
+        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
         updateProgress();
-
 
 
         // Initialize your RadioGroup instances
@@ -60,8 +56,7 @@ public class SurveyPage6p3 extends AppCompatActivity {
         poorStudyRadioGroup = findViewById(R.id.poorStudyRadioGroup2);
         disabilityRadioGroup = findViewById(R.id.disabilityRadioGroup);
         preparationRadioGroup = findViewById(R.id.preparationRadioGroup);
-        // Initialize your SharedPreferences
-        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+
         hint = findViewById(R.id.hint);
 
         //Set an onClick listener for using the hint button
@@ -76,8 +71,13 @@ public class SurveyPage6p3 extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentQuestion++;
-                updateProgress();
+                if(currentQuestion<11){
+                    currentQuestion++;
+                }
+                else{
+                    currentQuestion=currentQuestion;
+                }
+
                 int selectedColorId = studyRadioGroup.getCheckedRadioButtonId();
                 int selectedTimeId = timeRadioGroup.getCheckedRadioButtonId();
                 int selectedPoorStudyId = poorStudyRadioGroup.getCheckedRadioButtonId();
@@ -102,8 +102,11 @@ public class SurveyPage6p3 extends AppCompatActivity {
                     editor.putString("impact_poor_study", selectedPoorStudy);
                     editor.putString("impact_disability", selectedDisability);
                     editor.putString("impact_color5", selectedPreparation);
+                    editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
+                    editor.putInt("Total_questions", totalQuestions);
                     editor.apply();
 
+                    updateProgress();
 
                     // Generate PDF after submitting survey
                     generateAndSavePdf(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability,selectedPreparation);
@@ -121,8 +124,7 @@ public class SurveyPage6p3 extends AppCompatActivity {
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentQuestion--;
-                updateProgress();
+
                 goBack();
             }
         });
@@ -187,14 +189,8 @@ public class SurveyPage6p3 extends AppCompatActivity {
 
 
     public void goToNextPage() {
-        updateProgress();
-        Intent myIntent = new Intent(SurveyPage6p3.this, SurveyPage6p4.class);
-        myIntent.putExtra("data1", currentQuestion);
-        myIntent.putExtra("userInfo", userInfo);
-        SurveyPage6p3.this.startActivity(myIntent);
 
         Intent nextPage = new Intent(this, SurveyPage6p4.class);
-        nextPage.putExtra("userInfo", userInfo);
         nextPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(nextPage);
 
@@ -203,12 +199,8 @@ public class SurveyPage6p3 extends AppCompatActivity {
 
 
     public void goBack() {
-        Intent LastPage = new Intent(this, SurveyPage6p2.class);
-        startActivity(LastPage);
 
         Intent myIntent = new Intent(SurveyPage6p3.this, SurveyPage6p2.class);
-        myIntent.putExtra("data1", currentQuestion);
-        myIntent.putExtra("userInfo", userInfo);
         myIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         SurveyPage6p3.this.startActivity(myIntent);
     }

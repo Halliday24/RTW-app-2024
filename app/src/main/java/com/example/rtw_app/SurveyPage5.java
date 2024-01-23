@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -24,6 +25,16 @@ import java.util.List;
 public class   SurveyPage5 extends AppCompatActivity {
     private String userInfo;
     private SharedPreferences sharedPreferences;
+
+    private int currentQuestion;
+
+    private int totalQuestions = 35; // Set the total number of questions
+
+    private static final String KEY_CURRENT_QUESTION = "current_question";
+
+    private ProgressBar progressBar;
+    private TextView progressText;
+
     private Button hint;
     private RadioGroup studyRadioGroup, timeRadioGroup, poorStudyRadioGroup, disabilityRadioGroup;
 
@@ -31,6 +42,13 @@ public class   SurveyPage5 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page5);
+
+        progressBar = findViewById(R.id.progressBar);
+        progressText = findViewById(R.id.progressText);
+
+        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        updateProgress();
 
         // Initialize your RadioGroup instances
         studyRadioGroup = findViewById(R.id.studyRadioGroup);
@@ -49,11 +67,19 @@ public class   SurveyPage5 extends AppCompatActivity {
             }
         });
 
+
         // Initialize UI elements
         Button submitButton = findViewById(R.id.nextButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(currentQuestion<8){
+                    currentQuestion++;
+                }
+                else{
+                    currentQuestion=currentQuestion;
+                }
 
                 int selectedColorId = studyRadioGroup.getCheckedRadioButtonId();
                 int selectedTimeId = timeRadioGroup.getCheckedRadioButtonId();
@@ -81,8 +107,11 @@ public class   SurveyPage5 extends AppCompatActivity {
                     editor.putString("impact_time", selectedTime);
                     editor.putString("impact_poor_study", selectedPoorStudy);
                     editor.putString("impact_disability", selectedDisability);
+                    editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
+                    editor.putInt("Total_questions", totalQuestions);
                     editor.apply();
 
+                    updateProgress();
 
                     // Generate PDF after submitting survey
                     generateAndSavePdf(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability);
@@ -101,6 +130,7 @@ public class   SurveyPage5 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+
                 goBack();
             }
         });
@@ -218,14 +248,12 @@ public class   SurveyPage5 extends AppCompatActivity {
     private void goToNextPage() {
         Intent intent = new Intent(this, SurveyPage6p1.class); // Replace with the actual next activity
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        intent.putExtra("userInfo", userInfo);
         startActivity(intent);
     }
 
     public void goBack(){
         Intent impactAcademicPage2 = new Intent(this, SurveyPage4.class);
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        impactAcademicPage2.putExtra("userInfo", userInfo);
         startActivity(impactAcademicPage2);
 
     }
@@ -235,5 +263,11 @@ public class   SurveyPage5 extends AppCompatActivity {
     private void openHint() {
         Intent Hint = new Intent(SurveyPage5.this, Hint.class);
         startActivity(Hint);
+    }
+
+    private void updateProgress() {
+        int progress = (currentQuestion * 100) / totalQuestions;
+        progressBar.setProgress(progress);
+        progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
     }
 }
