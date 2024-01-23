@@ -17,43 +17,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SurveyPage16p1 extends AppCompatActivity {
+
+    // Button for providing hints
     private Button hint;
 
-
-
-    private String userInfo;
-
-
+    // SharedPreferences for storing/retrieving data
     private SharedPreferences sharedPreferences;
 
+    // Current question number and total questions
     private int currentQuestion;
 
     private int totalQuestions = 35; // Set the total number of questions
     private static final String KEY_CURRENT_QUESTION = "current_question";
 
+    // Progress bar and text to display progress
     private ProgressBar progressBar;
     private TextView progressText;
+
+    // RadioGroups for each set of questions
     private RadioGroup colorRadioGroup, timeRadioGroup, poorStudyRadioGroup, disabilityRadioGroup;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page16p1);
+
+        // Initialize UI elements
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
 
+        // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
-        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION, currentQuestion);
         updateProgress();
 
+        // Initialize hint button and set click listener
         hint = findViewById(R.id.hint);
-        //Set an onClick listener for using the hint button
-
-        // Initialize your RadioGroup instances
-        colorRadioGroup = findViewById(R.id.colorRadioGroup);
-        timeRadioGroup = findViewById(R.id.timeRadioGroup);
-        poorStudyRadioGroup = findViewById(R.id.poorStudyRadioGroup2);
-        disabilityRadioGroup = findViewById(R.id.disabilityRadioGroup);
-
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,72 +60,74 @@ public class SurveyPage16p1 extends AppCompatActivity {
             }
         });
 
+        // Initialize RadioGroup instances
+        colorRadioGroup = findViewById(R.id.colorRadioGroup);
+        timeRadioGroup = findViewById(R.id.timeRadioGroup);
+        poorStudyRadioGroup = findViewById(R.id.poorStudyRadioGroup2);
+        disabilityRadioGroup = findViewById(R.id.disabilityRadioGroup);
 
+        // Initialize "Next" button and set click listener
         Button submitButton = findViewById(R.id.nextButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Call the generateAndSavePdf method
-                if(currentQuestion<26){
+                // Increment the current question if not at the last question
+                if (currentQuestion < 26) {
                     currentQuestion++;
+                } else {
+                    currentQuestion = currentQuestion;
                 }
-                else{
-                    currentQuestion=currentQuestion;
-                }
+                // Update SharedPreferences with current question
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
                 editor.putInt("Total_questions", totalQuestions);
                 editor.apply();
+                // Call the generateAndSavePdf method
                 updateProgress();
                 generateAndSavePdf();
+                // Call the goTo method to navigate to the next page
                 goTo();
             }
         });
 
+        // Initialize "Back" button and set click listener
         Button backButton = findViewById(R.id.BackButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Call the goBack method
+                // Call the goBack method to navigate back to the previous page
                 goBack();
-
             }
         });
     }
 
-
+    // Method to generate and save PDF based on user responses
     private void generateAndSavePdf() {
         List<String> questionTexts = new ArrayList<>();
         String mainQuestion = "Study Habits";
 
         // Add your question texts to the list here
-        questionTexts.add("I study at a regularly scheduled\n" +
-                "time each day");
-        questionTexts.add("I have a good understanding of\n" +
-                "what is required to be\n" +
-                "successful in each course");
-        questionTexts.add("I know how to break down\n" +
-                "large assignments to make\n" +
-                "them more manageable ");
-        questionTexts.add("Starting an assignment is easy\n" +
-                "for me ");
+        questionTexts.add("I study at a regularly scheduled time each day");
+        questionTexts.add("I have a good understanding of what is required to be successful in each course");
+        questionTexts.add("I know how to break down large assignments to make them more manageable");
+        questionTexts.add("Starting an assignment is easy for me");
 
         // Example of calling the method to get user information
         String[] userInfoArray = getUserInfoFromSharedPreferences();
 
-// Access the individual elements
+        // Access the individual elements (not being used in this activity)
         String name = userInfoArray[0];
         String ccid = userInfoArray[1];
 
+        // Generate output file name
         String output = name + ccid + "_output26.pdf";
 
         // Call the PdfGenerator to generate PDF
         PdfGenerator.generatePdf(SurveyPage16p1.this, output,
                 getSurveyAnswers(), questionTexts, mainQuestion);
-
-        // Call the goTo method after generating and saving the PDF
-        //goTo();
     }
+
+    // Method to retrieve user information from SharedPreferences
     private String[] getUserInfoFromSharedPreferences() {
         SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
@@ -136,6 +137,8 @@ public class SurveyPage16p1 extends AppCompatActivity {
 
         return new String[]{name, ccid};
     }
+
+    // Method to get survey answers in a list
     private List<String[]> getSurveyAnswers() {
         List<String[]> answersList = new ArrayList<>();
 
@@ -151,6 +154,7 @@ public class SurveyPage16p1 extends AppCompatActivity {
         return answersList;
     }
 
+    // Method to get the text of the selected RadioButton in a RadioGroup
     private String getSelectedRadioButtonText(RadioGroup radioGroup) {
         int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
         if (selectedRadioButtonId != -1) {
@@ -159,29 +163,30 @@ public class SurveyPage16p1 extends AppCompatActivity {
         return "";
     }
 
-    public void goTo(){
+    // Method to navigate to the next page
+    public void goTo() {
         Intent SurveyPage16p2 = new Intent(this, SurveyPage16p2.class);
         SurveyPage16p2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage16p2);
-
     }
 
-    public void goBack(){
+    // Method to navigate back to the previous page
+    public void goBack() {
         Intent SurveyPage15p2 = new Intent(this, SurveyPage15p2.class);
         SurveyPage15p2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage15p2);
-
     }
 
+    // Method to open the hint page
     private void openHint() {
         Intent Hint = new Intent(SurveyPage16p1.this, Hint.class);
         startActivity(Hint);
     }
 
+    // Method to update the progress bar and text
     private void updateProgress() {
         int progress = (currentQuestion * 100) / totalQuestions;
         progressBar.setProgress(progress);
         progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
     }
-
 }

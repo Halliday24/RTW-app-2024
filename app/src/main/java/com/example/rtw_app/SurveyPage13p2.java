@@ -21,18 +21,25 @@ import java.util.List;
 
 public class SurveyPage13p2 extends AppCompatActivity {
 
+    // Button for providing hints
     private Button hint;
 
-    private RadioGroup option1Group,option2Group;
+    // RadioGroups for each option
+    private RadioGroup option1Group, option2Group;
+
+    // User information string
     private String userInfo;
 
+    // SharedPreferences for storing/retrieving data
     private SharedPreferences sharedPreferences;
 
+    // Current question number and total questions
     private int currentQuestion;
 
     private int totalQuestions = 35; // Set the total number of questions
     private static final String KEY_CURRENT_QUESTION = "current_question";
 
+    // Progress bar and text to display progress
     private ProgressBar progressBar;
     private TextView progressText;
 
@@ -41,28 +48,29 @@ public class SurveyPage13p2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page13p2);
 
+        // Initialize UI elements
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
 
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
-        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION, currentQuestion);
         updateProgress();
 
+        // Initialize RadioGroups for each option
         option1Group = findViewById(R.id.option1_answers);
         option2Group = findViewById(R.id.option2_answers);
-        TextView textView = (TextView) findViewById(R.id.surveyPage13p2_Question);
-        textView.setText("Education and Goals");
-        //option1
-        TextView textView1 = (TextView) findViewById(R.id.Education_And_Goals2_Option1);
-        textView1.setText("I know my strengths and how " +
-                "they will help me be successful");
-        //option2
-        TextView textview2 = (TextView) findViewById(R.id.Education_And_Goals2_Option2);
-        textview2.setText("I have a faculty or staff mentor");
 
+        // Set the question text for the current page
+        TextView textView = findViewById(R.id.surveyPage13p2_Question);
+        textView.setText("Education and Goals");
+
+        // Set option texts for radio buttons
+        setOptionTexts();
+
+        // Initialize hint button
         hint = findViewById(R.id.hint);
 
-        //Set an onClick listener for using the hint button
+        // Set an onClick listener for using the hint button
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,47 +78,50 @@ public class SurveyPage13p2 extends AppCompatActivity {
             }
         });
 
+        // Initialize "Next" button and set click listener
         Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if(currentQuestion<21){
+                // Increment current question, but not beyond the total number of questions
+                if (currentQuestion < 21) {
                     currentQuestion++;
+                } else {
+                    currentQuestion = currentQuestion;
                 }
-                else{
-                    currentQuestion=currentQuestion;
-                }
+
+                // Save current question to SharedPreferences
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
                 editor.putInt("Total_questions", totalQuestions);
                 editor.apply();
+
                 // Retrieve values from radio buttons
                 int selectedOption1Id = option1Group.getCheckedRadioButtonId();
                 int selectedOption2Id = option2Group.getCheckedRadioButtonId();
 
+                // Check if all questions are answered
                 if (selectedOption1Id != -1 && selectedOption2Id != -1) {
+                    // Get selected options
                     String selectedOption1 = ((RadioButton) findViewById(selectedOption1Id)).getText().toString();
                     String selectedOption2 = ((RadioButton) findViewById(selectedOption2Id)).getText().toString();
 
+                    // Update progress and generate/save PDF
                     updateProgress();
-                    // Call the generateAndSavePdf method
                     generateAndSavePdf(selectedOption1, selectedOption2);
+
+                    // Move to the next page
                     goToNextPage();
-
-
                 } else {
+                    // Show a toast if questions are not answered
                     Toast.makeText(SurveyPage13p2.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-
-        Button buttonBack=findViewById(R.id.BackButton);
-
-        //set a click listener for the next Button
-        buttonBack.setOnClickListener(new View.OnClickListener(){
-
+        // Initialize "Back" button and set click listener
+        Button buttonBack = findViewById(R.id.BackButton);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goBack();
@@ -121,59 +132,58 @@ public class SurveyPage13p2 extends AppCompatActivity {
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
     }
 
+    private void setOptionTexts() {
+        // Set option texts for radio buttons
+        TextView textView1 = findViewById(R.id.Education_And_Goals2_Option1);
+        textView1.setText("I know my strengths and how they will help me be successful");
 
+        TextView textview2 = findViewById(R.id.Education_And_Goals2_Option2);
+        textview2.setText("I have a faculty or staff mentor");
+    }
 
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
+        // Recursively set text color for all TextViews in the layout
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childView = viewGroup.getChildAt(i);
             if (childView instanceof TextView) {
-                // Check if the view is a TextView
                 TextView textView = (TextView) childView;
                 textView.setTextColor(color);
             } else if (childView instanceof ViewGroup) {
-                // If the view is a ViewGroup, recursively call the method
                 setTextColorForAllTextViews((ViewGroup) childView, color);
             }
         }
-
     }
 
-    public void goToNextPage(){
-        Intent nextPage = new Intent(this, SurveyPage14p1.class);
-        nextPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivity(nextPage);
-
-    }
-
-    public void goBack(){
-        Intent Education_And_Goals = new Intent(this, SurveyPage13p1.class);
-        Education_And_Goals.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivity(Education_And_Goals);
-
-    }
     private void generateAndSavePdf(String selectedOption1, String selectedOption2) {
+        // List to store question texts
         List<String> questionTexts = new ArrayList<>();
+
+        // Main question for the page
         String mainQuestion = "Education and Goals (Part 2)";
 
-        // Add your question texts to the list here
+        // Add question texts to the list
         questionTexts.add("I know my strengths and how they will help me be successful");
         questionTexts.add("I have a faculty or staff mentor");
 
         // Example of calling the method to get user information
         String[] userInfoArray = getUserInfoFromSharedPreferences();
 
-// Access the individual elements
+        // Access individual elements from user information
         String name = userInfoArray[0];
         String ccid = userInfoArray[1];
 
+        // Output PDF filename
         String output = name + ccid + "_output21.pdf";
 
+        // Generate PDF using the PdfGenerator class
         PdfGenerator.generatePdf(SurveyPage13p2.this, output,
                 getSurveyAnswers(selectedOption1, selectedOption2),
                 questionTexts, mainQuestion);
     }
+
     private String[] getUserInfoFromSharedPreferences() {
+        // Retrieve user information from SharedPreferences
         SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
         // Retrieve user information using keys
@@ -183,25 +193,40 @@ public class SurveyPage13p2 extends AppCompatActivity {
         return new String[]{name, ccid};
     }
 
-    // Method to get survey answers in a list
     private List<String[]> getSurveyAnswers(String selectedOption1, String selectedOption2) {
+        // List to store survey answers
         List<String[]> answersList = new ArrayList<>();
 
-        // Create an array with the survey answers and add it to the list
+        // Array with the survey answers
         String[] surveyAnswers = {selectedOption1, selectedOption2};
+
+        // Add array to the list
         answersList.add(surveyAnswers);
 
         return answersList;
     }
 
+    private void goToNextPage() {
+        // Move to the next activity
+        Intent nextPage = new Intent(this, SurveyPage14p1.class);
+        nextPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(nextPage);
+    }
 
-    //this method is responsible for giving a hint to students to remind them about why they are
-    //filling in this workbook
+    private void goBack() {
+        // Move to the previous activity
+        Intent EducationAndGoals = new Intent(this, SurveyPage13p1.class);
+        EducationAndGoals.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(EducationAndGoals);
+    }
+
+    // Method to provide a hint to students
     private void openHint() {
         Intent Hint = new Intent(SurveyPage13p2.this, Hint.class);
         startActivity(Hint);
     }
 
+    // Method to update the progress bar and text
     private void updateProgress() {
         int progress = (currentQuestion * 100) / totalQuestions;
         progressBar.setProgress(progress);

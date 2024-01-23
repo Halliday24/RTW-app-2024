@@ -21,49 +21,61 @@ import java.util.List;
 
 public class SurveyPage15p1 extends AppCompatActivity {
 
+    // Button for providing hints
     private Button hint;
+
+    // User information string
     private String userInfo;
+
+    // SharedPreferences for storing/retrieving data
     private SharedPreferences sharedPreferences;
 
+    // Current question number and total questions
     private int currentQuestion;
 
     private int totalQuestions = 35; // Set the total number of questions
     private static final String KEY_CURRENT_QUESTION = "current_question";
 
+    // Progress bar and text to display progress
     private ProgressBar progressBar;
     private TextView progressText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page15p1);
 
+        // Initialize UI elements
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
 
+        // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
-        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION, currentQuestion);
         updateProgress();
 
+        // Initialize RadioGroups for each set of questions
         final RadioGroup colorRadioGroup = findViewById(R.id.colorRadioGroup);
         final RadioGroup timeRadioGroup = findViewById(R.id.timeRadioGroup);
         final RadioGroup poorStudyRadioGroup2 = findViewById(R.id.poorStudyRadioGroup2);
 
+        // Initialize "Submit" button and set click listener
         Button submitButton = findViewById(R.id.nextButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // Get selected RadioButton ids from each RadioGroup
                 int selectedColorId = colorRadioGroup.getCheckedRadioButtonId();
                 int selectedTimeId = timeRadioGroup.getCheckedRadioButtonId();
                 int selectedPoorStudyId = poorStudyRadioGroup2.getCheckedRadioButtonId();
 
-                if (selectedColorId != -1 && selectedTimeId != -1 && selectedPoorStudyId != -1 ) {
+                if (selectedColorId != -1 && selectedTimeId != -1 && selectedPoorStudyId != -1) {
 
-                    if(currentQuestion<24){
+                    // Increment the current question if not at the last question
+                    if (currentQuestion < 24) {
                         currentQuestion++;
-                    }
-                    else{
-                        currentQuestion=currentQuestion;
+                    } else {
+                        currentQuestion = currentQuestion;
                     }
 
                     // Get selected answers
@@ -71,17 +83,19 @@ public class SurveyPage15p1 extends AppCompatActivity {
                     String selectedTime = ((RadioButton) findViewById(selectedTimeId)).getText().toString();
                     String selectedPoorStudy = ((RadioButton) findViewById(selectedPoorStudyId)).getText().toString();
 
+                    // Update SharedPreferences with selected answers and current question
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("impact_study", selectedStudy);
                     editor.putString("impact_time", selectedTime);
                     editor.putString("impact_poor_study", selectedPoorStudy);
                     editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
                     editor.putInt("Total_questions", totalQuestions);
-
                     editor.apply();
 
                     // Display a success message
                     Toast.makeText(SurveyPage15p1.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
+
+                    // Update progress, generate and save PDF, and move to the next page
                     updateProgress();
                     generateAndSavePdf();
                     goTo();
@@ -93,11 +107,9 @@ public class SurveyPage15p1 extends AppCompatActivity {
             }
         });
 
-        Button buttonBack=findViewById(R.id.BackButton);
-
-        //set a click listener for the next Button
-        buttonBack.setOnClickListener(new View.OnClickListener(){
-
+        // Initialize "Back" button and set click listener
+        Button buttonBack = findViewById(R.id.BackButton);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goBack();
@@ -107,8 +119,8 @@ public class SurveyPage15p1 extends AppCompatActivity {
         // Set text color for all TextViews in the layout
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
 
+        // Initialize hint button and set click listener
         hint = findViewById(R.id.hint);
-        //Set an onClick listener for using the hint button
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,6 +129,7 @@ public class SurveyPage15p1 extends AppCompatActivity {
         });
     }
 
+    // Method to set text color for all TextViews in a ViewGroup
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -130,31 +143,26 @@ public class SurveyPage15p1 extends AppCompatActivity {
                 setTextColorForAllTextViews((ViewGroup) childView, color);
             }
         }
-
-
     }
 
+    // Method to generate and save PDF based on user responses
     private void generateAndSavePdf() {
         List<String> questionTexts = new ArrayList<>();
         String mainQuestion = "Class Preparation";
 
         // Add your question texts to the list here
-        questionTexts.add("I review the syllabus for each\n" +
-                "course and understand the\n" +
-                "expectations ");
-        questionTexts.add("I complete my small\n" +
-                "assignments with 24 hours\n" +
-                "after class\n");
-        questionTexts.add("I read the assigned reading\n" +
-                "before class");
+        questionTexts.add("I review the syllabus for each course and understand the expectations");
+        questionTexts.add("I complete my small assignments within 24 hours after class");
+        questionTexts.add("I read the assigned reading before class");
 
         // Example of calling the method to get user information
         String[] userInfoArray = getUserInfoFromSharedPreferences();
 
-// Access the individual elements
+        // Access the individual elements
         String name = userInfoArray[0];
         String ccid = userInfoArray[1];
 
+        // Generate output file name
         String output = name + ccid + "_output24.pdf";
 
         // Call the PdfGenerator to generate PDF
@@ -162,6 +170,18 @@ public class SurveyPage15p1 extends AppCompatActivity {
                 getSurveyAnswers(), questionTexts, mainQuestion);
     }
 
+    // Method to retrieve user information from SharedPreferences
+    private String[] getUserInfoFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
+        // Retrieve user information using keys
+        String name = preferences.getString("Name", "");
+        String ccid = preferences.getString("CCID", "");
+
+        return new String[]{name, ccid};
+    }
+
+    // Method to get survey answers in a list
     private List<String[]> getSurveyAnswers() {
         List<String[]> answersList = new ArrayList<>();
 
@@ -175,38 +195,31 @@ public class SurveyPage15p1 extends AppCompatActivity {
 
         return answersList;
     }
-    private String[] getUserInfoFromSharedPreferences() {
-        SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
-        // Retrieve user information using keys
-        String name = preferences.getString("Name", "");
-        String ccid = preferences.getString("CCID", "");
-
-        return new String[]{name, ccid};
-    }
-    public void goTo(){
+    // Method to navigate to the next page
+    public void goTo() {
         Intent SurveyPage15p2 = new Intent(this, SurveyPage15p2.class);
         SurveyPage15p2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage15p2);
-
     }
 
-    public void goBack(){
+    // Method to navigate back to the previous page
+    public void goBack() {
         Intent SurveyPage14p2 = new Intent(this, SurveyPage14p2.class);
         SurveyPage14p2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage14p2);
-
     }
 
+    // Method to open the hint page
     private void openHint() {
         Intent Hint = new Intent(SurveyPage15p1.this, Hint.class);
         startActivity(Hint);
     }
 
+    // Method to update the progress bar and text
     private void updateProgress() {
         int progress = (currentQuestion * 100) / totalQuestions;
         progressBar.setProgress(progress);
         progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
     }
-
 }
