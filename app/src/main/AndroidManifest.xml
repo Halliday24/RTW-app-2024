@@ -17,7 +17,7 @@
         android:theme="@style/Theme.RTWApp"
         tools:targetApi="31">
         <activity
-            android:name=".EndPage3"
+            android:name=".EndPageP3"
             android:exported="false" />
         <activity
             android:name=".SurveyPage6p4"

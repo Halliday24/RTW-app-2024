@@ -17,43 +17,38 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-//this file is responsible for the end message that will be displayed once completed the workbook
+
+/**
+ * This class is responsible for displaying finale questions before the workbook is done.
+ * Includes functional methods such as: generateAndSavePDF, openHint, goBack and goTo.
+ */
 public class EndPage extends AppCompatActivity {
 
     private Button hint;
     private String userInfo;
-
-
     private SharedPreferences sharedPreferences;
     private EditText answerbox, answerbox2;
 
+    /**
+     * Called when the activity is first created. This is where the UI is initialized along with
+     * where event listeners are made.
+     *
+     * @param savedInstanceState contains the previously saved state of the activitity if existing
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_page);
         sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 
-
-        Button buttonNext=findViewById(R.id.nextButton);
-
         answerbox = findViewById(R.id.answerbox);
-        answerbox2= findViewById(R.id.answerbox2);
-        //set a click listener for the next Button
+        answerbox2 = findViewById(R.id.answerbox2);
+        Button buttonNext = findViewById(R.id.nextButton);
         // Set a click listener for the Next button
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 generateAndSavePdf();
-            }
-        });
-        Button buttonBack=findViewById(R.id.BackButton);
-
-        //set a click listener for the next Button
-        buttonBack.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view) {
-                goBack();
             }
         });
 
@@ -69,6 +64,7 @@ public class EndPage extends AppCompatActivity {
             }
         });
 
+        //set a click listener for the back Button
         Button backButton = findViewById(R.id.BackButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +76,10 @@ public class EndPage extends AppCompatActivity {
         });
     }
 
+    /**
+     * This method generates and saves a PDF with survey responses and displays the users responses
+     * on a new blank text page.
+     */
     private void generateAndSavePdf() {
         List<String> questionTexts = new ArrayList<>();
         String mainQuestion = "Social Engagement ";
@@ -91,15 +91,14 @@ public class EndPage extends AppCompatActivity {
         questionTexts.add("What support or resources will be most useful for you to address these\n" +
                 "challenges next year?");
 
-
         // Example of calling the method to get user information
         String[] userInfoArray = getUserInfoFromSharedPreferences();
 
-// Access the individual elements
+        // Access the individual elements
         String name = userInfoArray[0];
         String ccid = userInfoArray[1];
 
-        String output = name +ccid + "_output35.pdf";
+        String output = name + ccid + "_output35.pdf";
 
         // Call the PdfGenerator to generate PDF
         PdfGenerator.generatePdf(EndPage.this, output,
@@ -111,6 +110,11 @@ public class EndPage extends AppCompatActivity {
         // Call the goTo method after generating and saving the PDF
         goTo();
     }
+
+    /**
+     *  This method gets the users informationc by using SharedPreferences.
+     * @return An array containing the users information
+     */
     private String[] getUserInfoFromSharedPreferences() {
         SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
@@ -120,6 +124,11 @@ public class EndPage extends AppCompatActivity {
 
         return new String[]{name, ccid};
     }
+
+    /**
+     * This method gets survey answers from EditTexts and returns them as a list.
+     * @return A list containing survey answers
+     */
     private List<String[]> getSurveyAnswers() {
         List<String[]> answersList = new ArrayList<>();
 
@@ -132,6 +141,12 @@ public class EndPage extends AppCompatActivity {
 
         return answersList;
     }
+
+    /**
+     * This method sets the text color for all TextViews in the specified ViewGroup.
+     * @param viewGroup The ViewGroyp containing TextViews
+     * @param color     The color set for TextViews
+     */
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -147,23 +162,31 @@ public class EndPage extends AppCompatActivity {
         }
     }
 
-
-    public void goTo(){
-        Intent EndPageP2 = new Intent(this, EndPageP2.class);
-        EndPageP2.putExtra("userInfo", userInfo);
-        EndPageP2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivity(EndPageP2);
-
-    }
-
-    public void goBack(){
-        Intent SurveyPage21p1 = new Intent(this, surveyPage21p2.class);
-        SurveyPage21p1.putExtra("userInfo", userInfo);
-        SurveyPage21p1.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivity(SurveyPage21p1);
+    /**
+     * This method sends the user to the next page.
+     */
+    public void goTo() {
+        Intent nextPage = new Intent(this, EndPageP2.class);
+        nextPage.putExtra("userInfo", userInfo);
+        nextPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(nextPage);
 
     }
 
+    /**
+     * This method sends the user to the previous page.
+     */
+    public void goBack() {
+        Intent prevPage = new Intent(this, surveyPage21p2.class);
+        prevPage.putExtra("userInfo", userInfo);
+        prevPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(prevPage);
+
+    }
+
+    /**
+     * This method opens the hint page.
+     */
     private void openHint() {
         Intent Hint = new Intent(EndPage.this, Hint.class);
         startActivity(Hint);

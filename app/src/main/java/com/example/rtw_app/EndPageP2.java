@@ -17,6 +17,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class is the second part of the end page where the user selects their desired resources.
+ */
 public class EndPageP2 extends AppCompatActivity {
     private CheckBox javaCheckBox;
     private CheckBox kotlinCheckBox;
@@ -33,11 +36,17 @@ public class EndPageP2 extends AppCompatActivity {
     private CheckBox CheckBox9;
     private String userInfo;
     private Button hint;
-    private Button nextButton;
+    private Button doneButton;
+
+    /**
+     * Called when the activity is first created. This is where the UI is initialized along with
+     * where event listeners are made.
+     *
+     * @param savedInstanceState contains the previously saved state of the activitity if existing
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         setContentView(R.layout.activity_end_page_p2);
         javaCheckBox = findViewById(R.id.javaCheckbox);
@@ -53,13 +62,14 @@ public class EndPageP2 extends AppCompatActivity {
         CheckBox7 = findViewById(R.id.checkBox8);
         CheckBox8 = findViewById(R.id.checkBox9);
         CheckBox9 = findViewById(R.id.checkBox10);
-        nextButton = findViewById(R.id.submitButton);
-        // Set a click listener for the Next button
-        nextButton.setOnClickListener(new View.OnClickListener() {
+        doneButton = findViewById(R.id.doneButton);
+        // Set a click listener for the done button
+        doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 generateAndSavePdf();
+                done();
 
             }
         });
@@ -76,6 +86,11 @@ public class EndPageP2 extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * This method generates and saves a PDF with survey responses and displays the users responses
+     * on a new blank text page.
+     */
     private void generateAndSavePdf() {
         List<String[]> selectedCheckboxesList = getSelectedCheckboxes();
 
@@ -98,7 +113,7 @@ public class EndPageP2 extends AppCompatActivity {
         // Example of calling the method to get user information
         String[] userInfoArray = getUserInfoFromSharedPreferences();
 
-// Access the individual elements
+        // Access the individual elements
         String name = userInfoArray[0];
         String ccid = userInfoArray[1];
 
@@ -115,10 +130,15 @@ public class EndPageP2 extends AppCompatActivity {
             originalFileNames.add(name + ccid + "_output" + i + ".pdf");
         }
 
-        PdfGenerator.createZipFile(this,userInfo,originalFileNames);
-
+        PdfGenerator.createZipFile(this, userInfo, originalFileNames);
 
     }
+
+    /**
+     * This method gets the users informationc by using SharedPreferences.
+     *
+     * @return An array containing the users information
+     */
     private String[] getUserInfoFromSharedPreferences() {
         SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
@@ -128,23 +148,28 @@ public class EndPageP2 extends AppCompatActivity {
 
         return new String[]{name, ccid};
     }
+
+    /**
+     * This method gegts the selected checkboxes and returns them as a list.
+     *
+     * @return A list containing arrays of selected checkboxes
+     */
     private List<String[]> getSelectedCheckboxes() {
         List<String[]> selectedCheckboxesList = new ArrayList<>();
 
-
-        boolean selectedJava  =   javaCheckBox.isChecked();
-        boolean selectedKotlin =     kotlinCheckBox.isChecked();
-        boolean selectedSwift =    swiftCheckBox.isChecked();
+        boolean selectedJava = javaCheckBox.isChecked();
+        boolean selectedKotlin = kotlinCheckBox.isChecked();
+        boolean selectedSwift = swiftCheckBox.isChecked();
         boolean selected1 = CheckBox.isChecked();
-        boolean selected2 =  CheckBox1.isChecked();
-        boolean selected3 =  CheckBox2.isChecked();
-        boolean selected4 =    CheckBox3.isChecked();
-        boolean selected5 =     CheckBox4.isChecked();
-        boolean selected6 =    CheckBox5.isChecked();
-        boolean selected7 =     CheckBox6.isChecked();
-        boolean selected8 =       CheckBox7.isChecked();
-        boolean selected9 =      CheckBox8.isChecked();
-        boolean selected10 =     CheckBox9.isChecked();
+        boolean selected2 = CheckBox1.isChecked();
+        boolean selected3 = CheckBox2.isChecked();
+        boolean selected4 = CheckBox3.isChecked();
+        boolean selected5 = CheckBox4.isChecked();
+        boolean selected6 = CheckBox5.isChecked();
+        boolean selected7 = CheckBox6.isChecked();
+        boolean selected8 = CheckBox7.isChecked();
+        boolean selected9 = CheckBox8.isChecked();
+        boolean selected10 = CheckBox9.isChecked();
         // Create an array with the selected Checkboxes for each question and add it to the list
         String[] questionCheckboxes = {
                 String.valueOf(selectedJava),
@@ -161,13 +186,18 @@ public class EndPageP2 extends AppCompatActivity {
                 String.valueOf(selected9),
                 String.valueOf(selected10)
 
-
         };
         selectedCheckboxesList.add(questionCheckboxes);
 
-
         return selectedCheckboxesList;
     }
+
+    /**
+     * This method sets the text color for all TextViews in the specified ViewGroup.
+     *
+     * @param viewGroup The ViewGroyp containing TextViews
+     * @param color     The color set for TextViews
+     */
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -183,9 +213,19 @@ public class EndPageP2 extends AppCompatActivity {
         }
 
     }
+
+    /**
+     * This method sends the user to the final page where possible next options are available.
+     */
     private void done() {
 
+        Intent done = new Intent(EndPageP2.this, EndPageP3.class);
+        startActivity(done);
     }
+
+    /**
+     * This method opens the hint page.
+     */
     private void openHint() {
         Intent Hint = new Intent(EndPageP2.this, Hint.class);
         startActivity(Hint);
