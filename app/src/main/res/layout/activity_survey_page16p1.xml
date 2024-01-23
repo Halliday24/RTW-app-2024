@@ -150,7 +150,7 @@
             android:id="@+id/mostRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Most of the Time"
+            android:text="                                              of the time      the time"
             android:textColor="@android:color/transparent"
             android:textSize="0sp" />
 
@@ -171,7 +171,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:background="#999999"
-        android:text="Never        Sometimes      About half        Most of   Always"
+        android:text="Never        Sometimes      About half        Most of       Always"
         android:textColor="@color/black"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -360,7 +360,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:background="#999999"
-        android:text="Never        Sometimes      About half        Most of   Always"
+        android:text="Never        Sometimes      About half        Most of       Always"
         android:textColor="@color/black"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -454,25 +454,26 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="4dp"
-        android:text="Never        Sometimes      About half        Most of   Always"
+        android:text="Never        Sometimes      About half        Most of       Always"
         android:textColor="@color/black"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/disabilityRadioGroup" />
 
+    <!-- Next Button -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="165dp"
-        android:text="of the time      the time"
+        android:layout_width="406dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="                                              of the time      the time"
         android:textColor="@color/black"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
-    <!-- Next Button -->
     <Button
         android:id="@+id/BackButton"
         android:layout_width="wrap_content"
