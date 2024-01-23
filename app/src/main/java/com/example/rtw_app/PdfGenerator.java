@@ -19,7 +19,7 @@ import java.util.zip.ZipOutputStream;
 public class PdfGenerator {
 
     public static void generatePdf(Context context, String fileName, List<String[]> surveyAnswers, List<String> questionTexts, String mainQuestion) {
-        String filePath = new File(context.getExternalFilesDir(null), fileName).getAbsolutePath();
+        String filePath = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), fileName).getAbsolutePath();
 
         try {
             PdfWriter writer = new PdfWriter(new FileOutputStream(filePath));
@@ -61,7 +61,7 @@ public class PdfGenerator {
         File zipFile = new File(documentsFolder, zipFileName);
         try (FileOutputStream fos = new FileOutputStream(zipFile); ZipOutputStream zos = new ZipOutputStream(fos)) {
             for (String fileName : fileNames) {
-                File pdfFile = new File(context.getExternalFilesDir(null), fileName);
+                File pdfFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), fileName);
                 try (FileInputStream fis = new FileInputStream(pdfFile)) {
                     zos.putNextEntry(new ZipEntry(fileName));
 
