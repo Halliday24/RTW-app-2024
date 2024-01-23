@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String PERMISSION_WRITE_EXTERNALLY = Manifest.permission.MANAGE_EXTERNAL_STORAGE;
     private static final int PERMISSION_REQ_CODE_WRITE = 100;
+    private String userName = "";
     private static final String PERMISSION_READ_EXTERNALLY = Manifest.permission.READ_EXTERNAL_STORAGE;
 
     private static final int PERMISSION_REQ_CODE_READ = 200;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize your SharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+
 
         // Initialize UI elements
         editTextEmail = findViewById(R.id.LoginEmail);
@@ -121,12 +123,18 @@ public class MainActivity extends AppCompatActivity {
     private void performLogin(){
         // Retrieve entered username and password
         String email = editTextEmail.getText().toString();
-        String ccid = editTextCCID.getText().toString();
-        String name = editTextName.getText().toString();
-        saveUserInfoToSharedPreferences(name,ccid);
+        String studentID = editTextCCID.getText().toString();
+        userName = editTextName.getText().toString();
+
+        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("UserName",userName);
+        editor.apply();
+
+        saveUserInfoToSharedPreferences(userName,studentID);
 
         // Implement authentication logic here (will change when we get confirmation on if we can use servers or not)
-        if ((ccid.length() < 8 && (name.length() > 0))) {
+        if ((studentID.length() ==7 && (userName.length() > 0))) {
             // Successful login
             Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
             goToInstructionPage();

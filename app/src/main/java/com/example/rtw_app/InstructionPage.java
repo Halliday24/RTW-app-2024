@@ -3,6 +3,7 @@ package com.example.rtw_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -16,12 +17,21 @@ public class InstructionPage extends AppCompatActivity {
     private Button buttonBack;
     int Counter = 0;
 
+    private SharedPreferences sharedPreferences;
+
+    private String userName;
+
     private String userInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instruction_page);
+        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        userName= sharedPreferences.getString("UserName",userName);
+        TextView greeting = (TextView)findViewById(R.id.Greeting);
+        greeting.setText("Hi " + userName);
+
         TextView textView = (TextView) findViewById(R.id.Instructions);
         textView.setText("This self-guided workbook is designed to help you to identify, and reflect on, the factors" +
                 " that lead to being required to withdraw. The workbook will also help you " +

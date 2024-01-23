@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,14 @@ public class EndPage extends AppCompatActivity {
     private Button hint;
     private String userInfo;
     private SharedPreferences sharedPreferences;
+    private int currentQuestion;
+
+    private int totalQuestions = 35; // Set the total number of questions
+
+    private static final String KEY_CURRENT_QUESTION = "current_question";
+
+    private ProgressBar progressBar;
+    private TextView progressText;
     private EditText answerbox, answerbox2;
 
     /**
@@ -39,7 +48,13 @@ public class EndPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_page);
-        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
+
+        progressBar = findViewById(R.id.progressBar);
+        progressText = findViewById(R.id.progressText);
+
+        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        updateProgress();
 
         answerbox = findViewById(R.id.answerbox);
         answerbox2 = findViewById(R.id.answerbox2);
@@ -48,6 +63,18 @@ public class EndPage extends AppCompatActivity {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(currentQuestion<35){
+                    currentQuestion++;
+                }
+                else{
+                    currentQuestion=currentQuestion;
+                }
+                updateProgress();
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
+                editor.putInt("Total_questions", totalQuestions);
+                editor.apply();
+                updateProgress();
                 generateAndSavePdf();
             }
         });
@@ -167,7 +194,6 @@ public class EndPage extends AppCompatActivity {
      */
     public void goTo() {
         Intent nextPage = new Intent(this, EndPageP2.class);
-        nextPage.putExtra("userInfo", userInfo);
         nextPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(nextPage);
 
@@ -178,7 +204,6 @@ public class EndPage extends AppCompatActivity {
      */
     public void goBack() {
         Intent prevPage = new Intent(this, surveyPage21p2.class);
-        prevPage.putExtra("userInfo", userInfo);
         prevPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(prevPage);
 
@@ -190,6 +215,12 @@ public class EndPage extends AppCompatActivity {
     private void openHint() {
         Intent Hint = new Intent(EndPage.this, Hint.class);
         startActivity(Hint);
+    }
+
+    private void updateProgress() {
+        int progress = (currentQuestion * 100) / totalQuestions;
+        progressBar.setProgress(progress);
+        progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
     }
 
 }

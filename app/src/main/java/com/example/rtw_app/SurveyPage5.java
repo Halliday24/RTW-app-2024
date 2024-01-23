@@ -55,7 +55,7 @@ public class   SurveyPage5 extends AppCompatActivity {
         timeRadioGroup = findViewById(R.id.timeRadioGroup);
         poorStudyRadioGroup = findViewById(R.id.poorStudyRadioGroup2);
         disabilityRadioGroup = findViewById(R.id.disabilityRadioGroup);
-        sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
+        //sharedPreferences = getSharedPreferences("survey_responses", MODE_PRIVATE);
 
         hint = findViewById(R.id.hint);
 

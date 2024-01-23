@@ -301,6 +301,7 @@
 standing letter. If you would like a Student Advisor to review your appeal before you submit it,
 you can schedule an appointment."
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/doneButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

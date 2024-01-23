@@ -1,16 +1,22 @@
 package com.example.rtw_app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import android.Manifest;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +27,8 @@ import java.util.List;
  * This class is the second part of the end page where the user selects their desired resources.
  */
 public class EndPageP2 extends AppCompatActivity {
+
+    private static final int STORAGE_PERMISSION_CODE = 101;
     private CheckBox javaCheckBox;
     private CheckBox kotlinCheckBox;
     private CheckBox swiftCheckBox;
@@ -34,7 +42,16 @@ public class EndPageP2 extends AppCompatActivity {
     private CheckBox CheckBox7;
     private CheckBox CheckBox8;
     private CheckBox CheckBox9;
-    private String userInfo;
+    private SharedPreferences sharedPreferences;
+    private int currentQuestion;
+
+    private int totalQuestions = 35; // Set the total number of questions
+
+    private static final String KEY_CURRENT_QUESTION = "current_question";
+
+    private ProgressBar progressBar;
+    private TextView progressText;
+    private String userInfo = "RTW-APP";
     private Button hint;
     private Button doneButton;
 
@@ -49,6 +66,18 @@ public class EndPageP2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_end_page_p2);
+
+        progressBar = findViewById(R.id.progressBar);
+        progressText = findViewById(R.id.progressText);
+
+        sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        updateProgress();
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
+        }
+
         javaCheckBox = findViewById(R.id.javaCheckbox);
         kotlinCheckBox = findViewById(R.id.kotlinCheckbox);
         swiftCheckBox = findViewById(R.id.swiftCheckbox);
@@ -67,6 +96,7 @@ public class EndPageP2 extends AppCompatActivity {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
 
                 generateAndSavePdf();
                 done();
@@ -119,6 +149,7 @@ public class EndPageP2 extends AppCompatActivity {
 
         String output = name + ccid + "_output36.pdf";
 
+
         // Call the PdfGenerator to generate PDF
         PdfGenerator.generatePdf(EndPageP2.this, output, selectedCheckboxesList, questionTexts, "Final Survey Questions");
 
@@ -132,6 +163,21 @@ public class EndPageP2 extends AppCompatActivity {
 
         PdfGenerator.createZipFile(this, userInfo, originalFileNames);
 
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == STORAGE_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission was granted
+                Toast.makeText(this, "Storage Permission Granted", Toast.LENGTH_SHORT).show();
+            } else {
+                // Permission was denied
+                Toast.makeText(this, "Storage Permission Denied", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     /**
@@ -229,6 +275,12 @@ public class EndPageP2 extends AppCompatActivity {
     private void openHint() {
         Intent Hint = new Intent(EndPageP2.this, Hint.class);
         startActivity(Hint);
+    }
+
+    private void updateProgress() {
+        int progress = (currentQuestion * 100) / totalQuestions;
+        progressBar.setProgress(progress);
+        progressText.setText(getString(R.string.progress_text, currentQuestion, totalQuestions, progress));
     }
 
 }

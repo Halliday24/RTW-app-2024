@@ -157,45 +157,6 @@ public class SurveyPage1p1 extends AppCompatActivity {
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
     }
 
-//    @Override
-//    public void onSaveInstanceState(Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//
-//
-//        int selectedStudyId = studyRadioGroup.getCheckedRadioButtonId();
-//        int selectedTimeId = timeRadioGroup.getCheckedRadioButtonId();
-//        int selectedPoorStudyId = poorStudyRadioGroup.getCheckedRadioButtonId();
-//        int selectedDisabilityId = disabilityRadioGroup.getCheckedRadioButtonId();
-//        int selectedPreparationId = preparationRadioGroup.getCheckedRadioButtonId();
-//
-//
-//        outState.putInt("selectedStudyId", selectedStudyId);
-//        outState.putInt("selectedTimeId", selectedTimeId);
-//        outState.putInt("selectedPoorStudyId", selectedPoorStudyId);
-//        outState.putInt("selectedDisabilityId", selectedDisabilityId);
-//        outState.putInt("selectedPreparationId", selectedPreparationId);
-//    }
-//
-//
-//    @Override
-//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-//        super.onRestoreInstanceState(savedInstanceState);
-//
-//
-//        int selectedStudyId = savedInstanceState.getInt("selectedStudyId");
-//        int selectedTimeId = savedInstanceState.getInt("selectedTimeId");
-//        int selectedPoorStudyId = savedInstanceState.getInt("selectedPoorStudyId");
-//        int selectedDisabilityId = savedInstanceState.getInt("selectedDisabilityId");
-//        int selectedPreparationId = savedInstanceState.getInt("selectedPreparationId");
-//
-//
-//        studyRadioGroup.check(selectedStudyId);
-//        timeRadioGroup.check(selectedTimeId);
-//        poorStudyRadioGroup.check(selectedPoorStudyId);
-//        disabilityRadioGroup.check(selectedDisabilityId);
-//        preparationRadioGroup.check(selectedPreparationId);
-//    }
-
 
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
@@ -267,10 +228,10 @@ public class SurveyPage1p1 extends AppCompatActivity {
         questionTexts.add("Poor study environment?");
         questionTexts.add("Learning disability?");
         questionTexts.add("Ineffective academic preparation?");
-// Example of calling the method to get user information
+        // Example of calling the method to get user information
         String[] userInfoArray = getUserInfoFromSharedPreferences();
 
-// Access the individual elements
+        // Access the individual elements
         String name = userInfoArray[0];
         String ccid = userInfoArray[1];
 

@@ -80,6 +80,16 @@ public class SurveyPage21p1 extends AppCompatActivity {
                 generateAndSavePdf();
             }
         });
+
+        Button backButton = findViewById(R.id.BackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Call the goBack method
+                goBack();
+
+            }
+        });
     }
     private String[] getUserInfoFromSharedPreferences() {
         SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
