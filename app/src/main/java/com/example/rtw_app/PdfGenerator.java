@@ -52,12 +52,11 @@ public class PdfGenerator {
             return;
         }
 
-        File documentsFolder = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), "RTWApp");
+        File documentsFolder = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "RTWApp");
         if (!documentsFolder.exists() && !documentsFolder.mkdirs()) {
             Log.e("PdfGenerator", "Failed to create directory");
             return;
         }
-
 
         File zipFile = new File(documentsFolder, zipFileName);
         try (FileOutputStream fos = new FileOutputStream(zipFile); ZipOutputStream zos = new ZipOutputStream(fos)) {
@@ -80,5 +79,6 @@ public class PdfGenerator {
             Log.e("PdfGenerator", "Error creating zip file", e);
         }
     }
+
 
 }
