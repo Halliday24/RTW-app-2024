@@ -8,18 +8,21 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfReader;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.utils.PdfMerger;
+
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
-import java.io.FileInputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
 
 public class PdfGenerator {
 
     public static void generatePdf(Context context, String fileName, List<String[]> surveyAnswers, List<String> questionTexts, String mainQuestion) {
-        String filePath = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), fileName).getAbsolutePath();
+        String filePath = new File(context.getExternalFilesDir(null), fileName).getAbsolutePath();
 
         try {
             PdfWriter writer = new PdfWriter(new FileOutputStream(filePath));
@@ -46,10 +49,15 @@ public class PdfGenerator {
         }
     }
 
-    public static void createZipFile(Context context, String zipFileName, List<String> fileNames) {
-        if (zipFileName == null || fileNames == null) {
-            Log.e("PdfGenerator", "Zip file name or file list is null");
+    public static void createCombinedPdf(Context context, String combinedPdfFileName, List<String> pdfFileNames) {
+        if (combinedPdfFileName == null || pdfFileNames == null) {
+            Log.e("PdfGenerator", "Combined PDF file name or PDF file list is null");
             return;
+        }
+
+        // Ensure that the combinedPdfFileName has a ".pdf" extension
+        if (!combinedPdfFileName.toLowerCase().endsWith(".pdf")) {
+            combinedPdfFileName += ".pdf";
         }
 
         File documentsFolder = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "RTWApp");
@@ -58,27 +66,28 @@ public class PdfGenerator {
             return;
         }
 
-        File zipFile = new File(documentsFolder, zipFileName);
-        try (FileOutputStream fos = new FileOutputStream(zipFile); ZipOutputStream zos = new ZipOutputStream(fos)) {
-            for (String fileName : fileNames) {
-                File pdfFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), fileName);
-                try (FileInputStream fis = new FileInputStream(pdfFile)) {
-                    zos.putNextEntry(new ZipEntry(fileName));
+        File combinedPdfFile = new File(documentsFolder, combinedPdfFileName);
 
-                    byte[] buffer = new byte[1024];
-                    int length;
-                    while ((length = fis.read(buffer)) > 0) {
-                        zos.write(buffer, 0, length);
-                    }
-                    zos.closeEntry();
+        try (FileOutputStream fos = new FileOutputStream(combinedPdfFile);
+             PdfWriter writer = new PdfWriter(fos);
+             PdfDocument pdfDocument = new PdfDocument(writer)) {
+
+            PdfMerger pdfMerger = new PdfMerger(pdfDocument);
+
+            for (String pdfFileName : pdfFileNames) {
+                File pdfFile = new File(context.getExternalFilesDir(null), pdfFileName);
+                try (PdfDocument inputPdfDocument = new PdfDocument(new PdfReader(pdfFile.getAbsolutePath()))) {
+                    pdfMerger.merge(inputPdfDocument, 1, inputPdfDocument.getNumberOfPages());
                 } catch (IOException e) {
-                    Log.e("PdfGenerator", "Error processing file " + fileName, e);
+                    Log.e("PdfGenerator", "Error processing PDF file " + pdfFileName, e);
                 }
             }
+
+            // Close the PdfMerger manually
+            pdfMerger.close();
+
         } catch (IOException e) {
-            Log.e("PdfGenerator", "Error creating zip file", e);
+            Log.e("PdfGenerator", "Error creating combined PDF file", e);
         }
     }
-
-
 }

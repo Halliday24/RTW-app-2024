@@ -161,7 +161,7 @@ public class EndPageP2 extends AppCompatActivity {
             originalFileNames.add(name + ccid + "_output" + i + ".pdf");
         }
 
-        PdfGenerator.createZipFile(this, userInfo, originalFileNames);
+        PdfGenerator.createCombinedPdf(this, name + ccid, originalFileNames);
 
     }
 

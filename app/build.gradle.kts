@@ -48,5 +48,6 @@ dependencies {
     // Fix Duplicate class
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
     implementation("com.itextpdf:itext7-core:8.0.2")
+    implementation ("com.itextpdf:itextg:5.5.10")
 
 }
