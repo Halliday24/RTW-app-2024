@@ -22,30 +22,43 @@ import java.util.List;
 
 public class SurveyPage9 extends AppCompatActivity {
 //XML Should have Values and Goals on top but is fine regardless
+
+    // SharedPreferences to store and retrieve data
     private SharedPreferences sharedPreferences;
 
+    // Current question number
     private int currentQuestion;
 
+    //total number of questions
     private int totalQuestions = 35; // Set the total number of questions
+
+    //String holder for the current questions integer in Shared Preferences
     private static final String KEY_CURRENT_QUESTION = "current_question";
 
+    // Variable for the progressbar Widget in the xml
     private ProgressBar progressBar;
+    //Variable for the progressText Widget in the xml
     private TextView progressText;
 
+    //Variable for the hint button
     private Button hint;
-    private String userInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page9);
 
+        //Get the progressbar and progress text.
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
 
+        //get the current number from the sharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
         currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        //update the progress bar
         updateProgress();
 
+        // Initialize your RadioGroup instances
         final RadioGroup purposeRadioGroup = findViewById(R.id.purposeRadioGroup);
         final RadioGroup confidenceRadioGroup = findViewById(R.id.confidenceRadioGroup);
         final RadioGroup goalsRadioGroup = findViewById(R.id.goalsRadioGroup);
@@ -55,6 +68,10 @@ public class SurveyPage9 extends AppCompatActivity {
 
         //Set an onClick listener for using the hint button
         hint.setOnClickListener(new View.OnClickListener() {
+            /**
+             * This method displays the hint popup when the hint button is pressed.
+             * @param view
+             */
             @Override
             public void onClick(View view) {
                 openHint();
@@ -63,8 +80,14 @@ public class SurveyPage9 extends AppCompatActivity {
 
         Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * This method increments the current question integer if this page hasn't been visited
+             * before, checks if all the options are answered.
+             * If they are then it saves the user's answers to the shared preferences and moves to the next page.
+             * @param view
+             */
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 if(currentQuestion<15){
                     currentQuestion++;
                 }
@@ -72,15 +95,18 @@ public class SurveyPage9 extends AppCompatActivity {
                     currentQuestion=currentQuestion;
                 }
 
+                // Get selected RadioButton IDs from each RadioGroup
                 int selectedPurposeId = purposeRadioGroup.getCheckedRadioButtonId();
                 int selectedConfidenceId = confidenceRadioGroup.getCheckedRadioButtonId();
                 int selectedGoalsId = goalsRadioGroup.getCheckedRadioButtonId();
                 int selectedValuesId = valuesRadioGroup.getCheckedRadioButtonId();
+                //log to assist debugging
                 Log.d("Debug", "selectedStudy: " + selectedPurposeId);
                 Log.d("Debug", "selectedTime: " + selectedConfidenceId);
                 Log.d("Debug", "selectedPoorStudy: " + selectedGoalsId);
                 Log.d("Debug", "selectedDisability: " + selectedValuesId);
 
+                // Check if all the questions are answered
                 if (selectedPurposeId != -1 && selectedConfidenceId != -1
                         && selectedGoalsId != -1 && selectedValuesId != -1) {
                     // Get selected answers
@@ -102,9 +128,12 @@ public class SurveyPage9 extends AppCompatActivity {
                     editor.putInt("Total_questions", totalQuestions);
                     editor.apply();
 
+                    // Update progress bar
                     updateProgress();
 
+                    // Generate PDF after submitting survey
                     generateAndSavePdf(selectedPurpose,selectedConfidence,selectedGoals,selectedValues);
+
                     // Display a success message
                     Toast.makeText(SurveyPage9.this, "Survey submitted successfully!", Toast.LENGTH_SHORT).show();
 
@@ -122,8 +151,12 @@ public class SurveyPage9 extends AppCompatActivity {
 
         Button backButton = findViewById(R.id.BackButton);
         backButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * This method takes the user back to the previous page once the back button has been clicked.
+             * @param view
+             */
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 // Handle Back button click
                 goBack();
             }
@@ -132,6 +165,8 @@ public class SurveyPage9 extends AppCompatActivity {
         // Set text color for all TextViews in the layout
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
     }
+
+    // Method to get survey answers in a list
     private List<String[]> getSurveyAnswers(String selectedStudy, String selectedTime, String selectedPoorStudy, String selectedDisability) {
         List<String[]> answersList = new ArrayList<>();
         // Add your survey answers to the list here
@@ -182,6 +217,12 @@ public class SurveyPage9 extends AppCompatActivity {
 
         return new String[]{name, ccid};
     }
+
+    /**
+     * This method sets the color for all the members in a specific viewGroup.
+     * @param viewGroup
+     * @param color
+     */
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -197,12 +238,18 @@ public class SurveyPage9 extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method links this page to the next page, surveyPage10
+     */
     public void goToSurveyPage10() {
         Intent surveyPage10 = new Intent(this, SurveyPage10.class);
         surveyPage10.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(surveyPage10);
     }
 
+    /**
+     * This method links this page to the previous page, MindsetPage
+     */
     public void goBack() {
         Intent Mindset = new Intent(this, MindsetPage.class);
         Mindset.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -216,6 +263,9 @@ public class SurveyPage9 extends AppCompatActivity {
         startActivity(Hint);
     }
 
+    /**
+     * This method changes the text on the progress bar based on where in the app the user is.
+     */
     private void updateProgress() {
         int progress = (currentQuestion * 100) / totalQuestions;
         progressBar.setProgress(progress);

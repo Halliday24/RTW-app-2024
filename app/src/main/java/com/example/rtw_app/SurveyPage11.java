@@ -25,47 +25,72 @@ import java.util.List;
 
 public class SurveyPage11 extends AppCompatActivity {
 
+    // SharedPreferences to store and retrieve data
     private SharedPreferences sharedPreferences;
+    // Variable for the TopGreenBar ImageView in the xml
     private ImageView TopGreenBar;
+    // Variable for the BottomGreenBar imageview in the xml
     private ImageView BottomGreenBar;
+    // Variable for the degreeCheckBox in the xml
     private CheckBox degreeCheckBox;
+    // Variable for the helpOthersCheckBox in the xml
     private CheckBox helpOthersCheckBox;
+    // Variable for the getJobCheckBox in the xml
     private CheckBox getJobCheckBox;
+    // Variable for the supportFamilyCheckBox in the xml
     private CheckBox supportFamilyCheckBox;
+    // Variable for the lifeGoalCheckBox in the xml
     private CheckBox lifeGoalCheckBox;
+    // Variable for the differenceCheckBox in the xml
     private CheckBox differenceCheckBox;
+    // Variable for the learnCheckBox in the xml
     private CheckBox learnCheckBox;
+    // Variable for the unsureCheckBox in the xml
     private CheckBox unsureCheckBox;
+    // Variable for the otherCheckBox in the xml
     private CheckBox otherCheckBox;
+    // Variable for the otherReasonEditText in the xml
     private EditText otherReasonEditText;
+    // Variable for the gainEditText in the xml
     private EditText gainEditText;
+    //Variable for the back button
     private Button backButton;
+    //Variable for the next button
     private Button nextButton;
+    //Variable for the hint button
     private Button hint;
 
+    // Current question number
     private int currentQuestion;
 
+    //total number of questions
     private int totalQuestions = 35; // Set the total number of questions
+    //String holder for the current questions integer in Shared Preferences
     private static final String KEY_CURRENT_QUESTION = "current_question";
 
+    // Variable for the progressbar Widget in the xml
     private ProgressBar progressBar;
+    //Variable for the progressText Widget in the xml
     private TextView progressText;
-    private String userInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page11);
 
+        //Get the progressbar and progress text.
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
 
+        //get the current number from the sharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
         currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        //update the progress bar
         updateProgress();
 
 
 
-
+        //Initialize the instances
         TopGreenBar = findViewById(R.id.TopGreenBar);
         BottomGreenBar = findViewById(R.id.BottomGreenBar);
         degreeCheckBox = findViewById(R.id.degreeCheckBox);
@@ -83,6 +108,10 @@ public class SurveyPage11 extends AppCompatActivity {
         nextButton = findViewById(R.id.nextButton);
 
         backButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * This method takes the user back to the previous page once the back button has been clicked.
+             * @param view
+             */
             @Override
             public void onClick(View view) {
                 goBack();
@@ -91,8 +120,14 @@ public class SurveyPage11 extends AppCompatActivity {
 
         Button submitButton = findViewById(R.id.nextButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * This method increments the current question integer if this page hasn't been visited
+             * before, checks if all the options are answered.
+             * If they are then it saves the user's answers to the shared preferences and moves to the next page.
+             * @param view
+             */
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
                 if(currentQuestion<17){
                     currentQuestion++;
@@ -100,6 +135,8 @@ public class SurveyPage11 extends AppCompatActivity {
                 else{
                     currentQuestion=currentQuestion;
                 }
+
+                // Update SharedPreferences with selected answers
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
                 editor.putInt("Total_questions", totalQuestions);
@@ -135,6 +172,7 @@ public class SurveyPage11 extends AppCompatActivity {
                     String selectedOther = otherReasonEditText.getText().toString();
                     String selectedGain = gainEditText.getText().toString();
 
+                    //update the progress bar
                     updateProgress();
 
                     // Call the generateAndSavePdf method
@@ -143,9 +181,12 @@ public class SurveyPage11 extends AppCompatActivity {
 
 
 
+                    // Display success message
                     Toast.makeText(SurveyPage11.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
+                    // Navigate to the next page
                     goToNextPage();
                 } else {
+                    // Display a message to answer all questions
                     Toast.makeText(SurveyPage11.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -155,6 +196,10 @@ public class SurveyPage11 extends AppCompatActivity {
 
         //Set an onClick listener for using the hint button
         hint.setOnClickListener(new View.OnClickListener() {
+            /**
+             * This method displays the hint popup when the hint button is pressed.
+             * @param view
+             */
             @Override
             public void onClick(View view) {
                 openHint();
@@ -165,6 +210,7 @@ public class SurveyPage11 extends AppCompatActivity {
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
     }
 
+    // Method to generate and save PDF
     private void generateAndSavePdf(boolean selectedDegree, boolean selectedHelp, boolean selectedJob,
                                     boolean selectedFamily, boolean selectedGoal, boolean selectedDifference,
                                     boolean selectedLearn, boolean selectedUnsure, String selectedOther,String selectedGain) {
@@ -230,12 +276,19 @@ public class SurveyPage11 extends AppCompatActivity {
         return answersList;
     }
 
+    /**
+     * This method links this page to the next page, surveyPage12p1
+     */
     public void goToNextPage(){
         Intent nextPage = new Intent(this, SurveyPage12p1.class);
         nextPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(nextPage);
 
     }
+
+    /**
+     * This method links this page to the previous page, surveyPage10
+     */
     private void goBack() {
         Intent SurveyPage10 = new Intent(this, SurveyPage10.class);
         SurveyPage10.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -245,6 +298,11 @@ public class SurveyPage11 extends AppCompatActivity {
 
 
 
+    /**
+     * This method sets the color for all the members in a specific viewGroup.
+     * @param viewGroup
+     * @param color
+     */
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -267,6 +325,9 @@ public class SurveyPage11 extends AppCompatActivity {
         startActivity(Hint);
     }
 
+    /**
+     * This method changes the text on the progress bar based on where in the app the user is.
+     */
     private void updateProgress() {
         int progress = (currentQuestion * 100) / totalQuestions;
         progressBar.setProgress(progress);

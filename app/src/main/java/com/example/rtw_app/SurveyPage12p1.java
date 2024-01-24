@@ -21,36 +21,50 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SurveyPage12p1 extends AppCompatActivity {
+
+    // SharedPreferences to store and retrieve data
     private SharedPreferences sharedPreferences;
 
+    // Current question number
     private int currentQuestion;
 
+    //total number of questions
     private int totalQuestions = 35; // Set the total number of questions
+
+    //String holder for the current questions integer in Shared Preferences
     private static final String KEY_CURRENT_QUESTION = "current_question";
 
+    // Variable for the progressbar Widget in the xml
     private ProgressBar progressBar;
+    //Variable for the progressText Widget in the xml
     private TextView progressText;
+    //Variable for the hint button
     private Button hint;
 
+    //Variables for the radiogroup buttons in the xml
     private RadioGroup option1Group,option2Group,option3Group;
-    private EditText FirstTextAnswer;
-    private String userInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page12p1);
 
+        //Get the progressbar and progress text.
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
 
+        //get the current number from the sharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
         currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        //update the progress bar
         updateProgress();
 
+        // Initialize your RadioGroup instances
         option1Group = findViewById(R.id.option1_answers);
         option2Group = findViewById(R.id.option2_answers);
         option3Group = findViewById(R.id.option3_answers);
 
+        //set the text for the question and the options
         TextView textView = (TextView) findViewById(R.id.self_efficacy_Question2);
         textView.setText("Self-Efficacy and Growth Mindset");
         //option1
@@ -73,6 +87,10 @@ public class SurveyPage12p1 extends AppCompatActivity {
 
         //Set an onClick listener for using the hint button
         hint.setOnClickListener(new View.OnClickListener() {
+            /**
+             * This method displays the hint popup when the hint button is pressed.
+             * @param view
+             */
             @Override
             public void onClick(View view) {
                 openHint();
@@ -81,6 +99,12 @@ public class SurveyPage12p1 extends AppCompatActivity {
 
         Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * This method increments the current question integer if this page hasn't been visited
+             * before, checks if all the options are answered.
+             * If they are then it saves the user's answers to the shared preferences and moves to the next page.
+             * @param view
+             */
             @Override
             public void onClick(View view) {
 
@@ -90,6 +114,7 @@ public class SurveyPage12p1 extends AppCompatActivity {
                 else{
                     currentQuestion=currentQuestion;
                 }
+                // Update SharedPreferences with new currentQuestion number.
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
                 editor.putInt("Total_questions", totalQuestions);
@@ -102,18 +127,24 @@ public class SurveyPage12p1 extends AppCompatActivity {
 
 
 
+                // Check if all the questions are answered
                 if (selectedOption1Id != -1 && selectedOption2Id != -1 && selectedOption3Id != -1) {
+
+                    // Get the text of the selected RadioButton for each question
                     String selectedOption1 = ((RadioButton) findViewById(selectedOption1Id)).getText().toString();
                     String selectedOption2 = ((RadioButton) findViewById(selectedOption2Id)).getText().toString();
                     String selectedOption3 = ((RadioButton) findViewById(selectedOption3Id)).getText().toString();
 
 
+                    //update the progress bar
                     updateProgress();
                     // Call the generateAndSavePdf method
                     generateAndSavePdf(selectedOption1, selectedOption2, selectedOption3);
+
                     goToNextPage();
 
                 } else {
+                    // Display a message to answer all questions
                     Toast.makeText(SurveyPage12p1.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -125,6 +156,10 @@ public class SurveyPage12p1 extends AppCompatActivity {
         //set a click listener for the next Button
         buttonBack.setOnClickListener(new View.OnClickListener(){
 
+            /**
+             * This method takes the user back to the previous page once the back button has been clicked.
+             * @param view
+             */
             @Override
             public void onClick(View view) {
                 goBack();
@@ -137,6 +172,7 @@ public class SurveyPage12p1 extends AppCompatActivity {
 
     }
 
+    // Method to get survey answers in a list
     private void generateAndSavePdf(String selectedOption1, String selectedOption2, String selectedOption3) {
         List<String> questionTexts = new ArrayList<>();
         String mainQuestion = "Self-Efficacy and Growth Mindset";
@@ -184,6 +220,12 @@ public class SurveyPage12p1 extends AppCompatActivity {
 
         return new String[]{name, ccid};
     }
+
+    /**
+     * This method sets the color for all the members in a specific viewGroup.
+     * @param viewGroup
+     * @param color
+     */
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -200,6 +242,9 @@ public class SurveyPage12p1 extends AppCompatActivity {
 
     }
 
+    /**
+     * This method links this page to the next page, surveyPage12p2
+     */
     public void goToNextPage(){
         Intent nextPage = new Intent(this, SurveyPage12p2.class);
         nextPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -207,6 +252,9 @@ public class SurveyPage12p1 extends AppCompatActivity {
 
     }
 
+    /**
+     * This method links this page to the previous page, surveyPage11
+     */
     public void goBack(){
         Intent SurveyPage10 = new Intent(this, SurveyPage11.class);
         SurveyPage10.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -221,6 +269,9 @@ public class SurveyPage12p1 extends AppCompatActivity {
         startActivity(Hint);
     }
 
+    /**
+     * This method changes the text on the progress bar based on where in the app the user is.
+     */
     private void updateProgress() {
         int progress = (currentQuestion * 100) / totalQuestions;
         progressBar.setProgress(progress);

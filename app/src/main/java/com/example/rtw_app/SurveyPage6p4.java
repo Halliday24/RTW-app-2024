@@ -26,28 +26,39 @@ import java.util.List;
 public class SurveyPage6p4 extends AppCompatActivity {
 
 
+    // SharedPreferences to store and retrieve data
     private SharedPreferences sharedPreferences;
 
+    // Current question number
     private int currentQuestion;
+
+    //total number of questions
     private int totalQuestions = 35; // Set the total number of questions
 
+    //String holder for the current questions integer in Shared Preferences
     private static final String KEY_CURRENT_QUESTION = "current_question";
+    // Variable for the progressbar Widget in the xml
     private ProgressBar progressBar;
+    //Variable for the progressText Widget in the xml
     private TextView progressText;
+    //Variables for the radiogroup buttons in the xml
     private RadioGroup studyRadioGroup, timeRadioGroup, poorStudyRadioGroup, disabilityRadioGroup;
+    //Variable for the hint button
     private Button hint;
-    private String userInfo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page6p4);
-
+        //Get the progressbar and progress text.
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
 
+        //get the current number from the sharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
         currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        //update the progress bar
         updateProgress();
 
         // Initialize your RadioGroup instances
@@ -60,6 +71,10 @@ public class SurveyPage6p4 extends AppCompatActivity {
 
         //Set an onClick listener for using the hint button
         hint.setOnClickListener(new View.OnClickListener() {
+            /**
+             * This method displays the hint popup when the hint button is pressed.
+             * @param view
+             */
             @Override
             public void onClick(View view) {
                 openHint();
@@ -68,8 +83,14 @@ public class SurveyPage6p4 extends AppCompatActivity {
 
         Button submitButton = findViewById(R.id.nextButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * This method increments the current question integer if this page hasn't been visited
+             * before, checks if all the options are answered.
+             * If they are then it saves the user's answers to the shared preferences and moves to the next page.
+             * @param view
+             */
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 if(currentQuestion<12){
                     currentQuestion++;
                 }
@@ -77,16 +98,19 @@ public class SurveyPage6p4 extends AppCompatActivity {
                     currentQuestion=currentQuestion;
                 }
 
+                // Get selected RadioButton IDs from each RadioGroup
                 int selectedColorId = studyRadioGroup.getCheckedRadioButtonId();
                 int selectedTimeId = timeRadioGroup.getCheckedRadioButtonId();
                 int selectedPoorStudyId = poorStudyRadioGroup.getCheckedRadioButtonId();
                 int selectedDisabilityId = disabilityRadioGroup.getCheckedRadioButtonId();
 
 
+                // Check if all the questions are answered
                 if (selectedColorId != -1 && selectedTimeId != -1 && selectedPoorStudyId != -1 &&
                         selectedDisabilityId != -1 ) {
 
 
+                    // Get the text of the selected RadioButton for each question
                     String selectedStudy = ((RadioButton) findViewById(selectedColorId)).getText().toString();
                     String selectedTime = ((RadioButton) findViewById(selectedTimeId)).getText().toString();
                     String selectedPoorStudy = ((RadioButton) findViewById(selectedPoorStudyId)).getText().toString();
@@ -94,6 +118,7 @@ public class SurveyPage6p4 extends AppCompatActivity {
 
 
 
+                    // Update SharedPreferences with selected answers
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("impact_study", selectedStudy);
                     editor.putString("impact_time", selectedTime);
@@ -103,15 +128,20 @@ public class SurveyPage6p4 extends AppCompatActivity {
                     editor.putInt("Total_questions", totalQuestions);
                     editor.apply();
 
+                    // Update progress bar
                     updateProgress();
 
 
                     // Generate PDF after submitting survey
                     generateAndSavePdf(selectedStudy,selectedTime,selectedPoorStudy,selectedDisability);
 
+                    // Display success message
                     Toast.makeText(SurveyPage6p4.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
+
+                    // Navigate to the next page
                     goToNextPage();
                 } else {
+                    // Display a message to answer all questions
                     Toast.makeText(SurveyPage6p4.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -120,6 +150,10 @@ public class SurveyPage6p4 extends AppCompatActivity {
 
         Button buttonBack = findViewById(R.id.BackButton);
         buttonBack.setOnClickListener(new View.OnClickListener() {
+            /**
+             * This method takes the user back to the previous page once the back button has been clicked.
+             * @param view
+             */
             @Override
             public void onClick(View view) {
 
@@ -128,15 +162,18 @@ public class SurveyPage6p4 extends AppCompatActivity {
         });
 
 
+        // Set text color for all TextViews in the layout
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
     }
 
 
+    // Save the state of RadioButton selections
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
 
+        // Get selected RadioButton IDs from each RadioGroup
         int selectedStudyId = studyRadioGroup.getCheckedRadioButtonId();
         int selectedTimeId = timeRadioGroup.getCheckedRadioButtonId();
         int selectedPoorStudyId = poorStudyRadioGroup.getCheckedRadioButtonId();
@@ -144,6 +181,7 @@ public class SurveyPage6p4 extends AppCompatActivity {
 
 
 
+        // Save the IDs to the bundle
         outState.putInt("selectedStudyId", selectedStudyId);
         outState.putInt("selectedTimeId", selectedTimeId);
         outState.putInt("selectedPoorStudyId", selectedPoorStudyId);
@@ -152,11 +190,13 @@ public class SurveyPage6p4 extends AppCompatActivity {
     }
 
 
+    // Restore the state of RadioButton selections
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
 
+        // Retrieve the selected RadioButton IDs from the bundle
         int selectedStudyId = savedInstanceState.getInt("selectedStudyId");
         int selectedTimeId = savedInstanceState.getInt("selectedTimeId");
         int selectedPoorStudyId = savedInstanceState.getInt("selectedPoorStudyId");
@@ -164,6 +204,7 @@ public class SurveyPage6p4 extends AppCompatActivity {
         int selectedPreparationId = savedInstanceState.getInt("selectedPreparationId");
 
 
+        // Check the corresponding RadioButtons based on the saved IDs
         studyRadioGroup.check(selectedStudyId);
         timeRadioGroup.check(selectedTimeId);
         poorStudyRadioGroup.check(selectedPoorStudyId);
@@ -171,6 +212,11 @@ public class SurveyPage6p4 extends AppCompatActivity {
     }
 
 
+    /**
+     * This method sets the color for all the members in a specific viewGroup.
+     * @param viewGroup
+     * @param color
+     */
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -185,6 +231,9 @@ public class SurveyPage6p4 extends AppCompatActivity {
     }
 
 
+    /**
+     * This method links this page to the next page, surveyPage7
+     */
     public void goToNextPage() {
 
         Intent nextPage = new Intent(this, SurveyPage7.class);
@@ -194,6 +243,9 @@ public class SurveyPage6p4 extends AppCompatActivity {
 
     }
 
+    /**
+     * This method links this page to the previous page, surveyPage6p3
+     */
 
     public void goBack() {
 
@@ -252,6 +304,10 @@ public class SurveyPage6p4 extends AppCompatActivity {
 
         return new String[]{name, ccid};
     }
+
+    /**
+     * This method changes the text on the progress bar based on where in the app the user is.
+     */
     private void updateProgress() {
         int progress = (currentQuestion * 100) / totalQuestions;
         progressBar.setProgress(progress);

@@ -21,35 +21,49 @@ import java.util.List;
 
 public class SurveyPage7 extends AppCompatActivity {
 
+    // SharedPreferences to store and retrieve data
     private SharedPreferences sharedPreferences;
 
+    // Current question number
     private int currentQuestion;
 
+    //total number of questions
     private int totalQuestions = 35; // Set the total number of questions
 
+    //String holder for the current questions integer in Shared Preferences
     private static final String KEY_CURRENT_QUESTION = "current_question";
 
+    // Variable for the progressbar Widget in the xml
     private ProgressBar progressBar;
+
+    //Variable for the progressText Widget in the xml
     private TextView progressText;
+    //Variable for the hint button
     private Button hint;
+    //Variables for the radiogroup buttons in the xml
     private RadioGroup option1RadioGroup;
     private RadioGroup option2RadioGroup;
     private RadioGroup option3RadioGroup2;
     private RadioGroup option4RadioGroup;
- private Button buttonNext;
-    private String userInfo;
+    //Variable for the hint button
+    private Button buttonNext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_page7);
 
+        //Get the progressbar and progress text.
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
 
+        //get the current number from the sharedPreferences
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
         currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        //update the progress bar
         updateProgress();
 
+        // Initialize your RadioGroup instances
         option1RadioGroup = findViewById(R.id.option1_answers);
         option2RadioGroup = findViewById(R.id.option2_answers);
         option3RadioGroup2 = findViewById(R.id.option3_answers);
@@ -57,6 +71,7 @@ public class SurveyPage7 extends AppCompatActivity {
         final RadioGroup option1_answers = findViewById(R.id.option1_answers);
         // final RadioGroup programmingRadioGroup = findViewById(R.id.programmingRadioGroup);
 
+        //set the text for the question and the options
         TextView textView = (TextView) findViewById(R.id.surveyPage7_Question);
         textView.setText("How much of an impact did each of these potential transportation barriers have on your " +
                 "ability to participate in your education:");
@@ -80,17 +95,27 @@ public class SurveyPage7 extends AppCompatActivity {
         buttonNext=findViewById(R.id.nextButton);
         hint = findViewById(R.id.hint);
         hint.setOnClickListener(new View.OnClickListener() {
+            /**
+             * This method displays the hint popup when the hint button is pressed.
+             * @param view
+             */
             @Override
             public void onClick(View view) {
                 openHint();
             }
         });
 
-        //Set an onClick listener for using the hint button
+        //Set an onClick listener for using the next button
         buttonNext=findViewById(R.id.nextButton);
         buttonNext.setOnClickListener(new View.OnClickListener() {
+            /**
+             * This method increments the current question integer if this page hasn't been visited
+             * before, checks if all the options are answered.
+             * If they are then it saves the user's answers to the shared preferences and moves to the next page.
+             * @param view
+             */
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
                 if(currentQuestion<13){
                     currentQuestion++;
@@ -99,6 +124,7 @@ public class SurveyPage7 extends AppCompatActivity {
                     currentQuestion=currentQuestion;
                 }
 
+                // Get selected RadioButton IDs from each RadioGroup
                 int option1Id = option1RadioGroup.getCheckedRadioButtonId();
                 int option2Id = option2RadioGroup.getCheckedRadioButtonId();
                 int option3Id = option3RadioGroup2.getCheckedRadioButtonId();
@@ -106,10 +132,12 @@ public class SurveyPage7 extends AppCompatActivity {
 
 
 
+                // Check if all the questions are answered
                 if (option1Id != -1 && option2Id != -1 && option3Id != -1 &&
                         option4Id != -1) {
 
 
+                    // Get the text of the selected RadioButton for each question
                     String selectedOption1 = ((RadioButton) findViewById(option1Id)).getText().toString();
                     String selectedOption2 = ((RadioButton) findViewById(option2Id)).getText().toString();
                     String selectedOption3 = ((RadioButton) findViewById(option3Id)).getText().toString();
@@ -117,6 +145,7 @@ public class SurveyPage7 extends AppCompatActivity {
 
 
 
+                    // Update SharedPreferences with selected answers
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("option1", selectedOption1);
                     editor.putString("option2", selectedOption2);
@@ -128,26 +157,34 @@ public class SurveyPage7 extends AppCompatActivity {
 
 
 
+                    // Update progress bar
                     updateProgress();
 
+                    // Display success message
                     Toast.makeText(SurveyPage7.this, "Impact survey submitted successfully!", Toast.LENGTH_SHORT).show();
+
                     // Generate PDF after submitting survey
                     generateAndSavePdf(selectedOption1,selectedOption2,selectedOption3,selectedOption4);
 
                 } else {
+                    // Display a message to answer all questions
                     Toast.makeText(SurveyPage7.this, "Please answer all questions", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        //set a click listener for the next Button
+
 
         Button buttonBack=findViewById(R.id.BackButton);
 
-        //set a click listener for the next Button
+        //set a click listener for the back Button
         buttonBack.setOnClickListener(new View.OnClickListener(){
-
+            /**
+             * This method takes the user back to the previous page once the back button has been clicked.
+             * @param view
+             */
             @Override
             public void onClick(View view) {
+
                 goBack();
             }
         });
@@ -156,6 +193,12 @@ public class SurveyPage7 extends AppCompatActivity {
         setTextColorForAllTextViews((ViewGroup) findViewById(android.R.id.content), Color.BLACK);
     }
 
+
+    /**
+     * This method sets the color for all the members in a specific viewGroup.
+     * @param viewGroup
+     * @param color
+     */
     private void setTextColorForAllTextViews(ViewGroup viewGroup, int color) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -228,6 +271,10 @@ public class SurveyPage7 extends AppCompatActivity {
 
         return new String[]{name, ccid};
     }
+
+    /**
+     * This method links this page to the next page, surveyPage8
+     */
     public void goToSurveyPage8(){
         Intent SurveyPage8 = new Intent(this, SurveyPage8.class);
         SurveyPage8.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -235,6 +282,9 @@ public class SurveyPage7 extends AppCompatActivity {
 
     }
 
+    /**
+     * This method links this page to the previous page, surveyPage6p4
+     */
     public void goBack(){
         Intent impactAcademicPage2 = new Intent(this, SurveyPage6p4.class);
         impactAcademicPage2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -249,6 +299,9 @@ public class SurveyPage7 extends AppCompatActivity {
         startActivity(Hint);
     }
 
+    /**
+     * This method changes the text on the progress bar based on where in the app the user is.
+     */
     private void updateProgress() {
         int progress = (currentQuestion * 100) / totalQuestions;
         progressBar.setProgress(progress);
