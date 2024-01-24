@@ -181,7 +181,7 @@ public class EndPageP2 extends AppCompatActivity {
     }
 
     /**
-     * This method gets the users informationc by using SharedPreferences.
+     * This method gets the users information by using SharedPreferences.
      *
      * @return An array containing the users information
      */

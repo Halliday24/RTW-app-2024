@@ -53,7 +53,7 @@ public class EndPage extends AppCompatActivity {
         progressText = findViewById(R.id.progressText);
 
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
-        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION, currentQuestion);
         updateProgress();
 
         answerbox = findViewById(R.id.answerbox);
@@ -63,11 +63,10 @@ public class EndPage extends AppCompatActivity {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(currentQuestion<35){
+                if (currentQuestion < 35) {
                     currentQuestion++;
-                }
-                else{
-                    currentQuestion=currentQuestion;
+                } else {
+                    currentQuestion = currentQuestion;
                 }
                 updateProgress();
                 SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -111,12 +110,9 @@ public class EndPage extends AppCompatActivity {
         List<String> questionTexts = new ArrayList<>();
         String mainQuestion = "Social Engagement ";
 
-        questionTexts.add("What new habits do you plan to develop to support your academic success? Are\n" +
-                "there changes you feel need to be made so that you can fully participate in your\n" +
-                "education? ");
+        questionTexts.add("What new habits do you plan to develop to support your academic success? Are\n" + "there changes you feel need to be made so that you can fully participate in your\n" + "education? ");
         // Add your question texts to the list here
-        questionTexts.add("What support or resources will be most useful for you to address these\n" +
-                "challenges next year?");
+        questionTexts.add("What support or resources will be most useful for you to address these\n" + "challenges next year?");
 
         // Example of calling the method to get user information
         String[] userInfoArray = getUserInfoFromSharedPreferences();
@@ -128,8 +124,7 @@ public class EndPage extends AppCompatActivity {
         String output = name + ccid + "_output35.pdf";
 
         // Call the PdfGenerator to generate PDF
-        PdfGenerator.generatePdf(EndPage.this, output,
-                getSurveyAnswers(), questionTexts, mainQuestion);
+        PdfGenerator.generatePdf(EndPage.this, output, getSurveyAnswers(), questionTexts, mainQuestion);
 
         // Display a success message
         Toast.makeText(EndPage.this, "PDF generated and saved successfully!", Toast.LENGTH_SHORT).show();
@@ -139,7 +134,8 @@ public class EndPage extends AppCompatActivity {
     }
 
     /**
-     *  This method gets the users informationc by using SharedPreferences.
+     * This method gets the users information by using SharedPreferences.
+     *
      * @return An array containing the users information
      */
     private String[] getUserInfoFromSharedPreferences() {
@@ -154,16 +150,14 @@ public class EndPage extends AppCompatActivity {
 
     /**
      * This method gets survey answers from EditTexts and returns them as a list.
+     *
      * @return A list containing survey answers
      */
     private List<String[]> getSurveyAnswers() {
         List<String[]> answersList = new ArrayList<>();
 
         // Create an array with the survey answers and add it to the list
-        String[] surveyAnswers = {
-                answerbox.getText().toString(),
-                answerbox2.getText().toString()
-        };
+        String[] surveyAnswers = {answerbox.getText().toString(), answerbox2.getText().toString()};
         answersList.add(surveyAnswers);
 
         return answersList;
@@ -171,6 +165,7 @@ public class EndPage extends AppCompatActivity {
 
     /**
      * This method sets the text color for all TextViews in the specified ViewGroup.
+     *
      * @param viewGroup The ViewGroyp containing TextViews
      * @param color     The color set for TextViews
      */
@@ -217,6 +212,9 @@ public class EndPage extends AppCompatActivity {
         startActivity(Hint);
     }
 
+    /**
+     * Updates the progress bar and text based on the current question and amount of questions
+     */
     private void updateProgress() {
         int progress = (currentQuestion * 100) / totalQuestions;
         progressBar.setProgress(progress);

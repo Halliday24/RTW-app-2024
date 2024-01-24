@@ -1,3 +1,7 @@
+/**
+ * The SurveyPage18 class represents the another section in our application.
+ * The class includes functionality to navigate through survey questions and get user responses
+ */
 package com.example.rtw_app;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,21 +23,21 @@ import java.util.List;
 public class SurveyPage18 extends AppCompatActivity {
 
     private Button hint;
-
     private String userInfo;
-
-
     private SharedPreferences sharedPreferences;
-
     private int currentQuestion;
-
     private int totalQuestions = 35; // Set the total number of questions
     private static final String KEY_CURRENT_QUESTION = "current_question";
-
     private ProgressBar progressBar;
     private TextView progressText;
     private RadioGroup colorRadioGroup, timeRadioGroup, poorStudyRadioGroup, disabilityRadioGroup;
 
+    /**
+     * Called when the activity is first created. This is where the UI is initialized along with
+     * where event listeners are made.
+     *
+     * @param savedInstanceState contains the previously saved state of the activitity if existing
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +46,7 @@ public class SurveyPage18 extends AppCompatActivity {
         progressText = findViewById(R.id.progressText);
 
         sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
-        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION,currentQuestion);
+        currentQuestion = sharedPreferences.getInt(KEY_CURRENT_QUESTION, currentQuestion);
         updateProgress();
 
         // Initialize your RadioGroup instances
@@ -64,11 +68,10 @@ public class SurveyPage18 extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(currentQuestion<29){
+                if (currentQuestion < 29) {
                     currentQuestion++;
-                }
-                else{
-                    currentQuestion=currentQuestion;
+                } else {
+                    currentQuestion = currentQuestion;
                 }
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt(KEY_CURRENT_QUESTION, currentQuestion);
@@ -90,6 +93,11 @@ public class SurveyPage18 extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * This method generates and saves a PDF with survey responses and displays the users responses
+     * on a new blank text page.
+     */
     private void generateAndSavePdf() {
         List<String> questionTexts = new ArrayList<>();
         String mainQuestion = "Test Preparation Skills";
@@ -119,6 +127,12 @@ public class SurveyPage18 extends AppCompatActivity {
         // Call the goTo method after generating and saving the PDF
         goTo();
     }
+
+    /**
+     * This method gets the users information by using SharedPreferences.
+     *
+     * @return An array containing the users information
+     */
     private String[] getUserInfoFromSharedPreferences() {
         SharedPreferences preferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
@@ -128,6 +142,12 @@ public class SurveyPage18 extends AppCompatActivity {
 
         return new String[]{name, ccid};
     }
+
+    /**
+     * This method gets survey answers from EditTexts and returns them as a list.
+     *
+     * @return A list containing survey answers
+     */
     private List<String[]> getSurveyAnswers() {
         List<String[]> answersList = new ArrayList<>();
 
@@ -142,10 +162,14 @@ public class SurveyPage18 extends AppCompatActivity {
 
         return answersList;
 
-
     }
 
-
+    /**
+     * This method gets the text of the selected radio button inside a RadioGroup.
+     *
+     * @param radioGroup The RadioGroup with the radio buttons
+     * @return the text of the selected radio button
+     */
     private String getSelectedRadioButtonText(RadioGroup radioGroup) {
         int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
         if (selectedRadioButtonId != -1) {
@@ -153,25 +177,38 @@ public class SurveyPage18 extends AppCompatActivity {
         }
         return "";
     }
-    public void goTo(){
+
+    /**
+     * This method sends the user to the next page.
+     */
+    public void goTo() {
         Intent SurveyPage19 = new Intent(this, SurveyPage19.class);
         SurveyPage19.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage19);
 
     }
 
-    public void goBack(){
+    /**
+     * This method sends the user to the previous page.
+     */
+    public void goBack() {
         Intent SurveyPage17 = new Intent(this, SurveyPage17.class);
         SurveyPage17.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(SurveyPage17);
 
     }
 
+    /**
+     * This method opens the hint page.
+     */
     private void openHint() {
         Intent Hint = new Intent(SurveyPage18.this, Hint.class);
         startActivity(Hint);
     }
 
+    /**
+     * Updates the progress bar and text based on the current question and amount of questions
+     */
     private void updateProgress() {
         int progress = (currentQuestion * 100) / totalQuestions;
         progressBar.setProgress(progress);
